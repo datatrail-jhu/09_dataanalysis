@@ -7,3 +7,21 @@ Because of this, exploratory analyses, while useful for discovering new connecti
 Going back to the census example from above, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. In the plot below, we can see the percent of the workforce that is made up of women in various sectors and how that has changed between 2000 and 2016. Exploring this data, we can see quite a few relationships. Looking just at the top row of the data, we can see that women make up a vast majority of nurses and that it has slightly decreased in 16 years. While these are interesting relationships to note, the causes of these relationships is not apparent from this analysis. All exploratory analysis can tell us is that a relationship exists, not the cause. 
 
 ![]()
+
+### Slides and Video
+
+* [Slides]()
+
+{quiz, id: quiz_02_dataanalysis_exploratory}
+
+### Descriptive analysis quiz
+
+? For the following descriptions of data, which is considered to be exploratory analysis?
+
+a) 
+b) 
+C) 
+d) 
+
+
+{/quiz}
