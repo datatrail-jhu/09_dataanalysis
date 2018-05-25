@@ -72,7 +72,7 @@ In this lesson we covered what experimental design is and why good experimental 
 
 ### Slides and Video
 
-This lesson's slides can be found [here](https://docs.google.com/presentation/d/1Wa6fHT43Y8NMgkxx_SfCpb8gRkhzW5SCvRjay3qE6Co/edit?usp=sharing)  
+This lesson's slides can be found [here](https://docs.google.com/presentation/d/1qE9-Bkn-wrceLME470xLqaO4yMnIxJar4HXYjyz8YhQ/edit?usp=sharing)  
 The lesson's video can be found [here]()  
 
 ### Quiz
