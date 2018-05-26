@@ -12,7 +12,9 @@ Going into an analysis, you need to have a plan in advance of what you are going
 
 We've seen many examples of this exact scenario play out in the scientific community over the years - there's an entire website, [Retraction Watch](https://retractionwatch.com/), dedicated to identifying papers that have been retracted, or removed from the literature, as a result of poor scientific practices. And sometimes, those poor practices are a result of poor experimental design and analysis.
 
-And sometimes, these erroneous conclusions can have sweeping effects; particularly in the field of human health. For example, here we have a paper that was trying to predict the effects of a person's genome on their response to different chemotherapies, to guide which patient receives which drugs to best treat their cancer. As you can see, this paper was retracted, over 4 years after it was initially published. In that time, this data, which was later shown to have numerous problems in their set-up and cleaning, was cited in nearly 450 other papers that may have used these erroneous results to bolster their own research plans. On top of this, this wrongly analysed data was used in clinical trials to determine cancer patient treatment plans. When the stakes are this high, experimental design is paramount.
+Occasionally, these erroneous conclusions can have sweeping effects; particularly in the field of human health. For example, here we have a paper that was trying to predict the effects of a person's genome on their response to different chemotherapies, to guide which patient receives which drugs to best treat their cancer. As you can see, this paper was retracted, over 4 years after it was initially published. In that time, this data, which was later shown to have numerous problems in their set-up and cleaning, was cited in nearly 450 other papers that may have used these erroneous results to bolster their own research plans. On top of this, this wrongly analysed data was used in clinical trials to determine cancer patient treatment plans. When the stakes are this high, experimental design is paramount.
+
+![A retracted paper and the forensic analysis of what went wrong](images/dir/slide-04.png)
 
 ### Principles of experimental design
 
@@ -24,7 +26,11 @@ There are a lot of concepts and terms inherent to experimental design. Let's go 
 
 So when you are designing an experiment, you have to decide what variables you will measure, and which you will manipulate to effect changes in other measured variables. Additionally, you must develop your **hypothesis**, essentially an educated guess as to the relationship between your variables and the outcome of your experiment. 
 
+![How hypotheses, independent, and dependent variables are related to each other](images/dir/slide-05.png)
+
 Let's do an example experiment now! Let's say for example that I have a hypothesis that as shoe size increases, literacy also increases. In this case, designing my experiment, I would choose a measure of literacy (eg: reading fluency) as my variable that *depends* on an individual's shoe size. 
+
+![My experimental set-up: I hypothesize that literacy level *depends* on shoe size](images/dir/slide-06.png)
 
 To answer this question, I will design an experiment in which I measure the shoe size and literacy level of 100 individuals. **Sample size** is the number of experimental subjects you will include in your experiment. There are ways to pick an optimal sample size, that you will cover in later courses. Before I collect my data though, I need to consider if there are problems with this experiment that might cause an erroneous result. In this case, my experiment may be fatally flawed by a **confounder**.
 
@@ -34,21 +40,25 @@ In our example, since age affects foot size and literacy is affected by age, if 
 
 To **control** for this, we can make sure we also measure the age of each individual so that we can take into account the effects of age on literacy, as well. Another way we could **control** for age's effect on literacy would be to **fix** the age of all participants. If everyone we study is the same age, then we have removed the possible effect of age on literacy. 
 
+![Age is confounding my experimental design! We need to control for this](images/dir/slide-09.png)
 
+In other experimental design paradigms, a **control group** may be appropriate. This is when you have a group of experimental subjects that are *not* manipulated. So if you were studying the effect of a drug on survival, you would have a group that received the drug (**treatment**) and a group that did not (**control**). This way, you can compare the effects of the drug in the treatment versus control group.
 
-In other experimental design paradigms, a **control group** may be appropriate. This is when you have a group of experimental subjects that are *not* manipulated. So if you were studying the effect of a drug on survival (**treatment**), you would have a group that received the drug and a group that did not. This way, you can compare the effects of the drug in the treatment versus control group. 
-
-
+![A control group is a group of subjects that do not receive the treatment, but still have their dependent variables measured](images/dir/slide-11.png)
 
 In these study designs, there are other strategies we can use to control for confounding effects. One, we can **blind** the subjects to their assigned treatment group. Sometimes, when a subject knows that they are in the treatment group (eg: receiving the experimental drug), they can feel better, not from the drug itself, but from knowing they are receiving treatment. This is known as the **placebo effect**. To combat this, often participants are blinded to the treatment group they are in; this is usually achieved by giving the control group a mock treatment (eg: given a sugar pill they are told is the drug). In this way, if the placebo effect is causing a problem with your experiment, both groups should experience it equally. 
+
+![Blinding your study means that your subjects don't know what group they belong to - all participants receive a "treatment"](images/dir/slide-12.png)
   
 And this strategy is at the heart of many of these studies; spreading any possible confounding effects equally across the groups being compared. For example, if you think age is a possible confounding effect, making sure that both groups have similar ages and age ranges will help to mitigate any effect age may be having on your dependent variable - the effect of age is equal between your two groups. 
 
 This "balancing" of confounders is often achieved by **randomization**. Generally, we don't know what will be a confounder beforehand; to help lessen the risk of accidentally biasing one group to be enriched for a confounder, you can randomly assign individuals to each of your groups. This means that any potential confounding variables should be distributed between each group roughly equally, to help eliminate/reduce systematic errors. 
 
-
+![Randomizing subjects to either the control or treatment group is a great strategy to reduce confounders' effects](images/dir/slide-13.png)
 
 There is one final concept of experimental design that we need to cover in this lesson, and that is **replication**. Replication is pretty much what it sounds like, repeating an experiment with different experimental subjects. A single experiment's results may have occured by chance; a confounder was unevenly distributed across your groups, there was a systematic error in the data collection, there were some outliers, etc. However, if you can repeat the experiment and collect a whole new set of data and *still* come to the same conclusion, your study is much stronger. Also at the heart of replication is that it allows you to measure the **variability** of your data more accurately, which allows you to better assess whether any differences you see in your data are significant. 
+
+![Replication studies are a great way to bolster your experimental results and get measures of variability in your data ](images/dir/slide-14.png)
 
 ### Sharing data
 
@@ -77,5 +87,48 @@ The lesson's video can be found [here]()
 
 ### Quiz
 
-{quiz, id: quiz17}  
-? 
+{quiz, id: quiz##}  
+
+? In a study measuring the effect of diet on BMI, cholesterol, lipid levels, triglyceride levels, and glycemic index, which is an independent variable? 
+
+a) BMI  
+b) Cholesterol  
+c) Lipid levels 
+d) Triglyceride levels 
+e) Glycemic index
+F) Diet
+
+? Which of the following is **not** a method to control your experiments? 
+
+a) Control group  
+b) Blinding  
+C) Placebo effect  
+d) Fixing a confounder's levels  
+e) Randomization  
+f) Adjusting or stratifying analysis  
+
+? What might a confounder be in an experiment looking at the relationship between the prevalence of white hair in a population and wrinkles? 
+
+a) Diet  
+b) Smoking status  
+C) Age  
+d) Socioeconomic status  
+
+? According to Leek group recommendations, what data do you need to share with a collaborating statistician? 
+
+a) The raw data  
+b) A tidy data set  
+c) A code book describing each variable and its values in the tidy data set  
+d) An explicit and exact recipe of how you went from the raw data to the tidy data and the code book  
+E) All of the above  
+f) None of the above  
+
+? If you set your signifance level at p-value ≤ 0.01, how many significant tests would you expect to see by chance if you carry out 1000 tests? 
+
+a) 1  
+b) 50  
+c) 5  
+D) 10  
+e) 100  
+
+{/quiz}
