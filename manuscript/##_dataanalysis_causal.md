@@ -1,4 +1,4 @@
-### 5. Causal analysis 
+# Causal analysis 
 
 The caveat to a lot of the analyses we've looked at so far is that we can only see correlations and can't get at the cause of the relationships we observe. Causal analysis fills that gap; the goal of causal analysis is to see what happens to one variable when we manipulate another variable - looking at the **cause** and **effect** of a **relationship**. 
 

@@ -1,4 +1,4 @@
-### 1. Descriptive analysis 
+# Descriptive analysis 
 
 The goal of descriptive analysis is to **describe** or **summarize** a set of data. Whenever you get a new dataset to examine, this is usually the first kind of analysis you will perform. Descriptive analysis will generate simple summaries about the samples and their measurements. You may be familiar with common descriptive statistics: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance). 
 
@@ -12,7 +12,7 @@ Some examples of purely descriptive analysis can be seen in censuses. Here, the 
 
 * [Slides]()
 
-{quiz, id: quiz_01_dataanalysis_descriptive}
+{quiz, id: quiz_04_descriptive}
 
 ### Descriptive analysis quiz
 
