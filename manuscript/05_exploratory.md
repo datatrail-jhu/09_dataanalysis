@@ -14,14 +14,8 @@ Going back to the census example from above, rather than just summarizing the da
 
 {quiz, id: quiz_05_dataanalysis_exploratory}
 
-### Descriptive analysis quiz
+### Exploratory analysis quiz
 
-? For the following descriptions of data, which is considered to be exploratory analysis?
-
-a) 
-b) 
-C) 
-d) 
 
 
 {/quiz}
