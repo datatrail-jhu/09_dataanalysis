@@ -1,4 +1,4 @@
-### 4. Predictive analysis 
+# Predictive analysis and machine learning
 
 The goal of predictive analysis is to use **current** data to make **predictions** about **future** data. Essentially, you are using current and historical data to find patterns and predict the likelihood of future outcomes. 
 
@@ -11,3 +11,15 @@ A common saying is that prediction is hard, especially about the future. There a
 We spend a lot of time trying to predict things - the upcoming weather, the outcomes of sports events, and in the example we'll explore here, the outcomes of elections. We've previously mentioned Nate Silver at [FiveThirtyEight](fivethirtyeight.com), where they try and predict the outcomes of U.S. elections (and sports matches, too!). Using historical polling data and trends and current polling, FiveThirtyEight builds models to predict the outcomes and the next US Presidential vote - and has been fairly accurate at doing so! FiveThirtyEights models accurately predicted the 2008 and 2012 elections and was widely considered an outlier in the 2016 US elections, as it was one of the few models to suggest Donald Trump at having a chance of winning. 
 
 ![]()
+
+### Slides and Video
+
+* [Slides]()
+
+{quiz, id: quiz_07_prediction_ml}
+
+### Predictive analysis quiz
+
+
+{/quiz}
+

@@ -1,4 +1,4 @@
-### 2. Exploratory analysis 
+# Exploratory analysis 
 
 The goal of exploratory analysis is to examine or **explore** the data and find **relationships** that weren't previously known. Exploratory analyses explore how different measures might be related to each other but do not confirm that relationship as causitive. You've probably heard the phrase "Correlation does not imply causation" and exploratory analyses lie at the root of this saying. Just because you observe a relationship between two variables during exploratory analysis, it does not mean that one necessarily causes the other. 
 
@@ -12,7 +12,7 @@ Going back to the census example from above, rather than just summarizing the da
 
 * [Slides]()
 
-{quiz, id: quiz_02_dataanalysis_exploratory}
+{quiz, id: quiz_05_dataanalysis_exploratory}
 
 ### Descriptive analysis quiz
 
