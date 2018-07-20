@@ -1,6 +1,6 @@
 # The purpose of data science
 
-Data science is the process of making senses of data. A simple understanding of data science can be broken down into Four steps: the first step is to ask yourself what are the data science questions you define that can be answered with data; The second step is to get and clean your data; The third step is to apply data analysis tools to your cleaned-up data to answer the data science questions you asked in the first step. The final step is to present and communicate your analysis results to the public. We have already discussed what the second step (getting and cleaning data). In this course, we will discuss the first (asking questions) and the third steps (data analysis) and in a future course, we will go over how to communicate your analysis.
+Data science is the process of making senses of data. A simple understanding of data science can be broken down into Four steps: the first step is to ask yourself what are the data science questions you define that can be answered with data; The second step is to find, get, and clean your data; The third step is to apply data analysis tools to your cleaned-up data to answer the data science questions you asked in the first step. The final step is to present and communicate your analysis results to your audience. We have already discussed what the second step (getting and cleaning data). In this course, we will discuss the first (asking questions) and the third steps (data analysis) and in a future course, we will go over how to communicate your analysis.
 
 First things first, what is a data science question? This may be a strong claim, but we can phrase most real-world questions with data science questions. Most questions we face every day are typically one of the following:
 
@@ -39,7 +39,7 @@ The first step to approach a data science problem is to know what kind of questi
 
 ### Slides and Video
 
-* [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit#slide=id.p)
+* [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
 
 {quiz, id: quiz_00_purpose}
 
