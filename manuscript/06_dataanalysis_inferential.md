@@ -4,37 +4,37 @@ Inferential Analysis is what analysts carry out *after* they've described and ex
 
 Let's break this all down a little bit. The goal of inferential analyses is to use a relatively **small sample** of data to **infer** or say something about the **population** at large. This is required because often we *want* to answer questions about a population. Let's take a dummy example here where we have a population of 14 shapes.
 
-![The population]()
+![The population](images/06_inferential/06_datanalysis_inferential-2.png)
 
 Here, in this graphic, the shapes represent individuals in the population and the colors of the shapes can be either pink or grey.
 
 In this example we only have fourteen shapes in the population; however, in inferential data analysis, it's not usually possible to sample *everyone* in the population. Consider if this population were everyone in the United States or every college student in the world. As getting information from every individual would be infeasible, data are instead collected on a subset, or a **sample** of the individuals in the larger population. 
 
-![A sample is collected from the population]()
+![A sample is collected from the population](images/06_inferential/06_datanalysis_inferential-3.png)
 
 In our example, we've been showing you how many pink and how many gray shapes are in the larger population. However, in real life, we don't *know* what the answer is in the larger population. That's why we collected the sample!
 
-![We don't know what the truth is in the population]()
+![We don't know what the truth is in the population](images/06_inferential/06_datanalysis_inferential-4.png)
 
 This is where **inference** comes into play. We analyze the data collected in our sample and then do our best to infer what the answer is in the larger population. In other words, inferential data analysis uses data from a sample to make its best guess as to what the answer would be in the population if we were able to measure every individual.
 
-![Inference from the sample makes its best guess as to what the truth is in the population]()
+![Inference from the sample makes its best guess as to what the truth is in the population](images/06_inferential/06_datanalysis_inferential-5.png)
 
 ### Uncertainty
 
 Because we haven't directly measured the population but have only been able to take measurements on a sample of the data, when making our inference we can't be exactly sure that our inference about the population is exact. For example, in our sample one-third of the shapes are grey. We'd expect about one-third of the shapes in our population to be grey then too! Well, one-third of 14 (the number of shapes in our population) is 4.667. Does this mean four shapes are truly gray?
 
-![Inference gives us a good guess as to what the truth is in the population]()
+![Inference gives us a good guess as to what the truth is in the population](images/06_inferential/06_datanalysis_inferential-6.png)
 
 Or maybe five shapes in the population are grey? 
 
-![Maybe the population really has five grey shapes in it...]()
+![Maybe the population really has five grey shapes in it...](images/06_inferential/06_datanalysis_inferential-7.png)
 
 Given the sample we've taken, we can guess that 4-5 shapes in our population will be grey, but we aren't certain *exactly* what that number is. In statistics, this "best guess" is known as an **estimate**. This means that we estimate that 4.667 shapes will be gray. *But*, there is uncertainty in that number. Because we're taking our best guess at figuring out what that estimate should be, there's also a measure of uncertainty in that estimate. Inferential data analysis includes generating the estimate *and* the measure of uncertainty around that estimate.
 
 Let's return back to the example where we *know* the truth in the population. Hey look! There were actually only three grey shapes after all. It is totally possible that if you put all those shapes into a bag and pulled three out that two would be pink and one would be grey. As statisticians, we'd say that getting this sample was **probable** (it's within the realm of possibility), but it's not the most likely (The most likely was either 4 or 5.) This really drives home why it's important to add uncertainty to your estimate whenever you're doing inferential analysis!  
 
-![There actually were only three grey shapes in our population after all]()
+![There actually were only three grey shapes in our population after all](images/06_inferential/06_datanalysis_inferential-8.png)
 
 ### Random Sampling
 
@@ -44,13 +44,13 @@ The data in your sample *must* be **representative of your larger population** t
 
 Using the same example, what if, in your larger population, you didn't just have grey and pink shapes, but you also had blue shapes? 
 
-![What if your larger population had three different color shapes?]()
+![What if your larger population had three different color shapes?](images/06_inferential/06_datanalysis_inferential-9.png)
 
 Well, if your sample only has pink and grey shapes, when you go to make an inference, there's no way you'd infer that there should be blue shapes in your population since you didn't capture any in your sample.
 
 In this case, your sample is *not* representative of your larger population. In cases where you do not have a representative sample, you can not carry out inference, since you will not be able to correctly infer information about the larger population.
 
-![You can only carry out an inferential analysis when your sample is representative of the population]()
+![You can only carry out an inferential analysis when your sample is representative of the population](images/06_inferential/06_datanalysis_inferential-10.png)
 
 This means that you have to design your analysis so that you're collecting representative data *and* that you have to check your data after data collection to make sure that you were successful.
 
@@ -65,11 +65,11 @@ Unlike in our previous examples, Census data wouldn't be used for inferential an
 
 Instead, a better example of a dataset on which to carry out inferential analysis would be the data used in the study: [The Effect of Air Pollution Control on Life Expectancy in the the United States: An Analysis of 545 US counties for the period 2000 to 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3521092/). In this study, researchers set out to understand the effect of air pollution on everyone in the United States
 
-![Study question looks to learn something about entire US population]()
+![Study question looks to learn something about entire US population](images/06_inferential/06_datanalysis_inferential-12.png)
 
 To answer this question, a subset of the US population was studied, and the researchers looked at the level of air pollution experienced and life expectancy. It would have been nearly impossible to study every individual in the United States year after year. Instead, this study used the data they collected from a sample of the US population to *infer* how air pollution might be impacting life expectancy in the entire US! 
 
-![Studies use representative samples to infer information about the larger population]()
+![Studies use representative samples to infer information about the larger population](images/06_inferential/06_datanalysis_inferential-13.png)
 
 ### Mean different from expectation?
 
@@ -88,7 +88,7 @@ head(soda_ounces)
 
 In this code, we're specifying that we want to take a random draw of 100 different values (representing our 100 cans of soft drink), where the mean is 12 (representing the 12 ounces of soda expected to be within each can), and allowing for some variation (we've set the standard deviation to be 0.04).
 
-![output looking at `soda_ounces` dataset]()
+![output looking at `soda_ounces` dataset](images/06_inferential/06_datanalysis_inferential-14.png)
 
 We can see that the values are approximately, but not always exactly equal to the expected 12 ounces. 
 
@@ -108,7 +108,7 @@ ggplot(as.data.frame(soda_ounces))+
 
 Here, we see that the data are approximately normally distributed, allowing for a t-test to be used.
 
-![histogram of `soda_ounces`]()
+![histogram of `soda_ounces`](images/06_inferential/06_datanalysis_inferential-15.png)
 
 A t-test will check whether the observed ounces differs from the expected mean (12 oz). To run a t-test in R, the function is `t.test()`
 
@@ -117,7 +117,7 @@ A t-test will check whether the observed ounces differs from the expected mean (
 t.test(soda_ounces, mu = 12)
 ```
 
-![t-test output]()
+![t-test output](images/06_inferential/06_datanalysis_inferential-16.png)
 
 In the output from this function, we'll focus on the 95 percent confidence interval. Confidence Intervals provide the range of values likely to contain the unknown population parameter. Here, the population parameter we're interested in is the mean. Thus, the 95% Confidence Intervals provides us the range where, upon repeated sampling, the calculated mean would fall 95 percent of the time. More specifically, if the 95 percent confidence interval contains the expected mean (12 oz), then we can be confident that the company is not shorting us on the amount of liquid they're putting into each can.
 
@@ -128,6 +128,7 @@ Here, since 12 is between 11.99187 and 12.00754, we can see that the amounts in 
 Beyond looking at a single numeric variable, what if you had two groups and wanted to know if the proportions of a second variable within the groups differed? To test to see if the proportions within one group differs from the proportions in the second group, we'll use the function `prop.test()`. 
 
 For this example, we'll look to the `quine` dataset from the `MASS` package. This dataset includes a sample of 146 students in rural New South Wales. In this case, our **population** is students in Rural New South Wales. Our **sample** is the 146 students for whom we have data. 
+
 In this example, we're going to check to see if the proportion of aboriginal males in the dataset is different from the proportion of aboriginal females. The variable `Eth` contains an "A" if the individual is aboriginal, "N" otherwise. Sex is coded such that "M" is male and "F" is female.
 
 ```r
@@ -137,7 +138,7 @@ library(MASS)
 table(quine$Eth, quine$Sex)
 ```
 
-![raw numbers from `quine` dataset]()
+![raw numbers from `quine` dataset](images/06_inferential/06_datanalysis_inferential-18.png)
 
 From the raw values, we see there are 38 aboriginal females and 31 males. It's hard to tell from this output whether or not those proportions truly differ from one another. Is 38 out of 80 different than 31 out of 66? Thus, we'll use a statistical test to draw an inference from this sample.
 
@@ -151,7 +152,7 @@ As mentioned above, `prop.test()` allows you to test whether or not the proporti
 prop.test(table(quine$Eth, quine$Sex)) 
 ```
 
-![`prop.test()` output]()
+![`prop.test()` output](images/06_inferential/06_datanalysis_inferential-19.png)
 
 Here, again, we'll looked to the confidence interval to interpret our results. If the proportion of aboriginals in each group is equal, we'd expect the difference between them to be zero. Thus, if zero is contained within the 95% confidence interval, there is no statistical difference between the proportions of aboriginals in the male and female groups. This is the case we see here in these data, as zero is between -0.16 and 0.17. 
 
@@ -161,43 +162,43 @@ Inferential analysis is commonly the goal of statistical modeling, where you hav
 
 When discussing linear regression, we're trying to describe (model) the relationship between a dependent variable and an independent variable.  
 
-![linear regression models relationship between two variables]()
+![linear regression models relationship between two variables](images/06_inferential/06_datanalysis_inferential-20.png)
 
 When visualizing a linear relationship, the independent variable is plotted along the bottom of the graph, on the **x-axis** and the dependent variable is plotted along the side of the plot, on the **y-axis**. 
 
-![independent on the x-axis; dependent on the y-axis]()
+![independent on the x-axis; dependent on the y-axis](images/06_inferential/06_datanalysis_inferential-21.png)
 
 When carrying out linear regression, a **best-fitting line** is drawn through the data points to describe the relationship between the variables. 
 
-![A best-fitting line describes the relationship between the variables]()
+![A best-fitting line describes the relationship between the variables](images/06_inferential/06_datanalysis_inferential-22.png)
 
 A best-fitting line, technically-speaking, minimizes the sum of the squared errors. In simpler terms, this means that the line that minimizes the distance of all the points from the line is the best-fitting line. Or, most simply, there are the same number of points above the line as there are below the line. In total, the distance from the line for the points above the line will be the same as the distance from the points to the line below the line.
 
 Note that the best fitting line does *not* have to go through any points to be the best-fitting line. Here, on the right, we see a line that goes through seven points on the plot (rather than the four the best-fitting line goes through, on the left). However, this is *not* a best-fitting line, as there are *way* more points above the line than there are below the line.
 
-![A best-fitting line does NOT have to go through the most points possible]()
+![A best-fitting line does NOT have to go through the most points possible](images/06_inferential/06_datanalysis_inferential-23.png)
 
 This line describes the relationship between the two variables. If you look at the direction of the line, it will tell you whether there is a positive or a negative relationship between the variables. In this case, the larger the value of the independent variable, the larger the value of the dependent variable. Similarly, the smaller the value of the independent variable, the smaller the value of the dependent variable. When this is the case, there is a **positive relationship** between the two variables.
 
-![A positive relationship will have points that trend up and to the right]()
+![A positive relationship will have points that trend up and to the right](images/06_inferential/06_datanalysis_inferential-24.png)
 
 An example of variables that have a positive relationship would be the height of fathers and their sons. In general, the taller a father is, the taller his son will be. And, the shorter a father is the more likely his son is to be short.
 
-![Father and son height demonstrate a positive linear relationship]()
+![Father and son height demonstrate a positive linear relationship](images/06_inferential/06_datanalysis_inferential-25.png)
 
 Alternatively, when the higher the value of the independent variable, the lower the value of the dependent variable, this is a negative relationship. 
 
-![A positive relationship will have points that trend up and to the left]()
+![A positive relationship will have points that trend up and to the left](images/06_inferential/06_datanalysis_inferential-26.png)
 
 An example of variables that have a negative relationship would be the relationship between a students' absences and their grades. The more absences a student has, the lower their grades tend to be.
 
-![Student absences and grades show a negative linear relationship]()
+![Student absences and grades show a negative linear relationship](images/06_inferential/06_datanalysis_inferential-27.png)
 
 Linear regression, in addition to to describing the direction of the relationship, it can also be used to determine the **strength** of that relationship.
 
 This is because the assumption with linear regression is that the true relationship is being described by the best-fitting line. Any points that fall away from the line do so due to random error. This means that if all the points fall directly on top of the line, there is no error. The further the points fall from the line, the greater the error. When points are further from the best-fitting line, the relationship between the two variables is weaker than when the points fall closer to the line.
 
-![Correlation is weaker on the left and stronger on the right]()
+![Correlation is weaker on the left and stronger on the right](images/06_inferential/06_datanalysis_inferential-28.png)
 
 In this example, the pink line is exactly the same best-fitting line in each graph. However, on the left, where the points fall further from the line, the strength of the relationship between these two variables is weaker than on the right, where the points fall closer to the line, where the relationship is stronger. The strength of this relationship is measured using **correlation**. The closer the points are to the line the more **correlated** the two variables are, meaning the relationship between the two variables is stronger. 
 
@@ -213,7 +214,7 @@ The relationship between the two variables must be linear.
 
 For example, what if we were plotting data from a single day and we were looking at the relationship between temperature and time. Well, we know that generally temperature increases throughout the day and then decreases in the evening. Here, we see some example data reflective of this relationship. The upside-down u-shape of the data suggests that the relationship is not in fact linear. While we *could* draw a straight line through these data, it would be inappropriate. In cases where the relationship between the variables cannot be well-modeled with a straight line, linear regression should *not* be used.
 
-![If the relationship between the variables is non-linear, regression should not be used]()
+![If the relationship between the variables is non-linear, regression should not be used](images/06_inferential/06_datanalysis_inferential-29.png)
 
 ##### Homoscedasticity
 
@@ -221,7 +222,7 @@ In addition to displaying a linear relationship, the random variables must demon
 
 If points at one end are much closer to the best-fitting line than points are at the other end, homoscedasticity has been violated and linear regression is not appropriate for the data.
 
-![Variance must be consistent across the variable for linear regression to be used]()
+![Variance must be consistent across the variable for linear regression to be used](images/06_inferential/06_datanalysis_inferential-30.png)
 
 If these two assumptions hold, linear regression can be considered for your analysis.
 
@@ -231,7 +232,7 @@ Now that we understand what linear regression is and what assumptions must hold 
 
 #### What is the association?
 
-Often when people are carrying out linear regression, they are looking to better understand the relationship between two variables. When looking at this relationship, analysts are specificly asking "What is the **association** between these two variables?" Association between variables describes the trend in the relationship (positive, neutral, or negative) *and* the strength of that relationship (how correlated the two variables are).
+Often when people are carrying out linear regression, they are looking to better understand the relationship between two variables. When looking at this relationship, analysts are specifically asking "What is the **association** between these two variables?" Association between variables describes the trend in the relationship (positive, neutral, or negative) *and* the strength of that relationship (how correlated the two variables are).
 
 After determining that the assumptions of linear regression are met, in order to determine the association between two variables, one would carry out a linear regression. From the linear regression, one would then interpret the **Beta estimate** and the **standard error** from the model.
 
@@ -239,13 +240,13 @@ After determining that the assumptions of linear regression are met, in order to
 
 A beta of zero suggests there is no association between the two variables. However, if the beta value is positive, the relationship is positive. If the value is negative, the relationship is negative. Further, the larger the number, the bigger the effect is. We'll discuss effect size and how to interpret the value in more detail later in this lesson. 
 
-![Beta estimates describe the size and strength of the effect]
+![Beta estimates describe the size and strength of the effect](images/06_inferential/06_datanalysis_inferential-31.png)
 
 **Standard error** - determines how uncertain the beta estimate is. The larger the standard error, the *more* uncertain we are in the estimate. The smaller the standard error, the *less* uncertain we are in the estimate.
 
 Standard errors are calculated based on how well the best-fitting line models the data. The closer the points are to the line, the lower the standard error will be, reflecting our decreased uncertainty. However, as the points are further from the regression line, our uncertainty in the estimate will increase, and the standard error will be larger.
 
-![Standard errors explain how uncertain the estimate is]()
+![Standard errors explain how uncertain the estimate is](images/06_inferential/06_datanalysis_inferential-32.png)
 
 A reminder that when carrying out inferential data analysis, you will always want to report an estimate *and* a measure of uncertainty. For linear regression, this will be the **beta estimate** and the **standard error**.
 
@@ -276,7 +277,7 @@ ggplot(trees) +
   geom_point(aes(Height, Girth))
 ```
 
-![scatterplot of trees dataset]()
+![scatterplot of trees dataset](images/06_inferential/06_datanalysis_inferential-35.png)
 
 From the looks of this plot, the relationship looks approximately linear, but to visually make this a little easier, we'll add a line of best first to the plot.
 
@@ -286,7 +287,7 @@ ggplot(trees, aes(Height, Girth)) +
   geom_smooth(method = "lm", se = FALSE)
 ```
 
-![scatterplot with line of best fit]()
+![scatterplot with line of best fit](images/06_inferential/06_datanalysis_inferential-36.png)
 
 On this graph, the relationship looks approximately linear and the variance (distance from points to the line) is constant across the data. Given this, it's appropriate to use linear regression for these data.
 
@@ -305,11 +306,11 @@ Specifically, from the beta estimate, which is positive, we confirm that the rel
 
 Specifically, the beta estimate is the amount the dependent variable will change given a one unit increase in he independent variable. In the case of the trees, a beta estimate of 0.256, says that for every inch a tree's girth increases, its height will increase by 0.256 inches. Thus, we not only know that there's a positive relationship between the two variables, but we know by precisely how much one variable will change given a single unit increase in the other variable.
 
-![Beta, SE, and p-value all included in `summary()` output]()
+![Beta, SE, and p-value all included in `summary()` output](images/06_inferential/06_datanalysis_inferential-37.png)
 
 Additionally, the strength of this relationship is summarized using the adjusted R-squared metric. The closer this value is to 1, the closer the points in your dataset fall to the line of best fit. The further they are from the line, the closer this value will be to zero.
 
-![Adjusted R-squared specifies how closely the data fall are to the regression line]()
+![Adjusted R-squared specifies how closely the data fall are to the regression line](images/06_inferential/06_datanalysis_inferential-38.png)
 
 As we saw in the scatterplot, the data are not right up against the regression line, so a value of 0.2445 seems reasonable.
 
@@ -321,7 +322,7 @@ library(broom)
 tidy(fit)
 ```
 
-![`tidy()` helps organize output from statistical models]()
+![`tidy()` helps organize output from statistical models](images/06_inferential/06_datanalysis_inferential-39.png)
 
 Note that the values haven't changed. They're just organized into an easy-to-use table. It's helpful to keep in mind that this function and package exist as you work with statistical models.
 
@@ -335,23 +336,23 @@ We just finished discussing how to use `lm()` to assess the association between 
 
 Well, let's consider an example. What if we were interested in understanding the relationship between shoe size and literacy. To do so, we took a look at this small sample of two humans, one who wears small shoes and is not literate and one adult who wears big shoes and is literate.
 
-![Two humans and their respective shoe sizes and literacy levels]()
+![Two humans and their respective shoe sizes and literacy levels](images/06_inferential/06_datanalysis_inferential-40.png)
 
 If we were to diagram this question, we may ask "Can we infer literacy rates from shoe size?"
 
-![Possible to infer literacy rate from shoe size?]()
+![Possible to infer literacy rate from shoe size?](images/06_inferential/06_datanalysis_inferential-41.png)
 
 If we return to our sample, it'd be important to note that one of the humans is a young child and the other is an adult. 
 
-![Adult and child with their respective shoe sizes and literacy levels]()
+![Adult and child with their respective shoe sizes and literacy levels](images/06_inferential/06_datanalysis_inferential-42.png)
 
 Our initial diagram failed to take into consideration the fact that these humans differed in their age. Age affects their shoe size *and* their literacy rates. In this example, age is a confounder.
 
-![Age is a confounder]()
+![Age is a confounder](images/06_inferential/06_datanalysis_inferential-43.png)
 
 Any time you have a variable that affects both your dependent *and* independent variables, it's a confounder. Ignoring confounders is not appropriate when analyzing data. In fact, in this example, you would have concluded that people who wear small shoes have lower literacy rates than those who wear large shoes. That would have been incorrect. In fact, that analysis was *confounded* by age. Failing to correct for confounding has led to misreporting in the media and retraction of scientific studies. You don't want to be in that situation. So, **always consider and check for confounding** among the variables in your dataset.
 
-![Confounders are variables that affect both your dependent and independent variables]()
+![Confounders are variables that affect both your dependent and independent variables](images/06_inferential/06_datanalysis_inferential-44.png)
 
 ### Multiple Linear Regression
 
@@ -369,6 +370,8 @@ ggplot(mtcars, aes(wt, mpg)) +
   geom_point()
 ```
 
+![scatterplot of `wt` and `mpg` from `mtcars`](images/06_inferential/06_datanalysis_inferential-45.png)
+
 From the scatterplot, the relationship looks approximately linear and the variance looks constant. Thus, we could model this using linear regression:
 
 ```r
@@ -377,7 +380,7 @@ fit <- lm(mpg ~ wt, data = mtcars)
 tidy(fit)
 ```
 
-![mtcars linear regression output]
+![mtcars linear regression output](images/06_inferential/06_datanalysis_inferential-46.png)
 
 From this analysis, we would infer that for every increase 1000 lbs more a car weighs, it gets 5.34 miles *less* per gallon.  
 
@@ -391,6 +394,8 @@ ggplot(mtcars, aes(wt, mpg)) +
   facet_wrap(~vs)
 ```
 
+![Scaterplot faceting for engine type](images/06_inferential/06_datanalysis_inferential-47.png)
+
 From this plot, we can see that V-shaped engines (`vs`= 0), tend to be heavier and get fewer miles per gallon while straight engines (`vs` = 1) tend to weigh less and get more miles per gallon. Importantly, however, we see that a car that weighs 3000 points (`wt` = 3) and has a V-Shaped engine (`vs` = 0) gets fewer miles per gallon than a car of the same weight with a straight engine (`vs` = 1), suggesting that simply modeling a linear relationship between weight and mpg is not appropriate.
 
 Let's then model the data, taking this confounding into account:
@@ -401,7 +406,7 @@ fit <- lm(mpg ~ wt + vs, data = mtcars)
 tidy(fit)
 ```
 
-![confounding model taken into account]()
+![confounding model taken into account](images/06_inferential/06_datanalysis_inferential-49.png)
 
 Here, we get a more accurate picture of what's going on. Interpreting multiple regression models is slightly more complicated since there are more variables; however, we'll practice how to do so now. 
 
@@ -409,13 +414,16 @@ The best way to interpret the coefficients in a multiple linear regression model
 
 We can similarly interpret the coefficients by focusing on the engines (`vs`). For example, for two cars that weigh the same, we'd expect a straight engine (`vs` = 1) to get 3.5 more miles per gallon than a V-Shaped engine (`vs`= 0). 
 
+![confounding model taken into account](images/06_inferential/06_datanalysis_inferential-50.png)
+
 Finally, we'll point out that the p-value for `wt` decreased in this model relative to the model where we didn't account for confounding. This is because the model was not initially taking into account the engine difference. Sometimes when confounders are accounted for, your variable of interest will become more significant; however, frequently, the p-value will increase, and that's ok. What's important is that the data are most appropriately modeled.
 
 ### Correlation is not Causation
 
 You've likely heard someone say before that "correlation is not causation," and it's true! In fact, there are [whole websites](http://www.tylervigen.com/spurious-correlations) dedicated to this concept.  Let's make sure we know exactly what that means before moving on. In the plot you see here, as the divorce rate in Maine decreases, so does per capita consumption of margarine. These two lines are clearly correlated; however, there isn't really a strong (or any) argument to say that one caused the other. Thus, just because you see two things with the same trend does not mean that one caused the other. These are simply **spurious correlations** -- things that trend together by chance. **Always** keep this in mind when you're doing inferential analysis, and be sure that you **never draw causal claims when all you have are associations**.
 
-![Correlation does not equal causation]()
+![Correlation does not equal causation](![confounding model taken into account](images/06_inferential/06_datanalysis_inferential-51.png)
+)
 
 In fact, one could argue that the only time you can make causal claims are when you have carried out a randomized experiment. **Randomized experiments** are studies that are designed and carried out by *randomly* assigning certain subjects to one treatment and the rest of the individuals to another treatment. The treatment is then applied and the results are then analyzed. In the case of a randomized experiment, causal claims can start to be made. Short of this, however, be careful with the language you choose and do not overstate your findings.
 
@@ -436,14 +444,14 @@ In this lesson, we have covered *a lot*. We started off discussing that inferent
 ### Inferential Analysis quiz
 
 {choose-answers: 4}
-? Why is infererential analysis necessary?
+? Why is inferential analysis necessary?
 
 C) Because we often can't study everyone in a population
-C) Becauase we want to be able to infer information about a population from a sample
+C) Because we want to be able to infer information about a population from a sample
 C) So that we can use representative samples to infer information about a larger population 
-o) Because it allows analysts to summarize the data without the need for intepretation
+o) Because it allows analysts to summarize the data without the need for interpretation
 o) It enables analysts to quantify whether the discoveries in your dataset will likely hold in a new sample
-o) It allows one to predict information about indivdiuals later on
+o) It allows one to predict information about individuals later on
 o) It helps determine the mechanistic cause behind the relationship in your data
 
 
@@ -452,7 +460,7 @@ o) It helps determine the mechanistic cause behind the relationship in your data
 
 C) decrease by 0.22
 m) increase by 0.22
-o) incrase by 1
+o) increase by 1
 o) decrease by 1
 o) decrease by 6.52
 o) increase by 6.52
