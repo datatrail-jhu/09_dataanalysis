@@ -1,7 +1,20 @@
 # How to know if you don't have the data
 
+is your data representative of the population
 
-![]()
+is it collected properly
+
+is it random
+
+are there error in measurement
+
+
+
+
+
+
+
+
 
 ### Slides and Video
 
