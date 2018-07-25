@@ -422,8 +422,8 @@ Finally, we'll point out that the p-value for `wt` decreased in this model relat
 
 You've likely heard someone say before that "correlation is not causation," and it's true! In fact, there are [whole websites](http://www.tylervigen.com/spurious-correlations) dedicated to this concept.  Let's make sure we know exactly what that means before moving on. In the plot you see here, as the divorce rate in Maine decreases, so does per capita consumption of margarine. These two lines are clearly correlated; however, there isn't really a strong (or any) argument to say that one caused the other. Thus, just because you see two things with the same trend does not mean that one caused the other. These are simply **spurious correlations** -- things that trend together by chance. **Always** keep this in mind when you're doing inferential analysis, and be sure that you **never draw causal claims when all you have are associations**.
 
-![Correlation does not equal causation](![confounding model taken into account](images/06_inferential/06_datanalysis_inferential-51.png)
-)
+![Correlation does not equal causation](images/06_inferential/06_datanalysis_inferential-51.png)
+
 
 In fact, one could argue that the only time you can make causal claims are when you have carried out a randomized experiment. **Randomized experiments** are studies that are designed and carried out by *randomly* assigning certain subjects to one treatment and the rest of the individuals to another treatment. The treatment is then applied and the results are then analyzed. In the case of a randomized experiment, causal claims can start to be made. Short of this, however, be careful with the language you choose and do not overstate your findings.
 
