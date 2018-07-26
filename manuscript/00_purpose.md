@@ -32,7 +32,7 @@ The first step to approach a data science problem is to know what kind of questi
 
 ### Purpose of data science quiz
 
-? A data science problem soloving process can be broken down to the following in what order?
+? A data science problem solving process can be broken down to the following in what order?
 A) Question, data, analysis, present
 b) data, analysis, question, present
 c) question, present, analysis, data
