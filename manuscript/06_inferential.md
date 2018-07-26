@@ -510,3 +510,20 @@ o) `prop.test()`
 o) `lm()`
 
 {/quiz}
+
+{exercise, id: exercise_06_inferential}
+
+### DataCamp:  Inference for Linear Regression
+
+{case-sensitive: false}
+? To get more practice with inferential analysis, go to the course [Inference for Linear Regression](https://www.datacamp.com/courses/inference-for-linear-regression) on DataCamp. Login and complete the first chapter: "Inferential ideas"
+
+Once you've completed the chapter, type "completed" in the box below.
+
+*Note*: This requires a DataCamp login, which costs money. As an exercise, this is not required to pass the course but it *will* help you get a better grasp on the concepts covered in these lessons.
+
+*Reminder*: Videos in DataCamp are essential to understanding the material. It's best not to skip over these videos!
+
+! completed
+
+{/exercise}
