@@ -382,7 +382,7 @@ o) validating, tuning
 o) A, B
 o) x, y
 
-{choose-answer:4}
+{choose-answers:4}
 ? If you were looking to generate prediction of individuals height, what model and measure of accuracy would you use?
 
 C) linear regression, RMSE
