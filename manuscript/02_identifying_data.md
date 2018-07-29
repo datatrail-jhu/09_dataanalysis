@@ -37,23 +37,23 @@ Determine whether the data is good enough. If it's not, before you spend hours o
 As an exercise think about the following question: Is there any association between crime rates and temperature? And for simplicity, let's assume we're not looking for any causal relationship between the two variables, i.e., we're not trying to prove higher temperature (or lower temperature) causes more crime. We simply want to know if there is any correlation between the two. How do we go about finding data? 
 Well, it is obvious that our main two variables are crime rates (what are the crime rates?) and temperature. We could do this through two main ways. We could look at the temperature and crime rates of American cities (or a sample of them) at a specific time (let's say January 2017) or their average annual temperature. This is an example of cross-sectional data. We could also look at the two variables in American cities (or again a sample of them) but at multiple points in time, say in January, April, July, and October 2017. This is an example of longitudinal data. For simplicity, we can focus on the first case: cross-sectional data. Becuase we don't know how to find crime or temperature data, our only way is to Google search. A simple search for crime data gives the following results:
 
-![Search results for "crime data USA"](images/02_identifying_data/02_dataanalysis_identifying_data-05.png)
+![Search results for "crime data USA"](images/02_identifying_data/02_dataanalysis_identifying_data-5.png)
  
 Since FBI is the official source for crime data, we click on the third link "FBI -- Crime in the U.S." You will then be taken to a page which lists all the years that the data is available. Let's click on 2017. In the next page, click on "Preliminary Report." On the next page click on "Table 4" which shows Offenses Reported to Law Enforcement, by State by City 100,000 and over in population. 
 
-![FBI --  Crime in the U.S.](images/02_identifying_data/02_dataanalysis_identifying_data-06.png)
+![FBI --  Crime in the U.S.](images/02_identifying_data/02_dataanalysis_identifying_data-6.png)
 
 In the following page click on Download Excel to click all the data as an Excel file. 
 
-![Download FBI crime data as an Excel file](images/02_identifying_data/02_dataanalysis_identifying_data-07.png)
+![Download FBI crime data as an Excel file](images/02_identifying_data/02_dataanalysis_identifying_data-7.png)
 
 You can also click on Data Declaration to learn more about the data and how they are collected. You can learn about the methodology used to obtain the data. 
 
-![Data declaration](images/02_identifying_data/02_dataanalysis_identifying_data-08.png)
+![Data declaration](images/02_identifying_data/02_dataanalysis_identifying_data-8.png)
 
 This is how the data looks. The variables included in the data are state, city, year, population, violent crime, murder, rape, robbery, aggravated assault, property crime, burglary, larceny-theft, motor vehicle theft, and arson. The rates are from January to June of 2017 and 2017 for cities 100,000 and over in population.
 
-![Excel file containing the crime data](images/02_identifying_data/02_dataanalysis_identifying_data-09.png)
+![Excel file containing the crime data](images/02_identifying_data/02_dataanalysis_identifying_data-9.png)
 
 Now that you have the Excel file on your computer upload the file to RStudio.cloud and import it into your environment using the following code. We will use the package `readxl`. The second part of the code tidies variable names and removes unnecessary columns from the data. The last line removes the spaces in column names and replaces them with dots. 
 
