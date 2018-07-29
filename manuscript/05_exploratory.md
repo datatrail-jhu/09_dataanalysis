@@ -24,34 +24,34 @@ We can summarize the general principles of exploratory analysis as follows:
 
 These principles may be more clear in an example. We will use a dataset from [Kaggle.com](www.kaggle.com) that contains 120 years of Olympics history on athletes and results. If you don't have an account on Kaggle, create one and go to the link https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results and under "Data Sources" download the `athlete_events.csv` to your computer. 
 
-![Dataset on 120 years of Olympics history on athletes and results](images/05_exploratory/01_dataanalysis_exploratory-03.png)
+![Dataset on 120 years of Olympics history on athletes and results](images/05_exploratory/01_dataanalysis_exploratory-3.png)
 
 Upload the data on RStudio.cloud and import the csv file using the commands you have learned. Unfortunately, you cannot download the csv file directly from the web address since downloading datasets on Kaggle requires logging in.
 
-![Importing data using `read_csv()`](images/05_exploratory/01_dataanalysis_exploratory-04.png)
+![Importing data using `read_csv()`](images/05_exploratory/01_dataanalysis_exploratory-4.png)
 
 As we learned before, we can use the package `skimr` to take a look at the data. 
 
-![Using the skimr package to have a summary of the data](images/05_exploratory/01_dataanalysis_exploratory-05.png)
+![Using the skimr package to have a summary of the data](images/05_exploratory/01_dataanalysis_exploratory-5.png)
 
 We see that the dataset contains 15 variables and 271,116 observations. Some of the variables are of factor type and others are of integer or numeric type. The dataset includes variables on athletes such as name, sex, the sport played, whether they received a medal, age, and height. We first need to understand the data properties. So let's start with missing values.
 
-![We have different types of variables in our data](images/05_exploratory/01_dataanalysis_exploratory-06.png)
+![We have different types of variables in our data](images/05_exploratory/01_dataanalysis_exploratory-6.png)
 
 
 First, the results of the `skim()` function indicate that some of our variables have lots of missing values. For instance, the variable `Medal` has 231,333 missing values. Generally, this is a place for concern since most statistical analyses ignore observations with missing values. However, it is obvious that the missing values for the variable `Medal` are mainly because the athlete didn't receive any medals. So this kind of missing value should not be a problem. However, we have missing values in the variables `Height` and `Age`. Since we are going to use these variables in our analysis in this lesson, observations with missing values for these two variables will be dropped from our analysis. Remember that `NA` is the most common character for missing values, but sometimes they are coded as spaces, 999, -1 or “missing”. Check for missing values in a variety of ways.
 
-![There are some missing values in the data](images/05_exploratory/01_dataanalysis_exploratory-07.png)
+![There are some missing values in the data](images/05_exploratory/01_dataanalysis_exploratory-7.png)
 
 
 Second, we can see that there are some outliers in some of the numerical variables. For example, look at the summary of the variable `Age`. Although the average age among all the athletes is around 25, there is an individual who is 97 years old (fun fact: use the command `subset(df, df$Age == 97)` to check out the information about this athlete. You will see that the name of the athlete is John Quincy Adams Ward and he competed in the sport(!) Art Competitions Mixed Sculpturing in 1928. This artist is known for his George Washington statue in front of Federal Hall in Wall Street in New York City.) It is always good to know about the existence of outliers in your sample. Outliers can significantly skew the results of your analysis. You can find outliers by looking at the distribution of your variable too.
 
-![There is an outlier in the Age variable](images/05_exploratory/01_dataanalysis_exploratory-08.png)
+![There is an outlier in the Age variable](images/05_exploratory/01_dataanalysis_exploratory-8.png)
 
 
 Histograms, in general, are one of the best ways to look at a variable and find abnormalities. You can see that the age of most individuals in the sample are between 18-35.
 
-![Histogram of the variable Age](images/05_exploratory/01_dataanalysis_exploratory-09.png)
+![Histogram of the variable Age](images/05_exploratory/01_dataanalysis_exploratory-9.png)
 
 
 Now, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. For instance, we like to know if there is an association between age of athletes and their gender. One of the ways to do this is to look at a boxplot of age grouped by gender, i.e., the distribution of age separated for male and female athletes. Boxplot shows the distribution of the variable age for the gender groups. You can see that the average age is slightly higher for men than for women. 
