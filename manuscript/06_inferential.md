@@ -443,7 +443,7 @@ In this lesson, we have covered *a lot*. We started off discussing that inferent
 
 ### Inferential Analysis quiz
 
-{choose-answers: 4}
+{choose-answers:4}
 ? Why is inferential analysis necessary?
 
 C) Because we often can't study everyone in a population
@@ -455,7 +455,7 @@ o) It allows one to predict information about individuals later on
 o) It helps determine the mechanistic cause behind the relationship in your data
 
 
-{choose-answers: 4, points: 3}
+{choose-answers:4, points:3}
 ? Given the model: `fit <- lm(Sepal.Length ~ Sepal.Width, data = iris)` (meaning, go run that code), how much would you expect sepal length to change given a one unit increase in sepal width?
 
 C) decrease by 0.22
@@ -467,7 +467,7 @@ o) increase by 6.52
 o) p < 0.05
 
 
-{choose-answers: 4, points: 2}
+{choose-answers:4, points:2}
 ? If your beta coefficient for a model that looked at the relationship between height and weight (for example: `lm(height ~ weight)`) were 0.2, what would that mean?
 
 C) for every 1 lb increase in weight, you would expect height to increase by 0.2 inches.
@@ -478,7 +478,7 @@ o) for every 1 lb increase in height, you would expect weight to decrease by 0.2
 o) for every 1 lb increase in weight, you would expect height to increase by 1 inch.
 o) for every 1 lb decrease in weight, you would expect hight to decrease by 1 inch.
 
-{choose-answers: 4}
+{choose-answers:4}
 ? If you had a single numeric variable that was normally distributed, what test would you use to determine if its mean were different than the expected mean?
 
 C) t-test
@@ -489,7 +489,7 @@ o) simple linear regression
 o) multiple linear regression
 
 
-{choose-answers: 4}
+{choose-answers:4}
 ? To account for confounding, what is one approach you could consider?
 
 C) multiple linear regression
@@ -499,7 +499,7 @@ o) `prop.test()`
 o) `lm()`
 o) simple linear regression
 
-{choose-answers: 4, points: 2}
+{choose-answers:4, points:2}
 ? This code would run which of the following analyses: `lm(weight ~ height, data = df)`
 
 C) simple linear regression
