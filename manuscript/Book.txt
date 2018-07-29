@@ -2,9 +2,9 @@
 01_translating_questions.md
 02_identifying_data.md
 03_how_to_know.md
-#04_descriptive.md
-#05_exploratory.md
-#06_inferential.md
-#07_prediction_ml.md
+04_descriptive.md
+05_exploratory.md
+06_inferential.md
+07_prediction_ml.md
 # 08_data_analysis_workflow.md
 # 09_data_analysis_pipelines.md
