@@ -5,6 +5,6 @@
 04_descriptive.md
 05_exploratory.md
 06_inferential.md
-#07_prediction_ml.md
+07_prediction_ml.md
 # 08_data_analysis_workflow.md
 # 09_data_analysis_pipelines.md
