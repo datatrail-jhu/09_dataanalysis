@@ -20,7 +20,7 @@ Try thinking about the questions that you face every day and see if you can put 
 
 Now that you know the type of your question, here's is how we can figure out what types of data science analysis is best to approach the problem. Most type 1 problems can be solved using descriptive analysis. Most type 2 problems can be solved using exploratory analysis or inferential analysis. And finally, most type 3 problems can be solved using predictive analysis.
 
-![Different types of questions and different types of data science analysis](images/01_translating_questions/01_dataanalysis_translating_questions-06.png)
+![Different types of questions and different types of data science analysis](images/01_translating_questions/01_dataanalysis_translating_questions-6.png)
 
 
 So for your next project as a data scientist, first try to write down your question in a short sentence, then figure out what type of question it is, and decide what types of data science analysis is the best method for your question.
