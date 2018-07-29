@@ -106,6 +106,7 @@ We can't really tell if it's higher temperature that causes more crime. We are o
 ### Identifying data quiz
 
 {choose-answers:4} ? What is NOT among the best practices of acquiring data?
+
 C) Never ask for the raw data. Tidy data is always better.
 C) You should never ask others to share their data with you.
 o) Make sure you follow the terms of service of the data. 
