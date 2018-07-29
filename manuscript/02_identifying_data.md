@@ -1,4 +1,4 @@
-# Identifying data
+# Identifying Data
 
 After knowing your problem and transforming it into a data science problem, your next step is to identify the appropriate data. Good data is hard to come by. Depending on your problem it can be costly or just infeasible. For instance, you want to know if money makes people happy. One way to get data for your problem is to give people cash and check with them later to see if it makes them more content, which isn't a cheap experiment. What if you are interested in knowing if texting while driving causes accidents. Can you run a study and tell people to text while drive and see if it makes them have car accidents? 
 
@@ -99,13 +99,16 @@ We can't really tell if it's higher temperature that causes more crime. We are o
 
 ### Slides and Video
 
+![Identifying Data](UPDATE)
+
 * [Slides](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)
 
 {quiz, id: quiz_02_identifying_data}
 
 ### Identifying data quiz
 
-{choose-answers:4} ? What is NOT among the best practices of acquiring data?
+{choose-answers:4} 
+? What is NOT among the best practices of acquiring data?
 
 C) Never ask for the raw data. Tidy data is always better.
 C) You should never ask others to share their data with you.
@@ -114,7 +117,8 @@ o) You can use data from the web.
 o) Cite the source of your data.
 o) If you can't find the right data for your purpose, think about how you can collect it.
 
-{choose-answers:4} ? What kind of data is the following: Data that is collected from the same sample of the population at multiple points in time.
+{choose-answers:4} 
+? What kind of data is the following: Data that is collected from the same sample of the population at multiple points in time.
 
 C) Longitudinal data
 o) Cross-sectional data
@@ -122,7 +126,8 @@ o) Experimental data
 o) Time series data
 o) Panel data
 
-{choose-answers:4} ? What's the similarity between panel data and longitudinal data?
+{choose-answers:4} 
+? What's the similarity between panel data and longitudinal data?
 
 C) both refer to data that is collected at multiple points in time
 C) both are considered observational data
@@ -130,7 +135,8 @@ o) both refer to data that is collected from the same sample over time
 o) both are considered big data
 o) both are data that contain the whole population
 
-{choose-answers:4} ? Which steps do you have to take when checking and tidying data?
+{choose-answers:4} 
+? Which steps do you have to take when checking and tidying data?
 
 C) variable values are internally consistent
 C) appropriate transformed variables have been added
