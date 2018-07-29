@@ -1,4 +1,4 @@
-# Exploratory analysis 
+# Exploratory Analysis 
 
 The goal of an exploratory analysis is to examine, or **explore** the data and find **relationships** that weren't previously known. Exploratory analyses explore how different measures might be related to each other but do not confirm that relationship as causal, i.e., one variable causing another. You've probably heard the phrase "Correlation does not imply causation," and exploratory analyses lie at the root of this saying. Just because you observe a relationship between two variables during exploratory analysis, it does not mean that one necessarily causes the other.
 
@@ -89,13 +89,16 @@ What is obvious is that those who have a medal are taller. Can we say that being
 
 ### Slides and Video
 
+![Exploratory Analysis](UPDATE)
+
 * [Slides](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing)
 
-{quiz, id: quiz_05_dataanalysis_exploratory}
+{quiz, id: quiz_05_exploratory}
 
-### Exploratory analysis quiz
+### Exploratory Analysis quiz
 
-{choose-answers:4} ? What one of the following is not among the reasons we use exploratory analysis?
+{choose-answers:4} 
+? What one of the following is not among the reasons we use exploratory analysis?
 
 C) Using prediction analysis
 C) Performing regression analysis to be able to infer results about the general population
@@ -105,7 +108,8 @@ o) Suggest modeling strategies such as linear vs. nonlinear models, transformati
 o) "Debug" analyses
 o) Communicate results
 
-{choose-answers:4} ? Which one of the following is not among the general principles of exploratory analysis?
+{choose-answers:4} 
+? Which one of the following is not among the general principles of exploratory analysis?
 
 C) Outliers should not be checked since they contain important information
 C) Nonlinear regressions are better than linear regressions
@@ -115,14 +119,16 @@ o) Use plots to explore relationships
 o) Use tables to explore relationships
 o) If necessary, transform variables
 
-{choose-answers:4} ? In the dataset used in this lesson, what is the number of missing values in the variable Age?
+{choose-answers:4} 
+? In the dataset used in this lesson, what is the number of missing values in the variable Age?
 
 C) 9474
 o) 261642
 o) 0
 o) 271116
 
-{choose-answers:4} ? In the dataset used in this lesson, what is the weight of the heaviest athlete?
+{choose-answers:4} 
+? In the dataset used in this lesson, what is the weight of the heaviest athlete?
 
 C) 214
 o) 25
@@ -131,7 +137,8 @@ o) 70
 o) 70.7
 o) 79
 
-{choose-answers:4} ? Which one of the following `ggplot` functions can be used for producing scatter plots?
+{choose-answers:4} 
+? Which one of the following `ggplot` functions can be used for producing scatter plots?
 
 C) `geom_point()`
 o) `geom_histogram()`
