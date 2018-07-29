@@ -366,7 +366,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 
 ### Slides and Video
 
-![](UDPATE LINK)
+![Descriptive Analysis](UDPATE LINK)
 
 * [Slides](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
 
@@ -385,7 +385,7 @@ o) Fit regression models to your sample data and use your data to interpret coef
 o) Use your dataset to understand the mechanistic link between two variables
 o) Use your dataset to run a randomized trial, resulting in causal understanding
 
-{choose-answers: 4, points: 3}
+{choose-answers:4, points:3}
 ? What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
 
 C) right-skewed
@@ -395,7 +395,7 @@ o) Uniform
 o) Poisson
 o) Bernoulli
 
-{choose-answers: 4}
+{choose-answers:4}
 ? For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
 
 C) median
@@ -405,7 +405,7 @@ o) standard deviation
 o) variance
 o) range
 
-{choose-answers: 4}
+{choose-answers:4}
 ? To describe how spread out your the numbers in your variable are, what could you use?
 
 C) standard deviation

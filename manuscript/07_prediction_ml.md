@@ -382,7 +382,7 @@ o) validating, tuning
 o) A, B
 o) x, y
 
-{choose-answer: 4}
+{choose-answer:4}
 ? If you were looking to generate prediction of individuals height, what model and measure of accuracy would you use?
 
 C) linear regression, RMSE
@@ -394,7 +394,7 @@ o) `rf`, Accuracy
 o) `lm`, prediction
 o) linear regression, prediction
 
-{choose-answers:4, points: 2}
+{choose-answers:4, points:2}
 ? Using information in [the `caret` book](http://topepo.github.io/caret/index.html), if you wanted to use a tree-based model for prediction, which `method` could you specify?
 
 C) `adaboost`
