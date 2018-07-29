@@ -1,4 +1,4 @@
-# The purpose of data science
+# The Purpose of Data Science
 
 Data science is the process of making senses of data. A data science problem can be broken down into the following four-step process:
 
@@ -25,6 +25,8 @@ The first step to approach a data science problem is to know what kind of questi
 
 
 ### Slides and Video
+
+![The Purpose of Data Science](UPDATE)
 
 * [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
 

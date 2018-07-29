@@ -1,4 +1,4 @@
-# How to know if you don't have the right data
+# How to Know if You Don't Have the Right Data
 
 So far, we learned how to ask questions and think about them in terms of data science questions. We also learned how to look for data and the step required before working with the data. Assume you have the dataset that contains the variables you are looking for, and it is tidy and ready to go for your analysis. It's always nice to step back to make sure the data is the right data before you spend hours and hours on your analysis. What are some of the potential issues with data?
 
@@ -48,13 +48,16 @@ There is a term in statistics that says "garbage in, garbage out," which means p
 
 ### Slides and Video
 
+![How to Know if You Don't Have the Right Data](UPDATE)
+
 * [Slides](https://docs.google.com/presentation/d/1AT2PhPZBMMA8eA5Ne3DjL2SIAKUejEAKRjUL7JbxlM8/edit?usp=sharing)
 
 {quiz, id: quiz_03_how_to_know}
 
-### How to know quiz
+### How to Know quiz
 
-{choose-answers:4} ? Which one of the following is NOT among the common issues with data?
+{choose-answers:4} 
+? Which one of the following is NOT among the common issues with data?
 
 C) Variables are collected from different locations.
 C) Sample is large.
@@ -62,14 +65,16 @@ o) Data is too small.
 o) There is measurement error in the data.
 o) Variables in the dataset are not collected in the same year.
 
-{choose-answers:4} ? What is a proxy variables?
+{choose-answers:4} 
+? What is a proxy variables?
 
 C) A variable that is highly correlated with the variable of interest and can be used instead of it.
 o) A variable that is exactly the same as the variable of interest.
 o) A variable that is measured in the same way as the variable of interest.
 o) A variable that is not correlated with the variable of interest, but is similar to the variable of interest.
 
-{choose-answers:4} ? Which of the following is a representative sample?
+{choose-answers:4} 
+? Which of the following is a representative sample?
 
 C) Sample: randomly selected sample of teachers in the U.S., population: all teachers in the U.S.
 C) Sample: randomly selected sample of teenagers in Chicago, population: all teenagers in Chicago
@@ -77,7 +82,8 @@ o) Sample: a sample of people in a bar, population: adult population in the U.S.
 o) Sample: a randomly selected sample of parent in a school, population: parents in Boston
 o) Sample: a randomly selected sample of college students in Johns Hopkins University, population: college students in private universities.
 
-{choose-answers:4} ? What does the expression garbage in, garbage out means?
+{choose-answers:4} 
+? What does the expression garbage in, garbage out means?
 
 C) If the data used in analysis is of poor quality, the results of the analysis will be poor.
 o) If the analysis is poor, that means the analyst used poor quality data.

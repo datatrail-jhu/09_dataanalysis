@@ -1,4 +1,4 @@
-# Translating questions to data science questions
+# Translating Questions to Data Science Questions
 
 We have learned what data scientists call different types of data science problems. But you may be wondering to what categories the question in your mind belongs. Is it a prediction or inference? Does it only require a simple descriptive analysis? To better understand this, let's start with the main three types of questions you may face. This list is inspired by Benjamin Bloom's famous [Taxonomy](https://en.wikipedia.org/wiki/Bloom%27s_taxonomy). Most questions we face every day are typically one of the following:
 
@@ -27,6 +27,8 @@ So for your next project as a data scientist, first try to write down your quest
 
 
 ### Slides and Video
+
+![Translating Questions to Data Science Questions](UPDATE)
 
 * [Slides](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/edit?usp=sharing)
 
