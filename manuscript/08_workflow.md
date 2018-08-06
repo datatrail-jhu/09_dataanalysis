@@ -191,6 +191,7 @@ As you learned in previous lessons, make sure you document every step. This is i
 
 {choose-answers:4} 
 ? Which of the following is NOT part of a data analysis workflow?
+
 C) Publishing the data on the web
 o) Interpreting the results
 o) Data analysis
@@ -200,20 +201,23 @@ o) Cleaning the data
 
 {choose-answers:4} 
 ? Which one of the following questions is NOT written in a way a data science question should be written?
+
 C) What are the benefits of homeownership?
-o) Are homeowners happier than non-homowners?
+o) Are homeowners happier than non-homeowners?
 o) Has homeownership in the US has gone up in that last 30 years?
 o) What are the demographic characteristics of homeowners in the United States?
 
 {choose-answers:4} 
 ? In what order should you have your data science workflow?
-C) Define question, find data, clean data, statistical analysis, itnerpret results
+
+C) Define question, find data, clean data, statistical analysis, interpret results
 o) Define question, find data, statistical analysis, challenge results, exploratory analysis
 o) Define question, find data, write up results, statistical analysis, challenge results
 o) Define question, find data, create reproducible code, statistical analysis
 
 {choose-answers:4} 
 ? In the example shown in the lesson, what does the function `cv.glm()` do?
+
 C) Calculates the estimated K-fold cross-validation prediction error
 o) Estimates a generalized linear model
 o) Predicts the probability that a message is SPAM
@@ -222,6 +226,7 @@ o) Graphs the distribution of the data
 
 {choose-answers:4} 
 ? In a prediction analysis, we would like to predict whether a student graduates from college. After the estimation, we use the test set to evaluate the uncertainty of our model. Our prediction model correctly predicts 360 students (out of 500) to graduate from college and correctly predicted 90 students (out of 100) that they don't graduate from college. What is the prediction error of our model using the test set?
+
 C) 25% 
 o) 75%
 o) 50%
@@ -229,15 +234,17 @@ o) 10%
 o) 0%
 
 {choose-answers:4} 
-? When interpreting the results of our data science analysis, we should
+? When interpreting the results of our data science analysis, we should...
+
 C) not confuse correlation and causation.
 o) Only show the numbers without any explanation since numbers talk themselves.
 o) If the numbers are not what we hoped for, repeat the analysis until we get the results we want.
 o) Never use the word association because it is not a scientific word.
-o) never mention the undertainty of our results since they may make our results look not reliable.
+o) never mention the uncertainty of our results since they may make our results look not reliable.
 
 {choose-answers:4} 
 ? Which one of the following advices you should follow when writing up your results?
+
 C) Start with a question.
 o) You don't need to tell a story since it may make your results look less scientific.
 o) Include every piece of analysis you have done in your final report.
