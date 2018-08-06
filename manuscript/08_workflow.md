@@ -23,7 +23,7 @@ To begin with, these are the main steps you have to follow in your data analysis
 
 Let's start with a hypothetical example and go through each step in our example. Imagine we're interested to automatically detect emails that are SPAM from the ones that are not. So our general question is "can I automatically detect emails that are SPAM from the ones that are not?"
 
-![Detecting SPAMs](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-02.png)
+![Detecting SPAMs](images/08_workflow/08_dataanalysis_workflow-2.png)
 
 #### Define the question
 
@@ -39,7 +39,7 @@ You may be lucky to have such dataset somehow. However, it's unlikely that due t
 
 One of the best datasets for analyzing SPAM data is the *spam* data in the `kernlab` package in R. The spam dataset is collected at Hewlett-Packard Labs and classifies 4601 e-mails as spam or non-spam. Additionally, there are 57 variables indicating the frequency of certain words and characters in the e-mail. Let's install the package first.
 
-![spam dataset from the `kernlab` package](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-05.png)
+![spam dataset from the `kernlab` package](images/08_workflow/08_dataanalysis_workflow-5.png)
 
 ```{r}
 library(kernlab)
@@ -50,7 +50,7 @@ data(spam)
 
 In most cases, your data doesn't come clean. In fact, it may come from different sources with different standards. Therefore, you should first tidy up the data. Lucky for us, the spam dataset in the `kernlab` package is already tidy, so we can skip this step. However, if we're doing predictive analysis, it's better to have a training and a test set. The code below creates the train and test sets.
 
-![Cleaning the data](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-06.png)
+![Cleaning the data](images/08_workflow/08_dataanalysis_workflow-6.png)
 
 #### Exploratory data analysis
 
@@ -64,27 +64,27 @@ We learned about the following steps for doing exploratory data analysis:
 
 First, we look at column names.
 
-![Looking at column names](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-08.png)
+![Looking at column names](images/08_workflow/08_dataanalysis_workflow-8.png)
 
 And the first few rows of our training data.
 
-![Looking at the first few rows of the data](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-09.png)
+![Looking at the first few rows of the data](images/08_workflow/08_dataanalysis_workflow-9.png)
 
 Let's see how many of the emails are flagged as SPAM and how many are not.
 
-![906 emails in the training set are flagged as SPAM](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-10.png)
+![906 emails in the training set are flagged as SPAM](images/08_workflow/08_dataanalysis_workflow-10.png)
 
 We can also plot the average length of capital letters in the text of the email for SPAM and non-SPAM emails. The variable in the data that measures the average length of capital letters in the text is called `capitalAve`.
 
-![Plotting the average length of capital letters](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-11.png)
+![Plotting the average length of capital letters](images/08_workflow/08_dataanalysis_workflow-11.png)
 
 To better distinguish the difference in `capitalAve` for SPAM and non-SPAM emails, we can use the log scale. We can convert the variable to log. Be careful that if you have zeros in your data (which you may have), by transforming the variable into log you will run into trouble (log of zero is infinity). To avoid this, we can add 1 to the variable.
 
-![Plotting the log of average length of capital letters](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-12.png)
+![Plotting the log of average length of capital letters](images/08_workflow/08_dataanalysis_workflow-12.png)
 
 We can see if there is any relationship between some of the predictors such as `free`, `original`, and `receive`.
 
-![Relationship between some of the predictors](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-13.png)
+![Relationship between some of the predictors](images/08_workflow/08_dataanalysis_workflow-13.png)
 
 #### Statistical analysis
 
@@ -97,11 +97,11 @@ The type of analysis that we need is predictive analysis since, at the end of th
 We can use the following code to perform our prediction analysis using the training set. Note that the function `cv.glm()` calculates the estimated K-fold cross-validation prediction error for generalized linear models (glms). The code chunk below finds the variable (among all of our variables) that has the lowest prediction error in finding the probability of being SPAM.
 
 
-![Prediction analysis](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-15.png)
+![Prediction analysis](images/08_workflow/08_dataanalysis_workflow-15.png)
 
 We can then use the test set to get a measure of uncertainty (or accuracy) of the model. For each observation in the test set, we predict whether the observation is a SPAM or not. Note that we already know whether the observation is a SPAM or not but we want to test our model's ability. Once we find the predicted values, we can use them along with the actual values (whether the observations are indeed SPAM or not) and create an error matrix. The error matrix shows how many of the SPAM emails we thought were SPAM and how many we didn't. The same for non-SPAM emails. The line `table(predictedSpam,testSpam$type)` shows that there are 61 non-SPAM emails that our model predicted as SPAM and 458 SPAM emails that our model predicted as non-SPAM. The rest of the observations were predicted correctly. The last line of the code calculates the prediction error.
 
-![Prediction error](images/08_data_analysis_workflow/08_dataanalysis_data_analysis_workflow-16.png)
+![Prediction error](images/08_workflow/08_dataanalysis_workflow-16.png)
 
 #### Interpret results
 
