@@ -200,6 +200,66 @@ Finally, in distributions we'll discuss today, sometimes values for a variable a
 
 ![Uniform Distribution](images/04_descriptive/04_dataanalysis_descriptive-26.png)
 
+##### Outliers
+
+Now that we've discussed distributions, it's important to discuss **outliers** -- or an oberservation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.
+
+![density curve with an outlier](images/04_descriptive/04_dataanalysis_descriptive-27.png)
+
+For example, imagine you had a sample where all of the individuals in your sample are between the ages of 18 and 65, but then you have one sample that is 1 year old and another that is 95 years old.
+
+![Sample population](images/04_descriptive/04_dataanalysis_descriptive-28.png)
+
+If we were to plot the age data on a density plot, it would look something like this:
+
+![example densityplot](images/04_descriptive/04_dataanalysis_descriptive-29.png)
+
+The baby and elderly individual would pop out as outliers on the plot. 
+
+After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis. 
+
+![caution](images/04_descriptive/04_dataanalysis_descriptive-30.png)
+
+It can sometimes be difficult to decide whether or not a sample should be removed from the dataset. In the simplest terms, *no observation should be removed from your dataset unless there is a **valid reason** to do so*. For a more extreme example, what if that dataset we just discussed (with all the samples having ages between 18 and 65) had one sample with the age 600? Well, if these are human data, we clearly know that is a data entry error. Maybe it was supposed to be 60 years old, but we may not know for sure. If we can follow up with that individual and double-check, it's best to do that, correct the error, make a note of it, and continue you with the analysis. However, that's often not possible. In the cases of obvious data entry errors, it's likely that you'll have to remove that observation from the dataset. It's valid to do so in this case since you know that an error occurred and that the observation was not accurate.
+
+Outliers do not only occur due to data entry errors. Maybe you were taking weights of your observations over the course of a few weeks. On one of these days, your scale was improperly calibrated, leading to incorrect measurements. In such a case, you would have to remove these incorrect observations before analysis. 
+
+Outliers can occur for a variety of reasons. Outliers can occur due human error during data entry, technical issues with tools used for measurement, as a result of weather changes that affect measurement accuracy, or due to poor sampling procedures. It's always important to look at the distribution of your observations for a variable to see if anything is falling far away from the rest of the observations. If there are, it's then important to think about why this occurred and determine whether or not you have a valid reason to remove the observations from the data. 
+
+An important note is that observations should **never** be removed just to make your results look better. Wanting better results is **not** a valid reason for removing observations from your dataset. 
+
+###### Identifying Outliers
+
+To identify outliers visually, density plots and boxplots can be very helpful.
+
+For example, if we returned to the `iris` dataset and looked at the distribution of `Petal.Length`, we would see a bimodal distribution (yet another distribution!). Bimodal distributions can be identified by desnityplots that have two distinct humps. In these distributions, there are two different modes -- this is where the term "bimodal" comes from. In this plot, the curve suggests there are a number of flowers with petal length less than 2 and many with petal length around 5.
+
+```r
+## density plot
+library(ggplot)
+ggplot(iris, aes(Petal.Length))+
+  geom_density()
+```
+
+![`iris` density plot](images/04_descriptive/04_dataanalysis_descriptive-32.png)
+
+Since the two humps in the plot are about the same height, this shows that it's  not just one or two flowers with much smaller petal lengths, but rather that there are many. Thus, these observations aren't likely an outlier.
+
+To investigate this further, we'll look at petal length broken down by flower species:
+
+```r
+## box plot
+ggplot(iris, aes(Species, Petal.Length))+
+  geom_boxplot()
+```
+
+![`iris` boxplot](images/04_descriptive/04_dataanalysis_descriptive-33.png)
+
+In this boxplot, we see in fact that `setosa` have a shorter petal length while `virginica` have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species! 
+
+Boxplots are also helpful because they plot "outlier" samples as points outside the box. By default, boxplots define "outliers" as observations as those that are 1.5 x IQR (interquartile range). The IQR is the distance between the first and third quartiles. This is a mathematical way to determine if a sample *may* be an outlier. It is visually helpful, but then it's up to the analyst to determine if an observation should be removed. While the boxplot identifies outliers in the setosa and versicolor species, these values are all within a reasonable distance of the rest of the values, and unless I could determine *why* this occurred, I would not remove these observations from the dataset
+
+![`iris` boxplot with annotations](images/04_descriptive/04_dataanalysis_descriptive-34.png)
 
 #### Central Tendency
 
@@ -213,11 +273,11 @@ The mean (often referred to as the average) is equal to the sum of all the obser
 
 So if you had the following vector: `a <- c(1, 2, 3, 4, 5, 6)`, the mean would be 3.5. 
 
-![calculating the mean](images/04_descriptive/04_dataanalysis_descriptive-28.png)
+![calculating the mean](images/04_descriptive/04_dataanalysis_descriptive-36.png)
 
 But what if we added another '3' into that vector, so that it were: `a <- c(1, 2, 3, 3, 4, 5, 6)`. Now, the mean would be 3.43. It would decrease the average for this set of numbers as you can see in the calculations here:
 
-![decreased average](images/04_descriptive/04_dataanalysis_descriptive-29.png)
+![decreased average](images/04_descriptive/04_dataanalysis_descriptive-37.png)
 
 To calculate the mean in R, the function is `mean()`. Here, we show how to calculate the mean for a variable in R. Note that when you have NAs in a variable, you'll need to let R know to remove the NAs (using `na.rm=TRUE`) before calculating your mean. Otherwise, it will return `NA`.
 
@@ -229,7 +289,7 @@ mean(df$sleep_cycle)
 mean(df$sleep_cycle, na.rm=TRUE)
 ```
 
-![`mean(sleep_cycle)`](images/04_descriptive/04_dataanalysis_descriptive-30.png)
+![`mean(sleep_cycle)`](images/04_descriptive/04_dataanalysis_descriptive-38.png)
 
 ##### median
 
@@ -239,7 +299,7 @@ Using the same vector as we first use to calculate median, we see that the middl
 
 However, that is not always the case. When we add that second 3 in the middle of the set of numbers, the median is now 3, as this is the value at the center of this set of numbers. 3 is the middle value.
 
-![medians](images/04_descriptive/04_dataanalysis_descriptive-32.png)
+![medians](images/04_descriptive/04_dataanalysis_descriptive-40.png)
 
 To calculate the median in R, use the function `median()`. Again, when there are NAs in the variable, you have to tell R explicitly to remove them before calculating the median.
 
@@ -248,7 +308,7 @@ To calculate the median in R, use the function `median()`. Again, when there are
 median(df$sleep_cycle, na.rm=TRUE)  
 ```
 
-![median `sleep_cycle`](images/04_descriptive/04_dataanalysis_descriptive-33.png)
+![median `sleep_cycle`](images/04_descriptive/04_dataanalysis_descriptive-41.png)
 
 While not the exact same value, the mean and median for `sleep_cycle` are similar (0.44 and 0.33). However, this is not always the case. For data that are **skewed** or contain **outlier values** -- values that are very different from the rest of the values in the variable -- the  mean and the median will be very different from one another. In our example dataset, the mean and the median values for the variable `bodywt` are quite different from one another.
 
@@ -262,7 +322,7 @@ ggplot(df, aes(bodywt)) +
   geom_histogram()
 ```
 
-![mean vs median](images/04_descriptive/04_dataanalysis_descriptive-34.png)
+![mean vs median](images/04_descriptive/04_dataanalysis_descriptive-42.png)
 
 When we look at the histogram of the data, we see that most bodyweights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
 
@@ -272,11 +332,11 @@ When you have outliers in the dataset, the median is typically the measure of ce
 
 There is a third, less-frequently calculated measure of central tendency for continuous variables, known as the mode. This is the value that comes up most frequently in your dataset. For example, if your dataset `a` were comprised of the following numbers `a <- c(0, 10, 10, 3, 5, 10, 10)`, 10 would be the **mode**, as it occurs four times. It doesn't matter whether it's the largest value, the smallest value, or somewhere in between, the most frequently value in your dataset is the mode. There is no built-in function for calculating the mode in R for a numeric value, which should suggest that, for continuous variables, knowing the mode of a variable is often less crucial than knowing the mean and median (which is true)! However, you could write a function to calculate it. For the above vector `a`, `which.max(tabulate(a))` would return the mode: 10. (Note that this would not work if you had two values that were found in the dataset at the same frequency. A more eloquent approach would be required.)
 
-![mode of a continuous variable](images/04_descriptive/04_dataanalysis_descriptive-35.png)
+![mode of a continuous variable](images/04_descriptive/04_dataanalysis_descriptive-43.png)
 
 However, for categorical variables, the level with the most observations would be the mode. This can be determined using the `table()` function, which breaks down the number of observations within the categorical variable
 
-![`table()` output](images/04_descriptive/04_dataanalysis_descriptive-36.png)
+![`table()` output](images/04_descriptive/04_dataanalysis_descriptive-44.png)
 
 
 Further, the mode for a categorical variable can be visuzlized by generating a barplot:
@@ -290,7 +350,7 @@ ggplot(df, aes(order)) +
                                    vjust = 0.5))
 ```
 
-![`geom_bar` visually displays the mode](images/04_descriptive/04_dataanalysis_descriptive-37.png)
+![`geom_bar` visually displays the mode](images/04_descriptive/04_dataanalysis_descriptive-45.png)
 
 
 #### Variability
@@ -312,7 +372,7 @@ b <-  c(29, 29, 29, 29, 723678)
 var(b)
 ```
 
-![variance](images/04_descriptive/04_dataanalysis_descriptive-39.png)
+![variance](images/04_descriptive/04_dataanalysis_descriptive-47.png)
 
 The only difference between the two vectors is that the second one has one value that is much larger than "29". The variance for this vector is thus much higher.
 
@@ -329,7 +389,7 @@ sd(b)
 sqrt(var(b))
 ```
 
-![Standard Deviation](images/04_descriptive/04_dataanalysis_descriptive-40.png)
+![Standard Deviation](images/04_descriptive/04_dataanalysis_descriptive-48.png)
 
 For both measures of variance, the minimum value is 0. The larger the number, the more spread out the values in the valuable are.
 
@@ -338,7 +398,7 @@ For both measures of variance, the minimum value is 0. The larger the number, th
 
 Often, you'll want to include tables in your reports summarizing your dataset. These will include the number of observations in your dataset and maybe the mean/median and standard deviation of a few variables. These could be organized into a table using what you learned in the data visualization course about generating tables. 
 
-###skimr
+#### skimr
 
 Alternatively, there is a helpful package that will summarize all the variables within your dataset. The `skimr` package provides a tidy output with information about your dataset. 
 
@@ -350,9 +410,22 @@ library(skimr)
 skim(df)
 ```
 
-![`skim()` output](images/04_descriptive/04_dataanalysis_descriptive-41.png)
+![`skim()` output](images/04_descriptive/04_dataanalysis_descriptive-49.png)
 
 The output from skim separately summarizes categorical and continuous variables. For continuous variables you get information about the mean and median (`p50`) column. You know what the range of the variable is (`p0` is the minimum value, `p100` is the maximum value for continuous variables). You also get a measure of variability with the standard deviation (`sd`). It even quantifies the number of missing values (`missing`) and shows you the distribution of each variable (`hist`)! This function can be incredibly useful to get a quick snapshot of what's going on with your dataset.
+
+#### Published Descriptive Analyses
+
+In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we're looking at the first table in a [paper published in the New England Journal of Medicine by The CATT Research Group](https://www.nejm.org/doi/full/10.1056/nejmoa1102673). 
+
+![Table 1](images/04_descriptive/04_dataanalysis_descriptive-50.png)
+
+We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male. 
+
+![Table 1 - just the top](images/04_descriptive/04_dataanalysis_descriptive-51.png)
+
+
+We provide this here as an example of how someone would include a descriptive analysis in a report or publication. It doesn't always have to be this long, but you should always describe your data when sharing it with others.
 
 ### Summary
 
