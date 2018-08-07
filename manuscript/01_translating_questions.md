@@ -18,10 +18,27 @@ Note that in this kind of questions, we are not looking at a specific X to expla
 
 Try thinking about the questions that you face every day and see if you can put them under any of the categories mentioned above. For instance, should you take the bus or walk to destination today? What will the weather look like this weekend? Should you wear dress formally or casually in your next interview? What's the best time to go to the coffee shop in your neighborhood to avoid a long line? You can also think about a longer-term question such as: Is data science a good field to invest your time in? Is moving to Washington DC the right career decision?
 
+Let's practice translating questions to data science questions through an example. We briefly mentioned this example in the course Getting Data. The analysis is based on data scientist David Robinson's [blog](http://varianceexplained.org/r/trump-tweets/). Going through Donald Trump's tweets he realized a peculiar behavior in how Trump tweets. He noticed that "When Trump wishes the Olympic team good luck, he’s tweeting from his iPhone. When he’s insulting a rival, he’s usually tweeting from an Android." David Robinson was curious about if there are differences in the tone of the tweets.
+
+![Analysis of Donald Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-6.png)
+
+
+The question is how to examine this quantitatively. We want to go from the general question of "Are the Android and iPhone tweets clearly different (tweeted by different people)?" to a more quantifiable question "Are the Android tweets angrier and more negative?" Note that the first question is broad. Different in what terms? However, the second question specifically mentions whether Android tweets are "angrier" or "more negative." As we have learned by now, text data can be analyzed and quantified. Using sentiment analysis techniques we can measure the level of "anger" or "negativity" in a piece of text.
+
+![Translating questions to data science questions](images/01_translating_questions/01_dataanalysis_translating_questions-7.png)
+
+
+Using some exploratory analysis, David Robison first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words "badly" or "crazy" are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone. 
+
+![Likelihood of words tweeted from Android or iPhone phones](images/01_translating_questions/01_dataanalysis_translating_questions-8.png)
+
+Using sentiment analysis he found a difference in sentiment between the Android and iPhone tweets. He uses the NRC Word-Emotion Association lexicon, available from the `tidytext` package, which associates words with 10 sentiments: positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. The interesting thing is that the "Trump’s Android account uses about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does."
+
+![Sentiment analysis of Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-9.png)
+
 Now that you know the type of your question, here's is how we can figure out what types of data science analysis is best to approach the problem. Most type 1 problems can be solved using descriptive analysis. Most type 2 problems can be solved using exploratory analysis or inferential analysis. And finally, most type 3 problems can be solved using predictive analysis.
 
-![Different types of questions and different types of data science analysis](images/01_translating_questions/01_dataanalysis_translating_questions-6.png)
-
+![Different types of questions and different types of data science analysis](images/01_translating_questions/01_dataanalysis_translating_questions-10.png)
 
 So for your next project as a data scientist, first try to write down your question in a short sentence, then figure out what type of question it is, and decide what types of data science analysis is the best method for your question.
 
