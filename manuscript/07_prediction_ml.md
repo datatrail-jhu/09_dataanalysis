@@ -130,11 +130,11 @@ Conceptually, this is what will happen whenever we use linear regression for mac
 Additionally, here we're using a single variable (height) to model age. Clearly, there are other variables (such as a child's sex) that could affect this prediction. Often, regression models will include multiple predictor variables that will improve prediction accuracy of the outcome variable.
 
 
-#### Random Forest
+#### Classification and Regression Trees (CART)
 
-Alternatively, when trying to predict a **categorical variable**, you'll want to look at classification methods, such as using a **random forest** for prediction. While not the *only* classification method for machine learning, random forests are commonly used for prediction of categorical variables. 
+Alternatively, when trying to predict a **categorical variable**, you'll want to look at classification methods, rather than regression (which is for continuous variables). In these cases you may consider using a **classification and regression tree (CART)** for prediction. While not the *only* classification method for machine learning, CARTs are a basic and commonly-used approach to prediction for categorical variables. 
 
-Conceptually, when using a random forest for prediction, a **decision tree** is generated from the training data. A decision tree branches the data based on variables within the data. For example, if we were trying to predict an individual's education level, we would likely use a dataset with information about many different people's income level, job title, and the number of children they have. These variable would then be used to generate the tree.
+Conceptually, when using a CART for prediction, a **decision tree** is generated from the training data. A decision tree branches the data based on variables within the data. For example, if we were trying to predict an individual's education level, we would likely use a dataset with information about many different people's income level, job title, and the number of children they have. These variable would then be used to generate the tree.
 
 For example, maybe the first branch would separate individuals who make less than 40,000 dollars a year. All of those in the training data who made less than 40K would go down the left-hand branch, while everyone else would go down the right-hand branch.
 
@@ -148,11 +148,11 @@ Finally, a full decision tree will be constructed, such that there will be a lab
 
 ![labels are assigned at the end of each tree](images/07_prediction_ml/07_dataanalysis_prediction_ml-29.png)
 
-This random forest will then be used for prediction in future samples. Thus, if you follow the path along the decision tree, for this example random forest,  an individual who made more than $40,000 a year, was in a manual labor profession, and had children, this random forest would predict that that individual's education level were "High School."
+This CART will then be used for prediction in future samples. Thus, if you follow the path along the decision tree, for this example CART,  an individual who made more than $40,000 a year, was in a manual labor profession, and had children, this CART would predict that that individual's education level were "High School."
 
 ![Predictions are then made following the decisions on the tree](images/07_prediction_ml/07_dataanalysis_prediction_ml-30.png)
 
-Again, this is conceptually and graphically how a random forest works; however, when generating a random forest yourself, it again only takes a few lines of code to generate the model and carry out the necessary math.
+Again, this is conceptually and graphically how a CART works; however, when generating a CART yourself, it again only takes a few lines of code to generate the model and carry out the necessary math.
 
 ### Model Accuracy
 
@@ -194,7 +194,7 @@ Accuracy is a helpful way to assess error in categorical variables, but it can b
 
 ### Machine Learning Examples
 
-To better understand all of the concepts we've just discussed, we'll walk through two examples, one for prediction of a continuous variable using linear regression and a second for prediction of a categorical value using a random forest.
+To better understand all of the concepts we've just discussed, we'll walk through two examples, one for prediction of a continuous variable using linear regression and a second for prediction of a categorical value using a CART.
 
 #### The `caret` package
 
@@ -316,9 +316,9 @@ In this example (and the example below), we've pre-specified which model we were
 Here, we haven't played around much with the tuning parameters; however, checking out [the documentation on how to do this](http://topepo.github.io/caret/model-training-and-tuning.html#fitting-models-without-parameter-tuning) can lead to improved prediction as you generate predictive models on your own.
 
 
-#### Categorical Variable Prediction: Random Forest
+#### Categorical Variable Prediction: CART
 
-A more natural prediction model given this dataset may be to predict what `Species` a flower is, given its measurements. We'll use the `iris` dataset to carry out this classification prediction here, using a random forest.
+A more natural prediction model given this dataset may be to predict what `Species` a flower is, given its measurements. We'll use the `iris` dataset to carry out this classification prediction here, using a CART.
 
 ##### Data Splitting
 
@@ -326,31 +326,31 @@ Data splitting from above will be used here. Thus, our training set will still b
 
 ##### Variable Selection
 
-Given the relatively small nature of this dataset, we'll build the random forest using all of the data; however, further and more robust optimization of what variables are included in the model is possible within the `caret` package.
+Given the relatively small nature of this dataset, we'll build the CART using all of the data; however, further and more robust optimization of what variables are included in the model is possible within the `caret` package.
 
-Here we specify that we want to predict `Species`, that we want to use a random forest to do so by setting the method to `rf`, and that, since it's a categorical variable, we're going to use `Accuracy` to as our assessment metric.
+Here we specify that we want to predict `Species`, that we want to use a CART to do so by setting the method to `rf`, and that, since it's a categorical variable, we're going to use `Accuracy` to as our assessment metric.
 
 ```r
-## Random Forest
+## CART
 set.seed(7)
-fit.rf <- train(Species~., 
+fit.cart <- train(Species~., 
                 data = iris, 
-                method = "rf", 
+                method = "rpart", 
                 metric = "Accuracy")
 
 ## look at Accuracy
-fit.rf$results
+fit.cart$results
 
 ## make predictions in tuning data set
-predictions_rf <- predict(fit.rf, iris_tune)
+predictions_cart <- predict(fit.cart, iris_tune)
 
-table(iris_tune$Species, predictions_rf)
+table(iris_tune$Species, predictions_cart)
 ``` 
 ##### Accuracy Assesment
 
 ![`table()` output](images/07_prediction_ml/07_dataanalysis_prediction_ml-48.png)
 
-Here, we see that in the tuning data, the random forest accurately predicted the Species of each flower using the model generated from the training data.
+Here, we see that in the tuning data, the CART accurately predicted the Species of most flowers using the model generated from the training data; however, it did make two incorrect predictions (the 1s in the table).
 
 
 ### Summary
@@ -387,10 +387,10 @@ o) x, y
 
 C) linear regression, RMSE
 C) `lm`, RMSE
-o) `rf`, RMSE
-o) random forest, RMSE
-o) random forest, Accuracy
-o) `rf`, Accuracy
+o) `rpart`, RMSE
+o) CART, RMSE
+o) CART, Accuracy
+o) `rpart`, Accuracy
 o) `lm`, prediction
 o) linear regression, prediction
 
@@ -410,7 +410,8 @@ o) `dwdPoly`
 ? Take a look at the analysis done [here](https://rstudio-pubs-static.s3.amazonaws.com/261616_3097bfd3aa4341faafede5ed2ca7bb39.html). Of the models they tried, which was most accurate for predicting Species in the `iris` dataset?
 
 C) `lda`
-m) `rf`
+o) `rf`
+m) `rpart`
 o) `lm`
 o) `knn`
 o) `svm`
