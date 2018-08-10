@@ -8,3 +8,4 @@
 07_prediction_ml.md
 08_workflow.md
 09_pipelines.md
+10_final_project.md
