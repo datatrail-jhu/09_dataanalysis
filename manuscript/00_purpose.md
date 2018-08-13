@@ -94,18 +94,19 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 
 ? A data science problem solving process can be broken down to the following in what order?
 
-A) Question, data, analysis, present
-b) data, analysis, question, present
-c) question, present, analysis, data
-d) question, analysis, data, present
+A) Define the question, get the data, clean the data, explore the data, fit statistical models, communicate the results, make your analysis reproducible
+b) Get the data, clean the data, define the question, explore the data, fit statistical models, communicate the results, make your analysis reproducible
+c)  Get the data, clean the data, fit statistical models, define the question, explore the data, communicate the results, make your analysis reproducible
+d) Make your analysis reproducible, Define the question, get the data, clean the data, fit statistical models, communicate the results, 
 
 
 ? What is predictive analysis?
 
-a) Finding the effect of one factor on another
-b) Finding the effect of a group of factors on another
-C) Using data to predict an event
-d) Using data to predict the effect of one variable on another
+a) Finding if one variable is related to another one
+b) Finding if a large number of variables influence another one
+C) Using data collected from many people to predict the values for a new person
+d) Using data to predict the relationship between two variables for all people. 
+
 
 
 {/quiz}
