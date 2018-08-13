@@ -39,35 +39,40 @@ ___Are customers more likely to click on ads with puppies?__
 
 __Do I need to take an umbrella with me when I leave the house today?__
 
+* _What or who am I trying to understand with data?_ I'm trying to predict the weather in my hometown on a particular day so I know whether to take an umbrella.  
+* _What measurements do I have on those people or objects that help me answer the question?_  I could take predictions from different weather services, look out the window and see if it is cloudy, or go out and feel if it is humid outside. To build my prediction I could collect these measurements for a year and also record whether I needed an umbrella that day.   
+* _How do the data I have limit the type of question I can answer?_ I only have data on my hometown, I've only collected data from a few weather prediction services, and the data are only collected over one year. So it might be hard to say things for other people, other places, or other times.  
+* _What is the type of data science question we are trying to answer?_ In this case we are looking to use historical data to predict something about a single day. So this is a prediction problem. 
 
 
-To make the questions more specific, we should start by asking what data _we wish_ that we had to
-
-To make these questions concrete, we need to make them concrete in a couple of ways. The first is that we need to identify the data that we can use to answer the question. One tricky thing is that you need to think about both the data that you have in hand as well 
+## A real example
 
 
+Let's practice translating questions to data science questions through an example. We briefly mentioned this example in the course [Getting Data](https://leanpub.com/universities/courses/jhu/getting-data). The analysis is based on data scientist David Robinson's [blog](http://varianceexplained.org/r/trump-tweets/). 
 
-We have learned what data scientists call different types of data science problems. But you may be wondering to what categories the question in your mind belongs. Is it a prediction or inference? Does it only require a simple descriptive analysis? To better understand this, let's start with the main three types of questions you may face. This list is inspired by Benjamin Bloom's famous [Taxonomy](https://en.wikipedia.org/wiki/Bloom%27s_taxonomy). Most questions we face every day are typically one of the following:
+A Twitter user came up with a hypothesis that when Donald Trump was tweeting, hyperbolic tweets came from an Android phone (which he suggested were coming from Donald Trump) and non-hyperbolic tweets came from an iPhone (which he suggested came from Donald Trump's staff). 
 
+This twitter had noticed that "When Trump wishes the Olympic team good luck, he’s tweeting from his iPhone. When he’s insulting a rival, he’s usually tweeting from an Android." Robinson started with this question and translated it into a data science question he could answer with data he could collect from Twitter. 
 
-### Type 1: What is the summary of what happened?
-
-This kind of question is a more comprehensive version of the previous question. In this type of question, the analysis is at aggregate levels. So instead of looking at one specific case, we look at what happens on average. For instance, a question like what is the most used mode of transportation for *most Americans*? Or what is the average rainfall in Seattle? Or what is the divorce rate in New York City? In these types of questions, we don't usually go beyond using simple statistics such as mean, median, minimum, or maximum or need to look at the distribution of a variable simply.
-
-
-### Type 2: What happens to something as a result of something else?
-
-In this kind of data science questions, we are often interested in the relationship between two or more variables. In simple terms, we want to answer what happens to Y if X changes. Let' look at a question of this sort. A lot of us wonder if going to college is beneficial in our life. We want to know whether going to college increases our salary or not. This could be a data science question. We need to perform an analysis that shows the effect of X (going to college) on Y (earnings) for most people to be able to tell anything meaningful. Another question can be what is the effect of sitting under the sun and cancer. In general, these kinds of questions requires more complexed analysis.
-
-### Type 3: How can we predict something?
-
-Note that in this kind of questions, we are not looking at a specific X to explain Y. We are mainly interested to know how something happens? For instance, how can we predict prices movements of a specific stock? What are the factors that determine a successful student? What predicts a product to receive positive reviews on Amazon? Again we are not looking at a specific factor or factors that explain Y but instead we are interested in knowing how Y happens?
-
-Try thinking about the questions that you face every day and see if you can put them under any of the categories mentioned above. For instance, should you take the bus or walk to destination today? What will the weather look like this weekend? Should you wear dress formally or casually in your next interview? What's the best time to go to the coffee shop in your neighborhood to avoid a long line? You can also think about a longer-term question such as: Is data science a good field to invest your time in? Is moving to Washington DC the right career decision?
-
-Let's practice translating questions to data science questions through an example. We briefly mentioned this example in the course Getting Data. The analysis is based on data scientist David Robinson's [blog](http://varianceexplained.org/r/trump-tweets/). Going through Donald Trump's tweets he realized a peculiar behavior in how Trump tweets. He noticed that "When Trump wishes the Olympic team good luck, he’s tweeting from his iPhone. When he’s insulting a rival, he’s usually tweeting from an Android." David Robinson was curious about if there are differences in the tone of the tweets.
+was curious about if there are differences in the tone of the tweets.
 
 ![Analysis of Donald Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-6.png)
+
+__What or who am I trying to understand with data?__
+
+In this case we are trying to answer a question about who is tweeting from the account _RealDonaldTrump_ on Twitter. Specifically, we are interested in the differences between Tweets coming from iPhones versus those coming from Android phones. 
+
+__What measurements do I have on those people or objects that help me answer the question?__
+
+Since we care about the differences between iPhones and Android phones we need to know which kind of phone each Tweet came from. But this information is available for each Tweet. 
+
+We could collect this information by looking at the _RealDonaldTrump_ twitter profile or we could use the Twitter API to extract this data for each tweet. Robinson collects data on the type of phone for all the tweets from the account using the API. 
+
+We also need to figure out how to define "hyperbolic" which was the hypothesis in the original question. It is hard to label tweets as hyperbolic or non-hyperbolic. 
+
+
+* How do the data I have limit the type of question I can answer?
+* What is the type of data science question we are trying to answer?
 
 
 The question is how to examine this quantitatively. We want to go from the general question of "Are the Android and iPhone tweets clearly different (tweeted by different people)?" to a more quantifiable question "Are the Android tweets angrier and more negative?" Note that the first question is broad. Different in what terms? However, the second question specifically mentions whether Android tweets are "angrier" or "more negative." As we have learned by now, text data can be analyzed and quantified. Using sentiment analysis techniques we can measure the level of "anger" or "negativity" in a piece of text.
