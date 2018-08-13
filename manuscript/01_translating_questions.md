@@ -1,5 +1,52 @@
 # Translating Questions to Data Science Questions
 
+
+As we discussed in the first lesson, the approach to data analysis that we prefer is ["problem forward, not solution backward"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/). The main point of this approach is to start with the question that you want to ask before you look at the data or the analysis. 
+
+In some cases the question that you want to answer will be a question driven by your curiousity. For example, you may be interested in a question about your fitness. You could collect data using a Fitbit and the MyFitnessPal app. Or you may have a question about what kind of songs you like best and collect data from your Spotify profile. You might also be interested in where the potholes are most common in your city. You could collect information from your city's open data website. 
+
+Another really common situation is that _someone else_ is coming up with the question. When you are working as a data scientist this might be the marketing team, and executive, or an engineer who has a question that they would like to answer with the data. Part of your job as a data scientist is to translate general questions into data science questions. 
+
+The first step in translating a general question into a data science question is to make it as concrete as possible. For example here are some generic questions you might be interested in: 
+
+1. When I run more do I lose weight? 
+2. Are customers more likely to click on ads with puppies?
+3. Do I need to take an umbrella with me when I leave the house today?
+
+These questions are _interesting_ but they aren't very _specific_. This is how most good data science projects start. To make a question more concrete you need to think about the data you would use to answer the question. This could either be data that you have or data that you think you could find. 
+
+For each of these questions you need to ask some specific questions:
+
+* What or who am I trying to understand with data? 
+* What measurements do I have on those people or objects that help me answer the question?
+* How do the data I have limit the type of question I can answer?
+* What is the type of data science question we are trying to answer?
+
+__When I run more do I lose weight?__
+
+* _What or who am I trying to understand with data?_ I'm trying to understand something about only myself, not about others. 
+* _What measurements do I have on those people or objects that help me answer the question?_  I have data on how many steps I take with Fitbit and measure my weight with a scale.
+* _How do the data I have limit the type of question I can answer?_ I only have data on me. I only have measurements on my weight every day and I need to summarize my Fitbit data to understand my runs, but won't have information on whether I ran up and down hills or any information on my diet. 
+* _What is the type of data science question we are trying to answer?_ In this case we are looking for a relationship between two variables that we measured for only the data we have so it is an exploratory analysis. 
+
+___Are customers more likely to click on ads with puppies?__
+
+* _What or who am I trying to understand with data?_ I'm trying to understand something about customers. I would need to figure out which customers. Customers trying to buy motorbikes might be different than customers trying to buy pet food. We'd have to ask further questions to figure out which customers we are talking about.
+* _What measurements do I have on those people or objects that help me answer the question?_  Suppose we have all the data from a set of customers who visited a website for buying dog food for a single day. Some of the customers saw a puppy ad and some didn't. We also have data on how much dog food they bought. 
+* _How do the data I have limit the type of question I can answer?_ I only have data on a single website and only on a single day. So I might not be able to say things about other websites or other days. 
+* _What is the type of data science question we are trying to answer?_ In this case we are looking for a relationship between two variables and trying say something about all the customers for a website. So this is an inferential analysis. 
+
+
+__Do I need to take an umbrella with me when I leave the house today?__
+
+
+
+To make the questions more specific, we should start by asking what data _we wish_ that we had to
+
+To make these questions concrete, we need to make them concrete in a couple of ways. The first is that we need to identify the data that we can use to answer the question. One tricky thing is that you need to think about both the data that you have in hand as well 
+
+
+
 We have learned what data scientists call different types of data science problems. But you may be wondering to what categories the question in your mind belongs. Is it a prediction or inference? Does it only require a simple descriptive analysis? To better understand this, let's start with the main three types of questions you may face. This list is inspired by Benjamin Bloom's famous [Taxonomy](https://en.wikipedia.org/wiki/Bloom%27s_taxonomy). Most questions we face every day are typically one of the following:
 
 
