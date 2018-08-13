@@ -22,15 +22,22 @@ We have seen in previous courses how to extract data from the web and from datab
 
 ### Types of data science questions
 
-We will look at a few different types of questions that you might want to answer from data. Each type of question has different goals. There are four classes of question that we will focus on in this class. 
+We will look at a few different types of questions that you might want to answer from data. This flowchart gives some questions you can ask to figure out what type of question your analysis focuses on. Each type of question has different goals.
+
+
+There are four classes of question that we will focus on in this class. 
 
 * Descriptive: The goal of descriptive data science questions is to understand the components of a data set, describe what they are, and explain that description to others who might want to understand the data. This is the simplest type of data analysis. 
 
 * Exploratory: The goal of exploratory data science questions is to find unknown relationships between the different variables you have measured in your data set. Exploratory analysis is open ended and designed to find expected or unexpected relationships between different measurements. 
 
-* Inferential: The goal of inferential data science questions is to is to use a small sample of data to say something about what would happen if we collected more data. Inferrential questions come up because we want to understand the relationships between different variables but it is too expensive or difficult to collect data on every person or object. 
+* Inferential: The goal of inferential data science questions is to is to use a small sample of data to say something about what would happen if we collected more data. Inferential questions come up because we want to understand the relationships between different variables but it is too expensive or difficult to collect data on every person or object. 
 
 * Predictive: The goal of predictive data science question is to use data from a large collection to predict values for new individuals. This might be predicting what will happen in the future or predicting characteristics that are difficult to measure. Predictive data science is sometimes called machine learning. 
+
+The questions we will focus on are the types where we look for relationships between measurements or variables. But in these types of analyses we won't be able to tell anything about what happens if you _change_ one of the variables. To figure out what happens if you change a variable, you need a more advanced type of analysis. These analyses - causal and mechanistic - require data on specific types of problem and collected in special ways. For this class, the primary thing we need to be aware of is that just because two variables are correlated with each other it doesn't mean that changing one causes a change in the other. 
+
+[One way](http://www.tylervigen.com/spurious-correlations) that people illustrate this idea is to look at data where two variables show a relationship, but are clearly not related to each other. For example, in a specific time range, the number of people who drown while falling into a pool is related to the number of films that Nicholas Cage appears in. These two variables are clearly unrelated to each other, but the data seems to show a relationship. We'll discuss more later in this class
 
 
 ### Examples of data science questions
@@ -70,11 +77,9 @@ Sesame Street is a children's entertainment and educational program. Scientists 
 
 The way to start a data analysis project is to start with a question. As we saw in the above examples, the questions should not start with the data. They should start with a general question that you want to start to answer. This approach is called ["problem forward, not solution backward"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/).
 
-After you have asked your general question, the next step is to turn this question into a data science question. To 
+After you have asked your general question, the next step is to turn it into a data science question. This usually involves making the question more concrete, identifying what type of question you are asking, and identifying the parts of the data that you will use to answer the question. We will cover how to convert general questions to data science questions in a future lesson. 
 
-
-The first step in all of these examples is to know what kind of question you're dealing with. The analysis used in each of the categories mentioned above can be different. In the coming course, we will learn how to ask a question and translate it to a data science question.
-
+The next steps involve exploring and analyzing the data. The bulk of the rest of this course will focus on the tools you can use to analyze data and find summaries or relationships that answer the questions you ask when starting a data analysis. 
 
 
 ### Slides and Video
