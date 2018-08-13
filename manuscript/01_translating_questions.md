@@ -68,23 +68,23 @@ Since we care about the differences between iPhones and Android phones we need t
 
 We could collect this information by looking at the _RealDonaldTrump_ twitter profile or we could use the Twitter API to extract this data for each tweet. Robinson collects data on the type of phone for all the tweets from the account using the API. 
 
-We also need to figure out how to define "hyperbolic" which was the hypothesis in the original question. It is hard to label tweets as hyperbolic or non-hyperbolic. 
+We also need to figure out how to define "hyperbolic" which was the hypothesis in the original question. It is hard to directly label tweets as hyperbolic or non-hyperbolic. But we can collect the text of the tweets themselves. If we alter the question a little to "Are the Android tweets angrier and more negative than the iPhone tweets?" we can use the text of the tweets themselves to answer this question. There are lists of words that are already labeled as "angry" so we can look for those words among the tweets from Android phones and iPhones. 
+
+We can also collect the time that each tweet occured, since this will help us separate tweets coming from one type of phone or another. 
 
 
-* How do the data I have limit the type of question I can answer?
-* What is the type of data science question we are trying to answer?
+__How do the data I have limit the type of question I can answer?__
 
+One critical piece of informtion we are missing from this data is _who_ sent the tweet out. We can hypothesize that one person has an Android and a different person has an iPhone. But we can't say for sure which person is tweeting from which type of phone. So we have changed the question from a question about _who_ is tweeting to _what is the difference_ between tweets from the two types of phones. 
 
-The question is how to examine this quantitatively. We want to go from the general question of "Are the Android and iPhone tweets clearly different (tweeted by different people)?" to a more quantifiable question "Are the Android tweets angrier and more negative?" Note that the first question is broad. Different in what terms? However, the second question specifically mentions whether Android tweets are "angrier" or "more negative." As we have learned by now, text data can be analyzed and quantified. Using sentiment analysis techniques we can measure the level of "anger" or "negativity" in a piece of text.
-
-![Translating questions to data science questions](images/01_translating_questions/01_dataanalysis_translating_questions-7.png)
+__What is the type of data science question we are trying to answer?__
 
 
 Using some exploratory analysis, David Robison first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words "badly" or "crazy" are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone. 
 
 ![Likelihood of words tweeted from Android or iPhone phones](images/01_translating_questions/01_dataanalysis_translating_questions-8.png)
 
-Using sentiment analysis he found a difference in sentiment between the Android and iPhone tweets. He uses the NRC Word-Emotion Association lexicon, available from the `tidytext` package, which associates words with 10 sentiments: positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. The interesting thing is that the "Trump’s Android account uses about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does."
+Using sentiment analysis he found a difference in the types of words used in Android or iPhone tweets. He used the NRC Word-Emotion Association lexicon, available from the `tidytext` package, which associates words with 10 sentiments: positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. The interesting thing is that the "Trump’s Android account uses about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does."
 
 ![Sentiment analysis of Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-9.png)
 
