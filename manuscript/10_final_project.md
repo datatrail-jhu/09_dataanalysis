@@ -120,7 +120,7 @@ Once uploaded into the correct folder, you'll be able to load the data in, You'l
 
 Now that we've got the data in RStudio Cloud, let's get to work!
 
-#### Descriptive and Exploratory Data Analysis
+#### Exploratory Data Analysis
 
 Once the data have been read in, **explore the data**, **adding your initial exploratory code to the `initial-exploration` code chunk in `final_project.Rmd`**. Then, **answer the following questions**:
 
@@ -295,7 +295,7 @@ Last but not least, you'll want to **Knit your .Rmd document into an HTML docume
 A complete project should have:
 
 - Completed code chunks throughout the .Rmd document (your RMarkdown document should Knit without any error)
-- Readme.md text file explaining your project
+- README.md text file explaining your project
 - Comments in your code chunks
 - Answered all questions throughout this exercise.
 
@@ -308,7 +308,7 @@ Now that you've finalized your project, you'll do one final **push to GitHub**. 
 
 ? Submit the URL to your `final_project` GitHub repository below.
 
-! final_project
+! /(https:\/\/github.com.+\/final_project)/i
 
 **Congrats on finishing your Final Project!!**
 
