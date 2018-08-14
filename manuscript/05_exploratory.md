@@ -89,7 +89,7 @@ What is obvious is that those who have a medal are taller. Can we say that being
 
 ### Slides and Video
 
-![Exploratory Analysis](UPDATE)
+![Exploratory Analysis](https://www.youtube.com/watch?v=fFJElctiY3k)
 
 * [Slides](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing)
 

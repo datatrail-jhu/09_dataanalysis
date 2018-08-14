@@ -91,7 +91,7 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 
 ### Slides and Video
 
-![The Purpose of Data Science](UPDATE)
+![The Purpose of Data Science](https://www.youtube.com/watch?v=PMFwnRLQpYE)
 
 * [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
 
