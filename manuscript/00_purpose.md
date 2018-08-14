@@ -42,10 +42,13 @@ There are four classes of question that we will focus on in this class.
 
 * Predictive: The goal of predictive data science question is to use data from a large collection to predict values for new individuals. This might be predicting what will happen in the future or predicting characteristics that are difficult to measure. Predictive data science is sometimes called machine learning. 
 
+![Types of Data Analysis](images/00_purpose/00_dataanalysis_purpose-4.png)
+
 The questions we will focus on are the types where we look for relationships between measurements or variables. But in these types of analyses we won't be able to tell anything about what happens if you _change_ one of the variables. To figure out what happens if you change a variable, you need a more advanced type of analysis. These analyses - causal and mechanistic - require data on specific types of problem and collected in special ways. For this class, the primary thing we need to be aware of is that just because two variables are correlated with each other it doesn't mean that changing one causes a change in the other. 
 
-[One way](http://www.tylervigen.com/spurious-correlations) that people illustrate this idea is to look at data where two variables show a relationship, but are clearly not related to each other. For example, in a specific time range, the number of people who drown while falling into a pool is related to the number of films that Nicholas Cage appears in. These two variables are clearly unrelated to each other, but the data seems to show a relationship. We'll discuss more later in this class
+[One way](http://www.tylervigen.com/spurious-correlations) that people illustrate this idea is to look at data where two variables show a relationship, but are clearly *not* related to each other. For example, in a specific time range, the number of people who drown while falling into a pool is related to the number of films that Nicholas Cage appears in. These two variables are clearly unrelated to each other, but the data seems to show a relationship. We'll discuss more later in this class
 
+![Spurious Correlation](images/00_purpose/00_dataanalysis_purpose-10.png)
 
 ### Examples of data science questions
 
@@ -59,7 +62,6 @@ If you have a credit card, every time you charge something, the bank keeps a rec
 - **Problem:** Detecting whether credit card charges are fraudulent. 
 - **Data science question:** Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?
 - **Type of analysis:** Predictive analysis
-
 
 #### Example 2: Analysis of YouTube comments
 
@@ -97,7 +99,7 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 
 {quiz, id: quiz_00_purpose}
 
-### Purpose of data science quiz
+### Purpose of Data Science quiz
 
 {choose-answers: 4}
 ? A data science problem solving process can be broken down to the following in what order?

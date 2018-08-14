@@ -8,7 +8,7 @@ For instance, consider wanting to know the answer to the question "Does money ma
 
 In another situation, what if you are interested in answering the question "Does texting while driving causes accidents?" It wouldn't be ethical to run a study and tell people to text while they're driving and then determine if those who texted had more care accidents. It's not okay to design experiments that knowingly put participants at risk of harm.
 
-![Does texting while driving cause accidents?](images/02_identifying_data/02_dataanalysis_identifying_data-35.png)
+![Does texting while driving cause accidents?](images/02_identifying_data/02_dataanalysis_identifying_data-5.png)
 
 Thus, although each of us generate data daily through the apps we use or through our activity on social media platforms, often the data most easily available are *not* the data we need to answer the questions we're most interested in answering. In this lesson we'll discuss **how to determine whether or not you have the data** you need to answer the question you have, **limitations of the data** you have, **considerations to make** when you don't yet have the data you need, and what to do to **get the data you need**. 
 
