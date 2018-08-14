@@ -1,3 +1,10 @@
+{
+course-completeness: 100
+course-attempts: 2
+default-quiz-attempts: 2
+default-random-choice-order: true
+}
+
 # The Purpose of Data Science
 
 Data science has multiple definitions. For this course we use [the definition](https://simplystatistics.org/2015/03/17/data-science-done-well-looks-easy-and-that-is-a-big-problem-for-data-scientists/): 
@@ -54,19 +61,19 @@ If you have a credit card, every time you charge something, the bank keeps a rec
 - **Type of analysis:** Predictive analysis
 
 
-#### Example 2: Analysis of Youtube comments
+#### Example 2: Analysis of YouTube comments
 
 Any text you can find on the web can be considered to be data. You can use this data to understand how people behave on the web. For example,
-when companies like Youtube want to understand whether their users are behaving nicely or badly, they might look at the comments they leave. So the question might be, "Are the comments on our platform mostly nice or mostly mean?". To write this in terms of a data science question you might ask, "Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?". This is a question you could answer by collecting information on words and labeling them with whether they are nice or mean. This is an example of descriptive analysis since once we have the data, the analysis boils down to comparing the number of positive comments to negative comments.
+when companies like YouTube want to understand whether their users are behaving nicely or badly, they might look at the comments they leave. So the question might be, "Are the comments on our platform mostly nice or mostly mean?". To write this in terms of a data science question you might ask, "Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?". This is a question you could answer by collecting information on words and labeling them with whether they are nice or mean. This is an example of descriptive analysis since once we have the data, the analysis boils down to comparing the number of positive comments to negative comments.
 
-- **Problem:** Understanding whether users are nice or mean on Youtube
+- **Problem:** Understanding whether users are nice or mean on YouTube
 - **Data science question:** Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?
 - **Type of analysis:** Descriptive analysis
 
 
 #### Example 3: Sesame Street and kids brain development
 
-Sesame Street is a children's entertainment and educational program. Scientists might be interested in whether watching Sesame Street helps brain development in kids. To turn this into a data science question we need to make it more specific and focused on data. So we might convert this to a data science question like, "Can we compare children who watch Sesame Street and those who don't to see whose test scores are higher?" A complication is that it might be difficult and expensive to get parents to have their children participate in the study. So we might take a small sample of students and measure their test scores and find out whether they watch TV. Since we want to say something about _all_ children, but have only measured data on a few, this would be an inferrential analysis.  
+Sesame Street is a children's entertainment and educational program. Scientists might be interested in whether watching Sesame Street helps brain development in kids. To turn this into a data science question we need to make it more specific and focused on data. So we might convert this to a data science question like, "Can we compare children who watch Sesame Street and those who don't to see whose test scores are higher?" A complication is that it might be difficult and expensive to get parents to have their children participate in the study. So we might take a small sample of students and measure their test scores and find out whether they watch TV. Since we want to say something about _all_ children, but have only measured data on a few, this would be an inferential analysis.  
 
 - **Problem:** Does Sesame Street and kids brain development
 - **Data science question:** Is there a relationship between watching Sesame Street and test scores among children?

@@ -1,0 +1,102 @@
+# How to Know if You Don't Have the Right Data
+
+So far, we learned how to ask questions and think about them in terms of data science questions. We also learned how to look for data and the step required before working with the data. Assume you have the dataset that contains the variables you are looking for, and it is tidy and ready to go for your analysis. It's always nice to step back to make sure the data is the right data before you spend hours and hours on your analysis. What are some of the potential issues with data?
+
+### Number of observations is too small
+
+It happens quite often that collecting data is expensive or not easy. For instance, in a medical study on the effect of a drug on patients with Alzheimer disease, researchers will be happy if they can get a sample of 100 people. These studies are expensive, and it's hard to find volunteers who enroll in the study. It is also the case with most social experiments. Therefore, most data scientists at some point in their career face the curse of small sample size. Small sample size makes it hard to be confident about your analysis results. So when you can, and it's feasible, a large sample is preferable to a small sample. But when your only available dataset to work with is small you will have to recognize that in your analysis. Although we won't learn it in this course, there are particular methods for inferential analysis when sample size is small.
+
+### Dataset does not contain the exact variables you are looking for
+
+In data analysis, it is common that you don't always have what you need. You may need to know individuals' IQ, but all you have is their GPA. You may need to understand food expenditure, but you have total expenditure. You may need to know parental education, but all you have is the number of books the family owns. It is often that the variable that we need in the analysis does not exist in the dataset and we can't measure it. In these cases, our best bet is to find the closest variables to that variable. Variables that may be different in nature but are highly *correlated* with the variable of interest. These variables are called proxy variable.
+
+For instance, if we don't have parental education in our dataset, we can proxy it with the number of books the family has in their home. Although the two variables are different, they are highly correlated; more educated parents have more books at home. So in *most* cases where you can't have the variable you need in your analysis, you can replace it with a proxy. 
+
+### Variables in the dataset are not collected in the same year
+
+Maybe an example will help clear this issue. Imagine we like to find the relationship between the effect of cab prices and the number of rides in New York City. We want to see how people react to the change of prices. We get a hold of data on cab prices in 2018, but we only have data on the number of rides in 2015. Can these two variables be used together in our analysis? Well, if we want to have legitimate results, we can't match these two sets of data. If we're using the prices in 2018, we should find the number of rides in 2018 as well. Unfortunately, a lot of the times, this is an issue. We can ignore this issue if one of the variables does not change much from year to year.
+
+
+### Dataset is not representative of the population that you are interested in
+
+You will hear the term *representative sample* but what is it? Before defining a representative sample, let's see what a population is in statistical terms. We have used the word *population* without really getting into its definition.
+
+A sample is part of a population. A population, in general, is every member of the whole group of people we are interested in. Sometimes it is possible to collect data for the entire population, like in the U.S. Census, but in most cases, we can't. So we collect data on only a subset of the population. For example, if we are studying the effect of sugar consumption on diabetes, we can't collect data on the entire population of the United States, but instead, we collect data on a *sample* of the *population*. Now, that we know what sample and population are, let's go back to the definition of a representative sample.
+
+A representative sample is a sample that accurately reflects the larger population. For instance, if the population is every adult in the United States, the sample includes an appropriate share of men and women, racial groups, educational groups, age groups, geographical groups, and income groups. If the population is supposed to be every adult in the U.S., then you can't collect data on just people in California, or just young people, or only men. This is the idea of a representative sample. It has to model the broader population in major respects.
+
+We give you one example in politics. Most recent telephone poles in the United States have been bad at predicting election outcomes. Why? This is because by calling people's landlines you can't guarantee you will have a representative sample of the voting age population since younger people are not likely to have landlines. Therefore, most telephone polls are skewed towards older adults.
+
+Random sampling is a necessary approach to having a representative sample. Random sampling in data collection means that you randomly choose your subjects and don't choose who gets to be in the sample and who doesn't. In random sampling, you select your subjects from the population at random like based on a coin toss. The following are examples of lousy sampling:
+
+* A research project on attitudes toward owning guns through a survey sent to subscribers of a gun-related magazine (gun magazine subscribers are not representative of the general population, and the sample is very biased)
+* A research project on television program choices by looking at Facebook TV interests (not everybody has a Facebook account)
+* A research study on school meals and educational outcomes done in a neighborhood with residents mainly from one racial group (school meal can have a different effect on different income and ethnic groups)
+* A researcher polls people as they walk by on the street.
+* A TV show host asks the program viewers to visit the network website and respond to a poll.
+
+With this logic, most online surveys or surveys on social media has to be taken with a grain of salt because not members of all social groups have an online presentation or use social media. 
+
+The moral of the story is that always think about what your population is. Your population can be anything depending on your project. If you are researching the effect of smoking on pregnant women, then your population is, well, pregnant women and not men. After you know your population, then always collect data from a sample that is representative of your population. Random sampling helps. And lastly, if you have no choice but to work with a dataset that is not collected randomly and is biased, be careful not to generalize your results to the entire population. If you collect data on pregnant women of age 18-24, you can't generalize your results to older women. If you collect data from the political attitudes of residents of Washington, DC, you can't say anything about the whole nation.
+
+### Some variables in the dataset is measured with error
+
+The last curse of a dataset is measurement error. In simple, measurement error refers to incorrect measurement of variables in your sample. Just like measuring things in the physical world comes with error (like measuring distance, exact temperature, BMI, etc.), measuring variables in the social context can come with an error. When you ask people how many books they have read in the past year, not everyone remembers it correctly. Similarly, you may have measurement error when you ask people about their income. A good researcher recognizes measurement error in the data before any analysis.
+
+
+### A case study: why were polls so wrong about the 2016 US election?
+
+The results of the 2016 US presidential election came as a surprise to a lot of the media outlets and poll experts. Most polls consistently projected that Hillary Clinton would defeat Donald Trump. Election forecasters put Clinton at a winning position at a chance as high as 70-99 percent. Polls are usually trustworthy but what happened in 2016.
+
+![Why were polls so wrong about the 2016 US election?](images/03_how_to_know/03_dataanalysis_how_to_know-10.png)
+
+We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms. To be more specific, the problem was what is called the nonresponse bias. Nonresponse bias is the bias the sample caused by a particular section of the population systematically refusing to answer to the poll or survey. The consequence of nonresponse bias is a sample that is not representative of the population as we discussed above. For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election. It is known that less educated voters who constitute a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls and the hypothesis of the shy voters as other reasons polls failed to predict the outcome of the election correctly. 
+
+All in all, the data and how they're collected matters. There is a term in statistics that says "garbage in, garbage out," which means poor quality input will always produce poor output. A data analysis that is based on faulty data produces faulty results. Be cautious about the data that you use in your analysis and always tell your listeners and readers about the deficiencies of your data. After all, you know your data better than anyone else.
+
+
+### Slides and Video
+
+![How to Know if You Don't Have the Right Data](UPDATE)
+
+* [Slides](https://docs.google.com/presentation/d/1AT2PhPZBMMA8eA5Ne3DjL2SIAKUejEAKRjUL7JbxlM8/edit?usp=sharing)
+
+{quiz, id: quiz_03_how_to_know}
+
+### How to Know quiz
+
+{choose-answers:4} 
+? Which one of the following is NOT among the common issues with data?
+
+C) Variables are collected from different locations.
+C) Sample is large.
+o) Data is too small.
+o) There is measurement error in the data.
+o) Variables in the dataset are not collected in the same year.
+
+{choose-answers:4} 
+? What is a proxy variables?
+
+C) A variable that is highly correlated with the variable of interest and can be used instead of it.
+o) A variable that is exactly the same as the variable of interest.
+o) A variable that is measured in the same way as the variable of interest.
+o) A variable that is not correlated with the variable of interest, but is similar to the variable of interest.
+
+{choose-answers:4} 
+? Which of the following is a representative sample?
+
+C) Sample: randomly selected sample of teachers in the U.S., population: all teachers in the U.S.
+C) Sample: randomly selected sample of teenagers in Chicago, population: all teenagers in Chicago
+o) Sample: a sample of people in a bar, population: adult population in the U.S.
+o) Sample: a randomly selected sample of parent in a school, population: parents in Boston
+o) Sample: a randomly selected sample of college students in Johns Hopkins University, population: college students in private universities.
+
+{choose-answers:4} 
+? What does the expression garbage in, garbage out means?
+
+C) If the data used in analysis is of poor quality, the results of the analysis will be poor.
+o) If the analysis is poor, that means the analyst used poor quality data.
+o) If the analyst is not good, it doesn't matter what data he or she uses.
+o) If you use high quality data in an analysis, the results will certainly be high quality.
+
+{/quiz}
