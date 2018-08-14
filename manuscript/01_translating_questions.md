@@ -4,7 +4,7 @@ As we discussed in the first lesson, the approach to data analysis that we prefe
 
 In some cases the question that you want to answer will be a question driven by your curiousity. For example, you may be interested in a question about your fitness. You could collect data using a Fitbit and the MyFitnessPal app. Or you may have a question about what kind of songs you like best and collect data from your Spotify profile. You might also be interested in where the potholes are most common in your city. You could collect information from your city's open data website. 
 
-Another really common situation is that _someone else_ is coming up with the question. When you are working as a data scientist this might be the marketing team, and executive, or an engineer who has a question that they would like to answer with the data. Part of your job as a data scientist is to translate general questions into data science questions. 
+Another really common situation is that _someone else_ is coming up with the question. When you are working as a data scientist this might be the marketing team, and executive, or an engineer who has a question that they would like to answer with the data. They might bring you the question, the data or both. Part of your job as a data scientist is to translate general questions into data science questions. 
 
 The first step in translating a general question into a data science question is to make it as concrete as possible. For example here are some generic questions you might be interested in: 
 
@@ -14,7 +14,7 @@ The first step in translating a general question into a data science question is
 
 These questions are _interesting_ but they aren't very _specific_. This is how most good data science projects start. To make a question more concrete you need to think about the data you would use to answer the question. This could either be data that you have or data that you think you could find. 
 
-For each of these questions you need to ask some specific questions:
+For each of these questions you need to ask these questions: 
 
 * What or who am I trying to understand with data? 
 * What measurements do I have on those people or objects that help me answer the question?
@@ -42,7 +42,7 @@ __When I run more do I lose weight?__
 
 ___Are customers more likely to click on ads with puppies?__
 
-* _What or who am I trying to understand with data?_ I'm trying to understand something about customers. I would need to figure out which customers. Customers trying to buy motorbikes might be different than customers trying to buy pet food. We'd have to ask further questions to figure out which customers we are talking about.
+* _What or who am I trying to understand with data?_ I'm trying to understand something about customers. I would need to figure out which customers. Customers trying to buy motorbikes might be different than customers going to Pets.com. We'd have to ask further questions to figure out which customers we are talking about.
 * _What measurements do I have on those people or objects that help me answer the question?_  Suppose we have all the data from a set of customers who visited a website for buying dog food for a single day. Some of the customers saw a puppy ad and some didn't. We also have data on how much dog food they bought. 
 * _How do the data I have limit the type of question I can answer?_ I only have data on a single website and only on a single day. So I might not be able to say things about other websites or other days. 
 * _What is the type of data science question we are trying to answer?_ In this case we are looking for a relationship between two variables and trying say something about all the customers for a website. So this is an inferential analysis. 
@@ -64,9 +64,6 @@ Let's practice translating questions to data science questions through an exampl
 A Twitter user came up with a hypothesis that when Donald Trump was tweeting, hyperbolic tweets came from an Android phone (which he suggested were coming from Donald Trump) and non-hyperbolic tweets came from an iPhone (which he suggested came from Donald Trump's staff). 
 
 This twitter had noticed that "When Trump wishes the Olympic team good luck, he’s tweeting from his iPhone. When he’s insulting a rival, he’s usually tweeting from an Android." Robinson started with this question and translated it into a data science question he could answer with data he could collect from Twitter. 
-
-
-![Analysis of Donald Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-6.png)
 
 __What or who am I trying to understand with data?__
 
@@ -92,15 +89,11 @@ __What is the type of data science question we are trying to answer?__
 
 Using some exploratory analysis, David Robison first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words "badly" or "crazy" are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone. 
 
-![Likelihood of words tweeted from Android or iPhone phones](images/01_translating_questions/01_dataanalysis_translating_questions-8.png)
 
 Next he can label each word with one of 10 sentiments:  positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust using lists that have been put together in the `tidytext` package. Robinson found that Tweets that come from the Android account use about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does.
 
-![Sentiment analysis of Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-9.png)
 
 This exploratory analysis suggested that there is a difference between tweets coming from an Android phone versus an iPhone. If you read the post, you will see that further analysis suggests that there are very different types of tweets happening at very different times. This doesn't show that one person or another is sending those tweets which would require other sources of data we don't have. 
-
-
 
 
 ### Slides and Video
