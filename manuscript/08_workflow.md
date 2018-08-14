@@ -1,4 +1,4 @@
-# Data analysis workflow
+# Data Analysis Workflow
 
 In previous lessons, we went over the basics of data analysis. We went from how to ask data science questions and finding data to inferential and predictive data analysis. Since as a data scientist you may end up working on different projects at the same time. To prevent forgetting important steps that you learned in this course it's crucial that you follow all the steps. In this lesson, we're going to talk about a workflow for your data analysis projects.
 
@@ -183,11 +183,13 @@ As you learned in previous lessons, make sure you document every step. This is i
 
 ### Slides and Video
 
+![Data Analysis Workflow](https://www.youtube.com/watch?v=c9FqUrTHjzQ)
+
 * [Slides](https://docs.google.com/presentation/d/1TYOQzkJL8ZSGMQP25XAIsMvbB3mo2NOoCzT5Sp7hkFA/edit?usp=sharing)
 
 {quiz, id: quiz_08_data_analysis_workflow}
 
-### Data analysis workflow quiz
+### Data Analysis Workflow quiz
 
 {choose-answers:4} 
 ? Which of the following is NOT part of a data analysis workflow?

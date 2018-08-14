@@ -439,7 +439,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 
 ### Slides and Video
 
-![Descriptive Analysis](UDPATE LINK)
+![Descriptive Analysis](https://www.youtube.com/watch?v=b_Lhz3HKDys)
 
 * [Slides](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
 
