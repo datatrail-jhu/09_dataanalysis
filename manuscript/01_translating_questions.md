@@ -113,7 +113,7 @@ This exploratory analysis suggested that there is a difference between tweets co
 
 {quiz, id: quiz_01_translating_questions}
 
-### Translating questions quiz
+### Translating Questions quiz
 
 {choose-answers: 4}
 ? Which of the following is something you need to do when translating a general question to a data science question?
