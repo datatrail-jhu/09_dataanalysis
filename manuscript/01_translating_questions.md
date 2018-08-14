@@ -1,6 +1,5 @@
 # Translating Questions to Data Science Questions
 
-
 As we discussed in the first lesson, the approach to data analysis that we prefer is ["problem forward, not solution backward"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/). The main point of this approach is to start with the question that you want to ask before you look at the data or the analysis. 
 
 In some cases the question that you want to answer will be a question driven by your curiousity. For example, you may be interested in a question about your fitness. You could collect data using a Fitbit and the MyFitnessPal app. Or you may have a question about what kind of songs you like best and collect data from your Spotify profile. You might also be interested in where the potholes are most common in your city. You could collect information from your city's open data website. 
@@ -21,6 +20,18 @@ For each of these questions you need to ask some specific questions:
 * What measurements do I have on those people or objects that help me answer the question?
 * How do the data I have limit the type of question I can answer?
 * What is the type of data science question we are trying to answer?
+
+
+The first question is focused on figuring out who or what you are trying to study. In the world of statistics this is sometimes called the "population" you are trying to study. When you ask a question it is best to be as specific as possible about what you are trying to study. A good way to be specific is to imagine the individual people or objects you are going to measure data on. Realistically, what is the group that you have or will collect data to measure? 
+
+The second question focuses on figuring out which variables are measured or will be measured in teh data that you have. We have discussed previously about all the different potential data types you might have, including standard quantitative or qualitative data, text, images, or videos can be data. When answering this question it helps to be specific. For example, unstructured text from a social media post may not be helpful, but words and labels for the words in that post may be the data that you are looking for. 
+
+The third question is critical for being careful in a data analysis. When you use the problem forward approach, you might start with a general question. But it might not be possible to answer that question with data we have. For example, it may be difficult to study directly the way that cigarrete smoke affects children since most children don't smoke. You might have to change your question to studying the way that second-hand smoking affects children or the way that parents smoking habits affect children. A key part of translating a general question into a data science question is identifying these limitations. 
+
+
+The fourth question is focused on figuring out what type of analysis you are doing. We introduced the flowchart for defining the question type in a previous lecture. The key questions to ask are how the data are summarized, what are the goals you are trying to achieve, and what does success for your analysis look like? One of the [most common errors](http://science.sciencemag.org/content/347/6228/1314) that people make in doing a data analysis is to answer the wrong type of data analytic question. 
+
+Let's try this approach out on a couple of made up examples and a real example to help you understand how to translate general questions into data science questions. 
 
 __When I run more do I lose weight?__
 
@@ -54,7 +65,6 @@ A Twitter user came up with a hypothesis that when Donald Trump was tweeting, hy
 
 This twitter had noticed that "When Trump wishes the Olympic team good luck, he’s tweeting from his iPhone. When he’s insulting a rival, he’s usually tweeting from an Android." Robinson started with this question and translated it into a data science question he could answer with data he could collect from Twitter. 
 
-was curious about if there are differences in the tone of the tweets.
 
 ![Analysis of Donald Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-6.png)
 
@@ -84,15 +94,13 @@ Using some exploratory analysis, David Robison first found that the most common 
 
 ![Likelihood of words tweeted from Android or iPhone phones](images/01_translating_questions/01_dataanalysis_translating_questions-8.png)
 
-Using sentiment analysis he found a difference in the types of words used in Android or iPhone tweets. He used the NRC Word-Emotion Association lexicon, available from the `tidytext` package, which associates words with 10 sentiments: positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. The interesting thing is that the "Trump’s Android account uses about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does."
+Next he can label each word with one of 10 sentiments:  positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust using lists that have been put together in the `tidytext` package. Robinson found that Tweets that come from the Android account use about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does.
 
 ![Sentiment analysis of Trump's tweets](images/01_translating_questions/01_dataanalysis_translating_questions-9.png)
 
-Now that you know the type of your question, here's is how we can figure out what types of data science analysis is best to approach the problem. Most type 1 problems can be solved using descriptive analysis. Most type 2 problems can be solved using exploratory analysis or inferential analysis. And finally, most type 3 problems can be solved using predictive analysis.
+This exploratory analysis suggested that there is a difference between tweets coming from an Android phone versus an iPhone. If you read the post, you will see that further analysis suggests that there are very different types of tweets happening at very different times. This doesn't show that one person or another is sending those tweets which would require other sources of data we don't have. 
 
-![Different types of questions and different types of data science analysis](images/01_translating_questions/01_dataanalysis_translating_questions-10.png)
 
-So for your next project as a data scientist, first try to write down your question in a short sentence, then figure out what type of question it is, and decide what types of data science analysis is the best method for your question.
 
 
 ### Slides and Video
