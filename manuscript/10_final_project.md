@@ -14,7 +14,13 @@ This project will require you to:
 
 You can access the project by going to the exercise accompanying this lesson.
 
+### Slides
+
+* [Slides](https://docs.google.com/presentation/d/1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac/edit?usp=sharing)
+
 {exercise, id: final_project}
+
+## Final Project
 
 This exercise has been generated to practice everything you have learned in this course set.
 
@@ -73,34 +79,37 @@ Once the .Rmd document is in the correct folder, you'll want to **change the aut
 
 ### Pushing to GitHub
 
-You'll want to save changes to your project regularly by pushing them to GitHub. Now that you've got your file structure set up and have added a code file (.Rmd) and two raw data files (.dat), it's a good time to stage, commit, and push these changes to GitHub. Do so now, and then take a long on GitHub to see the changes on their website!
+You'll want to save changes to your project regularly by pushing them to GitHub. Now that you've got your file structure set up and have added a code file (.Rmd), it's a good time to stage, commit, and push these changes to GitHub. Do so now, and then take a long on GitHub to see the changes on their website!
 
 **Note**: If you're stuck on this, these steps were covered in detail in an earlier course: [Version Control](https://leanpub.com/universities/courses/jhu/version-control). Refer to the materials in this course if you're stuck on this part of the project.
 
 ### The Data
 
-The American Time Use Survey (ATUS) is a time-use survey of Americans, which is sponsored by the Bureau of Labor Statistics (BLS) and conducted by the the U.S. Census Bureau. Respondents of the survey are asked to keep a diary for one day carefully recording the amount of time they spend on various activities including working, leisure, childcare, and household activities. The survey has been conducted every year since 2003.
+The **American Time Use Survey (ATUS)** is a time-use survey of Americans, which is sponsored by the Bureau of Labor Statistics (BLS) and conducted by the the U.S. Census Bureau. Respondents of the survey are asked to keep a diary for one day carefully recording the amount of time they spend on various activities including working, leisure, childcare, and household activities. The survey has been conducted every year since 2003.
 
-Included in the data are main demographic variables such as respondents' age, sex, race, marital status, and education. The data also includes detailed income and employment information for each respondent. While there are some slight changes to the survey each year, the main questions asked stay the same. You can find the data dictionaries for each year on [https://www.bls.gov/tus/dictionaries.htm](https://www.bls.gov/tus/dictionaries.htm)
+Included in the data are a number of **demographic variables** (such as respondents' age, sex, race, marital status, and education) as well as **detailed income and employment information** for each respondent. While there are some slight changes to the survey each year, the main questions asked stay the same. You can find the **data dictionaries**, which provide information about the variables included for each year's survey at [https://www.bls.gov/tus/dictionaries.htm](https://www.bls.gov/tus/dictionaries.htm).
 
 
 ### Accessing the Data
 
-There are multiple ways to access the ATUS data:
+There are multiple ways to access the ATUS data; however, for this project, you'll get the raw data directly from the source. The data for each year can be found at [https://www.bls.gov/tus/#data](https://www.bls.gov/tus/#data). Once there, there is an option of downloading a multi-year file, which includes data for all of the years the survey has been conducted, but **for the purposes of this project, let's just look at the data for 2016**. Under **Data Files**, click on `American Time Use Survey--2016 Microdata files`. 
 
-1. The most intuitive way is to go to the webpage where the dataset is hosted and download the data. This is where the data for each year can be found [https://www.bls.gov/tus/#data](https://www.bls.gov/tus/#data). Once there, you will have the option of downloading a multi-year file, which includes data for all of the years the survey has been conducted, but you also have the option to download the data for a specific year of your choosing. Let's say you want to look at the data for 2016. Under Basic 2016 ATUS Data Files, you will see two files: ATUS-CPS 2016 file (zip) and ATUS 2016 Activity summary file (zip). 
+![American Time Use Survey](images/10_final_project/10_dataanalysis_final_project-1.png)
 
-The first file contains information about each household member of all individuals selected to participate in the ATUS. The second file contains information about the total time each ATUS respondent spent doing each activity listed in the survey. The activity data includes information such as activity codes, activity start and stop times, and locations. Click on each file to download them. After unzipping the files, you will see multiple versions of the dataset including .sas, .sps, and .dat files. 
+You will be brought to a new screen. Scroll down to the section **2016 Basic ATUS Data Files**. Under this section, you'll want to **click to download** the following two files: `ATUS 2016 Activity summary file (zip)` and `ATUS-CPS 2016 file (zip)`. 
 
-2. The second way access the data is to use the `atus` package in order to download and import data directly into R. For more detail, refer to the package documentation.
+![Download Data Files](images/10_final_project/10_dataanalysis_final_project-2.png)
 
-3. You can also use the `lodown` package through Github on [https://github.com/ajdamico/lodown](https://github.com/ajdamico/lodown) for downloading and importing data. More information on this package can be found on [http://asdfree.com/american-time-use-survey-atus.html](http://asdfree.com/american-time-use-survey-atus.html). Note that this is not a CRAN package, so follow the instructions we learned for downloading packages from Github. 
+* `ATUS 2016 Activity summary file (zip)` contains information about the total time each ATUS respondent spent doing each activity listed in the survey. The activity data includes information such as activity codes, activity start and stop times, and locations.
+* `ATUS-CPS 2016 file (zip)` contains information about each household member of all individuals selected to participate in the ATUS.
 
-4. Use can use the data provided on [Kaggle](https://www.kaggle.com/bls/american-time-use-survey). The Kaggle data is cleaned but the documentation on how it's cleaned isn't great. 
+Once they've been downloaded, you'll need to **unzip the files**. Once unzipped, you will see the dataset in a number of different file formats including `.sas`, `.sps`, and `.dat` files. **We'll be working with the .dat files.**
 
 ### Loading the Data into R
 
-Use the first approach explained above to download and access the ATUS data for 2016. Download the CPS and Activity Summary files in a folder and unzip them and within each folder upload the files ending in .dat to RStudio.cloud. Make sure the data is in the `raw_data` folder. To load the data in, **run the code in the `atus-data` code chunk** to create an object called `atus.all`. 
+To use the data in RStudio Cloud, you'll have to **upload the two .dat files (`atuscps_2016.dat` and `atussum_2016.dat`)** into RStudio Cloud. Make sure the **data are stored in the `raw_data` folder**. 
+
+Once uploaded into the correct folder, you'll be able to load the data in, You'll do this by first **running the `setup` chunk in the `final_project.Rmd` file** and then by **running the code in the `atus-data` code chunk**. This will create an object called `atus.all`. 
 
 ? How many observations are in the dataset?
 
@@ -109,19 +118,21 @@ Use the first approach explained above to download and access the ATUS data for 
 
 ### Analyze the Data
 
-Once the data have been read in, **explore the data**, **adding your code to `final_project.Rmd`**, and then **answer the following questions**:
+Once the data have been read in, **explore the data**, **adding your initial exploratory code to the `initial-exploration` code chunk in `final_project.Rmd`**. Then, **answer the following questions**:
 
 {choose-answers: 4}
-? You can find data dictionaries (also called codebooks) at [https://www.bls.gov/tus/atuscpscodebk16.pdf](https://www.bls.gov/tus/atuscpscodebk16.pdf) for the CPS data and at [https://www.bls.gov/tus/atusintcodebk16.pdf](https://www.bls.gov/tus/atusintcodebk16.pdf) for the rest of the variables. Using this data dictionary is very important as a lot of the information about the variables in the data and how they are coded can be found here. By looking at the variables in the data frame `atus.all` we see that there are a lot of variables that start with `t` followed by a 6-digit number. These variables capture the total number of minutes each respondent spent doing each activity. The link [https://www.bls.gov/tus/lexiconwex2016.pdf](https://www.bls.gov/tus/lexiconwex2016.pdf) lists all the activity codes. From the file what column is associated with the activity "playing computer games"? Your answer should start with `t` and then a 6-digit number that combines the major category, the 2nd tier, and the 3rd tier of the activity. For instance, if major category in equal to 05, second tier is equal to 03, and third tier is equal to 01, then your answer should be `t050301`. 
+? You can find data dictionaries (also called codebooks) at [https://www.bls.gov/tus/atuscpscodebk16.pdf](https://www.bls.gov/tus/atuscpscodebk16.pdf) for the CPS data and at [https://www.bls.gov/tus/atusintcodebk16.pdf](https://www.bls.gov/tus/atusintcodebk16.pdf) for the rest of the variables. Using this data dictionary is very important as **a lot of the information about the variables in the data and how they are coded can be found here**. By looking at the variables in the data frame `atus.all`, we see that there are a lot of variables that start with `t` followed by a 6-digit number. These variables capture the total number of minutes each respondent spent doing each activity. The link [https://www.bls.gov/tus/lexiconwex2016.pdf](https://www.bls.gov/tus/lexiconwex2016.pdf) lists all the activity codes. Using the information in [that file]((https://www.bls.gov/tus/lexiconwex2016.pdf)), what column is associated with the activity "playing computer games"? Your answer should start with `t` and then a 6-digit number that combines the major category, the 2nd tier, and the 3rd tier of the activity. For instance, if major category in equal to 05, second tier is equal to 03, and third tier is equal to 01, then your answer should be `t050301`. 
 
 C) `t120307`
 o) `t030705`
 o) `t050310`
 o) `t051201`
 o) `t131103`
+o) `t031103`
+o) `t050202`
 
 {choose-answers: 4}
-? In the data, the variable `t010101` contains the total number of minutes each respondent spent doing activity 010101 which is "sleeping" and the variable `t010102` contains the total number of minutes each respondent spent doing activity 010102, "sleeplessness." Find the variable associated with "Socializing and communicating with others." How much time, on average, does a person in the sample spend on "Socializing and communicating with others"? Again, The link [https://www.bls.gov/tus/lexiconwex2016.pdf](https://www.bls.gov/tus/lexiconwex2016.pdf) lists all the activity codes.
+? In the data, the variable **`t010101` contains the total number of minutes each respondent spent doing activity 010101** which is "sleeping" and the variable **`t010102` contains the total number of minutes each respondent spent doing activity 010102**, "sleeplessness." Find the variable associated with "Socializing and communicating with others." How much time, on average, does a person in the sample spend on "Socializing and communicating with others"? Again, The link [https://www.bls.gov/tus/lexiconwex2016.pdf](https://www.bls.gov/tus/lexiconwex2016.pdf) lists all the activity codes.
 
 C) 38 minutes
 o) 100 minutes
@@ -138,7 +149,7 @@ Move on to the code chunk called `childcare-density-plot` and write code in `ggp
 
 ! TESEX
 
-? From the data dictionary, the variable the represents the gender of the respondents can take two values, 1 and 2. Which gender group does 1 represent?
+? From the data dictionary, the variable that represents the gender of the respondents can one of take two values, `1` or `2`. Which gender group does `1` represent?
 
 A) Men
 b) Women
@@ -155,9 +166,9 @@ d) Men, on average, spend around 14 minutes more with their children than women.
 
 Use the table function to look at the variable `TRDPFTPT` which shows whether the person works full time or part time. You will notice that the variable also takes the value -1. This is probably due to non-response or other data collection reasons. Replace these values with `NA` in your data so they don't affect your analysis. Use the code chunk `replacing-na` for doing this and add your commands there.
 
-? How many NAs are in the variable now?
+? How many `NAs` are in the variable now?
 
-! 4119
+! 4119 ; 4,119
 
 Now, we are going to explore what factors affect time spent with children. We are going to answer questions like:
 
@@ -188,7 +199,6 @@ o) 70 minutes
 o) 20 minutes
 o) 2 minutes
 o) 270 minutes
-
 
 In the next few questions, we are going to see whether time spent on different activities varies by age. However, we will only consider activities at the major category levels. There are 18 major categories in the data including personal care, household activities, caring for & helping household members, etc. Because each activity column in the data is at the 3rd tier, we will need to start by suming columns at the activity major categories levels. Save the resulting data frame as `df.wide`. Use code chunk `activity-cats` in the .Rmd file for this part.
 
@@ -252,9 +262,7 @@ D) Middle aged people work the most compared to younger and older people.
 A) Older people spend more time socializing.
 b) Middle-aged people are the most social.
 c) Younger people socialize more than older people.
-d) young people are the most social.
-
-
+d) Young people are the most social.
 
 Finally, in this last step, we are going to create a graph that shows how different income groups spend time doing each activity. The graph is based on Henrik Lindberg's data visualization posted [here](https://raw.githubusercontent.com/halhen/viz-pub/master/pastime-income/pastime.png). The only difference is that we are only looking at the 18 major activity categories. Use the long data that you created in the previous section and make the graph as close as possible to the graph by Henrik Lindberg. Type your code in the code chunk `activity-income`.
 
@@ -279,14 +287,14 @@ Last but not least, you'll want to **Knit your .Rmd document into an HTML docume
 
 A complete project should have:
 
-- completed code chunks throughout the .Rmd document (your RMarkdown document should Knit without any error)
+- Completed code chunks throughout the .Rmd document (your RMarkdown document should Knit without any error)
 - Readme.md text file explaining your project
-- Comments in your code chunk
+- Comments in your code chunks
 - Answered all questions throughout this exercise.
 
 ### Final `push` to GitHub
 
-Now that you've finalized your project, you'll do one final **push to GitHub**. add, commit, and push your work to GitHub. Navigate to your GitHub repository, and answer the final question below! 
+Now that you've finalized your project, you'll do one final **push to GitHub**. `add`, `commit`, and `push` your work to GitHub. Navigate to your GitHub repository, and answer the final question below! 
 
 **Note**: If you're stuck on this, these steps were covered in detail in an earlier course: [Version Control](https://leanpub.com/universities/courses/jhu/version-control). Refer to the materials in this course if you're stuck on this part of the project.
 
