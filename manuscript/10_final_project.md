@@ -118,6 +118,10 @@ Once uploaded into the correct folder, you'll be able to load the data in, You'l
 
 ### Analyze the Data
 
+Now that we've got the data in RStudio Cloud, let's get to work!
+
+#### Descriptive and Exploratory Data Analysis
+
 Once the data have been read in, **explore the data**, **adding your initial exploratory code to the `initial-exploration` code chunk in `final_project.Rmd`**. Then, **answer the following questions**:
 
 {choose-answers: 4}
@@ -154,6 +158,8 @@ Move on to the code chunk called `childcare-density-plot` and write code in `ggp
 A) Men
 b) Women
 
+#### Inferential Data Analysis
+
 We are going to answer whether women or men spend more time with their children. Start by grouping individuals by their gender and calculate the average time men and women spend with their children. Use the code chunk `gender-analysis` in the .Rmd file. Note that you should replace `FUNCTION` in order to calculate the average of the variable `CHILDCARE`.
 
 ? Men and women are different in the amount of time they spend with their children. Which group spends more time, men or women?
@@ -164,7 +170,7 @@ c) Men, on average, spend around 33 minutes more with their children than women.
 d) Men, on average, spend around 14 minutes more with their children than women.
 
 
-Use the table function to look at the variable `TRDPFTPT` which shows whether the person works full time or part time. You will notice that the variable also takes the value -1. This is probably due to non-response or other data collection reasons. Replace these values with `NA` in your data so they don't affect your analysis. Use the code chunk `replacing-na` for doing this and add your commands there.
+Use the `table()` function to look at the variable `TRDPFTPT` which shows whether the person works full time or part time. You will notice that the variable also takes the value -1. This is probably due to non-response or other data collection reasons. Replace these values with `NA` in your data so they don't affect your analysis. Use the code chunk `replacing-na` for doing this and add your commands there.
 
 ? How many `NAs` are in the variable now?
 
@@ -239,7 +245,6 @@ Convert the data from wide to long using the package of your choice and save the
 
 Now, group the data frame you created in the previous step by activity type (`ACTIVITY`) and age (`TEAGE`). Calculate the average time for each age group and call it `AVGMINS`. In `ggplot2`, plot `AVGMINS` against `TEAGE` for each category (multiple panels). Type your code in the code chunk `age-activity`. Label each panel in your graph with the appropriate activity name.
 
-
 {choose-answers: 4}
 ? For which categories does the average time spent vary by age? 
 
@@ -263,6 +268,8 @@ A) Older people spend more time socializing.
 b) Middle-aged people are the most social.
 c) Younger people socialize more than older people.
 d) Young people are the most social.
+
+#### Data Visualization
 
 Finally, in this last step, we are going to create a graph that shows how different income groups spend time doing each activity. The graph is based on Henrik Lindberg's data visualization posted [here](https://raw.githubusercontent.com/halhen/viz-pub/master/pastime-income/pastime.png). The only difference is that we are only looking at the 18 major activity categories. Use the long data that you created in the previous section and make the graph as close as possible to the graph by Henrik Lindberg. Type your code in the code chunk `activity-income`.
 
