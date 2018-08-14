@@ -308,7 +308,8 @@ Now that you've finalized your project, you'll do one final **push to GitHub**. 
 
 ? Submit the URL to your `final_project` GitHub repository below.
 
-! /(https:\/\/github.com.+\/final_project)/i
+! Submitted
+# ! /(https:\/\/github.com.+\/final_project)/i
 
 **Congrats on finishing your Final Project!!**
 
