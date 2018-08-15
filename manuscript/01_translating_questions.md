@@ -151,7 +151,7 @@ o) You need to remove details
 ? You want to understand the relationship between different skills and the salary you might earn as a data scientist. You collect data about New York data science salaries and job requirements from the well-known developer website StackOverflow to study this question. What are some potential limitations of this data?
 
 (C) StackOverflow is just one website and different websites might have different jobs posted. 
-(C) The data are only about jobs in New York, but you might be looking for a job somewhere else. 
+(C) The data are only about jobs in New York, but you might be looking for a job somewhere else.
 (o) The data are collected from the internet so might be untrustworthy. 
 (o) The data only focus on data scientists.  
 (o) You don't know the name of the human resources manager for each job. 
