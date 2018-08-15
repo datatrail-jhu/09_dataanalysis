@@ -128,13 +128,13 @@ o) You need to remove details
 {choose-answers: 4}
 ? Which of the following is not a question you need to ask when translating a general question to a data science question?
 
-(m) What or who am I trying to understand with data? 
-(m) What measurements do I have on those people or objects that help me answer the question?
-(m) How do the data I have limit the type of question I can answer?
 (C) What is the variable name in the data set? 
 (C) What are the names of the data files I will be using? 
 (C) What is the reason that this question is interesting? 
 (C) What is the right plot to use to answer this question? 
+(m) What or who am I trying to understand with data? 
+(m) What measurements do I have on those people or objects that help me answer the question?
+(m) How do the data I have limit the type of question I can answer?
 
 
 {choose-answers: 4}
