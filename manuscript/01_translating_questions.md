@@ -115,7 +115,7 @@ This exploratory analysis suggested that there is a difference between tweets co
 
 ### Translating Questions quiz
 
-{choose-answers: 4}
+{choose-answers:4}
 ? Which of the following is something you need to do when translating a general question to a data science question?
 
 C) You need to make it specific
@@ -125,36 +125,36 @@ o) You need to make it about machine learning
 o) You need to make it short
 o) You need to remove details
 
-{choose-answers: 4}
+{choose-answers:4}
 ? Which of the following is not a question you need to ask when translating a general question to a data science question?
 
-(C) What is the variable name in the data set? 
-(C) What are the names of the data files I will be using? 
-(C) What is the reason that this question is interesting? 
-(C) What is the right plot to use to answer this question? 
-(m) What or who am I trying to understand with data? 
-(m) What measurements do I have on those people or objects that help me answer the question?
-(m) How do the data I have limit the type of question I can answer?
+C) What is the variable name in the data set? 
+C) What are the names of the data files I will be using? 
+C) What is the reason that this question is interesting? 
+C) What is the right plot to use to answer this question? 
+m) What or who am I trying to understand with data? 
+m) What measurements do I have on those people or objects that help me answer the question?
+m) How do the data I have limit the type of question I can answer?
 
 
-{choose-answers: 4}
+{choose-answers:4}
 ? Your colleague tells you they want to predict the number of donations they will get next year to your non-profit. Which of the following is a question you should ask them to translate this to a data science question?
 
-(C) What are the data you have on donations the last years and what are the other things you've measured each year that might predict donations? 
-(o) Why do you care about predicting donations since it is a totally random process? 
-(o) Is the data that you have collected in Excel spreadsheets or in a Google Doc? 
-(o) What is the biggest donation that you have ever received? 
-(o) What is the name of each of your donors? 
-(o) What are the names of some of your potential donors? 
+C) What are the data you have on donations the last years and what are the other things you've measured each year that might predict donations? 
+o) Why do you care about predicting donations since it is a totally random process? 
+o) Is the data that you have collected in Excel spreadsheets or in a Google Doc? 
+o) What is the biggest donation that you have ever received? 
+o) What is the name of each of your donors? 
+o) What are the names of some of your potential donors? 
 
-{choose-answers: 4}
+{choose-answers:4}
 ? You want to understand the relationship between different skills and the salary you might earn as a data scientist. You collect data about New York data science salaries and job requirements from the well-known developer website StackOverflow to study this question. What are some potential limitations of this data?
 
-(C) StackOverflow is just one website and different websites might have different jobs posted. 
-(C) The data are only about jobs in New York, but you might be looking for a job somewhere else.
-(o) The data are collected from the internet so might be untrustworthy. 
-(o) The data only focus on data scientists.  
-(o) You don't know the name of the human resources manager for each job. 
-(o) You don't know if the job comes with free snacks or not. 
+C) StackOverflow is just one website and different websites might have different jobs posted. 
+C) The data are only about jobs in New York, but you might be looking for a job somewhere else.
+o) The data are collected from the internet so might be untrustworthy. 
+o) The data only focus on data scientists.  
+o) You don't know the name of the human resources manager for each job. 
+o) You don't know if the job comes with free snacks or not. 
 
 {/quiz}
