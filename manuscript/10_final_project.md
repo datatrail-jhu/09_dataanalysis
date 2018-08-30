@@ -185,13 +185,13 @@ Now, we are going to explore what factors affect time spent with children. We ar
 
 Compare each of these relationships and present your results in a table or a graph. You can do this by first finding these variables from the data dictionary. Add your code in the code chunk `exploratory-analysis` in the .Rmd file. Make sure that in your analysis, you limit your data to those who have at least one child (18 or younger) in the household. The variable for the number of children (18 or younger) in the household is `TRCHILDNUM`. Use the data frame `atus.all` that you previously created and again limit your data to those who have at least one child (18 or younger) in the household. The variable for income is `HEFAMINC`. Other variables are easy to find from the data dictionary.
 
-In the exercise above, we looked at bilateral (two-way) relationships. For instance, we looked at how income and time spent with children are related. You have learned in this course, however, that other confounding variables can be a source of bias in your analysis.  For instance, the effect of income on time spent with children can be biased by the number of children a person has. Maybe richer people spend less time because they have fewer children. It's much better to look at the relationship of all relevant variables associated with time spent with children together. Run a linear regression of marital status, age, sex, number of children (18 or younger), earnings, and full-time versus part-time status. Add your code in the `reg-analysis` code chunk.
+In the exercise above, we looked at bilateral (two-way) relationships. For instance, we looked at how income and time spent with children are related. You have learned in this course, however, that other confounding variables can be a source of bias in your analysis.  For instance, the effect of income on time spent with children can be biased by the number of children a person has. Maybe richer people spend less time because they have fewer children. It's much better to look at the relationship of all relevant variables associated with time spent with children together. Run a linear regression of marital status, age, sex, number of children (18 or younger), earnings, and full-time versus part-time status. Add your code in the `reg-analysis` code chunk. Remember to limit the sample to those who have at least one child (18 or younger) in the household. Also make sure to to change the values of the variable `TRDPFTPT` that are `-1` to `NA`.
 
 {choose-answers: 4}
 ? What is the coefficient on gender now?
 
-C) 35
-o) -35
+C) 22
+o) -22
 o) 10
 o) -10
 o) 5
