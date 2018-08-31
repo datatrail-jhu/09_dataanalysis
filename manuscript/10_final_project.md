@@ -198,13 +198,13 @@ o) 5
 o) -5
 
 {choose-answers: 4}
-? In the regression, the coefficient on the variable age means how much time spent with children changes if age increases by 1. Based on your results, what's the difference in hours spent with children between two people with 10 years of age difference?
+? In the regression, the coefficient on the variable age means how much time spent with children changes if age increases by 1. Based on your results, what's the difference in minutes spent with children between two people with 10 years of age difference?
 
-C) 7 minutes
-o) 70 minutes
-o) 20 minutes
-o) 2 minutes
-o) 270 minutes
+C) 16 minutes
+o) 60 minutes
+o) 10 minutes
+o) 1.6 minutes
+o) 160 minutes
 
 In the next few questions, we are going to see whether time spent on different activities varies by age. However, we will only consider activities at the major category levels. There are 18 major categories in the data including personal care, household activities, caring for & helping household members, etc. Because each activity column in the data is at the 3rd tier, we will need to start by suming columns at the activity major categories levels. Save the resulting data frame as `df.wide`. Use code chunk `activity-cats` in the .Rmd file for this part.
 
