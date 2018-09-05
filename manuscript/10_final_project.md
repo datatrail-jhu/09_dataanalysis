@@ -39,7 +39,7 @@ Once the repository has been created, Click on `Clone or download` and copy the 
 
 ### RStudio Cloud Setup
 
-- Go to the [CBDS Final Project Workspace on RStudio Cloud](https://rstudio.cloud/spaces/3090/join?access_code=DajVLZCAQj3z0A4xyMuW0fh97bxTzctpBp6VXIIS) 
+- Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC)
 - Click on the "Projects" tab at the top of the workspace
 - Make a copy of the project: `cbds_final_project`
 
