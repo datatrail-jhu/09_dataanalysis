@@ -448,7 +448,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 ### Descriptive Analysis quiz
 
 {choose-answers:4}
-? Which of the following describes a descriptive analysis?
+?1 Which of the following describes a descriptive analysis?
 
 C) Make histograms of your sample data to calculate mean, median, and variance for each variable in your dataset
 C) Generate a table summarizing the number of observations in your dataset as well as the central tendencies and variances of each variable
@@ -459,7 +459,7 @@ o) Use your dataset to understand the mechanistic link between two variables
 o) Use your dataset to run a randomized trial, resulting in causal understanding
 
 {choose-answers:4, points:3}
-? What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
+?2 What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
 
 C) right-skewed
 o) Normal
@@ -468,8 +468,18 @@ o) Uniform
 o) Poisson
 o) Bernoulli
 
+{choose-answers:4, points:3}
+?2 What is the shape of the distribution for the variable `lat` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
+
+C) left-skewed
+m) right-skewed
+o) Normal
+o) Uniform
+o) Poisson
+o) Bernoulli
+
 {choose-answers:4}
-? For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
+?3 For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
 
 C) median
 m) mean
@@ -479,7 +489,7 @@ o) variance
 o) range
 
 {choose-answers:4}
-? To describe how spread out your the numbers in your variable are, what could you use?
+?4 To describe how spread out your the numbers in your variable are, what could you use?
 
 C) standard deviation
 C) variance
@@ -488,6 +498,29 @@ o) mode
 o) median
 o) mean
 o) sum
+o) central tendency
 
+{points:3}
+?5 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC){target="_blank"} and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+
+! /.*[ql7Q||ZrQI||TB46||JwnO||aemd||pXWR||OTZn||Y7kF||wYmh||hhBL].*/i
+
+
+{points:3}
+?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*[Bkex||dcn8||dajc||PnrI||sTea||1tk7||EYBv||4JzZ||KVYf||pKRA].*/i
+
+
+{points:3}
+?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*[VbN1||L0qw||gkoN||y33z||GPHl||ShP6||ZVK1||CZDf||ssQ5||x0nO].*/i
+
+
+{points:3}
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*[kNEY||5NTr||PJUu||fWxw||CfsZ||H8LY||oi7K||jjht||dIzg||badT].*/i
 
 {/quiz}

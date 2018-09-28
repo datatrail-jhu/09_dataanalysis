@@ -226,14 +226,6 @@ o) Predicts the probability that a message is SPAM
 o) Finds the relationship between different variables in the data
 o) Graphs the distribution of the data
 
-{choose-answers:4} 
-? In a prediction analysis, we would like to predict whether a student graduates from college. After the estimation, we use the test set to evaluate the uncertainty of our model. Our prediction model correctly predicts 360 students (out of 500) to graduate from college and correctly predicted 90 students (out of 100) that they don't graduate from college. What is the prediction error of our model using the test set?
-
-C) 25% 
-o) 75%
-o) 50%
-o) 10%
-o) 0%
 
 {choose-answers:4} 
 ? When interpreting the results of our data science analysis, we should...
@@ -245,9 +237,9 @@ o) Never use the word association because it is not a scientific word.
 o) never mention the uncertainty of our results since they may make our results look not reliable.
 
 {choose-answers:4} 
-? Which one of the following advices you should follow when writing up your results?
+? Which one of the following pieces of advice should you follow when writing up your results?
 
-C) Start with a question.
+C) Start with the question.
 o) You don't need to tell a story since it may make your results look less scientific.
 o) Include every piece of analysis you have done in your final report.
 o) Present your results chronologically.

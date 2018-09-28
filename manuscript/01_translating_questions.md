@@ -124,6 +124,7 @@ o) You need to make it interesting
 o) You need to make it about machine learning
 o) You need to make it short
 o) You need to remove details
+o) You need to know the answer up front
 
 {choose-answers:4}
 ? Which of the following is not a question you need to ask when translating a general question to a data science question?
@@ -132,18 +133,20 @@ C) What is the variable name in the data set?
 C) What are the names of the data files I will be using? 
 C) What is the reason that this question is interesting? 
 C) What is the right plot to use to answer this question? 
-m) What or who am I trying to understand with data? 
-m) What measurements do I have on those people or objects that help me answer the question?
-m) How do the data I have limit the type of question I can answer?
+o) What or who am I trying to understand with data? 
+o) What measurements do I have on those people or objects that help me answer the question?
+o) How do the data I have limit the type of question I can answer?
 
 
 {choose-answers:4}
 ? Your colleague tells you they want to predict the number of donations they will get next year to your non-profit. Which of the following is a question you should ask them to translate this to a data science question?
 
 C) What are the data you have on donations the last years and what are the other things you've measured each year that might predict donations? 
+C) What dontations data do you have from previous years and what are other metrics have been tracked that might predict donations? 
 o) Why do you care about predicting donations since it is a totally random process? 
 o) Is the data that you have collected in Excel spreadsheets or in a Google Doc? 
 o) What is the biggest donation that you have ever received? 
+o) What is the smallest donation that you have ever received? 
 o) What is the name of each of your donors? 
 o) What are the names of some of your potential donors? 
 
