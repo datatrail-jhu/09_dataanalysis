@@ -193,7 +193,7 @@ o) `geom_boxplot()`
 ! /.+(2CZB|FauT|Bjpx|MnXb|CLcf|Ainc|dvav|Fvcl|6gNn|zchI).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(S9C5|GkSz|LsiP|cm9Z|tsT1|xx8h|ud6J|dtF8|cpWo|UxWB).+/i
 
