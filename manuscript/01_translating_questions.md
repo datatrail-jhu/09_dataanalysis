@@ -107,7 +107,7 @@ This exploratory analysis suggested that there is a difference between tweets co
 
 ### Slides and Video
 
-![Translating Questions to Data Science Questions](https://www.youtube.com/watch?v=kBz21zIbR20)
+![Translating Questions to Data Science Questions](https://www.youtube.com/watch?v=uMD1XW9eQPs)
 
 * [Slides](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/edit?usp=sharing)
 
