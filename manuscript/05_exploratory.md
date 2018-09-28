@@ -98,7 +98,7 @@ What is obvious is that those who have a medal are taller. Can we say that being
 ### Exploratory Analysis quiz
 
 {choose-answers:4} 
-? What one of the following is not among the reasons we use exploratory analysis?
+?1 What one of the following is not among the reasons we use exploratory analysis?
 
 C) Using prediction analysis
 C) Performing regression analysis to be able to infer results about the general population
@@ -109,7 +109,7 @@ o) "Debug" analyses
 o) Communicate results
 
 {choose-answers:4} 
-? Which one of the following is not among the general principles of exploratory analysis?
+?2 Which one of the following is not among the general principles of exploratory analysis?
 
 C) Outliers should not be checked since they contain important information
 C) Nonlinear regressions are better than linear regressions
@@ -119,16 +119,26 @@ o) Use plots to explore relationships
 o) Use tables to explore relationships
 o) If necessary, transform variables
 
-{choose-answers:4} 
-? In the dataset used in this lesson, what is the number of missing values in the variable Age?
+{choose-answers:4, points:2} 
+?3 In the dataset used in this lesson, what is the number of missing values in the variable `Age`?
 
 C) 9474
+m) 60171
+o) 261642
+o) 0
+o) 271116
+
+{choose-answers:4, points:2} 
+?3 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the number of missing values in the variable `Height`?
+
+C) 60171
+m) 9474
 o) 261642
 o) 0
 o) 271116
 
 {choose-answers:4} 
-? In the dataset used in this lesson, what is the weight of the heaviest athlete?
+?4 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the weight of the heaviest athlete?
 
 C) 214
 o) 25
@@ -138,12 +148,53 @@ o) 70.7
 o) 79
 
 {choose-answers:4} 
-? Which one of the following `ggplot` functions can be used for producing scatter plots?
+?4 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the height of the tallest athlete?
+
+C) 226
+m) 214
+o) 127
+o) 60
+o) 100
+o) 70.7
+o) 79
+
+{choose-answers:4} 
+?5 Which one of the following `ggplot2` functions can be used to produce a scatter plot?
 
 C) `geom_point()`
+m) `geom_bar()`
 o) `geom_histogram()`
 o) `geom_density()`
 o) `geom_boxplot()`
-o) `geom_bar()`
+
+{choose-answers:4} 
+?5 Which one of the following `ggplot2` functions can be used to produce a bar chart?
+
+C) `geom_bar()`
+m) `geom_point()`
+o) `geom_histogram()`
+o) `geom_density()`
+o) `geom_boxplot()`
+
+{points:3}
+?6 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC){target="_blank"} and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+
+! /.*[FdHp||vp1F||ZDic||jFbv||t8UC||USLe||1dZb||a66z||P4Jk||kzFD].*/i
+
+
+{points:3}
+?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*[b3JA||Bx0b||JwPw||DlLI||Zq19||vn6g||DpIe||gMM5||mAiU||vRzJ].*/i
+
+{points:3}
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*[2CZB||FauT||Bjpx||MnXb||CLcf||Ainc||dvav||Fvcl||6gNn||zchI].*/i
+
+{points:3}
+? Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*[S9C5||GkSz||LsiP||cm9Z||tsT1||xx8h||ud6J||dtF8||cpWo||UxWB].*/i
 
 {/quiz}
