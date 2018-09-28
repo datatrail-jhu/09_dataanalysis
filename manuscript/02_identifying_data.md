@@ -235,7 +235,7 @@ All in all, the data and how they're collected matters. There is a term in stati
 
 ### Slides and Video
 
-![Do I Have The Data I Need](https://www.youtube.com/watch?v=KutVmkVNSE0)
+![Do I Have The Data I Need](https://www.youtube.com/watch?v=74r9V5S42fI)
 
 * [Slides](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)
 
