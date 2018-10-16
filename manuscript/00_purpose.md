@@ -78,7 +78,7 @@ when companies like YouTube want to understand whether their users are behaving 
 
 Sesame Street is a children's entertainment and educational program. Scientists might be interested in whether watching Sesame Street helps brain development in kids. To turn this into a data science question we need to make it more specific and focused on data. So we might convert this to a data science question like, "Can we compare children who watch Sesame Street and those who don't to see whose test scores are higher?" A complication is that it might be difficult and expensive to get parents to have their children participate in the study. So we might take a small sample of students and measure their test scores and find out whether they watch TV. Since we want to say something about _all_ children, but have only measured data on a few, this would be an inferential analysis.  
 
-- **Problem:** Does Sesame Street and kids brain development
+- **Problem:** Does Sesame Street affect kids brain development?
 - **Data science question:** Is there a relationship between watching Sesame Street and test scores among children?
 - **Type of analysis:** Inferential analysis
 
@@ -94,7 +94,7 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 
 ### Slides and Video
 
-![The Purpose of Data Science](https://www.youtube.com/watch?v=F42DjrGlKG4)
+![The Purpose of Data Science](https://www.youtube.com/watch?v=coS7Dk0xbog)
 
 * [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
 
@@ -132,7 +132,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?3 We collect data on all the foods in a grocery store and want to summarize the categories each item falls into (such as produce, meats & poultry, grains, etc.. What type of analysis is this?
+?3 We collect data on all the foods in a grocery store and want to summarize the categories each item falls into (such as produce, meats & poultry, grains, etc..) What type of analysis is this?
 
 C) Descriptive
 o) Exploratory
