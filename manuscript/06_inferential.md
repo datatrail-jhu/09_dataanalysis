@@ -435,7 +435,7 @@ In this lesson, we have covered *a lot*. We started off discussing that inferent
 
 ### Slides and Video
 
-![Inferential Analysis](https://www.youtube.com/watch?v=zOHzTtYhgOY)
+![Inferential Analysis](https://www.youtube.com/watch?v=11DqIm2BbHI)
 
 * [Slides](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/edit?usp=sharing)
 
@@ -444,7 +444,7 @@ In this lesson, we have covered *a lot*. We started off discussing that inferent
 ### Inferential Analysis quiz
 
 {choose-answers:4}
-? Why is inferential analysis necessary?
+?1 Why is inferential analysis necessary?
 
 C) Because we often can't study everyone in a population
 C) Because we want to be able to infer information about a population from a sample
@@ -456,7 +456,7 @@ o) It helps determine the mechanistic cause behind the relationship in your data
 
 
 {choose-answers:4, points:3}
-? Given the model: `fit <- lm(Sepal.Length ~ Sepal.Width, data = iris)` (meaning, go run that code), how much would you expect sepal length to change given a one unit increase in sepal width?
+?2 Given the model: `fit <- lm(Sepal.Length ~ Sepal.Width, data = iris)` (meaning, go run that code), how much would you expect sepal length to change given a one unit increase in sepal width?
 
 C) decrease by 0.22
 m) increase by 0.22
@@ -468,7 +468,7 @@ o) p < 0.05
 
 
 {choose-answers:4, points:2}
-? If your beta coefficient for a model that looked at the relationship between height and weight (for example: `lm(height ~ weight)`) were 0.2, what would that mean?
+?3 If your beta coefficient for a model that looked at the relationship between height and weight (for example: `lm(height ~ weight)`) were 0.2, what would that mean?
 
 C) for every 1 lb increase in weight, you would expect height to increase by 0.2 inches.
 C) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
@@ -479,7 +479,7 @@ o) for every 1 lb increase in weight, you would expect height to increase by 1 i
 o) for every 1 lb decrease in weight, you would expect hight to decrease by 1 inch.
 
 {choose-answers:4}
-? If you had a single numeric variable that was normally distributed, what test would you use to determine if its mean were different than the expected mean?
+?4 If you had a single numeric variable that was normally distributed, what test would you use to determine if its mean were different than the expected mean?
 
 C) t-test
 C) `t.test()`
@@ -490,7 +490,7 @@ o) multiple linear regression
 
 
 {choose-answers:4}
-? To account for confounding, what is one approach you could consider?
+?5 To account for confounding, what is one approach you could consider?
 
 C) multiple linear regression
 o) t-test
@@ -500,14 +500,40 @@ o) `lm()`
 o) simple linear regression
 
 {choose-answers:4, points:2}
-? This code would run which of the following analyses: `lm(weight ~ height, data = df)`
+?6 This code would run which of the following analyses: `lm(weight ~ height, data = df)`
 
 C) simple linear regression
-o) multiple linear regression
+m) multiple linear regression
 o) t-test
 o) `t.test()`
 o) `prop.test()`
 o) `lm()`
+
+{choose-answers:4, points:2}
+?6 This code would run which of the following analyses: `lm(weight ~ height + sex, data = df)`
+
+C) multiple linear regression
+m) simple linear regression
+o) t-test
+o) `t.test()`
+o) `prop.test()`
+o) `lm()`
+
+{points:3}
+?7 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+
+! /.+(c66R|iLNb|LpE7|4eHK|tvFJ|iDpc|fTC3|pivl|Ctjm|9XvR).+/i
+
+
+{points:3}
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(Hx3B|B1rr|VRPL|kcDX|o17f|iVYf|NJP5|YAsw|YEXw|Xl5D).+/i
+
+{points:3}
+?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(Vj1T|ht5U|jd5g|yG4O|hhUB|3ngr|5SXs|e5RA|clMC|bwnm).+/i
 
 {/quiz}
 

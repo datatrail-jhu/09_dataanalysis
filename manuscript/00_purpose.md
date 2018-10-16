@@ -3,6 +3,7 @@ course-completeness: 100
 course-attempts: 2
 default-quiz-attempts: 2
 default-random-choice-order: true
+default-quiz-show-answers: none
 }
 
 # The Purpose of Data Science
@@ -93,7 +94,7 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 
 ### Slides and Video
 
-![The Purpose of Data Science](https://www.youtube.com/watch?v=PMFwnRLQpYE)
+![The Purpose of Data Science](https://www.youtube.com/watch?v=F42DjrGlKG4)
 
 * [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
 
@@ -102,7 +103,7 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 ### Purpose of Data Science quiz
 
 {choose-answers: 4}
-? A data science problem solving process can be broken down to the following in what order?
+?1 A data science problem solving process can be broken down to the following in what order?
 
 C) Define the question, get the data, clean the data, explore the data, fit statistical models, communicate the results, make your analysis reproducible
 o) Get the data, clean the data, define the question, explore the data, fit statistical models, communicate the results, make your analysis reproducible
@@ -111,16 +112,17 @@ o) Make your analysis reproducible, Define the question, get the data, clean the
 o) Define the question, get the data, clean the data, fit statistical models
 
 {choose-answers: 4}
-? What is predictive analysis?
+?2 Which of the following describes a predictive analysis?
 
+C) Using data collected from many people to predict the values for a new person
+C) Using data collected in the past to predict values for an individual in the future
 o) Finding if one variable is related to another one
 o) Finding if a large number of variables influence another one
-C) Using data collected from many people to predict the values for a new person
 o) Using data to predict the relationship between two variables for all people. 
 o) Showing the effect on a variable of changing the values of another variable. 
 
 {choose-answers: 4}
-? We collect data on all the songs in the Spotify catalogue and want to summarize how many are country western, hip-hop, classic rock, or other. What type of analysis is this? ?
+?3 We collect data on all the songs in the Spotify catalogue and want to summarize how many are country western, hip-hop, classic rock, or other. What type of analysis is this?
 
 C) Descriptive
 o) Exploratory
@@ -130,21 +132,50 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-? We collect data a small sample of songs from the Spotify catalogue and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? ? 
+?3 We collect data on all the foods in a grocery store and want to summarize the categories each item falls into (such as produce, meats & poultry, grains, etc.. What type of analysis is this?
 
-o) Descriptive
+C) Descriptive
 o) Exploratory
 o) Predictive
-C) Inferential
+o) Inferential
 o) Causal
 o) Mechanistic
 
+{choose-answers: 4}
+?4 We collect data on a small sample of songs from the Spotify catalogue and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? ? 
+
+C) Inferential
+o) Descriptive
+o) Exploratory
+o) Predictive
+o) Causal
+o) Mechanistic
 
 {choose-answers: 4}
-? We collect data a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? ? 
+?4 We collect data a sample of foods at a number of different grocery stores across the country and want to figure out the relationship between the region of the country and number of types of apples sold. What type of analysis is this?
 
+C) Inferential
 o) Descriptive
+o) Exploratory
+o) Predictive
+o) Causal
+o) Mechanistic
+
+{choose-answers: 4}
+?5 We collect data a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? ? 
+
 C) Exploratory
+o) Descriptive
+o) Predictive
+o) Inferential
+o) Causal
+o) Mechanistic
+
+{choose-answers: 4}
+?5 We collect data a sample of foods from across the country and want to look for the relationships between any pair of foods to figure out if there are any foods that are commonly sold together. What type of analysis is this?
+
+C) Exploratory
+o) Descriptive
 o) Predictive
 o) Inferential
 o) Causal

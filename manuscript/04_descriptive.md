@@ -97,7 +97,7 @@ glimpse(df)
 
 In any analysis after your descriptive analysis, missing data can cause a problem. Thus, it's best to get an understanding of missingness in your data right from the start. **Missingness** refers to observations that are not included for a variable. In R, `NA` is the preferred way to specify missing data, so if you're ever generating data, its best to include `NA` wherever you have a missing value. 
 
-However, individuals who are less familiar with R code missingness in a number of different ways in their data: `-999`, `N/A`, `.`, ` `. As such, it's best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a singele dataset will code missingness differently. This shouldn't happen, but it does, so always use caution when looking for missingness.
+However, individuals who are less familiar with R code missingness in a number of different ways in their data: `-999`, `N/A`, `.`, ` `. As such, it's best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a single dataset will code missingness differently. This shouldn't happen, but it does, so always use caution when looking for missingness.
 
 In this dataset, all missing values are coded as `NA`, and from the output of `str(df)` (or `glimpse(df)`), we see that at least a few variables have `NA` values. We'll want to quantify this missingness though to see which variables have missing data and how many observations within each variable have missing data. 
 
@@ -135,7 +135,7 @@ ggplot_missing(df)
 
 ![`ggplot_missing()` output](images/04_descriptive/04_dataanalysis_descriptive-19.png)
 
-Here, we see the variables listed along the bottom. Each row in the visualization is a different observation. Missing data are grey. Nonmissing values are in black. Focusing again on `brainwt`, we can see the 27 missing values visually. We can also see that `sleep_cycle` has the most missingness, while many variables have no missing data.
+Here, we see the variables listed along the bottom. Each row in the visualization is a different observation. Missing data are grey. Non-missing values are in black. Focusing again on `brainwt`, we can see the 27 missing values visually. We can also see that `sleep_cycle` has the most missingness, while many variables have no missing data.
 
 Getting an understanding of what values are missing in your dataset is critical before moving on to any other type of analysis.
 
@@ -159,7 +159,7 @@ A variable can be described as normally distributed if:
 * deviations away from the central value are equally likely in both directions 
 * the frequency of these deviations away form the central value occurs at the same rate on either side of the central value.
 
-Taking a look at the `sleep_total` variable within our example dataset, we see that the data are somehat normal; however, they aren't entirely symmetric.
+Taking a look at the `sleep_total` variable within our example dataset, we see that the data are somewhat normal; however, they aren't entirely symmetric.
 
 ```r
 ggplot(df, aes(sleep_total)) +
@@ -202,7 +202,7 @@ Finally, in distributions we'll discuss today, sometimes values for a variable a
 
 ##### Outliers
 
-Now that we've discussed distributions, it's important to discuss **outliers** -- or an oberservation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.
+Now that we've discussed distributions, it's important to discuss **outliers** -- or an observation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.
 
 ![density curve with an outlier](images/04_descriptive/04_dataanalysis_descriptive-27.png)
 
@@ -326,7 +326,7 @@ ggplot(df, aes(bodywt)) +
 
 When we look at the histogram of the data, we see that most bodyweights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
 
-When you have outliers in the dataset, the median is typically the measure of central tendency you'll want to use, as it's reistant to the effects of outlier values. 
+When you have outliers in the dataset, the median is typically the measure of central tendency you'll want to use, as it's resistant to the effects of outlier values. 
 
 ##### mode 
 
@@ -339,7 +339,7 @@ However, for categorical variables, the level with the most observations would b
 ![`table()` output](images/04_descriptive/04_dataanalysis_descriptive-44.png)
 
 
-Further, the mode for a categorical variable can be visuzlized by generating a barplot:
+Further, the mode for a categorical variable can be visualized by generating a barplot:
 
 ```r
 ## plot categorical variable to visualize mode
@@ -439,7 +439,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 
 ### Slides and Video
 
-![Descriptive Analysis](https://www.youtube.com/watch?v=b_Lhz3HKDys)
+![Descriptive Analysis](https://www.youtube.com/watch?v=TEXPqneceaU)
 
 * [Slides](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
 
@@ -448,7 +448,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 ### Descriptive Analysis quiz
 
 {choose-answers:4}
-? Which of the following describes a descriptive analysis?
+?1 Which of the following describes a descriptive analysis?
 
 C) Make histograms of your sample data to calculate mean, median, and variance for each variable in your dataset
 C) Generate a table summarizing the number of observations in your dataset as well as the central tendencies and variances of each variable
@@ -459,7 +459,7 @@ o) Use your dataset to understand the mechanistic link between two variables
 o) Use your dataset to run a randomized trial, resulting in causal understanding
 
 {choose-answers:4, points:3}
-? What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
+?2 What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
 
 C) right-skewed
 o) Normal
@@ -468,8 +468,18 @@ o) Uniform
 o) Poisson
 o) Bernoulli
 
+{choose-answers:4, points:3}
+?2 What is the shape of the distribution for the variable `lat` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
+
+C) left-skewed
+m) right-skewed
+o) Normal
+o) Uniform
+o) Poisson
+o) Bernoulli
+
 {choose-answers:4}
-? For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
+?3 For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
 
 C) median
 m) mean
@@ -479,7 +489,7 @@ o) variance
 o) range
 
 {choose-answers:4}
-? To describe how spread out your the numbers in your variable are, what could you use?
+?4 To describe how spread out your the numbers in your variable are, what could you use?
 
 C) standard deviation
 C) variance
@@ -488,6 +498,29 @@ o) mode
 o) median
 o) mean
 o) sum
+o) central tendency
 
+{points:3}
+?5 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+
+! /.+(ql7Q|ZrQI|TB46|JwnO|aemd|pXWR|OTZn|Y7kF|wYmh|hhBL).+/i
+
+
+{points:3}
+?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(Bkex|dcn8|dajc|PnrI|sTea|1tk7|EYBv|4JzZ|KVYf|pKRA).+/i
+
+
+{points:3}
+?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(VbN1|L0qw|gkoN|y33z|GPHl|ShP6|ZVK1|CZDf|ssQ5|x0nO).+/i
+
+
+{points:3}
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(kNEY|5NTr|PJUu|fWxw|CfsZ|H8LY|oi7K|jjht|dIzg|badT).+/i
 
 {/quiz}

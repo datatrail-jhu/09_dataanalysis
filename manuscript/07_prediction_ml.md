@@ -27,7 +27,7 @@ In order to make predictions for the future using data you have now, there are f
 3. Model Selection -  How are you going to model the data?
 4. Accuracy Assessment - How are you going to assess accuracy of your predictions?
 
-![Baisc Steps](images/07_prediction_ml/07_dataanalysis_prediction_ml-6.png)
+![Basic Steps](images/07_prediction_ml/07_dataanalysis_prediction_ml-6.png)
 
 ### Data Splitting
 
@@ -346,7 +346,7 @@ predictions_cart <- predict(fit.cart, iris_tune)
 
 table(iris_tune$Species, predictions_cart)
 ``` 
-##### Accuracy Assesment
+##### Accuracy Assessment
 
 ![`table()` output](images/07_prediction_ml/07_dataanalysis_prediction_ml-48.png)
 
@@ -364,7 +364,7 @@ In this lesson we have covered the basics of what predictive analysis is, what t
 
 ### Slides and Video
 
-![Prediction & Machine Learning](https://www.youtube.com/watch?v=rRJ38me_AlQ)
+![Prediction & Machine Learning](https://www.youtube.com/watch?v=pg78Oe7mWaw)
 
 * [Slides](https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/edit?usp=sharing)
 

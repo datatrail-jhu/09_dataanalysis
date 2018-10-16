@@ -235,7 +235,7 @@ All in all, the data and how they're collected matters. There is a term in stati
 
 ### Slides and Video
 
-![Do I Have The Data I Need](https://www.youtube.com/watch?v=KutVmkVNSE0)
+![Do I Have The Data I Need](https://www.youtube.com/watch?v=74r9V5S42fI)
 
 * [Slides](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)
 
@@ -296,9 +296,11 @@ o) Variables in the dataset are not collected in the same year.
 ? What is a proxy variables?
 
 C) A variable that is highly correlated with the variable of interest and can be used instead of it.
+C) A variable that that is well-correlated with the variable of interest and can be used in the variable of interest's place.
 o) A variable that is exactly the same as the variable of interest.
 o) A variable that is measured in the same way as the variable of interest.
 o) A variable that is not correlated with the variable of interest, but is similar to the variable of interest.
+o) A variable in your dataset that is different from the variable of interest.
 
 {choose-answers:4} 
 ? Which of the following is a representative sample?
@@ -307,15 +309,18 @@ C) Sample: randomly selected sample of teachers in the U.S., population: all tea
 C) Sample: randomly selected sample of teenagers in Chicago, population: all teenagers in Chicago
 o) Sample: a sample of people in a bar, population: adult population in the U.S.
 o) Sample: a randomly selected sample of parent in a school, population: parents in Boston
-o) Sample: a randomly selected sample of college students in Johns Hopkins University, population: college students in private universities.
+o) Sample: a randomly selected sample of college students in Johns Hopkins University, population: college students in private universities
+o) Sample: a sample of people in high school in the U.S., population: adult population in the U.S.
 
 {choose-answers:4} 
-? What does the expression garbage in, garbage out means?
+? What does the expression garbage in, garbage out mean?
 
 C) If the data used in analysis is of poor quality, the results of the analysis will be poor.
+C) Data that are of poor quality will lead to results that are also of poor quality.
 o) If the analysis is poor, that means the analyst used poor quality data.
 o) If the analyst is not good, it doesn't matter what data he or she uses.
 o) If you use high quality data in an analysis, the results will certainly be high quality.
+o) If you use poor quality data but work really hard, you can get good results.
 
 {choose-answers:4} 
 ? What should you do if the data you have can't be used to answer the data science question you have?
@@ -323,7 +328,7 @@ o) If you use high quality data in an analysis, the results will certainly be hi
 C) Re-work your data science question
 C) Identify data available to you that can be used 
 o) Remove observations until you get the answer you want
-o) Carry on anyway. You may be able to figure it out.
+o) Carry on anyway. You may be able to figure it out
 o) Analyze the data and interpret the results to get the answer you want
 o) Hack a secure system to get the data you want but to which you don't have access
 
