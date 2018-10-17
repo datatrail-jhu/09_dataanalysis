@@ -142,7 +142,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?4 We collect data on a small sample of songs from the Spotify catalogue and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? ? 
+?4 We collect data on a small sample of songs from the Spotify catalogue and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? 
 
 C) Inferential
 o) Descriptive
@@ -162,7 +162,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?5 We collect data a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? ? 
+?5 We collect data a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? 
 
 C) Exploratory
 o) Descriptive
