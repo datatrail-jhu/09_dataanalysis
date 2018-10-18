@@ -116,9 +116,7 @@ sapply(df, function(x) sum(is.na(x)))/nrow(df)
 
 Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable `brainwt`, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset. 
 
-It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. The function `vis_miss()` is included in his `naniar` package, which is available from his GitHub. 
-
-Note: if you haven't installed `devtools` yet in your RStudio Cloud space, running the following code will take a few minutes.
+It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. The function `vis_miss()` is included in his `naniar` package.
 
 ```r
 ## install naniar package
@@ -142,7 +140,7 @@ gg_miss_var(df) + theme_bw()
 
 ![`gg_miss_var()` output](images/04_descriptive/04_dataanalysis_descriptive-20.png)
 
-Here,the variables are listed along the left-hand side and the number of missing values for each variable is plotted. We can clearly see that `brainwt` has 27 missing values in this dataset, while sleep_cycle has the most missingness among variables in this dataset.
+Here, the variables are listed along the left-hand side and the number of missing values for each variable is plotted. We can clearly see that `brainwt` has 27 missing values in this dataset, while sleep_cycle has the most missingness among variables in this dataset.
 
 Getting an understanding of what values are missing in your dataset is critical before moving on to any other type of analysis.
 
@@ -446,7 +444,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 
 ### Slides and Video
 
-![Descriptive Analysis](https://www.youtube.com/watch?v=TEXPqneceaU)
+![Descriptive Analysis](https://www.youtube.com/watch?v=ahzGpe7ts0s)
 
 * [Slides](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
 
