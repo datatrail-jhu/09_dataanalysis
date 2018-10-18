@@ -116,26 +116,33 @@ sapply(df, function(x) sum(is.na(x)))/nrow(df)
 
 Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable `brainwt`, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset. 
 
-It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. The function `ggplot_missing()` is included in his `neato` package, which is available from his GitHub. 
+It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. The function `vis_miss()` is included in his `naniar` package, which is available from his GitHub. 
 
 Note: if you haven't installed `devtools` yet in your RStudio Cloud space, running the following code will take a few minutes.
 
 ```r
-## install and load devtools
-install.packages("devtools")
-library(devtools)
-
-## install neato package
-devtools::install_github("njtierney/neato")
-library(neato)
+## install naniar package
+install.packages("naniar")
+library(naniar)
 
 ## visualize missingness
-ggplot_missing(df)
+vis_miss(df)
 ```
 
-![`ggplot_missing()` output](images/04_descriptive/04_dataanalysis_descriptive-19.png)
+![`vis_miss()` output](images/04_descriptive/04_dataanalysis_descriptive-19.png)
 
-Here, we see the variables listed along the bottom. Each row in the visualization is a different observation. Missing data are grey. Non-missing values are in black. Focusing again on `brainwt`, we can see the 27 missing values visually. We can also see that `sleep_cycle` has the most missingness, while many variables have no missing data.
+Here, we see the variables listed along the top with percentages summarizing how many observations are missing data for that particular variable. Each row in the visualization is a different observation. Missing data are black. Non-missing values are in grey. Focusing again on `brainwt`, we can see the 27 missing values visually. We can also see that `sleep_cycle` has the most missingness, while many variables have no missing data.
+
+The relative missingness within a dataset can be easily captured with another function from the `naniar` package: `gg_miss_var()`:
+
+```r
+## visualize relative missingness
+gg_miss_var(df) + theme_bw() 
+```
+
+![`gg_miss_var()` output](images/04_descriptive/04_dataanalysis_descriptive-20.png)
+
+Here,the variables are listed along the left-hand side and the number of missing values for each variable is plotted. We can clearly see that `brainwt` has 27 missing values in this dataset, while sleep_cycle has the most missingness among variables in this dataset.
 
 Getting an understanding of what values are missing in your dataset is critical before moving on to any other type of analysis.
 
@@ -151,7 +158,7 @@ After establishing the range, we determine the shape or **distribution** of the 
 
 The **Normal distribution** (also referred to as the **Gaussian** distribution) is a very common distribution and is often described as a bell-shaped curve. In this distribution, the values are symmetric around the central value with a high density of the values falling right around the central value. The left hand of the curve mirrors the right hand of the curve.
 
-![Normal Distribution](images/04_descriptive/04_dataanalysis_descriptive-21.png)
+![Normal Distribution](images/04_descriptive/04_dataanalysis_descriptive-22.png)
 
 A variable can be described as normally distributed if:
 
@@ -166,7 +173,7 @@ ggplot(df, aes(sleep_total)) +
   geom_density()
 ```
 
-![distribution of `msleep` `sleep_total`](images/04_descriptive/04_dataanalysis_descriptive-22.png)
+![distribution of `msleep` `sleep_total`](images/04_descriptive/04_dataanalysis_descriptive-23.png)
 
 A variable that is distributed more normally can be seen in the `iris` dataset, when looking at the `Sepal.Width` variable.
 
@@ -175,7 +182,7 @@ ggplot(iris, aes(Sepal.Width)) +
   geom_density()
 ```
 
-![distribution of `iris` `Sepal.Width`](images/04_descriptive/04_dataanalysis_descriptive-23.png)
+![distribution of `iris` `Sepal.Width`](images/04_descriptive/04_dataanalysis_descriptive-24.png)
 
 
 
@@ -183,7 +190,7 @@ ggplot(iris, aes(Sepal.Width)) +
 
 Alternatively, sometimes data follow a skewed distribution. In a skewed distribution, most of the values fall to one end of the range, leaving a tail off to the other side. When the tail is off to the left, the distribution is said to be **skewed left**. When off to the right, the distribution is said to be **skewed right**.
 
-![Skewed Distributions](images/04_descriptive/04_dataanalysis_descriptive-24.png)
+![Skewed Distributions](images/04_descriptive/04_dataanalysis_descriptive-25.png)
 
 To see an example from the `msleep` dataset, we'll look at the variable `sleep_rem`. Here we see that the data are skewed right, given the shift in values away from the right, leading to a long right tail. Here, most of the values are at the lower end of the range.
 
@@ -192,33 +199,33 @@ ggplot(df, aes(sleep_rem)) +
   geom_density()
 ```
 
-![`sleep_rem` is skewed right](images/04_descriptive/04_dataanalysis_descriptive-25.png)
+![`sleep_rem` is skewed right](images/04_descriptive/04_dataanalysis_descriptive-26.png)
 
 ##### Uniform Distribution
 
 Finally, in distributions we'll discuss today, sometimes values for a variable are equally likely to be found along any portion of the distribution. The curve for this distribution looks more like a rectangle, since the likelihood of an observation taking a value is constant across the range of possible values.
 
-![Uniform Distribution](images/04_descriptive/04_dataanalysis_descriptive-26.png)
+![Uniform Distribution](images/04_descriptive/04_dataanalysis_descriptive-27.png)
 
 ##### Outliers
 
 Now that we've discussed distributions, it's important to discuss **outliers** -- or an observation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.
 
-![density curve with an outlier](images/04_descriptive/04_dataanalysis_descriptive-27.png)
+![density curve with an outlier](images/04_descriptive/04_dataanalysis_descriptive-28.png)
 
 For example, imagine you had a sample where all of the individuals in your sample are between the ages of 18 and 65, but then you have one sample that is 1 year old and another that is 95 years old.
 
-![Sample population](images/04_descriptive/04_dataanalysis_descriptive-28.png)
+![Sample population](images/04_descriptive/04_dataanalysis_descriptive-29.png)
 
 If we were to plot the age data on a density plot, it would look something like this:
 
-![example densityplot](images/04_descriptive/04_dataanalysis_descriptive-29.png)
+![example densityplot](images/04_descriptive/04_dataanalysis_descriptive-30.png)
 
 The baby and elderly individual would pop out as outliers on the plot. 
 
 After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis. 
 
-![caution](images/04_descriptive/04_dataanalysis_descriptive-30.png)
+![caution](images/04_descriptive/04_dataanalysis_descriptive-31.png)
 
 It can sometimes be difficult to decide whether or not a sample should be removed from the dataset. In the simplest terms, *no observation should be removed from your dataset unless there is a **valid reason** to do so*. For a more extreme example, what if that dataset we just discussed (with all the samples having ages between 18 and 65) had one sample with the age 600? Well, if these are human data, we clearly know that is a data entry error. Maybe it was supposed to be 60 years old, but we may not know for sure. If we can follow up with that individual and double-check, it's best to do that, correct the error, make a note of it, and continue you with the analysis. However, that's often not possible. In the cases of obvious data entry errors, it's likely that you'll have to remove that observation from the dataset. It's valid to do so in this case since you know that an error occurred and that the observation was not accurate.
 
@@ -241,7 +248,7 @@ ggplot(iris, aes(Petal.Length))+
   geom_density()
 ```
 
-![`iris` density plot](images/04_descriptive/04_dataanalysis_descriptive-32.png)
+![`iris` density plot](images/04_descriptive/04_dataanalysis_descriptive-33.png)
 
 Since the two humps in the plot are about the same height, this shows that it's  not just one or two flowers with much smaller petal lengths, but rather that there are many. Thus, these observations aren't likely an outlier.
 
@@ -253,13 +260,13 @@ ggplot(iris, aes(Species, Petal.Length))+
   geom_boxplot()
 ```
 
-![`iris` boxplot](images/04_descriptive/04_dataanalysis_descriptive-33.png)
+![`iris` boxplot](images/04_descriptive/04_dataanalysis_descriptive-34.png)
 
 In this boxplot, we see in fact that `setosa` have a shorter petal length while `virginica` have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species! 
 
 Boxplots are also helpful because they plot "outlier" samples as points outside the box. By default, boxplots define "outliers" as observations as those that are 1.5 x IQR (interquartile range). The IQR is the distance between the first and third quartiles. This is a mathematical way to determine if a sample *may* be an outlier. It is visually helpful, but then it's up to the analyst to determine if an observation should be removed. While the boxplot identifies outliers in the setosa and versicolor species, these values are all within a reasonable distance of the rest of the values, and unless I could determine *why* this occurred, I would not remove these observations from the dataset
 
-![`iris` boxplot with annotations](images/04_descriptive/04_dataanalysis_descriptive-34.png)
+![`iris` boxplot with annotations](images/04_descriptive/04_dataanalysis_descriptive-35.png)
 
 #### Central Tendency
 
@@ -273,11 +280,11 @@ The mean (often referred to as the average) is equal to the sum of all the obser
 
 So if you had the following vector: `a <- c(1, 2, 3, 4, 5, 6)`, the mean would be 3.5. 
 
-![calculating the mean](images/04_descriptive/04_dataanalysis_descriptive-36.png)
+![calculating the mean](images/04_descriptive/04_dataanalysis_descriptive-37.png)
 
 But what if we added another '3' into that vector, so that it were: `a <- c(1, 2, 3, 3, 4, 5, 6)`. Now, the mean would be 3.43. It would decrease the average for this set of numbers as you can see in the calculations here:
 
-![decreased average](images/04_descriptive/04_dataanalysis_descriptive-37.png)
+![decreased average](images/04_descriptive/04_dataanalysis_descriptive-38.png)
 
 To calculate the mean in R, the function is `mean()`. Here, we show how to calculate the mean for a variable in R. Note that when you have NAs in a variable, you'll need to let R know to remove the NAs (using `na.rm=TRUE`) before calculating your mean. Otherwise, it will return `NA`.
 
@@ -289,7 +296,7 @@ mean(df$sleep_cycle)
 mean(df$sleep_cycle, na.rm=TRUE)
 ```
 
-![`mean(sleep_cycle)`](images/04_descriptive/04_dataanalysis_descriptive-38.png)
+![`mean(sleep_cycle)`](images/04_descriptive/04_dataanalysis_descriptive-39.png)
 
 ##### median
 
@@ -299,7 +306,7 @@ Using the same vector as we first use to calculate median, we see that the middl
 
 However, that is not always the case. When we add that second 3 in the middle of the set of numbers, the median is now 3, as this is the value at the center of this set of numbers. 3 is the middle value.
 
-![medians](images/04_descriptive/04_dataanalysis_descriptive-40.png)
+![medians](images/04_descriptive/04_dataanalysis_descriptive-41.png)
 
 To calculate the median in R, use the function `median()`. Again, when there are NAs in the variable, you have to tell R explicitly to remove them before calculating the median.
 
@@ -308,7 +315,7 @@ To calculate the median in R, use the function `median()`. Again, when there are
 median(df$sleep_cycle, na.rm=TRUE)  
 ```
 
-![median `sleep_cycle`](images/04_descriptive/04_dataanalysis_descriptive-41.png)
+![median `sleep_cycle`](images/04_descriptive/04_dataanalysis_descriptive-42.png)
 
 While not the exact same value, the mean and median for `sleep_cycle` are similar (0.44 and 0.33). However, this is not always the case. For data that are **skewed** or contain **outlier values** -- values that are very different from the rest of the values in the variable -- the  mean and the median will be very different from one another. In our example dataset, the mean and the median values for the variable `bodywt` are quite different from one another.
 
@@ -322,7 +329,7 @@ ggplot(df, aes(bodywt)) +
   geom_histogram()
 ```
 
-![mean vs median](images/04_descriptive/04_dataanalysis_descriptive-42.png)
+![mean vs median](images/04_descriptive/04_dataanalysis_descriptive-43.png)
 
 When we look at the histogram of the data, we see that most bodyweights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
 
@@ -332,11 +339,11 @@ When you have outliers in the dataset, the median is typically the measure of ce
 
 There is a third, less-frequently calculated measure of central tendency for continuous variables, known as the mode. This is the value that comes up most frequently in your dataset. For example, if your dataset `a` were comprised of the following numbers `a <- c(0, 10, 10, 3, 5, 10, 10)`, 10 would be the **mode**, as it occurs four times. It doesn't matter whether it's the largest value, the smallest value, or somewhere in between, the most frequently value in your dataset is the mode. There is no built-in function for calculating the mode in R for a numeric value, which should suggest that, for continuous variables, knowing the mode of a variable is often less crucial than knowing the mean and median (which is true)! However, you could write a function to calculate it. For the above vector `a`, `which.max(tabulate(a))` would return the mode: 10. (Note that this would not work if you had two values that were found in the dataset at the same frequency. A more eloquent approach would be required.)
 
-![mode of a continuous variable](images/04_descriptive/04_dataanalysis_descriptive-43.png)
+![mode of a continuous variable](images/04_descriptive/04_dataanalysis_descriptive-44.png)
 
 However, for categorical variables, the level with the most observations would be the mode. This can be determined using the `table()` function, which breaks down the number of observations within the categorical variable
 
-![`table()` output](images/04_descriptive/04_dataanalysis_descriptive-44.png)
+![`table()` output](images/04_descriptive/04_dataanalysis_descriptive-45.png)
 
 
 Further, the mode for a categorical variable can be visualized by generating a barplot:
@@ -350,7 +357,7 @@ ggplot(df, aes(order)) +
                                    vjust = 0.5))
 ```
 
-![`geom_bar` visually displays the mode](images/04_descriptive/04_dataanalysis_descriptive-45.png)
+![`geom_bar` visually displays the mode](images/04_descriptive/04_dataanalysis_descriptive-46.png)
 
 
 #### Variability
@@ -372,7 +379,7 @@ b <-  c(29, 29, 29, 29, 723678)
 var(b)
 ```
 
-![variance](images/04_descriptive/04_dataanalysis_descriptive-47.png)
+![variance](images/04_descriptive/04_dataanalysis_descriptive-48.png)
 
 The only difference between the two vectors is that the second one has one value that is much larger than "29". The variance for this vector is thus much higher.
 
@@ -389,7 +396,7 @@ sd(b)
 sqrt(var(b))
 ```
 
-![Standard Deviation](images/04_descriptive/04_dataanalysis_descriptive-48.png)
+![Standard Deviation](images/04_descriptive/04_dataanalysis_descriptive-49.png)
 
 For both measures of variance, the minimum value is 0. The larger the number, the more spread out the values in the valuable are.
 
@@ -410,7 +417,7 @@ library(skimr)
 skim(df)
 ```
 
-![`skim()` output](images/04_descriptive/04_dataanalysis_descriptive-49.png)
+![`skim()` output](images/04_descriptive/04_dataanalysis_descriptive-50.png)
 
 The output from skim separately summarizes categorical and continuous variables. For continuous variables you get information about the mean and median (`p50`) column. You know what the range of the variable is (`p0` is the minimum value, `p100` is the maximum value for continuous variables). You also get a measure of variability with the standard deviation (`sd`). It even quantifies the number of missing values (`missing`) and shows you the distribution of each variable (`hist`)! This function can be incredibly useful to get a quick snapshot of what's going on with your dataset.
 
@@ -418,11 +425,11 @@ The output from skim separately summarizes categorical and continuous variables.
 
 In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we're looking at the first table in a [paper published in the New England Journal of Medicine by The CATT Research Group](https://www.nejm.org/doi/full/10.1056/nejmoa1102673). 
 
-![Table 1](images/04_descriptive/04_dataanalysis_descriptive-50.png)
+![Table 1](images/04_descriptive/04_dataanalysis_descriptive-51.png)
 
 We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male. 
 
-![Table 1 - just the top](images/04_descriptive/04_dataanalysis_descriptive-51.png)
+![Table 1 - just the top](images/04_descriptive/04_dataanalysis_descriptive-52.png)
 
 
 We provide this here as an example of how someone would include a descriptive analysis in a report or publication. It doesn't always have to be this long, but you should always describe your data when sharing it with others.
@@ -434,7 +441,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 ### Additional Resources
 
 * [Visualizing Incomplete & Missing Data](https://flowingdata.com/2018/01/30/visualizing-incomplete-and-missing-data/?utm_content=buffer8adce&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer), by [Nathan Yau](http://flowingdata.com/about-nathan)
-* [`neato` package](https://github.com/njtierney/neato), from [Nicholas Tierney](http://www.njtierney.com)
+* [Getting Started with the `naniar` package](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html), from [Nicholas Tierney](http://www.njtierney.com)
 * [Using the `skimr` package](https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html), by [Elin Waring](https://elinwaring.org/)
 
 ### Slides and Video
