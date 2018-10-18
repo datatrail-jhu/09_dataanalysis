@@ -116,7 +116,7 @@ sapply(df, function(x) sum(is.na(x)))/nrow(df)
 
 Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable `brainwt`, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset. 
 
-It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. The function `vis_miss()` is included in his `naniar` package.
+It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. He has written two helpful packages for exploratory and descriptive data analyses: `naniar` and `visdat`. For our purposes, we'll just install and load `naniar` here; however, links to both have been included in the additional resources section at the end of this lesson.
 
 ```r
 ## install naniar package
@@ -440,6 +440,7 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 
 * [Visualizing Incomplete & Missing Data](https://flowingdata.com/2018/01/30/visualizing-incomplete-and-missing-data/?utm_content=buffer8adce&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer), by [Nathan Yau](http://flowingdata.com/about-nathan)
 * [Getting Started with the `naniar` package](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html), from [Nicholas Tierney](http://www.njtierney.com)
+* [`visdat` package](https://github.com/ropensci/visdat), also from [Nicholas Tierney](http://www.njtierney.com) to further visualize datasets during exploratory and descriptive analyses
 * [Using the `skimr` package](https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html), by [Elin Waring](https://elinwaring.org/)
 
 ### Slides and Video
