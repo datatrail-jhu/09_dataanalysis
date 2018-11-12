@@ -1,212 +1,212 @@
-# Predicción y Aprendizaje Automático
+# Prediction & Machine Learning
 
-En la última lección, discutimos que el análisis de datos inferenciales busca aprender algo sobre una población haciendo inferencias a partir de una muestra representativa. Si bien el objetivo de la inferencia es aprender algo sobre la población, cuando hablamos de **predicción**, el enfoque está en el individuo. El objetivo de los métodos de análisis predictivo y aprendizaje automático es**entrenar un modelo utilizando datos**para hacer predicciones sobre un*individuo*.
+In the last lesson, we discussed that inferential data analysis looks to learn something about a population by making inferences from a representative sample. While the goal in inference is to learn something about the population, when we're talking about **prediction**, the focus is on the individual. The goal of predictive analysis and machine learning approaches is to **train a model using data** to make predictions about an *individual*. 
 
-En otras palabras, el **objetivo del análisis predictivo**es utilizar los datos que tiene ahora para hacer**predicciones**sobre**datos futuros**.
+In other words, the **goal of predictive analysis** is to use data you have now to make **predictions** about **future** data.  
 
-Pasamos mucho tiempo tratando de predecir cosas en la vida diaria: el clima que se avecina, los resultados de los eventos deportivos y los resultados de las elecciones. Anteriormente mencionamos a Nate Silver en [FiveThirtyEight](fivethirtyeight.com), where they try and predict the outcomes of U.S. elections (and sporting events too!). Con datos y tendencias de sondeo históricos y sondeos actuales, FiveThirtyEight construye modelos para predecir los resultados y la próxima votación presidencial de los Estados Unidos, ¡y ha sido bastante acertado al hacerlo! Los modelos de FiveThirtyEight predijeron con precisión las elecciones de 2008 y 2012 y fueron considerados ampliamente como un valor atípico en las elecciones de 2016 en Estados Unidos, ya que fue uno de los pocos modelos que sugirieron que Donald Trump tenía posibilidades de ganar.
+We spend a lot of time trying to predict things in daily life- the upcoming weather, the outcomes of sports events, and the outcomes of elections. We've previously mentioned Nate Silver at [FiveThirtyEight](fivethirtyeight.com), where they try and predict the outcomes of U.S. elections (and sporting events too!). Using historical polling data and trends and current polling, FiveThirtyEight builds models to predict the outcomes and the next US Presidential vote - and has been fairly accurate at doing so! FiveThirtyEight's models accurately predicted the 2008 and 2012 elections and was widely considered an outlier in the 2016 US elections, as it was one of the few models to suggest Donald Trump had a chance of winning. 
 
-Predecir el resultado de las elecciones es un ejemplo clave de análisis predictivo, donde los datos históricos (datos que tienen ahora) se usan para predecir algo sobre el futuro.
+Predicting the outcome of elections is a key example of predictive analysis, where historical data (data they have now) are used to predict something about the future.
 
-![Conceptos básicos del análisis predictivo](images/07_prediction_ml/07_dataanalysis_prediction_ml-2.png)
+![Basics of Predictive Analysis](images/07_prediction_ml/07_dataanalysis_prediction_ml-2.png)
 
-En esta lección, repasaremos las piezas importantes para llevar a cabo un análisis predictivo, qué consideraciones se deben hacer al hacer predicciones, analizaremos qué es el aprendizaje automático y hablaremos sobre cómo evaluar la precisión dentro de un análisis predictivo.
+In this lesson we'll walk through the important pieces of carrying out a predictive analysis, what considerations should be made when making predictions, discuss what machine learning is, and talk about how to assess accuracy within a predictive analysis.
 
-### ¿Qué es el aprendizaje automático?
+### What is Machine Learning?
 
-Hasta ahora hemos estado discutiendo el análisis predictivo. Sin embargo, es posible que haya escuchado a personas en las noticias o en la vida cotidiana hablar sobre el "aprendizaje automático". 729992El objetivo del aprendizaje automático es construir modelos (a menudo denominados **algoritmos**) a partir de los patrones en datos que se pueden usar para predicciones en el futuro. Para nuestros propósitos, es seguro argumentar que al hacer un análisis predictivo, en realidad estamos haciendo un aprendizaje automático. Como tal, usaremos el aprendizaje automático durante el resto de esta lección. Aquí,**aprendizaje automático** se refiere al uso de las relaciones dentro de un conjunto de datos para construir un modelo que se puede usar para la predicción.
+So far we've been discussing predictive analysis. But, you may have heard people on the news or in daily life talking about "machine learning." The goal of machine learning is to build models (often referred to as **algorithms**) from the patterns in data that can be used for predictions in the future. For our purposes, it's safe to argue that when doing predictive analysis, we're actually doing machine learning. As such, we'll use machine learning throughout the rest of this lesson. Here, **machine learning** refers to using the relationships within a dataset to build a model that can be used for prediction.
 
-Dicho esto, hay sin duda un campo completo de individuos dedicados al aprendizaje automático. Esta lección solo tocará los conceptos básicos dentro del campo.
+That said, there is without a doubt an entire field of individuals dedicating themselves to machine learning. This lesson will just touch on the very basics within the field.
 
-### Aprendizaje automático
+### Machine Learning
 
-Para hacer predicciones para el futuro utilizando los datos que tiene ahora, hay cuatro pasos generales:
+In order to make predictions for the future using data you have now, there are four general steps:
 
-1. División de datos: ¿qué datos utilizará para capacitar a su modelo? ¿Para afinar tu modelo? ¿Para probar tu modelo?
-2. Selección de variables: ¿qué variable (s) de los datos que tiene ahora va a utilizar para predecir resultados futuros?
-3. Selección de modelo: ¿Cómo va a modelar los datos?
-4. Evaluación de la precisión: ¿cómo evaluará la precisión de sus predicciones?
+1. Data Splitting - what data are you going to use to train your model? To tune your model? To test your model? 
+2. Variable Selection - what variable(s) from the data you have now are you going to use to predict future outcomes?
+3. Model Selection -  How are you going to model the data?
+4. Accuracy Assessment - How are you going to assess accuracy of your predictions?
 
-![Pasos básicos](images/07_prediction_ml/07_dataanalysis_prediction_ml-6.png)
+![Basic Steps](images/07_prediction_ml/07_dataanalysis_prediction_ml-6.png)
 
-### División de datos
+### Data Splitting
 
-Para el análisis predictivo (o aprendizaje automático), necesita datos sobre los cuales capacitar a su modelo. Estos son el conjunto de observaciones y las variables correspondientes que usará para construir su modelo predictivo. Sin embargo, un modelo predictivo solo vale algo si se puede predecir con precisión en un conjunto de datos futuro. Por lo tanto, a menudo, en el aprendizaje automático hay tres conjuntos de datos utilizados para construir un modelo predictivo: entrenar, sintonizar y probar.
+For predictive analysis (or machine learning), you need data on which to train your model. These are the set of observations and corresponding variables that you're going to use to build your predictive model. But, a predictive model is only worth something if in can predict accurately in a future dataset. Thus, often, in machine learning there are three datasets used to build a predictive model: train, tune, and test.
 
-#### Tren, Tune, Test
+#### Train, Tune, Test
 
-De acuerdo, hay que admitir que estas no son las palabras más comunes para este proceso. Muchas personas usan el tren, validan y prueban. Sin embargo, casi la mayoría de las personas usa el tren, prueba y validación, como lo demuestra este [encuesta de Twitter](https://twitter.com/michaelhoffman/status/989251677646704641):
+Okay, admittedly, these are *not* the most common words to use for this process. Many people use train, validate, and test. However, almost as many people use train, test, and validate, as evidenced by this [Twitter poll](https://twitter.com/michaelhoffman/status/989251677646704641):
 
-![Encuesta de Twitter](images/07_prediction_ml/07_dataanalysis_prediction_ml-8.png)
+![Twitter poll](images/07_prediction_ml/07_dataanalysis_prediction_ml-8.png)
 
-Como tal, mencionamos esos términos para que los conozca, pero como las personas de aprendizaje automático no pueden ponerse de acuerdo sobre el orden de las palabras, en esta lección, hemos decidido utilizar una terminología más útil, como sugerido por [Carl de Boer](https://twitter.com/carldeboerphd?lang=en): entrenar, sintonizar y probar.
+As such, we're mentioning those terms so that you're familiar with them, but since machine learning people can't agree on the order of the words, in this lesson, we've decided to go with more helpful terminology, as suggested by [Carl de Boer](https://twitter.com/carldeboerphd?lang=en): train, tune, and test.
 
 ![Train, Tune, Test](images/07_prediction_ml/07_dataanalysis_prediction_ml-9.png)
 
-##### Tren
+##### Train
 
-Los datos de entrenamiento son los datos que describimos anteriormente. Los datos utilizados para construir su modelo predictivo. Estos datos se conocen como su conjunto de entrenamiento.
+Training data are the data we described above. The data used to build your predictive model. These data are referred to as your training set.
 
-![datos de entrenamiento](images/07_prediction_ml/07_dataanalysis_prediction_ml-10.png)
+![training data](images/07_prediction_ml/07_dataanalysis_prediction_ml-10.png)
 
-##### sintonizar
+##### Tune
 
-Antes de comenzar, su conjunto de datos original a menudo se divide. Algunas de las observaciones (a menudo el 70%) de su conjunto de datos se utilizan para entrenar el modelo, mientras que el 30% se mantiene. Este conjunto retenido de observaciones de su conjunto de datos original se usa para mejorar (afinar) la precisión del modelo.
+Before getting started, your original dataset is often split. Some (often 70%) of the observations in your dataset are used to train the model, while 30% are held out. This held-out set of observations from your original dataset are then used to improve (tune) the accuracy of model.
 
-Estas muestras de espera se utilizan para ver si su modelo predictivo realiza o no predicciones con precisión en el conjunto de muestras *no* utilizadas para entrenar el modelo.
+These hold-out samples are used to see whether or not your predictive model accurately makes predictions in the set of samples *not* used to train the model.
 
-![datos de ajuste](images/07_prediction_ml/07_dataanalysis_prediction_ml-11.png)
-
-
-##### Prueba
-
-Finalmente, se usa un conjunto de datos independiente, uno que *no* es del mismo experimento o fuente que los datos utilizados para entrenar y sintonizar su modelo, para ver si su modelo predictivo realiza predicciones precisas en un conjunto de datos completamente nuevo. Los modelos predictivos que pueden generalizarse y hacer predicciones precisas en nuevos conjuntos de datos son los mejores modelos predictivos.
-
-![datos de prueba](images/07_prediction_ml/07_dataanalysis_prediction_ml-12.png)
+![tuning data](images/07_prediction_ml/07_dataanalysis_prediction_ml-11.png)
 
 
-### Selección de variables
+##### Test
 
-Para que el análisis predictivo valga la pena, debe poder predecir un resultado con precisión con los datos que tiene a mano.
+Finally, an independent dataset -- one that is *not* from the same experiment or source as the data used to train and tune your model are used to see whether or not your predictive model makes accurate predictions in a completely new dataset. Predictive models that can be generalized to and make accurate predictions in new datasets are the best predictive models.
 
-Si todos los datos que tiene a la mano son las alturas de los elefantes en Asia, es probable que no pueda predecir el resultado de la próxima elección en los EE. UU. Por lo tanto, las variables en los datos que tiene a la mano tienen que estar relacionadas con el resultado que le interesa predecir de alguna manera (que no es el caso de las alturas de los elefantes y las elecciones en los Estados Unidos).
-
-En cambio, para predecir las elecciones en los EE. UU., Es probable que desee algunos datos sobre los resultados de elecciones anteriores, tal vez información demográfica sobre los distritos electorales y tal vez alguna información sobre las edades o profesiones de las personas que votan. Es probable que todas estas variables sean útiles para predecir el resultado en una elección futura, pero ¿cuáles son realmente predictivas? ¿Todos ellos? ¿Algunos? El proceso de decidir qué variables utilizar para la predicción se denomina **selección de variables**.
-
-![Selección de variable](images/07_prediction_ml/07_dataanalysis_prediction_ml-16.png)
-
-Lo ideal es que incluyas las *menos variables*en tu modelo como sea posible. Solo tener algunas variables en su modelo evita tener que recopilar una tonelada de datos o construir un modelo realmente complicado. Sin embargo, desea que el modelo sea lo más preciso posible al hacer predicciones. Por lo tanto, siempre hay un*equilibrio* entre minimizar las variables incluidas (¡para incluir solo las variables más predictivas!) Y maximizar la precisión predictiva de su modelo.
-En otras palabras, al igual que en el análisis inferencial, su capacidad para hacer predicciones precisas depende de si tiene o no mediciones sobre las variables correctas. Si no está midiendo las variables correctas para predecir un resultado, sus predicciones no serán precisas. Por lo tanto, **selección de variables**, es increíblemente importante.
-
-Dicho todo esto, hay *hay* enfoques de aprendizaje automático que llevan a cabo la selección de variables, utilizando todos los datos para determinar qué variables del conjunto de datos son más útiles para la predicción. Sin embargo, ya sea que decida qué variables incluir o si la computadora decide por usted, la selección de variables es importante para una predicción precisa.
-
-#### recordatorio de falta de causalidad
-
-Como recordatorio, como se discutió en el análisis inferencial, solo porque una variable puede predecir otra, *no significa que una**cause**la otra*. En el análisis predictivo, está aprovechando la relación entre dos variables, utilizando una variable (o un*conjunto* de variables) para predecir una segunda variable. El hecho de que una variable predice con precisión otra variable no significa que estén relacionadas causalmente.
- 
-
-### Selección de modelo
-
-Además, hay muchas formas de generar modelos de predicción. Cada modelo fue desarrollado para un propósito diferente y específico. Discutiremos algunos tipos de modelos predictivos aquí, con un enfoque en el uso de regresión lineal. Sin embargo, independientemente del modelo que elija usar para la predicción, es mejor tener en cuenta que, en general, los **más datos**que tiene y el**más sencillo es su modelo**, la mejor oportunidad que tiene a predecir con precisión los resultados futuros:
-
-* Más datos: cuantas más observaciones tenga y más variables tenga que elegir para incluir en su modelo, más probabilidades tendrá de generar un modelo predictivo preciso. Sin embargo, tenga en cuenta que los conjuntos de datos grandes con una gran cantidad de datos faltantes o que se ingresaron incorrectamente no son mejores que los conjuntos de datos pequeños, completos y precisos. Tener un conjunto de datos confiable para construir su modelo es fundamental.
-* Modelos simples: si puede predecir con precisión la altura de un individuo considerando solo la altura de los padres de esa persona, entonces hágalo. No es necesario incluir otras variables si una sola variable genera predicciones precisas. Un modelo simple que predice con precisión (independientemente del conjunto de datos en el que predice) es mejor que un modelo complicado.
+![testing data](images/07_prediction_ml/07_dataanalysis_prediction_ml-12.png)
 
 
-#### Regresión vs. Clasificación
+### Variable Selection
 
-Antes de pasar a discutir los diversos modelos que puede usar para el análisis predictivo, es importante tener en cuenta la diferencia entre regresión y clasificación. **Regresión**se usa cuando intentas predecir una variable continua. Por ejemplo, si está tratando de predecir la edad de un individuo, usaría la regresión. Por otro lado,**clasificación** se utiliza para las variables categóricas, ya que predice a qué grupo pertenece una persona. Un ejemplo de una clasificación sería predecir el nivel de educación de alguien, ya que solo hay un número limitado de grupos en los que uno podría estar.
+For predictive analysis to be worth anything, you have to be able to predict an outcome accurately with the data you have on hand. 
 
-![Regresión vs. Clasificación](images/07_prediction_ml/07_dataanalysis_prediction_ml-20.png)
+If all the data you have on hand are the heights of elephants in Asia, you're likely not going to be able to predict the outcome of the next US election. Thus, the variables in the data you have on hand have to be related to the outcome you're interested in predicting in some way (which is *not* the case for the heights of elephants and US elections).
 
-Con respecto al aprendizaje automático, ciertos métodos pueden usarse tanto para la regresión como para la clasificación, mientras que otros están diseñados exclusivamente para uno u otro.
+Instead, to predict US elections, you'd likely want some data on outcomes of previous elections, maybe some demographic information about the voting districts, and maybe some information about the ages or professions of the people voting. All of these variables are likely to be helpful in predicting the outcome in a future election, but which ones are actually predictive? All of them? Some of them? The process of deciding which variables to use for prediction is called **variable selection**. 
 
-En esta lección discutiremos un modelo de regresión y un modelo de clasificación. Sin embargo, hay literalmente [cientos de modelos](http://topepo.github.io/caret/available-models.html) disponibles para el modelado predictivo. Por lo tanto, es importante tener en cuenta que en realidad solo estamos rascando la superficie aquí.
+![Variable Selection](images/07_prediction_ml/07_dataanalysis_prediction_ml-16.png)
 
-#### Regresión lineal
+You ideally want to include the *fewest variables* in your model as possible. Only having a few variables in your model avoids you having to collect a ton of data or build a really complicated model. But, you want the model to be as accurate as possible in making predictions. Thus, there's always a *balance* between minimizing the variables included (to only include the most predictive variables!) and maximizing your model's predictive accuracy. 
+In other words, like in inferential analysis, your ability to make accurate predictions is dependent on whether or not you have measurements on the right variables. If you aren't measuring the right variables to predict an outcome, your predictions aren't going to be accurate. Thus, **variable selection**, is incredibly important.
 
-¡Al igual que en la lección anterior sobre análisis inferencial, la regresión lineal es un método increíblemente poderoso en el aprendizaje automático! El concepto aquí es el mismo que en la última lección: vamos a capitalizar la relación lineal entre las variables. Sin embargo, en lugar de usar la regresión lineal para estimar algo sobre una población más grande, vamos a usar la regresión lineal para la predicción de una **variable continua**.
+All that said, there *are* machine learning approaches that carry out variable selection for you, using all the data to determine which variables in the dataset are most helpful for prediction. Nevertheless, whether you are deciding on the variables to include or the computer is deciding for you, variable selection is important to accurate prediction.
 
-![regresión lineal](images/07_prediction_ml/07_dataanalysis_prediction_ml-21.png)
+#### Lack of Causality Reminder 
 
-Para entender mejor esto, usemos un ejemplo conceptual. Considere tratar de predecir la edad de un niño a partir de su altura. Probablemente esperaría que un niño más alto fuera mayor. Entonces, imaginemos que estamos viendo aquí los datos de entrenamiento. Vemos la relación esperada entre la altura y la edad en este diagrama de dispersión.
+As a reminder, as was discussed in the inferential analysis, just because one variable may predict another, it *does not mean that one **causes** the other*. In predictive analysis, you are taking advantage of the relationship between two variables, using one variable (or one *set* of variables)  to predict a second variable. Just because one variable accurately predicts another variable does *not* mean that they are causally related. 
+ 
 
-![datos de entrenamiento para edad y talla](images/07_prediction_ml/07_dataanalysis_prediction_ml-22.png)
+### Model Selection
 
-Utilizando los datos de entrenamiento, se realiza una regresión lineal para modelar la relación.
+Additionally, there are many ways to generate prediction models. Each model was developed for a different and specific purpose. We'll discuss a few types of predictive models here, with a focus on usign linear regression. However, regardless of which model you choose to use for prediction, it's best to keep in mind that, in general, the **more data** you have and the **simpler your model is**, the best chance you have at accurately predicting future outcomes:
 
-![la regresión lineal modela la relación entre la altura de un niño y su edad en los datos de entrenamiento](images/07_prediction_ml/07_dataanalysis_prediction_ml-23.png)
-
-Ahora que tenemos nuestro modelo, ya no nos preocupamos por los puntos de datos individuales en los datos de entrenamiento. Simplemente usaremos el modelo de regresión lineal para hacer nuestras predicciones.
-
-![Nuestro modelo de regresión lineal se usará para la predicción](images/07_prediction_ml/07_dataanalysis_prediction_ml-24.png)
-
-Luego, en el futuro, cuando conozcamos la altura de un niño, podemos regresar a nuestra regresión lineal, proporcionarle la altura del nuevo niño y devolverá la edad del niño utilizando el modelo que hemos construido.
-
-![predecir la edad a partir de la altura mediante regresión lineal](images/07_prediction_ml/07_dataanalysis_prediction_ml-25.png)
-
-Conceptualmente, esto es lo que sucederá cuando usemos la regresión lineal para el aprendizaje automático. Sin embargo, se llevará a cabo matemáticamente, en lugar de gráficamente. Esto significa que no tendrá que mirar el gráfico para ver sus predicciones. Solo tendrá que ejecutar algunas líneas de código que llevarán a cabo los cálculos necesarios para generar predicciones.
-
-Además, aquí estamos usando una sola variable (altura) para modelar la edad. Claramente, hay otras variables (como el sexo de un niño) que podrían afectar esta predicción. A menudo, los modelos de regresión incluirán múltiples variables predictoras que mejorarán la precisión de la predicción de la variable de resultado.
+* More data - The more observations you have and the more variables you have to choose from to include in your model, the more likely you are to generate an accurate predictive model. Note, however, large datasets with lots of missing data or data that have been incorrectly entered are *not* better than small, complete, and accurate datasets. Having a trustworthy dataset to build your model is critical.
+* Simple Models - If you can accurately predict an individual's height by only considering that person's parents height, then go for it. There's no need to include other variables if a single variable generates accurate predictions. A simple model that predicts accurately (regardless of the dataset in which you're predicting) is better than a complicated model.
 
 
-#### Árboles de clasificación y regresión (CART)
+#### Regression vs. Classification
 
-Alternativamente, cuando intente predecir una **variable categórica**, querrá ver los métodos de clasificación, en lugar de la regresión (que es para variables continuas). En estos casos, puede considerar el uso de un**árbol de clasificación y regresión (CART)** para la predicción. Si bien no es el único método de clasificación para el aprendizaje automático, las CART son un enfoque básico y comúnmente utilizado para la predicción de variables categóricas.
+Before we jump into discussing the various models you can use for predictive analysis, it's important to first note the difference between regression and classification. **Regression** is used when you're trying to predict a continuous variable. For example if you're trying to predict an individual's age, you would use regression. On the other hand **classification** is used for categorical variables, as it predicts which *group* an individual belongs to. An example of a classification would be predicting someone's education level, as there are only a limited number of groups into which one would be.
 
-Conceptualmente, cuando se usa un CART para predicción, se genera un **árbol de decisión** a partir de los datos de entrenamiento. Un árbol de decisión ramifica los datos en función de las variables dentro de los datos. Por ejemplo, si estuviéramos tratando de predecir el nivel de educación de un individuo, probablemente usaríamos un conjunto de datos con información sobre el nivel de ingreso de muchas personas, el título del trabajo y la cantidad de hijos que tienen. Estas variables se utilizarían para generar el árbol.
+![Regression vs. Classification](images/07_prediction_ml/07_dataanalysis_prediction_ml-20.png)
 
-Por ejemplo, tal vez la primera sucursal separaría a las personas que ganan menos de 40,000 dólares al año. Todos aquellos en los datos de entrenamiento que ganaron menos de 40K bajarían por la rama izquierda, mientras que todos los demás bajarían por la rama derecha.
+With regards to machine learning, certain methods can be used for both regression and classification, while others are designed exclusively for one or the other. 
 
-![Comience a generar ramas para su árbol de decisión utilizando los datos para tomar decisiones](images/07_prediction_ml/07_dataanalysis_prediction_ml-27.png)
+In this lesson we'll discuss one regression model and one classification model. However, there are literally [hundreds of models](http://topepo.github.io/caret/available-models.html) available for predictive modeling. Thus, it's important to keep in mind that we're really just scratching the surface here.
 
-En cada nivel, los datos se seguirán dividiendo, utilizando la información en los datos de capacitación.
+#### Linear Regression
 
-![Las ramas continúan generándose a partir de los datos de entrenamiento](images/07_prediction_ml/07_dataanalysis_prediction_ml-28.png)
+Just like in the previous lesson in inferential analysis, linear regression is an incredibly powerful method in machine learning! The concept here is the same as it was in the last lesson: we're going to capitalize on the linear relationship between variables. However, instead of using linear regression to estimate something about a larger population, we're going to use linear regression for prediction of a **continuous variable**. 
 
-Finalmente, se construirá un árbol de decisión completo, de manera que habrá una etiqueta para la variable que estamos tratando de predecir al final de cada rama.
+![linear regression](images/07_prediction_ml/07_dataanalysis_prediction_ml-21.png)
 
-![las etiquetas se asignan al final de cada árbol](images/07_prediction_ml/07_dataanalysis_prediction_ml-29.png)
+To better understand this, let's use a conceptual example. Consider trying to predict a child's age from their height. You'd likely expect that a taller child was older. So, let's imagine that we're looking here at the training data. We see the expected relationship between height and age in this scatterplot.
 
-Este CART se utilizará para la predicción en muestras futuras. Por lo tanto, si sigue el camino a lo largo del árbol de decisiones, para este ejemplo CART, un individuo que ganó más de $ 40,000 al año, estaba en una profesión de trabajo manual y tenía hijos, este CART predeciría que el nivel de educación de ese individuo era "Alto Colegio."
+![training data for age and height example](images/07_prediction_ml/07_dataanalysis_prediction_ml-22.png)
 
-![Las predicciones se realizan siguiendo las decisiones sobre el árbol](images/07_prediction_ml/07_dataanalysis_prediction_ml-30.png)
+Using the training data, linear regression is then carried out to model the relationship.
 
-De nuevo, esto es conceptual y gráficamente cómo funciona un CARRITO; sin embargo, al generar un CART, usted solo toma de nuevo unas pocas líneas de código para generar el modelo y llevar a cabo los cálculos necesarios.
+![linear regression models the relationship between a child's height and their age in the training data](images/07_prediction_ml/07_dataanalysis_prediction_ml-23.png)
 
-### Precisión del modelo
+Now that we have our model, we no longer care about the individual data points in the training data. We'll simply use the linear regression model to make our predictions.
 
-Un dicho común es que la predicción es difícil, especialmente sobre el futuro. Esto es cierto en el análisis predictivo. Por lo tanto, es importante siempre evaluar cuidadosamente la precisión de su modelo y nunca exagerar qué tan bien puede hacer predicciones.
+![Our linear regression model will be used for prediction](images/07_prediction_ml/07_dataanalysis_prediction_ml-24.png)
 
-En general, si tus predicciones son correctas, ¡lo estás haciendo bien! Si tus predicciones son erróneas, no lo estás haciendo bien. Pero, ¿cómo definimos "bien"?
+Then, in the future when we know a child's height, we can return to our linear regression, supply it with the new child's height and it will return the child's age using the model we've built.
 
-#### Tasas de error
+![predicting age from height using linear regression](images/07_prediction_ml/07_dataanalysis_prediction_ml-25.png)
 
-Para evaluar si nuestros modelos predictivos funcionan bien o no, calculamos las tasas de error. Las dos formas más comunes de evaluar qué tan bien están haciendo nuestros modelos predictivos son:
+Conceptually, this is what will happen whenever we use linear regression for machine learning. However, it will be carried out mathematically, rather than graphically. This means you won't have to look on the graph to see your predictions. You'll just have to run a few lines of code that will carry out the necessary calculations to generate predictions.
 
-1. RMSE (Error cuadrático medio)
-2. la exactitud
+Additionally, here we're using a single variable (height) to model age. Clearly, there are other variables (such as a child's sex) that could affect this prediction. Often, regression models will include multiple predictor variables that will improve prediction accuracy of the outcome variable.
 
-Notaremos aquí que para evaluar el error, debe conocer la verdad (el valor real) además del valor predicho. Por lo tanto, RMSE y Accuracy se evalúan en los datos de entrenamiento y ajuste, en los que usted *sabe* el valor real así como el valor predicho.
+
+#### Classification and Regression Trees (CART)
+
+Alternatively, when trying to predict a **categorical variable**, you'll want to look at classification methods, rather than regression (which is for continuous variables). In these cases you may consider using a **classification and regression tree (CART)** for prediction. While not the *only* classification method for machine learning, CARTs are a basic and commonly-used approach to prediction for categorical variables. 
+
+Conceptually, when using a CART for prediction, a **decision tree** is generated from the training data. A decision tree branches the data based on variables within the data. For example, if we were trying to predict an individual's education level, we would likely use a dataset with information about many different people's income level, job title, and the number of children they have. These variable would then be used to generate the tree.
+
+For example, maybe the first branch would separate individuals who make less than 40,000 dollars a year. All of those in the training data who made less than 40K would go down the left-hand branch, while everyone else would go down the right-hand branch.
+
+![Start to generate branches for your decision tree using the data to make decisions](images/07_prediction_ml/07_dataanalysis_prediction_ml-27.png)
+
+At each level, the data will continue to be split, using the information in the training data.
+
+![Branches continue to be generated from the training data](images/07_prediction_ml/07_dataanalysis_prediction_ml-28.png)
+
+Finally, a full decision tree will be constructed, such that there will be a label for the variable we're trying to predict at the end of each branch.
+
+![labels are assigned at the end of each tree](images/07_prediction_ml/07_dataanalysis_prediction_ml-29.png)
+
+This CART will then be used for prediction in future samples. Thus, if you follow the path along the decision tree, for this example CART,  an individual who made more than $40,000 a year, was in a manual labor profession, and had children, this CART would predict that that individual's education level were "High School."
+
+![Predictions are then made following the decisions on the tree](images/07_prediction_ml/07_dataanalysis_prediction_ml-30.png)
+
+Again, this is conceptually and graphically how a CART works; however, when generating a CART yourself, it again only takes a few lines of code to generate the model and carry out the necessary math.
+
+### Model Accuracy
+
+A common saying is that prediction is hard, especially about the future. This is true in predictive analysis. Thus, it's important to always carefully evaluate the accuracy of your model and to never overstate how well you are able to make predictions.
+
+Generally, if your predictions are correct, you're doing well! If your predictions are wrong, you're not doing ass well. But, how do we define "well"?
+
+#### Error Rates
+
+To assess whether or not our predictive models are doing well, we calculate error rates. The two most common ways to assess how well our predictive models are doing are:
+
+1. RMSE (Root-mean-square Error)
+2. Accuracy
+
+We'll note here that in order to assess error, you have to know the truth (the actual value) in addition to the predicted value. Thus, RMSE and Accuracy are assessed in the training and tuning data, where you *know* the actual value as well as the predicted value. 
 
 ##### RMSE
 
-El error de la raíz cuadrada media (RMSE) es una medida utilizada para evaluar el error de predicción para las variables continuas. En general, queremos minimizar el error en la predicción. Por lo tanto, un RMSE pequeño es mejor que un RMSE grande.
+The root-mean-square error (RMSE) is a measure used to assess prediction error for continuous variables.  Generally, we want to minimize error in prediction. Thus, a small RMSE is better than a large RMSE. 
 
 ![RMSE](images/07_prediction_ml/07_dataanalysis_prediction_ml-33.png)
 
-Hablando matemáticamente, el RMSE es la raíz cuadrada de la varianza. De lecciones anteriores, sabemos que **la varianza** tiene algo que ver con la confianza que tenemos en nuestra estimación. Ya que estamos tratando de determinar qué tan cerca están nuestras predicciones del valor real, este parece ser un buen lugar para comenzar.
+Mathematically speaking, the RMSE is the square root of the variance. From earlier lessons, we know that **variance** has something to do with how confident we are in our estimate. Since we're trying to determine how close our predictions are to the actual value, this seems like a good place to start.
 
-Cuando observamos la ecuación, podemos ver que la diferencia entre los valores pronosticados y reales se calcula `(Predicted - Actual)` y que este valor se ajusta al cuadrado `(Predicted - Actual)^2`. Estas diferencias al cuadrado se agregan para cada individuo en su conjunto de datos (eso es lo que dice el sigma, o gran E). Este valor (la suma de todos los errores al cuadrado) se divide por el número de individuos en su conjunto de datos (`N`). Luego se toma esta raíz cuadrada de este valor. Así es como se calcula RMSE.
+When we look at the equation, we can see that the difference between the predicted and actual values is calculated `(Predicted - Actual)` and that this value is then squared `(Predicted - Actual)^2`. These differences squared are then added for every individual in your dataset (that's what the sigma, or big E says). This value (the sum of all the errors squared) is then divided by the number of individuals in your dataset (`N`). This square root of this value is then taken. This is how RMSE is calculated. 
 
-Examinamos esa descripción porque queremos señalar que cuando se cuadran las diferencias `(Predicted - Actual)^2`, los valores atípicos o las muestras cuya predicción estaba muy lejos de su valor real aumentarán mucho el RMSE. Por lo tanto, **algunos valores atípicos pueden llevar a valores RMSE realmente altos**, incluso si todas las otras predicciones fueron bastante buenas. Esto significa que es importante verificar si algunos valores atípicos (es decir, algunas predicciones erróneas) están llevando a un alto valor RMSE.
+We went through that description because we want to point out that when differences are squared `(Predicted - Actual)^2`, outliers, or samples whose prediction was far off from their actual value are going to increase the RMSE a lot. Thus, **a few outliers can lead to really high RMSE values**, even if all the other predictions were pretty good. This means it's important to check to see if a few outliers (meaning a few bad predictions) are leading to a high RMSE value.
 
 
-##### Exactitud
+##### Accuracy
 
-Alternativamente, para evaluar el error en la predicción de las variables categóricas, se usa con frecuencia **exactitud**. La precisión busca determinar el número de predicciones que coinciden con sus valores reales.
+Alternatively, to assess error in the prediction of categorical variables, **accuracy** is frequently used. Accuracy looks to determine the number of predictions that match their actual values. 
 
-![Precisión](images/07_prediction_ml/07_dataanalysis_prediction_ml-35.png)
+![Accuracy](images/07_prediction_ml/07_dataanalysis_prediction_ml-35.png)
 
-Cuanto más cerca esté este valor al 100%, mejor será su modelo predictivo. Cuanto más cercano al 0%, peores son las predicciones de tu modelo.
+The closer this value is to 100%, the better your predictive model was. The closer to 0%, the worse your model's predictions are.
 
-La precisión es una forma útil de evaluar el error en las variables categóricas, pero también se puede utilizar para valores numéricos. Sin embargo, solo tendrá en cuenta una predicción "correcta"  si coincide exactamente. En el caso de la edad, si la edad de una muestra es 10 y el modelo predice que es 10, el modelo dirá que se ha predicho correctamente. Sin embargo, si la edad de una muestra es 10 y se pronostica que es 9, se contará como incorrecta, aunque sea cercana. Una predicción de apagado por un año se marcará como incorrecta como una muestra predicha fuera de 50 años. Debido a esto, a menudo se opta por RMSE en lugar de precisión para las variables continuas.
+Accuracy is a helpful way to assess error in categorical variables, but it can be used for numeric values too. However, it will only account a prediction "correct" if it matches exactly. In the case of age, if a sample's age is 10 and the model predicts it to be 10, the model will say it's been predicted correctly. However, if a sample's age is 10 and it is predicted to be 9, it will be counted as incorrect, even though it was close. A prediction off by a year will be marked just as incorrect as a sample predicted off by 50 years. Due to this, RMSE is often opted for instead of accuracy for continuous variables. 
 
-### Ejemplos de aprendizaje automático
+### Machine Learning Examples
 
-Para comprender mejor todos los conceptos que acabamos de analizar, veremos dos ejemplos, uno para la predicción de una variable continua mediante regresión lineal y el segundo para la predicción de un valor categórico mediante un CART.
+To better understand all of the concepts we've just discussed, we'll walk through two examples, one for prediction of a continuous variable using linear regression and a second for prediction of a categorical value using a CART.
 
-#### El paquete `caret` 
+#### The `caret` package
 
-Hay un paquete *increíblemente*útil disponible en R gracias al trabajo de [Max Kuhn](https://twitter.com/topepos?lang=en). Como se mencionó anteriormente, hay cientos de algoritmos de aprendizaje automático diferentes. El paquete R de Max `caret` los ha compilado en un solo marco, permitiéndole usar*muchos* diferentes modelos de aprendizaje automático a través de un solo paquete. Además, ha escrito [un libro muy útil](http://topepo.github.io/caret/) para acompañar el paquete. Usaremos este paquete a lo largo de estos ejemplos.
+There is an *incredibly* helpful package available in R thanks to the work of [Max Kuhn](https://twitter.com/topepos?lang=en). As mentioned above, there are hundreds of different machine learning algorithms. Max's R package `caret` has compiled all of them into a single framework, allowing you to use *many* different machine learning models via a single package. Additionally, he has written [a very helpful book](http://topepo.github.io/caret/) to accompany the package. We'll be using this package throughout these examples.
 
-#### Predicción continua de variables: regresión lineal
+#### Continuous Variable Prediction: Linear Regression
 
-Para este ejemplo, lo mantendremos simple y usaremos un conjunto de datos que haya visto antes: el conjunto de datos `iris`. De esta manera, puede concentrarse en la sintaxis utilizada en el paquete `caret` y en los pasos del análisis predictivo. En este ejemplo, intentaremos usar los datos en el conjunto de datos `iris` para predecir `Sepal.Length` 
+For this example, we'll keep it simple and use a dataset you've seen before: the `iris` dataset. This way you can focus on the syntax used in the `caret` package and the steps of predictive analysis. In this example, we'll attempt to use the data in the `iris` dataset to predict `Sepal.Length`
 
-##### División de datos
+##### Data Splitting
 
-Como se mencionó anteriormente, uno de los primeros pasos a menudo es tomar su conjunto de datos y dividirlo en un conjunto de entrenamiento y un conjunto de ajuste. Para hacer esto, cargaremos el paquete `caret` y usaremos la función `createDataPartition()` para dividir el conjunto de datos.
+As mentioned above, one of the first steps is often to take your dataset and split it into a training set and a tuning set. To do this, we'll load the `caret` package and use the `createDataPartition()` function to split the dataset.
 
 ```r
 ## install and load packages
@@ -217,8 +217,8 @@ library(dplyr)
 ## get Index for training set
 set.seed(123)
 trainIndex <- createDataPartition(iris$Species, p = .7, 
-list = FALSE, 
-times = 1)
+                                  list = FALSE, 
+                                  times = 1)
 
 ## split into training and tuning set                                  
 iris_train <- iris %>% slice(trainIndex)
@@ -227,35 +227,35 @@ iris_tune <- iris %>% slice(-trainIndex)
 ## take a a look
 str(iris_train)
 str(iris_tune)
-``` 
+```
 
-Después de ejecutar este código, si echamos un vistazo a los conjuntos de datos de entrenamiento y ajuste, podemos ver que el 70% de nuestras observaciones se encuentran en el conjunto de datos de entrenamiento y el 30% restante está en el conjunto de datos de ajuste, como especificamos.
+After running this code , if we take a look at the training and tuning datasets, we can see that 70% of our observations are in the training dataset and the other 30% are in the tuning dataset, as we specified.
 
-![estructura de los datos de entrenamiento y ajuste](images/07_prediction_ml/07_dataanalysis_prediction_ml-39.png)
+![structure of training and tuning data](images/07_prediction_ml/07_dataanalysis_prediction_ml-39.png)
 
-##### selección de variables
+##### Variable Selection
 
-¿Qué pasa si primero intentamos predecir `Sepal.Length` en nuestros datos de entrenamiento de `Sepal.Width`? Para ello, proporcionamos la función `train` con el modelo y especificamos que el conjunto de datos que usaremos es el conjunto de datos `iris`. Además, le informamos a la función del tren que queremos ejecutar una regresión lineal (`lm`) y que queremos evaluar la precisión de nuestro modelo utilizando la métrica `RMSE`.
+What if we first try to predict `Sepal.Length` in our training data from `Sepal.Width`. To do that, we provide the `train` function with the model and specify that the dataset we'll be using is the `iris` dataset. Additionally, we let the train function know that we want to run linear regression (`lm`) and that we want to assess our model's accuracy using the `RMSE` metric.
 
 ```r
 ## train regression model
 set.seed(123)
 fit.lm <- train(Sepal.Length ~ Sepal.Width, 
-data = iris, 
-method = "lm", 
-metric = "RMSE")
-``` 
+                data = iris, 
+                method = "lm", 
+                metric = "RMSE")
+```
 
-Después de entrenar el modelo, echamos un vistazo a nuestro RMSE y vemos que es `0.82` para este conjunto de datos.
+After training the model, we take a look at our RMSE, and see that it is `0.82` for this dataset.
 
 ```r
 ## look at RMSE
 fit.lm$results
-``` 
+```
 
 ![RMSE](images/07_prediction_ml/07_dataanalysis_prediction_ml-41.png)
 
-Usando este modelo, generaríamos predicciones de `Sepal.Length` en el conjunto de datos de ajuste usando la función `predict()`. Como conocemos el valor actual de `Sepal.Length` en el conjunto de ajustes, estas predicciones se pueden visualizar mediante un diagrama de dispersión.
+Using this model, we would then generate predictions of `Sepal.Length` in the tuning dataset using the `predict()` function. Since we know the actual `Sepal.Length` in the tuning set, these predictions can then be visualized using a scatterplot.
 
 ```r
 ## make predictions in tuning data set
@@ -264,24 +264,24 @@ predictions <- predict(fit.lm, iris_tune)
 
 ## visualize results
 iris_tune %>%
-mutate(predictions = predictions) %>%
-ggplot() +
-geom_point(aes(Sepal.Length,predictions))
-``` 
+  mutate(predictions = predictions) %>%
+  ggplot() +
+  geom_point(aes(Sepal.Length,predictions))
+```
 
-![Scatterplot muestra `Sepal.Length` no se pronostica bien desde `Sepal.Width` solo](images/07_prediction_ml/07_dataanalysis_prediction_ml-43.png)
+![Scatterplot shows `Sepal.Length` is not predicted well from `Sepal.Width` alone](images/07_prediction_ml/07_dataanalysis_prediction_ml-43.png)
 
-Dada la falta de correlación, podemos ver que este modelo no predice bien la longitud del sépalo en nuestro conjunto de ajuste.
+Given the lack of correlation, we can see that this model does not predict sepal length in our tuning set well.
 
-En este primer intento, especificamos qué variable usar para la predicción; sin embargo, qué sucede si proporcionamos a nuestro modelo de regresión todas las variables en el conjunto de datos (especificado por el `.` en el código aquí:
+In this first attempt, we specified which variable to use for prediction; however, what if we provided our regression model with all the variables in the dataset (specified by the `.` in the code here:
 
 ```r
 ## train regression model
 set.seed(123)
 fit.lm2 <- train(Sepal.Length ~ ., 
-data=iris, 
-method="lm", 
-metric= "RMSE")
+                data=iris, 
+                method="lm", 
+                metric= "RMSE")
 
 ## look at RMSE
 fit.lm2$results
@@ -292,51 +292,51 @@ predictions2 <- predict(fit.lm2, iris_tune)
 
 ## visualize results
 iris_tune %>%
-mutate(predictions = predictions2) %>%
-ggplot() +
-geom_point(aes(Sepal.Length,predictions2))
-``` 
+  mutate(predictions = predictions2) %>%
+  ggplot() +
+  geom_point(aes(Sepal.Length,predictions2))
+```
 
-![Diagrama de dispersión](images/07_prediction_ml/07_dataanalysis_prediction_ml-45.png)
+![Scatterplot](images/07_prediction_ml/07_dataanalysis_prediction_ml-45.png)
 
-##### Evaluación de la precisión
+##### Accuracy Assessment
 
-Ahora, cuando observamos los resultados, observamos una mejora visual en las predicciones `Sepal.Length` dentro del conjunto de datos de ajuste, que también se refleja en la disminución de RMSE (0.324).
+Now when we look at the results we visually see improvement in the `Sepal.Length` predictions within the tuning dataset, which is also reflected in the decreased RMSE (0.324).
 
-Aquí, al incluir variables adicionales (a menudo denominadas `features` en el aprendizaje automático), vemos una precisión de predicción mejorada. Hay formas más sólidas que probar diferentes variables en su modelo para seleccionar cuáles deben incluirse en su modelo predictivo. Estos serán cubiertos en las lecciones en la pista avanzada de este conjunto de cursos.
+Here, by including additional variables (often referred to as `features` in machine learning), we see improved prediction accuracy. There are more robust ways than trying a number of different variables in your model to select which should be included in your predictive model. These will be covered in lessons in the advanced track of this Course Set.
 
-##### Selección de modelo
+##### Model Selection
 
-En este ejemplo (y en el siguiente ejemplo), hemos especificado previamente qué modelo íbamos a usar para el ejemplo antes de tiempo. Sin embargo, hay muchos modelos de regresión diferentes entre los que podríamos haber elegido y una serie de parámetros en cada uno que pueden ajustarse, cada uno de los cuales puede mejorar la precisión predictiva de su modelo. Aprender cómo elegir y afinar el mejor modelo se tratará en las lecciones en la pista avanzada de este Conjunto de cursos; sin embargo, por ahora notaremos que, como se especifica en el libro `caret`, la función `train()` tiene varias capacidades. Puede:
+In this example (and the example below), we've pre-specified which model we were going to use for the example ahead of time. However, there are many different regression models from which we could have chosen and a number of parameters in each that can be tuned, each of which can improve the predictive accuracy of your model. Learning how to choose and tune the best model will be discussed in lessons in the advanced track of this Course Set; however, for now we'll note that, as specified in the `caret` book, the `train()` function has a number of capabilities. It can:
 
-* evaluar cómo los diferentes parámetros de ajuste en el modelo afectan el rendimiento
-* Elija el modelo 729992 "óptimo", dados estos parámetros
-* Estimar el rendimiento del modelo (dado un conjunto de entrenamiento)
+* evaluate how different tuning parameters in the model affect performance
+* choose the "optimal" model, given these parameters
+* estimate model performance (given a training set)
 
-Aquí, no hemos jugado mucho con los parámetros de ajuste; sin embargo, consultar [la documentación sobre cómo hacer esto](http://topepo.github.io/caret/model-training-and-tuning.html#fitting-models-without-parameter-tuning) puede llevar a mejorar predicción a medida que genera modelos predictivos por su cuenta.
+Here, we haven't played around much with the tuning parameters; however, checking out [the documentation on how to do this](http://topepo.github.io/caret/model-training-and-tuning.html#fitting-models-without-parameter-tuning) can lead to improved prediction as you generate predictive models on your own.
 
 
-#### Predicción de variables categóricas: CARRITO
+#### Categorical Variable Prediction: CART
 
-Un modelo de predicción más natural dado este conjunto de datos puede ser predecir qué es `Species` una flor, dadas sus medidas. Usaremos el conjunto de datos `iris` para realizar esta predicción de clasificación aquí, usando un CARRITO.
+A more natural prediction model given this dataset may be to predict what `Species` a flower is, given its measurements. We'll use the `iris` dataset to carry out this classification prediction here, using a CART.
 
-##### División de datos
+##### Data Splitting
 
-La división de datos desde arriba se utilizará aquí. Por lo tanto, nuestro conjunto de entrenamiento seguirá siendo `iris_train` y nuestro conjunto de ajuste `iris_tune`.
+Data splitting from above will be used here. Thus, our training set will still be `iris_train` and our tuning set `iris_tune`.
 
-##### selección de variables
+##### Variable Selection
 
-Dada la naturaleza relativamente pequeña de este conjunto de datos, construiremos el CART utilizando todos los datos; sin embargo, dentro del paquete `caret` es posible una optimización más robusta de las variables que se incluyen en el modelo.
+Given the relatively small nature of this dataset, we'll build the CART using all of the data; however, further and more robust optimization of what variables are included in the model is possible within the `caret` package.
 
-Aquí especificamos que queremos predecir `Species`, que queremos usar un CART para hacerlo configurando el método en `rf`, y que, como es una variable categórica, usaremos `Accuracy` como nuestra métrica de evaluación.
+Here we specify that we want to predict `Species`, that we want to use a CART to do so by setting the method to `rf`, and that, since it's a categorical variable, we're going to use `Accuracy` to as our assessment metric.
 
 ```r
 ## CART
 set.seed(7)
 fit.cart <- train(Species~., 
-data = iris, 
-method = "rpart", 
-metric = "Accuracy")
+                data = iris, 
+                method = "rpart", 
+                metric = "Accuracy")
 
 ## look at Accuracy
 fit.cart$results
@@ -346,95 +346,95 @@ predictions_cart <- predict(fit.cart, iris_tune)
 
 table(iris_tune$Species, predictions_cart)
 ``` 
-##### Evaluación de la precisión
+##### Accuracy Assessment
 
-![`table()` salida](images/07_prediction_ml/07_dataanalysis_prediction_ml-48.png)
+![`table()` output](images/07_prediction_ml/07_dataanalysis_prediction_ml-48.png)
 
-Aquí, vemos que en los datos de ajuste, el CART predijo con precisión las especies de la mayoría de las flores utilizando el modelo generado a partir de los datos de entrenamiento; sin embargo, hizo dos predicciones incorrectas (las 1 en la tabla).
+Here, we see that in the tuning data, the CART accurately predicted the Species of most flowers using the model generated from the training data; however, it did make two incorrect predictions (the 1s in the table).
 
 
-### Resumen
+### Summary
 
-En esta lección hemos cubierto los conceptos básicos de qué es el análisis predictivo, qué tipos de predicción se realizan comúnmente y cómo realizar un análisis predictivo utilizando el paquete caret. Seguramente, esta lección solo ha introducido los conceptos básicos del aprendizaje automático, ¡y todavía hay mucho por aprender para aprender más allá de lo que hay en esta lección!
+In this lesson we have covered the basics of what predictive analysis is, what types of prediction are commonly done, and how to carry out a predictive analysis using the caret package. Surely, this lesson has only introduced the very basics of machine learning, and there is still a lot out there to learn beyond what is in this lesson!
 
-### Recursos adicionales
+### Additional Resources
 
-* [El libro del paquete `caret`](http://topepo.github.io/caret/index.html)
-* [Ejemplo de aprendizaje automático con `caret` y el conjunto de datos `iris` para la clasificación](https://rstudio-pubs-static.s3.amazonaws.com/261616_3097bfd3aa4341faafede5ed2ca7bb39.html)
+* [The `caret` Package book](http://topepo.github.io/caret/index.html)
+* [Example of machine learning using `caret` and the `iris` dataset for classification](https://rstudio-pubs-static.s3.amazonaws.com/261616_3097bfd3aa4341faafede5ed2ca7bb39.html)
 
-### Diapositivas y Video
+### Slides and Video
 
-![Predicción y aprendizaje automático](https://www.youtube.com/watch?v=pg78Oe7mWaw)
+![Prediction & Machine Learning](https://www.youtube.com/watch?v=pg78Oe7mWaw)
 
-* [Diapositivas](https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/edit?usp=sharing)
+* [Slides](https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/edit?usp=sharing)
 
 {quiz, id: quiz_07_prediction_ml}
 
-### Prueba de Predicción y Aprendizaje Automático
+### Prediction & Machine Learning quiz
 
 {choose-answers:4}
-? Al particionar (o dividir) sus datos, ¿qué dos conjuntos de datos genera?
+? When partitioning (or splitting) your data, what two data sets do you generate?
 
-C) entrenamiento, tuning
-o) afinación, prueba
-o) pruebas, validación
-o) validación, puesta a punto
+C) training, tuning
+o) tuning, testing
+o) testing, validating
+o) validating, tuning
 o) A, B
 o) x, y
 
 {choose-answers:4}
-? Si estuviera buscando generar predicción de la altura de los individuos, ¿qué modelo y medida de precisión usaría?
+? If you were looking to generate prediction of individuals height, what model and measure of accuracy would you use?
 
-C) regresión lineal, RMSE
+C) linear regression, RMSE
 C) `lm`, RMSE
 o) `rpart`, RMSE
-o) CARRITO, RMSE
-o) CARRITO, exactitud
-o) `rpart`, precisión
-o) `lm`, predicción
-o) regresión lineal, predicción
+o) CART, RMSE
+o) CART, Accuracy
+o) `rpart`, Accuracy
+o) `lm`, prediction
+o) linear regression, prediction
 
 {choose-answers:4, points:2}
-? Usando la información en [el libro `caret`](http://topepo.github.io/caret/index.html), si desea usar un modelo basado en árbol para la predicción, ¿qué `method` podría especificar?
+? Using information in [the `caret` book](http://topepo.github.io/caret/index.html), if you wanted to use a tree-based model for prediction, which `method` could you specify?
 
-C) `adaboost` 
-C) `treebag` 
-C) `rpart` 
-o) `svmLinear` 
-o) `svmExpoString` 
-o) `dda` 
-o) `dwdPoly` 
+C) `adaboost`
+C) `treebag`
+C) `rpart`
+o) `svmLinear`
+o) `svmExpoString`  
+o) `dda`
+o) `dwdPoly`
 
 
 {choose-answers:4, points: 2}
-? Eche un vistazo al análisis realizado [aquí](https://rstudio-pubs-static.s3.amazonaws.com/261616_3097bfd3aa4341faafede5ed2ca7bb39.html). De los modelos que probaron, ¿cuál fue el más preciso para predecir Especies en el conjunto de datos `iris`?
+? Take a look at the analysis done [here](https://rstudio-pubs-static.s3.amazonaws.com/261616_3097bfd3aa4341faafede5ed2ca7bb39.html). Of the models they tried, which was most accurate for predicting Species in the `iris` dataset?
 
-C) `lda` 
-o) `rf` 
-m) `rpart` 
-o) `lm` 
-o) `knn` 
-o) `svm` 
-o) `cart` 
+C) `lda`
+o) `rf`
+m) `rpart`
+o) `lm`
+o) `knn`
+o) `svm`
+o) `cart`
 
 {/quiz}
 
 {exercise, id: exercise_07_prediction_ml}
 
-### DataCamp: Tool Learning Toolbox
+### DataCamp:  Machine Learning Toolbox
 
 {case-sensitive: false}
-? Para obtener más práctica con el aprendizaje automático y el paquete `caret`, diríjase al curso [Caja de herramientas de aprendizaje automático](https://www.datacamp.com/courses/machine-learning-toolbox) en DataCamp. Inicia sesión y completa las dos primeras lecciones:
+? To get more practice with machine learning and the `caret` package, go to the course [Machine Learning Toolbox](https://www.datacamp.com/courses/machine-learning-toolbox) on DataCamp. Login and complete the first two lessons:
 
-- Modelos de regresión: ajustándolos y evaluando su desempeño.
-- Modelos de clasificación: ajustándolos y evaluando su desempeño.
+- Regression models: fitting them and evaluating their performance
+- Classification models: fitting them and evaluating their performance
 
-Una vez que haya completado el curso, escriba "completado"  en el cuadro a continuación.
+Once you've completed the course, type "completed" in the box below.
 
-*Nota*: Esto requiere un inicio de sesión de DataCamp, que cuesta dinero. Como ejercicio, esto no es obligatorio para aprobar el curso, pero lo*ayudará* a comprender mejor los conceptos que se tratan en estas lecciones.
+*Note*: This requires a DataCamp login, which costs money. As an exercise, this is not required to pass the course but it *will* help you get a better grasp on the concepts covered in these lessons.
 
-*Recordatorio*: los videos en DataCamp son esenciales para entender el material. ¡Es mejor no saltarse estos videos!
+*Reminder*: Videos in DataCamp are essential to understanding the material. It's best not to skip over these videos!
 
-! terminado
+! completed
 
 {/exercise}

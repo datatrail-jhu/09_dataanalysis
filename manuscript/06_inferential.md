@@ -1,297 +1,297 @@
-# Análisis inferencial
+# Inferential Analysis 
 
-El análisis inferencial es lo que los analistas realizan *después*que han descrito y explorado su conjunto de datos. Después de comprender mejor su conjunto de datos, los analistas a menudo intentan inferir algo de los datos. Esto se hace usando**pruebas estadísticas**. Si bien solo discutiremos**regresión lineal**en esta lección, hay*muchas* pruebas estadísticas diferentes, cada una de las cuales (cuando se aplica adecuadamente) se puede usar para el análisis de datos inferenciales.
+Inferential Analysis is what analysts carry out *after* they've described and explored their data set. After understanding your dataset better, analysts often try to infer something from the data. This is done using **statistical tests**. While we'll only be discussing **linear regression** in this lesson, there are *many* different statistical tests, each of which (when appropriately applied) can be used for inferential data analysis. 
 
-Vamos a romper esto todo un poco. El objetivo de los análisis inferenciales es utilizar una muestra **relativamente pequeña**de datos para**inferir**o decir algo sobre la**población**en general. Esto es necesario porque a menudo*queremos* contestar preguntas sobre una población. Tomemos un ejemplo ficticio aquí donde tenemos una población de 14 formas.
+Let's break this all down a little bit. The goal of inferential analyses is to use a relatively **small sample** of data to **infer** or say something about the **population** at large. This is required because often we *want* to answer questions about a population. Let's take a dummy example here where we have a population of 14 shapes.
 
-![La población](images/06_inferential/06_datanalysis_inferential-2.png)
+![The population](images/06_inferential/06_datanalysis_inferential-2.png)
 
-Aquí, en este gráfico, las formas representan individuos en la población y los colores de las formas pueden ser de color rosa o gris.
+Here, in this graphic, the shapes represent individuals in the population and the colors of the shapes can be either pink or grey.
 
-En este ejemplo solo tenemos catorce formas en la población; sin embargo, en el análisis de datos inferenciales, generalmente no es posible muestrear *todos*en la población. Considere si esta población era de todos en los Estados Unidos o de todos los estudiantes universitarios del mundo. Como no sería factible obtener información de cada individuo, los datos se recopilan en un subconjunto o una**muestra** de los individuos en la población más grande.
+In this example we only have fourteen shapes in the population; however, in inferential data analysis, it's not usually possible to sample *everyone* in the population. Consider if this population were everyone in the United States or every college student in the world. As getting information from every individual would be infeasible, data are instead collected on a subset, or a **sample** of the individuals in the larger population. 
 
-![Se toma una muestra de la población](images/06_inferential/06_datanalysis_inferential-3.png)
+![A sample is collected from the population](images/06_inferential/06_datanalysis_inferential-3.png)
 
-En nuestro ejemplo, le hemos estado mostrando cuántos rosados ​​y cuántas formas grises hay en la población más grande. Sin embargo, en la vida real, no *sabemos* cuál es la respuesta en la población más grande. Por eso recogimos la muestra!
+In our example, we've been showing you how many pink and how many gray shapes are in the larger population. However, in real life, we don't *know* what the answer is in the larger population. That's why we collected the sample!
 
-![No sabemos cuál es la verdad en la población](images/06_inferential/06_datanalysis_inferential-4.png)
+![We don't know what the truth is in the population](images/06_inferential/06_datanalysis_inferential-4.png)
 
-Aquí es donde **la inferencia** entra en juego. Analizamos los datos recopilados en nuestra muestra y luego hacemos todo lo posible para inferir cuál es la respuesta en la población más grande. En otras palabras, el análisis de datos inferenciales utiliza datos de una muestra para hacer su mejor conjetura acerca de cuál sería la respuesta en la población si pudiéramos medir a cada individuo.
+This is where **inference** comes into play. We analyze the data collected in our sample and then do our best to infer what the answer is in the larger population. In other words, inferential data analysis uses data from a sample to make its best guess as to what the answer would be in the population if we were able to measure every individual.
 
-![La inferencia de la muestra hace su mejor conjetura en cuanto a cuál es la verdad en la población](images/06_inferential/06_datanalysis_inferential-5.png)
+![Inference from the sample makes its best guess as to what the truth is in the population](images/06_inferential/06_datanalysis_inferential-5.png)
 
-### incertidumbre
+### Uncertainty
 
-Debido a que no hemos medido directamente la población, pero solo hemos podido realizar mediciones en una muestra de los datos, al hacer nuestra inferencia no podemos estar seguros de que nuestra inferencia sobre la población sea exacta. Por ejemplo, en nuestra muestra, un tercio de las formas son grises. ¡Esperamos que aproximadamente un tercio de las formas de nuestra población también sean grises! Bueno, un tercio de 14 (el número de formas en nuestra población) es 4.667. ¿Significa esto que cuatro formas son realmente grises?
+Because we haven't directly measured the population but have only been able to take measurements on a sample of the data, when making our inference we can't be exactly sure that our inference about the population is exact. For example, in our sample one-third of the shapes are grey. We'd expect about one-third of the shapes in our population to be grey then too! Well, one-third of 14 (the number of shapes in our population) is 4.667. Does this mean four shapes are truly gray?
 
-![La inferencia nos da una buena idea de cuál es la verdad en la población](images/06_inferential/06_datanalysis_inferential-6.png)
+![Inference gives us a good guess as to what the truth is in the population](images/06_inferential/06_datanalysis_inferential-6.png)
 
-¿O tal vez cinco formas en la población son grises?
+Or maybe five shapes in the population are grey? 
 
-![Tal vez la población realmente tenga cinco formas grises ...](images/06_inferential/06_datanalysis_inferential-7.png)
+![Maybe the population really has five grey shapes in it...](images/06_inferential/06_datanalysis_inferential-7.png)
 
-Dada la muestra que hemos tomado, podemos suponer que 4-5 formas en nuestra población serán de color gris, pero no estamos seguros *exactamente*de cuál es ese número. En las estadísticas, esta "mejor suposición"  se conoce como**estimación**. Esto significa que estimamos que 4.667 formas serán grises.*Pero*, hay incertidumbre en ese número. Debido a que estamos adivinando lo mejor que puede ser esa estimación, también hay una medida de incertidumbre en esa estimación. El análisis de datos inferenciales incluye generar la estimación*y* la medida de incertidumbre alrededor de esa estimación.
+Given the sample we've taken, we can guess that 4-5 shapes in our population will be grey, but we aren't certain *exactly* what that number is. In statistics, this "best guess" is known as an **estimate**. This means that we estimate that 4.667 shapes will be gray. *But*, there is uncertainty in that number. Because we're taking our best guess at figuring out what that estimate should be, there's also a measure of uncertainty in that estimate. Inferential data analysis includes generating the estimate *and* the measure of uncertainty around that estimate.
 
-Regresemos al ejemplo donde *sabemos*la verdad en la población. ¡Hey Mira! De hecho, solo había tres formas grises. Es totalmente posible que si pones todas esas formas en una bolsa y sacas tres, dos serían rosas y una gris. Como estadísticos, diríamos que obtener esta muestra fue**probable** (está dentro de lo posible), pero no es lo más probable (lo más probable es que sea 4 o 5). ¡para agregar incertidumbre a su estimación cuando esté haciendo un análisis inferencial!
+Let's return back to the example where we *know* the truth in the population. Hey look! There were actually only three grey shapes after all. It is totally possible that if you put all those shapes into a bag and pulled three out that two would be pink and one would be grey. As statisticians, we'd say that getting this sample was **probable** (it's within the realm of possibility), but it's not the most likely (The most likely was either 4 or 5.) This really drives home why it's important to add uncertainty to your estimate whenever you're doing inferential analysis!  
 
-![En realidad, solo había tres formas grises en nuestra población después de todo](images/06_inferential/06_datanalysis_inferential-8.png)
+![There actually were only three grey shapes in our population after all](images/06_inferential/06_datanalysis_inferential-8.png)
 
-### Muestreo aleatorio
+### Random Sampling
 
-Debido a que se está moviendo de una *pequeña*cantidad de datos y está tratando de generalizar a una población*más grande*, su capacidad para inferir con precisión la información sobre la población más grande depende en gran medida de cómo se muestrearon los datos. Tocamos brevemente sobre esto en una lección anterior, pero hablémoslo completamente ahora.
+Since you are moving from a *small* amount of data and trying to generalize to a *larger* population, your ability to accurately infer information about the larger population depends heavily on how the data were sampled. We briefly touched on this in a previous lesson, but let's discuss it fully now. 
 
-Los datos en su muestra *deben*ser**representativos de su población más grande** para ser utilizados en el análisis de datos inferenciales. Vamos a discutir lo que esto significa.
+The data in your sample *must* be **representative of your larger population** to be used for inferential data analysis. Let's discuss what this means. 
 
-Usando el mismo ejemplo, ¿qué pasaría si, en su población más grande, no solo tuviera formas grises y rosadas, sino que también tuviera formas azules?
+Using the same example, what if, in your larger population, you didn't just have grey and pink shapes, but you also had blue shapes? 
 
-![¿Y si su población mayor tuviera tres formas de colores diferentes?](images/06_inferential/06_datanalysis_inferential-9.png)
+![What if your larger population had three different color shapes?](images/06_inferential/06_datanalysis_inferential-9.png)
 
-Bueno, si su muestra solo tiene formas rosadas y grises, cuando vaya a hacer una inferencia, no hay forma de que deduzca que debería haber formas azules en su población ya que no capturó ninguna en su muestra.
+Well, if your sample only has pink and grey shapes, when you go to make an inference, there's no way you'd infer that there should be blue shapes in your population since you didn't capture any in your sample.
 
-En este caso, su muestra *no* es representativa de su población mayor. En los casos en los que no tiene una muestra representativa, no puede llevar a cabo la inferencia, ya que no podrá inferir correctamente la información sobre la población más grande.
+In this case, your sample is *not* representative of your larger population. In cases where you do not have a representative sample, you can not carry out inference, since you will not be able to correctly infer information about the larger population.
 
-![Solo puede realizar un análisis inferencial cuando su muestra es representativa de la población](images/06_inferential/06_datanalysis_inferential-10.png)
+![You can only carry out an inferential analysis when your sample is representative of the population](images/06_inferential/06_datanalysis_inferential-10.png)
 
-Esto significa que debe diseñar su análisis de manera que esté recopilando datos representativos *y* que debe verificar sus datos después de la recopilación de datos para asegurarse de que tuvo éxito.
+This means that you have to design your analysis so that you're collecting representative data *and* that you have to check your data after data collection to make sure that you were successful.
 
-En este punto puedes estar pensando para ti mismo. "Espere un segundo. Pensé que no sabía cuál era la verdad en la población. ¿Cómo puedo asegurarme de que sea representativo?" Buen punto! Con respecto a la medida que está realizando (distribución de color de las formas, en este ejemplo), usted *no*sabe la verdad.*Pero*, debes saber otra información sobre la población. ¿Cuál es la distribución por edades de su población? Su muestra debe tener una distribución por edades similar. ¿Qué proporción de su población es femenina? Si es la mitad, entonces su muestra debe estar compuesta de medias hembras. El procedimiento de recopilación de datos debe configurarse para garantizar que la muestra que recopile sea representativa (muy similar a) de su población más numerosa. Luego, una vez que se recopilan los datos, su análisis descriptivo debe verificar que los datos que ha recopilado sean representativos de su población más grande. Al muestrear aleatoriamente a su población más grande, luego se asegura de que la inferencia que realice sobre la medición del interés (distribución de color de las formas) sea más precisa.
+You may at this point be thinking to yourself. "Wait a second. I thought I didn't know what the truth was in the population. How can I make sure it's representative?" Good point! With regards to the measurement you're making (color distribution of the shapes, in this example), you *don't* know the truth. *But*, you should know other information about the population. What is the age distribution of your population? Your sample should have a similar age distribution. What proportion of your population is female? If it's half, then your sample should be comprised of half females. Your data collection procedure should be set up to ensure that the sample you collect is representative (very similar to) your larger population. Then, once the data are collected, your descriptive analysis should check to ensure that the data you've collected are in fact representative of your larger population. By randomly sampling your larger population, then ensures that the inference you make about the measurement of interest (color distribution of the shapes) will be most accurate.
 
-Para reiterar: si los datos que recopila no son de una muestra representativa de la población, las generalizaciones que deduzca no serán precisas para la población.
+To reiterate: If the data you collect is not from a representative sample of the population, the generalizations you infer won't be accurate for the population. 
 
 
-### Un ejemplo de la vida real de análisis de datos inferenciales
+### A real-life example of inferential data analysis
 
-A diferencia de nuestros ejemplos anteriores, los datos del Censo no se utilizarían para el análisis inferencial. Por definición, un censo ya recopila información (funcionalmente) de toda la población. Por lo tanto, no hay población sobre la cual inferir. Los datos del censo son la rara excepción en la que se incluye una población completa*en el conjunto de datos. Además, el uso de datos del censo de los Estados Unidos para inferir información sobre otro país no sería una buena idea porque los Estados Unidos no son necesariamente representativos del otro país.
+Unlike in our previous examples, Census data wouldn't be used for inferential analysis. By definition, a census already collects information on (functionally) the entire population. Thus, there is no population on which to infer. Census data are the rare exception where a whole population *is* included in the dataset. Further, using data from the US census to infer information about another country would not be a good idea because the US isn't necessarily representative of the other country. 
 
-En cambio, un mejor ejemplo de un conjunto de datos sobre el cual realizar el análisis inferencial serían los datos utilizados en el estudio: [El efecto del control de la contaminación del aire en la esperanza de vida en los Estados Unidos: un análisis de 545 condados de los EE. UU. Para el período 2000 hasta 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3521092/). En este estudio, los investigadores se propusieron comprender el efecto de la contaminación del aire en todos los Estados Unidos
+Instead, a better example of a dataset on which to carry out inferential analysis would be the data used in the study: [The Effect of Air Pollution Control on Life Expectancy in the the United States: An Analysis of 545 US counties for the period 2000 to 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3521092/). In this study, researchers set out to understand the effect of air pollution on everyone in the United States
 
-![La pregunta del estudio busca aprender algo sobre toda la población de EE. UU.](images/06_inferential/06_datanalysis_inferential-12.png)
+![Study question looks to learn something about entire US population](images/06_inferential/06_datanalysis_inferential-12.png)
 
-Para responder a esta pregunta, se estudió un subconjunto de la población de EE. UU. Y los investigadores analizaron el nivel de contaminación del aire y la esperanza de vida. Habría sido casi imposible estudiar a cada individuo en los Estados Unidos año tras año. En su lugar, este estudio utilizó los datos que recolectaron de una muestra de la población de los EE. UU. Para *inferir* cómo la contaminación del aire podría afectar la esperanza de vida en todos los EE.
+To answer this question, a subset of the US population was studied, and the researchers looked at the level of air pollution experienced and life expectancy. It would have been nearly impossible to study every individual in the United States year after year. Instead, this study used the data they collected from a sample of the US population to *infer* how air pollution might be impacting life expectancy in the entire US! 
 
-![Los estudios usan muestras representativas para inferir información sobre la población más grande](images/06_inferential/06_datanalysis_inferential-13.png)
+![Studies use representative samples to infer information about the larger population](images/06_inferential/06_datanalysis_inferential-13.png)
 
-### ¿Significa diferente de la expectativa?
+### Mean different from expectation?
 
-Para comenzar con el análisis de datos inferenciales, consideremos el caso en el que está interesado en analizar datos sobre una sola variable numérica. Si estuvieras haciendo estadísticas descriptivas sobre este conjunto de datos, probablemente calcularías la media para esa variable. Pero, ¿qué pasaría si, además de saber la media, quisiera saber si los valores en esa variable estaban todos dentro de los límites de la variación normal? Podrías calcular eso usando el análisis de datos inferenciales. Puede usar los datos que tiene para *inferir* si los datos están o no dentro de los límites esperados.
+To get started on inferential data analysis, let's consider the case where you're interested in analyzing data about a single numeric variable. If you were doing descriptive statistics on this dataset, you'd likely calculate the mean for that variable. But, what if, in addition to knowing the mean, you wanted to know if the values in that variable were all within the bounds of normal variation. You could calculate that using inferential data analysis. You could use the data you have to *infer* whether or not the data are within the expected bounds.
 
-Por ejemplo, digamos que tenía un conjunto de datos que incluía el número de onzas *en realidad* incluido en 100 latas de un refresco. Usted esperaría que cada uno pueda tener exactamente 12 oz de líquido; sin embargo, hay alguna variación en el proceso. Por lo tanto, vamos a probar si constantemente te acortas la cantidad de líquido en tu lata.
+For example, let's say you had a dataset that included the number of ounces *actually* included in 100 cans of a soft drink. You'd expect that each can have exactly 12 oz of liquid; however, there is some variation in the process. So, let's test whether or not you're consistently getting shorted on the amount of liquid in your can. 
 
-De hecho, ¡sigamos adelante y generemos el conjunto de datos nosotros mismos!
+In fact, let's go ahead and generate the dataset ourselves!
 
 ```r
 ## generate the dataset
 set.seed(34) 
 soda_ounces <- rnorm(100, mean = 12, sd = 0.04)
 head(soda_ounces)
-``` 
+```
 
-En este código, especificamos que queremos realizar un sorteo aleatorio de 100 valores diferentes (que representan nuestras 100 latas de refrescos), donde la media es 12 (que representa las 12 onzas de soda que se espera que estén dentro de cada lata), y permitiendo algunas variaciones (hemos establecido la desviación estándar en 0.04).
+In this code, we're specifying that we want to take a random draw of 100 different values (representing our 100 cans of soft drink), where the mean is 12 (representing the 12 ounces of soda expected to be within each can), and allowing for some variation (we've set the standard deviation to be 0.04).
 
-![salida viendo `soda_ounces` dataset](images/06_inferential/06_datanalysis_inferential-14.png)
+![output looking at `soda_ounces` dataset](images/06_inferential/06_datanalysis_inferential-14.png)
 
-Podemos ver que los valores son aproximadamente, pero no siempre exactamente iguales a las 12 onzas esperadas.
+We can see that the values are approximately, but not always exactly equal to the expected 12 ounces. 
 
-#### Probando la diferencia de medias de la expectativa en R
+#### Testing mean difference from expectation in R
 
-Para hacer una inferencia sobre si estamos o no constantemente acortados, vamos a utilizar esta muestra de 100 latas. Tenga en cuenta que estamos utilizando esta muestra de latas para inferir algo sobre todas las latas de este refresco, ya que no podemos medir la cantidad de onzas en todas las latas de la bebida generada.
+To make an inference as to whether or not we're consistently getting shorted, we're going to use this sample of 100 cans. Note that we're using this sample of cans to infer something about all cans of this soft drink, since we aren't able to measure the number of ounces in all cans of the soft drink generated. 
 
-Para realizar esta prueba estadística, utilizaremos una prueba t. Sin embargo, antes de que podamos hacerlo, debemos asegurarnos de que los datos siguen una distribución normal, ya que esta es la suposición principal de la prueba t.
+To carry out this statistical test, we'll use a t-test. However, before we can do so we have to ensure that the data follow a normal distribution, since this is the primary assumption of the t-test.
 
 ```r
 library(ggplot2)
 
 ## check for normality
 ggplot(as.data.frame(soda_ounces))+
-geom_histogram(aes(soda_ounces), bins = 10)
-``` 
+  geom_histogram(aes(soda_ounces), bins = 10)
+```
 
-Aquí, vemos que los datos se distribuyen de manera aproximadamente normal, lo que permite el uso de una prueba t.
+Here, we see that the data are approximately normally distributed, allowing for a t-test to be used.
 
-![histograma de `soda_ounces`](images/06_inferential/06_datanalysis_inferential-15.png)
+![histogram of `soda_ounces`](images/06_inferential/06_datanalysis_inferential-15.png)
 
-Una prueba t comprobará si las onzas observadas difieren de la media esperada (12 oz). Para ejecutar una prueba t en R, la función es `t.test()` 
+A t-test will check whether the observed ounces differs from the expected mean (12 oz). To run a t-test in R, the function is `t.test()`
 
 ```r
 ## carry out t-test
 t.test(soda_ounces, mu = 12)
-``` 
+```
 
 ![t-test output](images/06_inferential/06_datanalysis_inferential-16.png)
 
-En la salida de esta función, nos centraremos en el intervalo de confianza del 95 por ciento. Los intervalos de confianza proporcionan el rango de valores que probablemente contengan el parámetro de población desconocido. Aquí, el parámetro de población que nos interesa es la media. Por lo tanto, los intervalos de confianza del 95% nos proporcionan el rango en el que, después de un muestreo repetido, la media calculada caerá el 95% del tiempo. Más específicamente, si el intervalo de confianza del 95 por ciento contiene la media esperada (12 oz), entonces podemos estar seguros de que la compañía no nos está acortando la cantidad de líquido que están depositando en cada lata.
+In the output from this function, we'll focus on the 95 percent confidence interval. Confidence Intervals provide the range of values likely to contain the unknown population parameter. Here, the population parameter we're interested in is the mean. Thus, the 95% Confidence Intervals provides us the range where, upon repeated sampling, the calculated mean would fall 95 percent of the time. More specifically, if the 95 percent confidence interval contains the expected mean (12 oz), then we can be confident that the company is not shorting us on the amount of liquid they're putting into each can.
 
-Aquí, dado que 12 está entre 11.99187 y 12.00754, podemos ver que las cantidades en las 100 latas muestreadas están dentro de la variación esperada. Podríamos inferir de esta muestra que es probable que la población de todas las latas de este refresco tenga una cantidad adecuada de líquido en las latas.
+Here, since 12 is between 11.99187 and 12.00754, we can see that the amounts in the 100 sampled cans are within the expected variation. We could infer from this sample that the population of all cans of this soft drink are likely to have an appropriate amount of liquid in the cans.
 
-### Diferencias de proporción
+### Proportion Differences
 
-Más allá de mirar una sola variable numérica, ¿qué pasaría si tuviera dos grupos y quisiera saber si las proporciones de una segunda variable dentro de los grupos diferían? Para probar si las proporciones dentro de un grupo difieren de las proporciones en el segundo grupo, usaremos la función `prop.test()`.
+Beyond looking at a single numeric variable, what if you had two groups and wanted to know if the proportions of a second variable within the groups differed? To test to see if the proportions within one group differs from the proportions in the second group, we'll use the function `prop.test()`. 
 
-Para este ejemplo, veremos el conjunto de datos `quine` del paquete `MASS`. Este conjunto de datos incluye una muestra de 146 estudiantes en zonas rurales de Nueva Gales del Sur. En este caso, nuestra **población**son estudiantes en la zona rural de Nueva Gales del Sur. Nuestra**muestra** son los 146 estudiantes de los cuales tenemos datos.
+For this example, we'll look to the `quine` dataset from the `MASS` package. This dataset includes a sample of 146 students in rural New South Wales. In this case, our **population** is students in Rural New South Wales. Our **sample** is the 146 students for whom we have data. 
 
-En este ejemplo, vamos a verificar si la proporción de machos aborígenes en el conjunto de datos es diferente de la proporción de hembras aborígenes. La variable `Eth` contiene una "A"  si el individuo es aborigen, "N" , de lo contrario. El sexo está codificado de manera tal que "M"  es masculino y "F"  es femenino.
+In this example, we're going to check to see if the proportion of aboriginal males in the dataset is different from the proportion of aboriginal females. The variable `Eth` contains an "A" if the individual is aboriginal, "N" otherwise. Sex is coded such that "M" is male and "F" is female.
 
 ```r
 library(MASS)
 
 ## take a look at the raw values
 table(quine$Eth, quine$Sex)
-``` 
+```
 
-![números en bruto del conjunto de datos `quine`](images/06_inferential/06_datanalysis_inferential-18.png)
+![raw numbers from `quine` dataset](images/06_inferential/06_datanalysis_inferential-18.png)
 
-De los valores en bruto, vemos que hay 38 hembras aborígenes y 31 machos. Es difícil decir de esta salida si esas proporciones realmente difieren entre sí o no. ¿Es 38 de 80 diferentes a 31 de 66? Por lo tanto, usaremos una prueba estadística para extraer una inferencia de esta muestra.
+From the raw values, we see there are 38 aboriginal females and 31 males. It's hard to tell from this output whether or not those proportions truly differ from one another. Is 38 out of 80 different than 31 out of 66? Thus, we'll use a statistical test to draw an inference from this sample.
 
 
-#### Prueba de diferencias de proporción en R
+#### Proportion Differences Testing in R 
 
-Como se mencionó anteriormente, `prop.test()` le permite probar si las proporciones entre grupos son iguales o no.
+As mentioned above, `prop.test()` allows you to test whether or not the proportions between groups are the same.
 
 ```r
 ## test for differences in proportions between groups
 prop.test(table(quine$Eth, quine$Sex)) 
-``` 
+```
 
-![`prop.test()` salida](images/06_inferential/06_datanalysis_inferential-19.png)
+![`prop.test()` output](images/06_inferential/06_datanalysis_inferential-19.png)
 
-Aquí, nuevamente, veremos el intervalo de confianza para interpretar nuestros resultados. Si la proporción de aborígenes en cada grupo es igual, esperaríamos que la diferencia entre ellos sea cero. Por lo tanto, si cero está contenido dentro del intervalo de confianza del 95%, no hay diferencia estadística entre las proporciones de aborígenes en los grupos de hombres y mujeres. Este es el caso que vemos aquí en estos datos, ya que cero está entre -0.16 y 0.17.
+Here, again, we'll looked to the confidence interval to interpret our results. If the proportion of aboriginals in each group is equal, we'd expect the difference between them to be zero. Thus, if zero is contained within the 95% confidence interval, there is no statistical difference between the proportions of aboriginals in the male and female groups. This is the case we see here in these data, as zero is between -0.16 and 0.17. 
 
-### Regresión lineal
+### Linear Regression
 
-El análisis inferencial es comúnmente el objetivo del modelado estadístico, donde tiene una pequeña cantidad de información para extrapolar y generalizar esa información a un grupo más grande. Uno de los enfoques más comunes utilizados en el modelado estadístico se conoce como **regresión lineal**. Aquí, discutiremos cuándo usar la regresión lineal es apropiado, cómo llevar a cabo el análisis en R y cómo interpretar los resultados de este enfoque estadístico.
+Inferential analysis is commonly the goal of statistical modeling, where you have a small amount of information to extrapolate and generalize that information to a larger group. One of the most common approaches used in statistical modeling is known as **linear regression**. Here, we'll discuss when using linear regression is appropriate, how to carry out the analysis in R, and how to interpret the results from this statistical approach. 
 
-Al analizar la regresión lineal, estamos tratando de describir (modelar) la relación entre una variable dependiente y una variable independiente.
+When discussing linear regression, we're trying to describe (model) the relationship between a dependent variable and an independent variable.  
 
-![relación de modelos de regresión lineal entre dos variables](images/06_inferential/06_datanalysis_inferential-20.png)
+![linear regression models relationship between two variables](images/06_inferential/06_datanalysis_inferential-20.png)
 
-Al visualizar una relación lineal, la variable independiente se traza a lo largo de la parte inferior de la gráfica, en el **eje x**y la variable dependiente se traza a lo largo del lado de la gráfica, en el eje**y**.
+When visualizing a linear relationship, the independent variable is plotted along the bottom of the graph, on the **x-axis** and the dependent variable is plotted along the side of the plot, on the **y-axis**. 
 
-![independiente en el eje x; dependiente del eje y](images/06_inferential/06_datanalysis_inferential-21.png)
+![independent on the x-axis; dependent on the y-axis](images/06_inferential/06_datanalysis_inferential-21.png)
 
-Al realizar una regresión lineal, se dibuja una **línea de mejor ajuste** a través de los puntos de datos para describir la relación entre las variables.
+When carrying out linear regression, a **best-fitting line** is drawn through the data points to describe the relationship between the variables. 
 
-![Una línea de mejor ajuste describe la relación entre las variables](images/06_inferential/06_datanalysis_inferential-22.png)
+![A best-fitting line describes the relationship between the variables](images/06_inferential/06_datanalysis_inferential-22.png)
 
-Una línea de mejor ajuste, técnicamente hablando, minimiza la suma de los errores cuadrados. En términos más simples, esto significa que la línea que minimiza la distancia de todos los puntos de la línea es la línea que mejor se ajusta. O, lo que es más simple, hay la misma cantidad de puntos sobre la línea que hay debajo de la línea. En total, la distancia desde la línea para los puntos por encima de la línea será la misma que la distancia desde los puntos hasta la línea por debajo de la línea.
+A best-fitting line, technically-speaking, minimizes the sum of the squared errors. In simpler terms, this means that the line that minimizes the distance of all the points from the line is the best-fitting line. Or, most simply, there are the same number of points above the line as there are below the line. In total, the distance from the line for the points above the line will be the same as the distance from the points to the line below the line.
 
-Tenga en cuenta que la línea de mejor ajuste no tiene que pasar por ningún punto para ser la línea de mejor ajuste. Aquí, a la derecha, vemos una línea que atraviesa siete puntos en la trama (en lugar de los cuatro, la línea que mejor se ajusta, a la izquierda). Sin embargo, esto no es una línea que se ajuste mejor, ya que hay *manera* más puntos por encima de la línea que por debajo de la línea.
+Note that the best fitting line does *not* have to go through any points to be the best-fitting line. Here, on the right, we see a line that goes through seven points on the plot (rather than the four the best-fitting line goes through, on the left). However, this is *not* a best-fitting line, as there are *way* more points above the line than there are below the line.
 
-![Una línea de mejor ajuste NO tiene que pasar por la mayor cantidad de puntos posibles](images/06_inferential/06_datanalysis_inferential-23.png)
+![A best-fitting line does NOT have to go through the most points possible](images/06_inferential/06_datanalysis_inferential-23.png)
 
-Esta línea describe la relación entre las dos variables. Si observa la dirección de la línea, le dirá si existe una relación positiva o negativa entre las variables. En este caso, cuanto mayor sea el valor de la variable independiente, mayor será el valor de la variable dependiente. De manera similar, cuanto menor sea el valor de la variable independiente, menor será el valor de la variable dependiente. Cuando este es el caso, hay una **relación positiva** entre las dos variables.
+This line describes the relationship between the two variables. If you look at the direction of the line, it will tell you whether there is a positive or a negative relationship between the variables. In this case, the larger the value of the independent variable, the larger the value of the dependent variable. Similarly, the smaller the value of the independent variable, the smaller the value of the dependent variable. When this is the case, there is a **positive relationship** between the two variables.
 
-![Una relación positiva tendrá puntos que tenderán hacia arriba y hacia la derecha](images/06_inferential/06_datanalysis_inferential-24.png)
+![A positive relationship will have points that trend up and to the right](images/06_inferential/06_datanalysis_inferential-24.png)
 
-Un ejemplo de variables que tienen una relación positiva sería la altura de los padres y sus hijos. En general, cuanto más alto sea un padre, más alto será su hijo. Y, mientras más corto sea un padre, más probable es que su hijo sea bajo.
+An example of variables that have a positive relationship would be the height of fathers and their sons. In general, the taller a father is, the taller his son will be. And, the shorter a father is the more likely his son is to be short.
 
-![La altura de padre e hijo demuestra una relación lineal positiva](images/06_inferential/06_datanalysis_inferential-25.png)
+![Father and son height demonstrate a positive linear relationship](images/06_inferential/06_datanalysis_inferential-25.png)
 
-Alternativamente, cuando mayor es el valor de la variable independiente, menor es el valor de la variable dependiente, esta es una relación negativa.
+Alternatively, when the higher the value of the independent variable, the lower the value of the dependent variable, this is a negative relationship. 
 
-![Una relación positiva tendrá puntos que tenderán hacia arriba y hacia la izquierda](images/06_inferential/06_datanalysis_inferential-26.png)
+![A positive relationship will have points that trend up and to the left](images/06_inferential/06_datanalysis_inferential-26.png)
 
-Un ejemplo de variables que tienen una relación negativa sería la relación entre las ausencias de los estudiantes y sus calificaciones. Cuantas más ausencias tenga un estudiante, más bajas serán sus calificaciones.
+An example of variables that have a negative relationship would be the relationship between a students' absences and their grades. The more absences a student has, the lower their grades tend to be.
 
-![Las ausencias y calificaciones de los estudiantes muestran una relación lineal negativa](images/06_inferential/06_datanalysis_inferential-27.png)
+![Student absences and grades show a negative linear relationship](images/06_inferential/06_datanalysis_inferential-27.png)
 
-La regresión lineal, además de describir la dirección de la relación, también se puede utilizar para determinar la **fuerza** de esa relación.
+Linear regression, in addition to to describing the direction of the relationship, it can also be used to determine the **strength** of that relationship.
 
-Esto se debe a que la suposición con regresión lineal es que la verdadera relación está siendo descrita por la línea que mejor se ajusta. Cualquier punto que caiga fuera de la línea lo hace debido a un error aleatorio. Esto significa que si todos los puntos caen directamente en la parte superior de la línea, no hay error. Cuanto más caen los puntos de la línea, mayor es el error. Cuando los puntos están más alejados de la línea de mejor ajuste, la relación entre las dos variables es más débil que cuando los puntos caen más cerca de la línea.
+This is because the assumption with linear regression is that the true relationship is being described by the best-fitting line. Any points that fall away from the line do so due to random error. This means that if all the points fall directly on top of the line, there is no error. The further the points fall from the line, the greater the error. When points are further from the best-fitting line, the relationship between the two variables is weaker than when the points fall closer to the line.
 
-![La correlación es más débil a la izquierda y más a la derecha](images/06_inferential/06_datanalysis_inferential-28.png)
+![Correlation is weaker on the left and stronger on the right](images/06_inferential/06_datanalysis_inferential-28.png)
 
-En este ejemplo, la línea rosa es exactamente la misma línea de mejor ajuste en cada gráfica. Sin embargo, en la izquierda, donde los puntos caen más lejos de la línea, la fuerza de la relación entre estas dos variables es más débil que en la derecha, donde los puntos caen más cerca de la línea, donde la relación es más fuerte. La fuerza de esta relación se mide utilizando **correlación**. Cuanto más cerca están los puntos de la línea, más**correlacionadas** están las dos variables, lo que significa que la relación entre las dos variables es más fuerte.
+In this example, the pink line is exactly the same best-fitting line in each graph. However, on the left, where the points fall further from the line, the strength of the relationship between these two variables is weaker than on the right, where the points fall closer to the line, where the relationship is stronger. The strength of this relationship is measured using **correlation**. The closer the points are to the line the more **correlated** the two variables are, meaning the relationship between the two variables is stronger. 
 
-#### Suposiciones
+#### Assumptions
 
-Hasta ahora nos hemos centrado en dibujar líneas de regresión lineal. Las líneas de regresión lineal *pueden*dibujarse en cualquier gráfico, pero solo porque puede hacer algo no significa que en realidad*deba*. Cuando se trata de regresión lineal, para poder llevar a cabo cualquier inferencia sobre la relación entre dos variables, hay algunas suposiciones que deben mantenerse antes de que se pueda hacer la inferencia de la regresión lineal.
+Thus far we have focused on drawing linear regression lines. Linear regression lines *can* be drawn on any plot, but just because you can do something doesn't mean you actually *should*. When it comes to linear regression, in order to carry our any inference on the relationship between two variables, there are a few assumptions that must hold before inference from linear regression can be done.
 
-Los dos supuestos de regresión lineal simple son **linealidad**y**homoscedasticidad**.
+The two assumptions of simple linear regression are **linearity** and **homoscedasticity**.
 
-##### Linealidad
+##### Linearity
 
-La relación entre las dos variables debe ser lineal.
+The relationship between the two variables must be linear. 
 
-Por ejemplo, qué pasaría si estuviéramos trazando datos de un solo día y estuviéramos estudiando la relación entre la temperatura y el tiempo. Bueno, sabemos que generalmente la temperatura aumenta a lo largo del día y luego disminuye por la noche. Aquí, vemos algunos datos de ejemplo que reflejan esta relación. La forma de U al revés de los datos sugiere que la relación no es de hecho lineal. Si bien *podríamos* trazar una línea recta a través de estos datos, sería inapropiado. En los casos en que la relación entre las variables no se puede modelar bien con una línea recta, no se debe usar la regresión lineal.
+For example, what if we were plotting data from a single day and we were looking at the relationship between temperature and time. Well, we know that generally temperature increases throughout the day and then decreases in the evening. Here, we see some example data reflective of this relationship. The upside-down u-shape of the data suggests that the relationship is not in fact linear. While we *could* draw a straight line through these data, it would be inappropriate. In cases where the relationship between the variables cannot be well-modeled with a straight line, linear regression should *not* be used.
 
-![Si la relación entre las variables no es lineal, no se debe usar la regresión](images/06_inferential/06_datanalysis_inferential-29.png)
+![If the relationship between the variables is non-linear, regression should not be used](images/06_inferential/06_datanalysis_inferential-29.png)
 
-##### Homoscedasticidad
+##### Homoscedasticity
 
-Además de mostrar una relación lineal, las variables aleatorias deben demostrar **homoscedasticity**. En otras palabras, la varianza (distancia desde la línea) debe ser constante en toda la variable.
+In addition to displaying a linear relationship, the random variables must demonstrate **homoscedasticity**. In other words, the variance (distance from the line) must be constant throughout the variable. 
 
-Si los puntos en un extremo están mucho más cerca de la línea de mejor ajuste que los puntos en el otro extremo, se ha violado la homoscedasticidad y la regresión lineal no es apropiada para los datos.
+If points at one end are much closer to the best-fitting line than points are at the other end, homoscedasticity has been violated and linear regression is not appropriate for the data.
 
-![La varianza debe ser consistente en la variable para que se use la regresión lineal](images/06_inferential/06_datanalysis_inferential-30.png)
+![Variance must be consistent across the variable for linear regression to be used](images/06_inferential/06_datanalysis_inferential-30.png)
 
-Si se mantienen estos dos supuestos, se puede considerar la regresión lineal para su análisis.
+If these two assumptions hold, linear regression can be considered for your analysis.
 
-### ¿Qué puede inferir la regresión lineal?
+### What can linear regression infer?
 
-Ahora que entendemos qué es la regresión lineal y qué suposiciones deben cumplirse para su uso, ¿cuándo la utilizaría realmente? La regresión lineal se puede utilizar para responder muchas preguntas diferentes sobre sus datos. Aquí discutiremos específicamente cómo hacer inferencias sobre la relación entre dos variables numéricas.
+Now that we understand what linear regression is and what assumptions must hold for its use, when would you actually use it? Linear regression can be used to answer many different questions about your data. Here we'll discuss specifically how to make inferences about the relationship between two numeric variables.
 
-#### ¿Qué es la asociación?
+#### What is the association?
 
-A menudo, cuando las personas realizan una regresión lineal, buscan comprender mejor la relación entre dos variables. Al observar esta relación, los analistas preguntan específicamente "¿Qué es la **asociación**entre estas dos variables?"  La asociación entre variables describe la tendencia en la relación (positiva, neutral o negativa)*y* la fuerza de esa relación (cómo se correlacionan las dos variables).
+Often when people are carrying out linear regression, they are looking to better understand the relationship between two variables. When looking at this relationship, analysts are specifically asking "What is the **association** between these two variables?" Association between variables describes the trend in the relationship (positive, neutral, or negative) *and* the strength of that relationship (how correlated the two variables are).
 
-Después de determinar que se cumplen los supuestos de regresión lineal, para determinar la asociación entre dos variables, se llevaría a cabo una regresión lineal. A partir de la regresión lineal, uno interpretaría la **estimación Beta**y el**error estándar** del modelo.
+After determining that the assumptions of linear regression are met, in order to determine the association between two variables, one would carry out a linear regression. From the linear regression, one would then interpret the **Beta estimate** and the **standard error** from the model.
 
-**Estimación Beta** - determina la dirección y la fuerza de la relación entre las dos variables.
+**Beta estimate** - determines the direction and strength of the relationship between the two variables. 
 
-Una beta de cero sugiere que no hay asociación entre las dos variables. Sin embargo, si el valor beta es positivo, la relación es positiva. Si el valor es negativo, la relación es negativa. Además, cuanto mayor sea el número, mayor será el efecto. Discutiremos el tamaño del efecto y cómo interpretar el valor con más detalle más adelante en esta lección.
+A beta of zero suggests there is no association between the two variables. However, if the beta value is positive, the relationship is positive. If the value is negative, the relationship is negative. Further, the larger the number, the bigger the effect is. We'll discuss effect size and how to interpret the value in more detail later in this lesson. 
 
-![Las estimaciones Beta describen el tamaño y la intensidad del efecto](images/06_inferential/06_datanalysis_inferential-31.png)
+![Beta estimates describe the size and strength of the effect](images/06_inferential/06_datanalysis_inferential-31.png)
 
-**Error estándar**: determina cuán incierta es la estimación beta. Cuanto mayor sea el error estándar, más incierto estamos en la estimación. Cuanto menor sea el error estándar, menos incierto estaremos en la estimación.
+**Standard error** - determines how uncertain the beta estimate is. The larger the standard error, the *more* uncertain we are in the estimate. The smaller the standard error, the *less* uncertain we are in the estimate.
 
-Los errores estándar se calculan en función de qué tan bien la línea de mejor ajuste modela los datos. Cuanto más cerca estén los puntos de la línea, menor será el error estándar, lo que refleja nuestra menor incertidumbre. Sin embargo, a medida que los puntos están más alejados de la línea de regresión, nuestra incertidumbre en la estimación aumentará y el error estándar será mayor.
+Standard errors are calculated based on how well the best-fitting line models the data. The closer the points are to the line, the lower the standard error will be, reflecting our decreased uncertainty. However, as the points are further from the regression line, our uncertainty in the estimate will increase, and the standard error will be larger.
 
-![Los errores estándar explican cuán incierta es la estimación](images/06_inferential/06_datanalysis_inferential-32.png)
+![Standard errors explain how uncertain the estimate is](images/06_inferential/06_datanalysis_inferential-32.png)
 
-Un recordatorio de que al realizar un análisis de datos inferenciales, siempre querrá informar una estimación *y*una medida de incertidumbre. Para la regresión lineal, esta será la**estimación beta**y el**error estándar**.
+A reminder that when carrying out inferential data analysis, you will always want to report an estimate *and* a measure of uncertainty. For linear regression, this will be the **beta estimate** and the **standard error**.
 
-Es posible que haya oído hablar de **p-valores** en algún momento. Las personas tienden a usar los valores de p para describir la fuerza de su asociación debido a su simplicidad. El valor p es un número único que toma en cuenta tanto la estimación (estimación beta) como la incertidumbre en esa estimación (SE). Cuanto menor sea el valor p, más significativa será la asociación entre dos variables. Sin embargo, si bien es un valor simple, no le brinda tanta información como informar las estimaciones y los errores estándar directamente. Por lo tanto, si está informando valores p, también es mejor incluir la estimación y los errores estándar.
+You may have heard talk of **p-values** at some point. People tend to use p-values to describe the strength of their association due to its simplicity. The p-value is a single number that takes into account both the estimate (beta estimate) and the uncertainty in that estimate (SE). The lower a p-value the more significant the association is between two variables. However, while it is a simple value, it doesn't tell you nearly as much information as reporting the estimates and standard errors directly. Thus, if you're reporting p-values, it's best to also include the estimate and standard errors as well.
 
-Dicho esto, la interpretación general de un valor p es "la probabilidad de obtener los resultados observados (o resultados más extremos) solo por casualidad". 188530Como es una probabilidad, el valor siempre estará entre 0 y 1. Luego, por ejemplo, un valor de p de 0.05 significa que el 5 por ciento del tiempo (o 1 en 20), observará los resultados de este extremo simplemente al oportunidad.
+That said, the general interpretation of a p-value is "the probability of getting the observed results (or results more extreme) by chance alone." Since it's a probability, the value will always be between 0 and 1. Then, for example, a p-value of 0.05, means that 5 percent of the time (or 1 in 20), you'd observe results this extreme simply by chance.   
 
-##### Asociación de pruebas en R
+##### Association Testing in R 
 
-Ahora que hemos analizado lo que puede aprender de una prueba de asociación, veamos un ejemplo en R. Para este ejemplo usaremos el conjunto de datos `trees` disponible en R, que incluye `girth`, `height` y `volume` medidas para 31 cerezas negras arboles
+Now that we've discussed what you can learn from an association test, let's look at an example in R. For this example we'll use the `trees` dataset available in R, which includes `girth`, `height`, and `volume` measurements for 31 black cherry trees.
 
-Con este conjunto de datos, responderemos a la pregunta:
+With this dataset, we'll answer the question:
 
-> ¿Podemos inferir la altura de un árbol dada su circunferencia?
+> Can we infer the height of a tree given its girth? 
 
-Presumiblemente, es más fácil medir la circunferencia de un árbol (ancho alrededor) que medir su altura. Por lo tanto, aquí queremos saber si la altura y girt están asociados o no.
+Presumably, it's easier to measure a trees girth (width around) than it is to measure its height. Thus, here we want to know whether or not height and girt are associated. 
 
-En este caso, ya que nos preguntamos si podemos inferir la altura a partir de la circunferencia, la circunferencia es la variable independiente y la altura es la variable dependiente. En otras palabras, estamos preguntando si la altura *depende* de la circunferencia?
+In this case, since we're asking if we can infer height from girth, girth is the independent variable and height is the dependent variable. In other words, we're asking does height *depend* on girth?
 
-Primero, antes de llevar a cabo la regresión lineal para probar la asociación y responder a esta pregunta, debemos asegurarnos de que la regresión lineal sea apropiada. Probaremos la linealidad y la homoscedasticidad.
+First, before carrying out the linear regression to test for association and answer this question, we have to be sure linear regression is appropriate. We'll test for linearity and homoscedasticity. 
 
-Para hacerlo, primero usaremos `ggplot2` para generar un diagrama de dispersión de las variables de interés.
+To do so, we'll first use `ggplot2` to generate a scatterplot of the variables of interest.
 
 ```r
 library(ggplot2)
 
 ggplot(trees) + 
-geom_point(aes(Height, Girth))
-``` 
+  geom_point(aes(Height, Girth))
+```
 
-![conjunto de datos de dispersión de árboles](images/06_inferential/06_datanalysis_inferential-35.png)
+![scatterplot of trees dataset](images/06_inferential/06_datanalysis_inferential-35.png)
 
-Desde el aspecto de esta trama, la relación parece aproximadamente lineal, pero para hacer esto un poco más fácil visualmente, agregaremos una línea de mejor primero a la trama.
+From the looks of this plot, the relationship looks approximately linear, but to visually make this a little easier, we'll add a line of best first to the plot.
 
 ```r
 ggplot(trees, aes(Height, Girth)) + 
-geom_point() +
-geom_smooth(method = "lm", se = FALSE)
-``` 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+```
 
-![diagrama de dispersión con la línea de mejor ajuste](images/06_inferential/06_datanalysis_inferential-36.png)
+![scatterplot with line of best fit](images/06_inferential/06_datanalysis_inferential-36.png)
 
-En este gráfico, la relación parece aproximadamente lineal y la varianza (distancia de los puntos a la línea) es constante en todos los datos. Dado esto, es apropiado usar regresión lineal para estos datos.
+On this graph, the relationship looks approximately linear and the variance (distance from points to the line) is constant across the data. Given this, it's appropriate to use linear regression for these data.
 
-Ahora que eso está establecido, podemos ejecutar la regresión lineal. Para hacerlo, usaremos la función `lm()`. La sintaxis para esta función es `lm(dependent_variable ~ independent_Variable, data = dataset)`.
+Now that that's established, we can run the linear regression. To do so, we'll use the `lm()` function. The syntax for this function is `lm(dependent_variable ~ independent_Variable, data = dataset)`.
 
 ```r
 ## run the regression
@@ -299,239 +299,239 @@ fit <- lm(Girth ~ Height , data = trees)
 
 ## take a look at the output
 summary(fit)
-``` 
+```
 
-La función `summary()` resume el modelo, así como la salida del modelo. Podemos ver los valores que nos interesan en este resumen, incluida la estimación beta, el error estándar (SE) y el valor p.
-Específicamente, a partir de la estimación beta, que es positiva, confirmamos que la relación es positiva (lo que también podríamos decir a partir del diagrama de dispersión). También podemos interpretar explícitamente esta estimación beta.
+The `summary()` function summarizes the model as well as the output of the model. We can see the values we're interested in in this summary, including the beta estimate, the standard error (SE), and the p-value. 
+Specifically, from the beta estimate, which is positive, we confirm that the relationship is positive (which we could also tell from the scatterplot). We can also interpret this beta estimate explicitly. 
 
-Específicamente, la estimación beta es la cantidad que cambiará la variable dependiente dado un aumento de una unidad en la variable independiente. En el caso de los árboles, una estimación beta de 0.256, dice que por cada pulgada que aumenta la circunferencia de un árbol, su altura aumentará en 0.256 pulgadas. Por lo tanto, no solo sabemos que existe una relación positiva entre las dos variables, sino que sabemos exactamente cuánto cambiará una variable dado un aumento de una sola unidad en la otra variable.
+Specifically, the beta estimate is the amount the dependent variable will change given a one unit increase in he independent variable. In the case of the trees, a beta estimate of 0.256, says that for every inch a tree's girth increases, its height will increase by 0.256 inches. Thus, we not only know that there's a positive relationship between the two variables, but we know by precisely how much one variable will change given a single unit increase in the other variable.
 
-![Beta, SE y p-valor todos incluidos en `summary()` salida](images/06_inferential/06_datanalysis_inferential-37.png)
+![Beta, SE, and p-value all included in `summary()` output](images/06_inferential/06_datanalysis_inferential-37.png)
 
-Además, la fuerza de esta relación se resume utilizando la métrica R cuadrado ajustada. Cuanto más cercano sea este valor a 1, más cerca estarán los puntos en su conjunto de datos de la línea de mejor ajuste. Cuanto más lejos estén de la línea, más cerca estará este valor a cero.
+Additionally, the strength of this relationship is summarized using the adjusted R-squared metric. The closer this value is to 1, the closer the points in your dataset fall to the line of best fit. The further they are from the line, the closer this value will be to zero.
 
-![R cuadrado ajustado especifica qué tan cerca están los datos de la línea de regresión](images/06_inferential/06_datanalysis_inferential-38.png)
+![Adjusted R-squared specifies how closely the data fall are to the regression line](images/06_inferential/06_datanalysis_inferential-38.png)
 
-Como vimos en el diagrama de dispersión, los datos no coinciden con la línea de regresión, por lo que un valor de 0.2445 parece razonable.
+As we saw in the scatterplot, the data are not right up against the regression line, so a value of 0.2445 seems reasonable.
 
-Finalmente, si bien la salida `summary()` es visualmente útil, si desea obtener alguno de los números de ese modelo, no siempre es sencillo. Afortunadamente, hay un paquete para ayudarte con eso! La función `tidy()` del paquete `broom` ayuda a tomar la salida de resumen de un modelo estadístico y organizarla en una salida tabular.
+Finally, while the `summary()` output are visually helpful, if you want to get any of the numbers out from that model, it's not always straightforward. Thankfully, there is a package to help you with that! The `tidy()` function from the `broom` package helps take the summary output from a statistical model and organize it into a tabular output. 
 ```r
 #install.packages("broom")
 library(broom)
 
 tidy(fit)
-``` 
+```
 
-![`tidy()` ayuda a organizar la salida de modelos estadísticos](images/06_inferential/06_datanalysis_inferential-39.png)
+![`tidy()` helps organize output from statistical models](images/06_inferential/06_datanalysis_inferential-39.png)
 
-Tenga en cuenta que los valores no han cambiado. Simplemente se organizan en una tabla fácil de usar. Es útil tener en cuenta que esta función y este paquete existen mientras trabaja con modelos estadísticos.
+Note that the values haven't changed. They're just organized into an easy-to-use table. It's helpful to keep in mind that this function and package exist as you work with statistical models.
 
-Finalmente, es importante tener siempre en cuenta que la interpretación **de su análisis de datos inferenciales**es increíblemente importante. Cuando utiliza la regresión lineal para probar la asociación, está observando la relación entre las dos variables. Si bien la circunferencia se puede usar para inferir la altura de un árbol, esto es solo una correlación.**No significa**que un aumento en la circunferencia**haga que**el árbol crezca más. Las asociaciones son*correlaciones*. Ellos son**no** causales. Discutiremos esto más adelante en la lección.
+Finally, it's important to always keep in mind that the **interpretation of your inferential data analysis** is incredibly important. When you use linear regression to test for association, you're looking at the relationship between the two variables. While girth can be used to infer a tree's height, this is just a correlation. It **does not mean** that an increase in girth **causes** the tree to grow more. Associations are *correlations*. They are **not** causal. We'll discuss this more later in the lesson. 
 
-Por ahora, sin embargo, en respuesta a nuestra pregunta, ¿podemos inferir la altura de un árbol a partir de su circunferencia, la respuesta es sí? Esperamos, en promedio, que la altura de un árbol aumente 0.255 pulgadas por cada pulgada de aumento en la circunferencia.
+For now, however, in response to our question, can we infer a tree's height from its girth, the answer is yes. We would expect, on average, a tree's height to increase 0.255 inches for every one inch increase in girth.
 
-### Confundiendo
+### Confounding
 
-Acabamos de discutir cómo usar `lm()` para evaluar la asociación entre dos variables numéricas. Sin embargo, hay un tema *increíblemente*importante que tenemos que discutir antes de pasar de la regresión lineal.**Confundir** en algo a lo que hay que prestar atención en cualquier análisis que esté haciendo que observe la relación entre dos variables más. Entonces ... ¿qué es confuso?
+We just finished discussing how to use `lm()` to assess the association between two numeric variables. However, there is one *incredibly* important topic that we have to discuss before moving on from linear regression. **Confounding** in something to watch out for in any analysis you're doing that looks at the relationship between two more more variables. So...what is confounding?
 
-Bueno, consideremos un ejemplo. ¿Qué pasaría si estuviéramos interesados ​​en comprender la relación entre el tamaño del zapato y la alfabetización? Para hacerlo, echamos un vistazo a esta pequeña muestra de dos humanos, uno que usa zapatos pequeños y no sabe leer y escribir y un adulto que usa zapatos grandes y sabe leer y escribir.
+Well, let's consider an example. What if we were interested in understanding the relationship between shoe size and literacy. To do so, we took a look at this small sample of two humans, one who wears small shoes and is not literate and one adult who wears big shoes and is literate.
 
-![Dos humanos y sus respectivos tamaños de zapatos y niveles de alfabetización](images/06_inferential/06_datanalysis_inferential-40.png)
+![Two humans and their respective shoe sizes and literacy levels](images/06_inferential/06_datanalysis_inferential-40.png)
 
-Si tuviéramos que hacer un diagrama de esta pregunta, podríamos preguntar "¿Podemos inferir las tasas de alfabetización a partir del tamaño del zapato?"
+If we were to diagram this question, we may ask "Can we infer literacy rates from shoe size?"
 
-![¿Es posible inferir la tasa de alfabetización a partir del tamaño del calzado?](images/06_inferential/06_datanalysis_inferential-41.png)
+![Possible to infer literacy rate from shoe size?](images/06_inferential/06_datanalysis_inferential-41.png)
 
-Si regresamos a nuestra muestra, sería importante tener en cuenta que uno de los humanos es un niño pequeño y el otro es un adulto.
+If we return to our sample, it'd be important to note that one of the humans is a young child and the other is an adult. 
 
-![Adultos y niños con sus respectivos tamaños de zapatos y niveles de alfabetización](images/06_inferential/06_datanalysis_inferential-42.png)
+![Adult and child with their respective shoe sizes and literacy levels](images/06_inferential/06_datanalysis_inferential-42.png)
 
-Nuestro diagrama inicial no tuvo en cuenta el hecho de que estos humanos diferían en su edad. La edad afecta el tamaño de sus zapatos *y* sus tasas de alfabetización. En este ejemplo, la edad es un factor de confusión.
+Our initial diagram failed to take into consideration the fact that these humans differed in their age. Age affects their shoe size *and* their literacy rates. In this example, age is a confounder.
 
-![La edad es un confusor](images/06_inferential/06_datanalysis_inferential-43.png)
+![Age is a confounder](images/06_inferential/06_datanalysis_inferential-43.png)
 
-Cada vez que tiene una variable que afecta tanto a sus variables dependientes *como a las independientes, es un factor de confusión. Ignorar confundidores no es apropiado al analizar datos. De hecho, en este ejemplo, habría llegado a la conclusión de que las personas que usan zapatos pequeños tienen tasas de alfabetización más bajas que las que usan zapatos grandes. Eso hubiera sido incorrecto. De hecho, ese análisis fue*confundido*por la edad. El hecho de no corregir la confusión ha dado lugar a informes erróneos en los medios de comunicación y la retractación de estudios científicos. No quieres estar en esa situación. Por lo tanto,**siempre considere y verifique la confusión** entre las variables en su conjunto de datos.
+Any time you have a variable that affects both your dependent *and* independent variables, it's a confounder. Ignoring confounders is not appropriate when analyzing data. In fact, in this example, you would have concluded that people who wear small shoes have lower literacy rates than those who wear large shoes. That would have been incorrect. In fact, that analysis was *confounded* by age. Failing to correct for confounding has led to misreporting in the media and retraction of scientific studies. You don't want to be in that situation. So, **always consider and check for confounding** among the variables in your dataset.
 
-![Los factores de confusión son variables que afectan tanto a sus variables dependientes como a las independientes](images/06_inferential/06_datanalysis_inferential-44.png)
+![Confounders are variables that affect both your dependent and independent variables](images/06_inferential/06_datanalysis_inferential-44.png)
 
-### Regresión lineal múltiple
+### Multiple Linear Regression
 
-Hay formas de **manejar efectivamente los factores de confusión dentro de un análisis**. Los factores de confusión se pueden incluir en su modelo de regresión lineal. Cuando se incluye, el análisis toma en cuenta el hecho de que estas variables son factores de confusión y llevan a cabo la regresión, eliminando el efecto de la variable de confusión de las estimaciones calculadas para la variable de interés.
+There are ways to **effectively handle confounders within an analysis**. Confounders can be included in your linear regression model. When included, the analysis takes into account the fact that these variables are confounders and carries out the regression, removing the effect of the confounding variable from the estimates calculated for the variable of interest. 
 
-Este tipo de análisis se conoce como **regresión lineal múltiple**, y el formato general es: `lm(dependent_variable ~ independent_variable + confounder , data = dataset)`.
+This type of analysis is known as **multiple linear regression**, and the general format is: `lm(dependent_variable ~ independent_variable + confounder , data = dataset)`.
 
-Como un ejemplo sencillo, volvamos al conjunto de datos `mtcars`, con el que hemos trabajado antes. En este conjunto de datos, tenemos datos de 32 automóviles, incluido su peso (`wt`), millas por galón (`mpg`), y Motor (`vs`, donde 0 es"  en forma de V" y 188530 es "recto").
+As a simple example, let's return to the `mtcars` dataset, which we've worked with before. In this dataset, we have data from 32 automobiles, including their weight (`wt`), miles per gallon (`mpg`), and Engine (`vs`, where 0 is "V-shaped" and 1 is "straight").
 
-Supongamos que estuviéramos interesados ​​en inferir las millas por galón que obtendría un automóvil según su peso. Primero veríamos la relación gráficamente:
+Suppose we were interested in inferring the mpg a car would get based on its weight. We'd first look at the relationship graphically:
 
 ```r
 ## take a look at scatterplot
 ggplot(mtcars, aes(wt, mpg)) +
-geom_point()
-``` 
+  geom_point()
+```
 
-![diagrama de dispersión de `wt` y `mpg` desde `mtcars`](images/06_inferential/06_datanalysis_inferential-45.png)
+![scatterplot of `wt` and `mpg` from `mtcars`](images/06_inferential/06_datanalysis_inferential-45.png)
 
-Desde el diagrama de dispersión, la relación parece aproximadamente lineal y la varianza parece constante. Por lo tanto, podríamos modelar esto usando regresión lineal:
+From the scatterplot, the relationship looks approximately linear and the variance looks constant. Thus, we could model this using linear regression:
 
 ```r
 ## model the data without confounder
 fit <- lm(mpg ~ wt, data = mtcars)
 tidy(fit)
-``` 
+```
 
-![salida de regresión lineal mtcars](images/06_inferential/06_datanalysis_inferential-46.png)
+![mtcars linear regression output](images/06_inferential/06_datanalysis_inferential-46.png)
 
-De este análisis, inferiríamos que por cada 1000 lbs más de peso que un automóvil pese, obtiene 5.34 millas *menos* por galón.
+From this analysis, we would infer that for every increase 1000 lbs more a car weighs, it gets 5.34 miles *less* per gallon.  
 
-Sin embargo, sabemos que el peso de un automóvil no necesariamente cuenta toda la historia. El tipo de motor en el automóvil probablemente afecta tanto el peso del automóvil como las millas por galón que obtiene el automóvil. Gráficamente, podríamos ver si este fuera el caso al observar estos diagramas de dispersión:
+However, we know that the weight of a car doesn't necessarily tell the whole story. The type of engine in the car likely affects both the weight of the car and the miles per gallon the car gets. Graphically, we could see if this were the case by looking at these scatterplots:
 
 ```r
 ## look at the difference in relationship 
 ## between Engine types
 ggplot(mtcars, aes(wt, mpg)) +
-geom_point() +
-facet_wrap(~vs)
-``` 
+  geom_point() +
+  facet_wrap(~vs)
+```
 
-![Facetas de Scaterplot para el tipo de motor](images/06_inferential/06_datanalysis_inferential-47.png)
+![Scaterplot faceting for engine type](images/06_inferential/06_datanalysis_inferential-47.png)
 
-De esta gráfica, podemos ver que los motores en forma de V (`vs` = 0), tienden a ser más pesados ​​y obtienen menos millas por galón, mientras que los motores rectos (`vs` = 1) tienden a pesar menos y obtener más millas por galón. Sin embargo, es importante observar que un automóvil que pesa 3000 puntos (`wt` = 3) y tiene un motor en forma de V (`vs` = 0) obtiene menos millas por galón que un automóvil del mismo peso con un motor recto (`vs` = 1 ), sugiriendo que simplemente modelar una relación lineal entre peso y mpg no es apropiado.
+From this plot, we can see that V-shaped engines (`vs`= 0), tend to be heavier and get fewer miles per gallon while straight engines (`vs` = 1) tend to weigh less and get more miles per gallon. Importantly, however, we see that a car that weighs 3000 points (`wt` = 3) and has a V-Shaped engine (`vs` = 0) gets fewer miles per gallon than a car of the same weight with a straight engine (`vs` = 1), suggesting that simply modeling a linear relationship between weight and mpg is not appropriate.
 
-A continuación, modelemos los datos, teniendo en cuenta esta confusión:
+Let's then model the data, taking this confounding into account:
 
 ```r
 ## include engine (vs) as a confounder
 fit <- lm(mpg ~ wt + vs, data = mtcars)
 tidy(fit)
-``` 
+```
 
-![modelo de confusión tomado en cuenta](images/06_inferential/06_datanalysis_inferential-49.png)
+![confounding model taken into account](images/06_inferential/06_datanalysis_inferential-49.png)
 
-Aquí, obtenemos una imagen más precisa de lo que está pasando. Interpretar los modelos de regresión múltiple es un poco más complicado ya que hay más variables; Sin embargo, practicaremos cómo hacerlo ahora.
+Here, we get a more accurate picture of what's going on. Interpreting multiple regression models is slightly more complicated since there are more variables; however, we'll practice how to do so now. 
 
-La mejor manera de interpretar los coeficientes en un modelo de regresión lineal múltiple es enfocarse en una sola variable de interés y mantener constantes todas las demás variables. Por ejemplo, nos centraremos en el peso (`wt`) mientras se mantiene constante (`vs`) para interpretar. Esto significa que para un motor en forma de V, esperamos ver una disminución de 4.44 millas por galón por cada 1000 libras de peso.
+The best way to interpret the coefficients in a multiple linear regression model is to focus on a single variable of interest and hold all other variables constant. For instance, we'll focus on weight (`wt`) while holding (`vs`) constant to interpret. This means that for a V-shaped engine, we expect to see a 4.44 miles per gallon decrease for every 1000 lb increase in weight. 
 
-Podemos interpretar los coeficientes de manera similar si nos enfocamos en los motores (`vs`). Por ejemplo, para dos autos que pesan lo mismo, esperaríamos que un motor recto (`vs` = 1) obtuviera 3.5 millas más por galón que un motor en forma de V (`vs` = 0).
+We can similarly interpret the coefficients by focusing on the engines (`vs`). For example, for two cars that weigh the same, we'd expect a straight engine (`vs` = 1) to get 3.5 more miles per gallon than a V-Shaped engine (`vs`= 0). 
 
-![modelo de confusión tomado en cuenta](images/06_inferential/06_datanalysis_inferential-50.png)
+![confounding model taken into account](images/06_inferential/06_datanalysis_inferential-50.png)
 
-Finalmente, señalaremos que el valor de p para `wt` disminuyó en este modelo en relación con el modelo en el que no consideramos la confusión. Esto se debe a que el modelo no tenía inicialmente en cuenta la diferencia del motor. A veces, cuando se tienen en cuenta los factores de confusión, su variable de interés será más importante; sin embargo, con frecuencia, el valor de p aumentará, y eso está bien. Lo importante es que los datos están mejor modelados.
+Finally, we'll point out that the p-value for `wt` decreased in this model relative to the model where we didn't account for confounding. This is because the model was not initially taking into account the engine difference. Sometimes when confounders are accounted for, your variable of interest will become more significant; however, frequently, the p-value will increase, and that's ok. What's important is that the data are most appropriately modeled.
 
-### La correlación no es causación
+### Correlation is not Causation
 
-Es probable que haya escuchado a alguien decir antes que "la correlación no es una causa", ¡188530 y es cierto! De hecho, hay [sitios web completos](http://www.tylervigen.com/spurious-correlations) dedicated to this concept.  Let's make sure we know exactly what that means before moving on. In the plot you see here, as the divorce rate in Maine decreases, so does per capita consumption of margarine. These two lines are clearly correlated; however, there isn't really a strong (or any) para decir que uno causó el otro. Por lo tanto, solo porque vea dos cosas con la misma tendencia no significa que una haya causado la otra. Estas son simplemente **correlaciones espurias**- cosas que tienden juntas por casualidad.**Siempre**tenga esto en cuenta cuando haga un análisis inferencial, y asegúrese de que**nunca haga reclamos causales cuando todo lo que tiene son asociaciones**.
+You've likely heard someone say before that "correlation is not causation," and it's true! In fact, there are [whole websites](http://www.tylervigen.com/spurious-correlations) dedicated to this concept.  Let's make sure we know exactly what that means before moving on. In the plot you see here, as the divorce rate in Maine decreases, so does per capita consumption of margarine. These two lines are clearly correlated; however, there isn't really a strong (or any) argument to say that one caused the other. Thus, just because you see two things with the same trend does not mean that one caused the other. These are simply **spurious correlations** -- things that trend together by chance. **Always** keep this in mind when you're doing inferential analysis, and be sure that you **never draw causal claims when all you have are associations**.
 
-![La correlación no es igual a la causalidad](images/06_inferential/06_datanalysis_inferential-51.png)
-
-
-De hecho, se podría argumentar que la única vez que puede hacer afirmaciones causales es cuando ha llevado a cabo un experimento aleatorio. **Los experimentos aleatorizados**son estudios que se diseñan y llevan a cabo al* asignar aleatoriamente a ciertos sujetos a un tratamiento y al resto de los individuos a otro tratamiento. Luego se aplica el tratamiento y se analizan los resultados. En el caso de un experimento aleatorio, se pueden comenzar a hacer afirmaciones causales. Sin embargo, aparte de esto, tenga cuidado con el lenguaje que elija y no exagere sus hallazgos.
+![Correlation does not equal causation](images/06_inferential/06_datanalysis_inferential-51.png)
 
 
-### Resumen
-
-En esta lección, hemos cubierto *mucho*. Comenzamos discutiendo que se requiere un análisis de datos inferenciales ya que a menudo no podemos tomar medidas de todos en nuestra población de interés. Por lo tanto, tomamos muestras representativas y estimamos cuál es la medida en la población más grande. Dado que esta es una estimación, siempre hay alguna medida de incertidumbre en torno a esta estimación. Hablamos sobre cómo se extraen las inferencias utilizando una única variable numérica y t-tests. También discutimos cómo probar si la proporción difiere entre los grupos que usan `prop.test()` (el ejemplo de Nueva Gales del Sur). Finalmente, hablamos de regresión lineal simple y múltiple. Discutimos que la regresión lineal ayuda a describir la relación entre dos variables numéricas (ejemplo `trees`) y que la regresión lineal múltiple ayuda a explicar la confusión en un análisis (ejemplo `mtcars`). Terminaremos esta lección reiterando que ser capaz de sacar conclusiones e interpretaciones claras de sus análisis es fundamental y que nunca debe sacar conclusiones causales cuando tiene asociaciones.
+In fact, one could argue that the only time you can make causal claims are when you have carried out a randomized experiment. **Randomized experiments** are studies that are designed and carried out by *randomly* assigning certain subjects to one treatment and the rest of the individuals to another treatment. The treatment is then applied and the results are then analyzed. In the case of a randomized experiment, causal claims can start to be made. Short of this, however, be careful with the language you choose and do not overstate your findings.
 
 
-### Diapositivas y Video
+### Summary
 
-![Análisis inferencial](https://www.youtube.com/watch?v=11DqIm2BbHI)
+In this lesson, we have covered *a lot*. We started off discussing that inferential data analysis is required since we often cannot take measurements from everyone in our population of interest. Thus, we take representative samples and estimate what the measure is in the larger population. Since this is an estimate, there is always some measure of uncertainty surrounding this estimate. We talked about how inferences are drawn using a single numeric variable and t-tests. We further discussed how to test whether or not the proportion differs between groups using `prop.test()` (the New South Wales example). Finally, we talked about simple and multiple linear regression. We discussed that linear regression helps describe the relationship between two numeric variables (`trees` example) and that multiple linear regression helps account for confounding in an analysis (`mtcars` example). We'll end this lesson by reiterating that being able to draw conclusions and clear interpretations of your analyses is critical and that you should *never* draw causal conclusions when you have associations.
 
-* [Diapositivas](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/edit?usp=sharing)
+
+### Slides and Video
+
+![Inferential Analysis](https://www.youtube.com/watch?v=11DqIm2BbHI)
+
+* [Slides](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/edit?usp=sharing)
 
 {quiz, id: quiz_06_inferential}
 
-### prueba de análisis inferencial
+### Inferential Analysis quiz
 
 {choose-answers:4}
-?1 ¿Por qué es necesario el análisis inferencial?
+?1 Why is inferential analysis necessary?
 
-C) Porque a menudo no podemos estudiar a todos en una población.
-C) Porque queremos poder inferir información sobre una población a partir de una muestra.
-C) Para que podamos usar muestras representativas para inferir información sobre una población más grande
-o) Porque permite a los analistas resumir los datos sin la necesidad de interpretación
-o) Permite a los analistas cuantificar si los descubrimientos en su conjunto de datos probablemente se mantendrán en una nueva muestra
-o) Le permite a uno predecir información sobre individuos más adelante
-o) Ayuda a determinar la causa mecánica detrás de la relación en sus datos
+C) Because we often can't study everyone in a population
+C) Because we want to be able to infer information about a population from a sample
+C) So that we can use representative samples to infer information about a larger population 
+o) Because it allows analysts to summarize the data without the need for interpretation
+o) It enables analysts to quantify whether the discoveries in your dataset will likely hold in a new sample
+o) It allows one to predict information about individuals later on
+o) It helps determine the mechanistic cause behind the relationship in your data
 
 
 {choose-answers:4, points:3}
-?2 Teniendo en cuenta el modelo: `fit <- lm(Sepal.Length ~ Sepal.Width, data = iris)` (es decir, vaya a ejecutar ese código), cuánto esperaría que cambie la longitud del sépalo dado un aumento de una unidad en el ancho del sépalo ?
+?2 Given the model: `fit <- lm(Sepal.Length ~ Sepal.Width, data = iris)` (meaning, go run that code), how much would you expect sepal length to change given a one unit increase in sepal width?
 
-C) disminuir en 0.22
-m) aumentar en 0.22
-o) aumentar en 1
-o) disminuir en 1
-o) disminuir en 6.52
-o) aumentar en 6.52
-o) p <0.05
+C) decrease by 0.22
+m) increase by 0.22
+o) increase by 1
+o) decrease by 1
+o) decrease by 6.52
+o) increase by 6.52
+o) p < 0.05
 
 
 {choose-answers:4, points:2}
-?3 Si su coeficiente beta para un modelo que analizó la relación entre altura y peso (por ejemplo: `lm(height ~ weight)`) fue 0.2, ¿qué significaría eso?
+?3 If your beta coefficient for a model that looked at the relationship between height and weight (for example: `lm(height ~ weight)`) were 0.2, what would that mean?
 
-C) por cada 1 lb de aumento de peso, usted esperaría que la altura aumentara en 0.2 pulgadas.
-C) por cada 1 lb de disminución de peso, esperaría que la altura aumentara en 0.2 pulgadas.
-m) por cada 1 lb de aumento en altura, se esperaría que el peso aumentara en 0.2 pulgadas.
-o) por cada 1 lb de disminución de peso, esperaría que la altura aumentara en 0.2 pulgadas.
-o) por cada 1 lb de aumento en altura, usted esperaría que el peso disminuya en 0.2 pulgadas.
-o) por cada 1 lb de aumento de peso, esperaría que la altura aumentara en 1 pulgada.
-o) por cada 1 lb de disminución de peso, esperaría que la altura disminuya en 1 pulgada.
+C) for every 1 lb increase in weight, you would expect height to increase by 0.2 inches.
+C) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
+m) for every 1 lb increase in height, you would expect weight to increase by 0.2 inches.
+o) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
+o) for every 1 lb increase in height, you would expect weight to decrease by 0.2 inches.
+o) for every 1 lb increase in weight, you would expect height to increase by 1 inch.
+o) for every 1 lb decrease in weight, you would expect hight to decrease by 1 inch.
 
 {choose-answers:4}
-?4 Si tuviera una sola variable numérica que normalmente se distribuía, ¿qué prueba usaría para determinar si su media era diferente de la media esperada?
+?4 If you had a single numeric variable that was normally distributed, what test would you use to determine if its mean were different than the expected mean?
 
-C) prueba t
-C)` 
-o)` 
-o)` 
-o) regresión lineal simple
-o) regresión lineal múltiple
+C) t-test
+C) `t.test()`
+o) `prop.test()`
+o) `lm()`
+o) simple linear regression
+o) multiple linear regression
 
 
 {choose-answers:4}
-?5 Para tener en cuenta la confusión, ¿cuál es un enfoque que podría considerar?
+?5 To account for confounding, what is one approach you could consider?
 
-C) regresión lineal múltiple
-o) prueba t
-o)` 
-o)` 
-o)` 
-o) regresión lineal simple
-
-{choose-answers:4, points:2}
-?6 Este código ejecutaría cuál de los siguientes análisis: `lm(weight ~ height, data = df)` 
-
-C) Regresión lineal simple.
-m) regresión lineal múltiple
-o) prueba t
-o)` 
-o)` 
-o)` 
+C) multiple linear regression
+o) t-test
+o) `t.test()`
+o) `prop.test()`
+o) `lm()`
+o) simple linear regression
 
 {choose-answers:4, points:2}
-?6 Este código ejecutaría cuál de los siguientes análisis: `lm(weight ~ height + sex, data = df)` 
+?6 This code would run which of the following analyses: `lm(weight ~ height, data = df)`
 
-C) regresión lineal múltiple
-m) regresión lineal simple
-o) prueba t
-o)` 
-o)` 
-o)` 
+C) simple linear regression
+m) multiple linear regression
+o) t-test
+o) `t.test()`
+o) `prop.test()`
+o) `lm()`
+
+{choose-answers:4, points:2}
+?6 This code would run which of the following analyses: `lm(weight ~ height + sex, data = df)`
+
+C) multiple linear regression
+m) simple linear regression
+o) t-test
+o) `t.test()`
+o) `prop.test()`
+o) `lm()`
 
 {points:3}
-?7 Vaya a [Chromebook Data Science Space en RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` para comenzar. Dile a Swirl tu primer nombre cuando te pregunte cómo llamarte. Luego, escriba el número que corresponde al curso `CBDS Data Analysis`. Escriba el número que corresponde a la lección `L06 Inferential Analysis Q01 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código al final de la lección aquí.
+?7 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 ! /.+(c66R|iLNb|LpE7|4eHK|tvFJ|iDpc|fTC3|pivl|Ctjm|9XvR).+/i
 
 
 {points:3}
-?8 Dentro del mismo curso en swirl: `CBDS Getting Data`, navegue a la lección `L04 Inferential Analysis Q02 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(Hx3B|B1rr|VRPL|kcDX|o17f|iVYf|NJP5|YAsw|YEXw|Xl5D).+/i
 
 {points:3}
-?9 Dentro del mismo curso de swirl: `CBDS Getting Data`, navegue a la lección `L04 Inferential Analysis Q03 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
+?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(Vj1T|ht5U|jd5g|yG4O|hhUB|3ngr|5SXs|e5RA|clMC|bwnm).+/i
 
@@ -539,17 +539,17 @@ o)`
 
 {exercise, id: exercise_06_inferential}
 
-### DataCamp: Inferencia para regresión lineal
+### DataCamp:  Inference for Linear Regression
 
 {case-sensitive: false}
-? Para obtener más práctica con el análisis inferencial, vaya al curso [Inferencia para la regresión lineal](https://www.datacamp.com/courses/inference-for-linear-regression) en DataCamp. Inicia sesión y completa el primer capítulo: "Ideas inferenciales".
+? To get more practice with inferential analysis, go to the course [Inference for Linear Regression](https://www.datacamp.com/courses/inference-for-linear-regression) on DataCamp. Login and complete the first chapter: "Inferential ideas"
 
-Una vez que haya completado el capítulo, escriba "completado"  en el cuadro a continuación.
+Once you've completed the chapter, type "completed" in the box below.
 
-*Nota*: Esto requiere un inicio de sesión de DataCamp, que cuesta dinero. Como ejercicio, esto no es obligatorio para aprobar el curso, pero lo*ayudará* a comprender mejor los conceptos que se tratan en estas lecciones.
+*Note*: This requires a DataCamp login, which costs money. As an exercise, this is not required to pass the course but it *will* help you get a better grasp on the concepts covered in these lessons.
 
-*Recordatorio*: los videos en DataCamp son esenciales para entender el material. ¡Es mejor no saltarse estos videos!
+*Reminder*: Videos in DataCamp are essential to understanding the material. It's best not to skip over these videos!
 
-! terminado
+! completed
 
 {/exercise}

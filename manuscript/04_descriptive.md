@@ -1,86 +1,86 @@
-# Análisis descriptivo
+# Descriptive Analysis 
 
-El objetivo del análisis descriptivo es **describir**o**resumir** un conjunto de datos. Cada vez que obtenga un nuevo conjunto de datos para examinar, este es el primer análisis que realizará. De hecho, si nunca resume los datos, no es un análisis de datos.
+The goal of descriptive analysis is to **describe** or **summarize** a set of data. Whenever you get a new dataset to examine, this is the first analysis you will perform. In fact, if you never summarize the data, it's *not* a data analysis. 
 
-![El análisis descriptivo resume el conjunto de datos](images/04_descriptive/04_dataanalysis_descriptive-1.png)
+![Descriptive Analysis summarizes the dataset](images/04_descriptive/04_dataanalysis_descriptive-1.png)
 
-Si piensa en un conjunto de datos como el animal en el elefante en medio de esta imagen, haciendo un análisis descriptivo son los monjes ciegos que examinan cada parte del elefante. Al igual que los monjes ciegos que están examinando cada una de las partes del elefante para comprenderlo completamente, el objetivo **de un análisis descriptivo es comprender los datos con los que está trabajando completamente**.
+If you think of a dataset as the animal in the elephant in the middle of this picture, you doing a descriptive analysis are the blind monks examining every part of the elephant. Just like the blind monks who are examining each and every part of the elephant to understand it completely, the **goal of a descriptive analysis is to understand the data you're working with completely**.
 
-![examinando un conjunto de datos](images/04_descriptive/04_dataanalysis_descriptive-3.png)
+![examining a dataset](images/04_descriptive/04_dataanalysis_descriptive-3.png)
 
-El análisis descriptivo generará ante todo resúmenes simples sobre las muestras y sus mediciones para describir los datos con los que está trabajando. Hay una serie de estadísticas descriptivas comunes que analizaremos en esta lección: medidas de tendencia central (p. Ej., Media, mediana, modo) o medidas de variabilidad (p. Ej., Rango, desviaciones estándar o varianza).
+Descriptive analysis will first and foremost generate simple summaries about the samples and their measurements to describe the data you're working with. There are a number of common descriptive statistics that we'll discuss in this lesson: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance). 
 
-Este tipo de análisis está dirigido a **resumir su conjunto de datos**A diferencia de los enfoques de análisis que analizaremos en las próximas lecciones, el análisis descriptivo no es*para*generalizar los resultados del análisis a una población más grande*ni* tratar de sacar conclusiones . La descripción de los datos está separada de la interpretación de los datos. Aquí, solo estamos resumiendo con lo que estamos trabajando.
+This type of analysis is aimed at **summarizing your dataset** Unlike analysis approaches we'll discuss in coming lessons, descriptive analysis is *not* for generalizing the results of the analysis to a larger population *nor* trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we're just summarizing what we're working with. 
 
-Algunos ejemplos de análisis puramente descriptivos pueden verse en los censos. En un censo, el gobierno recopila una serie de mediciones en *todos* los ciudadanos del país. Después de recoger estos datos, se resumen. De este análisis descriptivo, aprendemos mucho sobre un país. Podrás aprender la distribución por edades de la población.
+Some examples of purely descriptive analysis can be seen in censuses. In a census, the government collects a series of measurements on *all* of the country's citizens. After collecting these data, they are summarized. From this descriptive analysis, we learn a lot about a country. You'll be able to learn the age distribution of the population. 
 
-![Datos del censo de 2010 desglosados ​​por edad](images/04_descriptive/04_dataanalysis_descriptive-6.png)
+![2010 census Data broken down by age](images/04_descriptive/04_dataanalysis_descriptive-6.png)
 
-Esto se puede desglosar más (o **estratificar**) por sexo para describir la distribución de edad por sexo. El objetivo de estos análisis es describir la población. No se hacen inferencias sobre lo que esto significa ni se hacen predicciones acerca de cómo los datos podrían evolucionar en el futuro. El punto de este (y todo) análisis descriptivo es resumir los datos recopilados.
+This can be further broken down (or **stratified**) by sex to describe the age distribution by sex. The goal of these analysis is  to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is to summarize the data collected. 
 
-![[Datos del censo de 2010 desglosados ​​por edad y sexo](images/04_descriptive/04_dataanalysis_descriptive-7.png)[Datos del censo de 2010 desglosados ​​por edad y sexo](NA
+![2010 census Data broken down by age and sex](images/04_descriptive/04_dataanalysis_descriptive-7.png)
 
-En esta lección, discutiremos los pasos necesarios para llevar a cabo un análisis descriptivo. Como esto será lo primero que haga cuando trabaje con un nuevo conjunto de datos, es importante analizar los ejemplos de esta lección paso a paso.
+In this lesson, we'll discuss the steps required to carry out a descriptive analysis. As this will be the first thing you do whenever you're working with a new dataset, it's important to work through the examples in this lesson step-by-step.
 
-### Cómo describir un conjunto de datos
+### How to Describe a Dataset
 
-Cuando se le proporcione un nuevo conjunto de datos tabulares, ya sea un CSV que le haya enviado su jefe o una tabla que haya extraído de Internet, lo primero que querrá hacer es describir el conjunto de datos. Esto le ayuda a comprender qué tan grande es el conjunto de datos, qué información está contenida en el conjunto de datos y cómo se distribuye cada variable en el conjunto de datos.
+When provided a new tabular dataset, whether it's a CSV you've been sent by your boss or a table you've scraped from the Internet, the first thing you'll want to do is describe the dataset. This helps you understand how big the dataset is, what information is contained in the dataset, and how each variable in the dataset is distributed.
 
-![Análisis descriptivo](images/04_descriptive/04_dataanalysis_descriptive-5.png)
+![Descriptive Analysis](images/04_descriptive/04_dataanalysis_descriptive-5.png)
 
-Para esta lección, vamos a alejarnos*del conjunto de datos `iris` o `mtcars` (ya que probablemente ya tengas un buen conocimiento de esos conjuntos de datos) y trabajaremos con un conjunto de datos que no hayamos usado demasiado en este Conjunto de cursos: `msleep` (del paquete `ggplot2`). Este conjunto de datos incluye información sobre los mamíferos y sus hábitos de sueño. Cargaremos ese paquete y asignaremos el conjunto de datos al objeto `df`:
+For this lesson, we're going to move *away* from the `iris` or `mtcars` dataset (since you probably already have a pretty good understanding of those datasets) and work with a dataset we haven't used too much in this Course Set: `msleep` (from the `ggplot2` package). This dataset includes information about mammals and their sleep habits. We'll load that package in and assign the dataset to the object `df`:
 
 ```r
 ## install and load package
 install.packages("ggplot2")
 library(ggplot2)
 
-## assign to object `df` 
+## assign to object `df`
 df <- msleep
-``` 
+```
 
-En general, lo primero que querrá saber acerca de su conjunto de datos es cuántas observaciones y cuántas variables está trabajando. Usted querrá entender el tamaño de su conjunto de datos.
+Generally, the first thing you'll want to know about your dataset is how many observations and how many variables you're working with. You'll want to understand the size of your dataset.
 
-Siempre puede mirar la pestaña Entorno en RStudio Cloud para ver cuántas observaciones y variables hay en su conjunto de datos; sin embargo, una vez que tenga muchos objetos, tendrá que desplazarse o buscar en esta lista para encontrar la información que está buscando.
+You can always look at the Environment tab in RStudio Cloud to see how many observations and variables there are in your dataset; however, once you have many objects, you'll have to scroll through or search this list to find the information you're looking for.
 
-![Pestaña Entorno](images/04_descriptive/04_dataanalysis_descriptive-11.png)
+![Environment tab](images/04_descriptive/04_dataanalysis_descriptive-11.png)
 
-Para evitar tener que hacer eso, el enfoque más sencillo para obtener esta información es la función `dim()`, que le dará las **dimensiones** de su marco de datos. La salida se mostrará con el número de filas (observaciones) primero, seguido del número de columnas (variables).
+To avoid having to do that, the simplest approach to getting this information is the `dim()` function, which will give you the **dimensions** of your data frame. The output will display with the number of rows (observations) first, followed by the number of columns (variables). 
 
-``` 
+```
 ## determine the dimensions
-dim(df)
-``` 
+ dim(df)
+```
 
-![`dim()` salida](images/04_descriptive/04_dataanalysis_descriptive-12.png)
+![`dim()` output](images/04_descriptive/04_dataanalysis_descriptive-12.png)
 
 #### Variables
 
-Hay formas adicionales de aprender un poco más sobre el conjunto de datos utilizando una función diferente. ¿Qué sucedería si quisiéramos saber no solo las dimensiones de nuestro conjunto de datos, sino también aprender un poco más sobre las variables con las que estamos trabajando?
+There are additional ways to learn a bit more about the dataset using a different function. What if we wanted to know not only the dimensions of our dataset but wanted to learn a little bit more about the variables we're working with?
 
-Bueno, podríamos usar `dim()` y luego usar la función `colnames()` para determinar cuáles son los nombres de las variables en nuestro conjunto de datos:
+Well, we could use `dim()` and then use the `colnames()` function to determine what the variable names are in our dataset:
 
-``` 
+```
 ## determine variable names
 colnames(df)
-``` 
+```
 
-El resultado de los colnames nos dice que hay 11 variables en nuestro conjunto de datos y nos permite saber cuáles son los nombres de las variables para estos datos.
+The output from colnames tells us that there are 11 variables in our dataset and lets us know what the variable names are for these data.
 
-![`colnames()` salida](images/04_descriptive/04_dataanalysis_descriptive-13.png)
+![`colnames()` output](images/04_descriptive/04_dataanalysis_descriptive-13.png)
 
-Pero, ¿qué pasaría si no quisiéramos usar dos funciones diferentes para esto *y*quisiéramos un poco más de información, como qué tipo de información se almacena en cada una de estas variables (columnas)? Para obtener*esa* información, recurrimos a la función `str()`, que nos proporciona información sobre la estructura del conjunto de datos.
+But, what if we didn't want to use two different functions for this *and* wanted a little bit more information, such as what *type* of information is stored in each of these variables (columns)? To get *that* information, we'd turn to the function `str()`, which provides us information about the structure of the dataset.
 
 ```r
 ## display structure
 str(df)
-``` 
+```
 
-![`str()` salida](images/04_descriptive/04_dataanalysis_descriptive-14.png)
+![`str()` output](images/04_descriptive/04_dataanalysis_descriptive-14.png)
 
-La salida aquí todavía nos dice el tamaño de `df` y los nombres de las variables, pero también aprendemos cuál es la clase de cada variable y vemos algunos de los valores para cada una de las variables.
+The output here still tells us the size of `df` and the variable names, but we also learn what the class of each variable is and see a few of the values for each of the variables.
 
-Una función muy similar a `str()` es la función `glimpse()` del paquete `dplyr`. Como ya ha sido introducido a esta función anteriormente, solo queremos recordarle que `glimpse()` también se puede utilizar para comprender el tamaño y la estructura de su marco de datos
+A very similar function to `str()` is the `glimpse()` function from the `dplyr` package. As you've been introduced to this function previously, we just wanted to remind you that `glimpse()` can also be used to understand the size and structure of your data frame
 
 ```r
 ## install and load package
@@ -89,19 +89,19 @@ library(dplyr)
 
 ## get a glimpse of your data
 glimpse(df)
-``` 
+```
 
-![`glimpse()` salida](images/04_descriptive/04_dataanalysis_descriptive-15.png)
+![`glimpse()` output](images/04_descriptive/04_dataanalysis_descriptive-15.png)
 
-#### Valores faltantes
+#### Missing Values
 
-En cualquier análisis después de su análisis descriptivo, los datos faltantes pueden causar un problema. Por lo tanto, es mejor comprender desde un principio la falta de información en sus datos. **Falta** se refiere a observaciones que no están incluidas para una variable. En R, `NA` es la forma preferida de especificar los datos faltantes, por lo que si alguna vez genera datos, es mejor incluir `NA` siempre que tenga un valor faltante.
+In any analysis after your descriptive analysis, missing data can cause a problem. Thus, it's best to get an understanding of missingness in your data right from the start. **Missingness** refers to observations that are not included for a variable. In R, `NA` is the preferred way to specify missing data, so if you're ever generating data, its best to include `NA` wherever you have a missing value. 
 
-Sin embargo, los individuos que están menos familiarizados con la falta de código R de diferentes formas en sus datos: `-999`, `N/A`, `.`, ` `. Como tal, es mejor verificar si la falta está codificada en su conjunto de datos . Un recordatorio: a veces, diferentes variables dentro de un solo conjunto de datos codificarán la falta de información de manera diferente. Esto no debería suceder, pero sucede, así que siempre tenga cuidado al buscar faltas.
+However, individuals who are less familiar with R code missingness in a number of different ways in their data: `-999`, `N/A`, `.`, ` `. As such, it's best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a single dataset will code missingness differently. This shouldn't happen, but it does, so always use caution when looking for missingness.
 
-En este conjunto de datos, todos los valores faltantes se codifican como `NA`, y de la salida de `str(df)` (o `glimpse(df)`), vemos que al menos algunas variables tienen valores de `NA`. Sin embargo, desearemos cuantificar esta falta para ver qué variables tienen datos faltantes y cuántas observaciones dentro de cada variable faltan datos.
+In this dataset, all missing values are coded as `NA`, and from the output of `str(df)` (or `glimpse(df)`), we see that at least a few variables have `NA` values. We'll want to quantify this missingness though to see which variables have missing data and how many observations within each variable have missing data. 
 
-Para hacer esto, podemos escribir una función que calculará la ausencia dentro de cada una de nuestras variables. Para ello vamos a combinar algunas funciones. En el código aquí `is.na()` devuelve un lógico (VERDADERO / FALSO) dependiendo de si falta el valor (VERDADERO si falta). `sum()` luego calcula el número de valores VERDADEROS que hay dentro de una observación. Envolvemos esto en una función y luego usamos `sapply()` para calcular el número de valores faltantes en cada variable. El segundo bit del código hace exactamente lo mismo pero divide esos números por el número total de observaciones (usando `nrow(df)`. Para cada variable, esto devuelve la proporción de faltantes:
+To do this, we can write a function that will calculate missingness within each of our variables. To do this we'll combine a few functions. In the code here `is.na()` returns a logical (TRUE/FALSE) depending upon whether or not the value is missing (TRUE if it is missing). `sum()` then calculates the number of TRUE values there are within an observation. We wrap this into a function and then use `sapply()` to calculate the number of missing values in each variable. The second bit of code does the exact same thing but divides those numbers by the total number of observations (using `nrow(df)`. For each variable, this returns the proportion of missingness:
 
 ```r
 ## calculate how many NAs there are in each variable
@@ -110,13 +110,13 @@ sapply(df, function(x) sum(is.na(x)))
 ## calculate the proportion of missingness 
 ## for each variable
 sapply(df, function(x) sum(is.na(x)))/nrow(df)
-``` 
+```
 
-![falta en `msleep`](images/04_descriptive/04_dataanalysis_descriptive-17.png)
+![missingness in `msleep`](images/04_descriptive/04_dataanalysis_descriptive-17.png)
 
-Al ejecutar este código para nuestro marco de datos, vemos que muchas variables tienen valores perdidos. Específicamente, para interpretar esta salida para la variable `brainwt`, vemos que faltan datos en 27 observaciones. Esto corresponde al 32.5% de las observaciones en el conjunto de datos.
+Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable `brainwt`, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset. 
 
-También es posible visualizar la falta de información para que podamos ver visualmente la cantidad de datos que faltan y determinar si las mismas muestras tienen datos que faltan en el conjunto de datos. Podría escribir una función para hacer esto usted mismo usando `ggplot2`; sin embargo, [Nicholas Tierney](http://www.njtierney.com/about/) ya ha escrito uno para ti. Ha escrito dos paquetes útiles para análisis de datos exploratorios y descriptivos: [`naniar`](https://github.com/njtierney/naniar) y [`visdat`](https://github.com/ropensci/visdat). Para nuestros propósitos, solo instalaremos y cargaremos `naniar` aquí; sin embargo, los enlaces a ambos se han incluido en la sección de recursos adicionales al final de esta lección. Le recomendamos que consulte los ejemplos proporcionados en la documentación para ver las capacidades adicionales de estos paquetes.
+It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. He has written two helpful packages for exploratory and descriptive data analyses: [`naniar`](https://github.com/njtierney/naniar) and [`visdat`](https://github.com/ropensci/visdat). For our purposes, we'll just install and load `naniar` here; however, links to both have been included in the additional resources section at the end of this lesson. We recommend looking through the examples provided in the documentation to see additional capabilities within these packages.
 
 ```r
 ## install naniar package
@@ -125,166 +125,166 @@ library(naniar)
 
 ## visualize missingness
 vis_miss(df)
-``` 
+```
 
-![`vis_miss()` salida](images/04_descriptive/04_dataanalysis_descriptive-19.png)
+![`vis_miss()` output](images/04_descriptive/04_dataanalysis_descriptive-19.png)
 
-Aquí, vemos las variables enumeradas en la parte superior con porcentajes que resumen cuántas observaciones faltan datos para esa variable en particular. Cada fila en la visualización es una observación diferente. Los datos faltantes son negros. Los valores no perdidos están en gris. Centrándonos nuevamente en `brainwt`, podemos ver los 27 valores faltantes visualmente. También podemos ver que `sleep_cycle` es el que más falta, mientras que muchas variables no tienen datos faltantes.
+Here, we see the variables listed along the top with percentages summarizing how many observations are missing data for that particular variable. Each row in the visualization is a different observation. Missing data are black. Non-missing values are in grey. Focusing again on `brainwt`, we can see the 27 missing values visually. We can also see that `sleep_cycle` has the most missingness, while many variables have no missing data.
 
-La falta relativa dentro de un conjunto de datos se puede capturar fácilmente con otra función del paquete `naniar`: `gg_miss_var()`:
+The relative missingness within a dataset can be easily captured with another function from the `naniar` package: `gg_miss_var()`:
 
 ```r
 ## visualize relative missingness
 gg_miss_var(df) + theme_bw() 
-``` 
+```
 
-![`gg_miss_var()` salida](images/04_descriptive/04_dataanalysis_descriptive-20.png)
+![`gg_miss_var()` output](images/04_descriptive/04_dataanalysis_descriptive-20.png)
 
-Aquí, las variables se enumeran a lo largo del lado izquierdo y se grafica el número de valores faltantes para cada variable. Podemos ver claramente que `brainwt` tiene 27 valores faltantes en este conjunto de datos, mientras que sleep_cycle tiene la mayor cantidad de faltantes entre las variables en este conjunto de datos.
+Here, the variables are listed along the left-hand side and the number of missing values for each variable is plotted. We can clearly see that `brainwt` has 27 missing values in this dataset, while sleep_cycle has the most missingness among variables in this dataset.
 
-Obtener una comprensión de qué valores faltan en su conjunto de datos es fundamental antes de pasar a cualquier otro tipo de análisis.
+Getting an understanding of what values are missing in your dataset is critical before moving on to any other type of analysis.
 
-#### Forma
+#### Shape
 
-Determinar la forma de su variable es esencial antes de realizar cualquier análisis adicional. Los métodos estadísticos utilizados para la inferencia (analizados en una lección posterior) a menudo requieren que sus datos se distribuyan de cierta manera antes de que puedan aplicarse a los datos. Por lo tanto, poder describir la forma de sus variables es necesario durante su análisis descriptivo.
+Determining the shape of your variable is essential before any further analysis is done. Statistical methods used for inference (discussed in a later lesson) often require your data to be distributed in a certain manner before they can be applied to the data. Thus, being able to describe the shape of your variables is necessary during your descriptive analysis.
 
-Cuando hablamos de la forma de los datos de uno, estamos discutiendo cómo se distribuyen los valores (observaciones) dentro de la variable. A menudo, primero determinamos qué tan dispersos están los números entre sí (¿todas las observaciones caen entre 1 y 10? 1 y 1000? -1000 y 10?). Esto se conoce como el **rango** de los valores. El rango se describe por los valores mínimos y máximos tomados por las observaciones en la variable.
+When talking about the shape of one's data, we're discussing how the values (observations) within the variable are distributed. Often, we first determine how spread out the numbers are from one another (do all the observations fall between 1 and 10? 1 and 1000? -1000 and 10?). This is known as the **range** of the values. The range is described by the minimum and maximum values taken by observations in the variable. 
 
-Después de establecer el rango, determinamos la forma o **distribución**de los datos. Más explícitamente, la distribución de los datos explica*cómo* los datos se distribuyen en este rango. ¿La mayoría de los valores están todos en el centro de este rango? O, ¿se extienden uniformemente en toda la gama? Hay una serie de distribuciones utilizadas comúnmente en el análisis de datos para describir los valores dentro de una variable. Cubriremos solo algunos de ellos en esta lección, pero tenga en cuenta que esto ciertamente no es una lista exhaustiva.
+After establishing the range, we determine the shape or **distribution** of the data. More explicitly, the distribution of the data explains *how* the data are spread out over this range. Are most of the values all in the center of this range? Or, are they spread out evenly across the range? There are a number of distributions used commonly in data analysis to describe the values within a variable. We'll cover just a few of them in this lesson, but keep in mind this is certainly *not* an exhaustive list.
 
-##### Distribución normal
+##### Normal Distribution
 
-La **distribución normal**(también conocida como la distribución**gaussiana**) es una distribución muy común y a menudo se describe como una curva en forma de campana. En esta distribución, los valores son simétricos alrededor del valor central con una alta densidad de los valores que caen alrededor del valor central. La mano izquierda de la curva refleja la mano derecha de la curva.
+The **Normal distribution** (also referred to as the **Gaussian** distribution) is a very common distribution and is often described as a bell-shaped curve. In this distribution, the values are symmetric around the central value with a high density of the values falling right around the central value. The left hand of the curve mirrors the right hand of the curve.
 
-![Distribución normal](images/04_descriptive/04_dataanalysis_descriptive-22.png)
+![Normal Distribution](images/04_descriptive/04_dataanalysis_descriptive-22.png)
 
-Una variable se puede describir como distribuida normalmente si:
+A variable can be described as normally distributed if:
 
-* hay una fuerte tendencia a que los datos tomen un valor central: muchas de las observaciones se centran en el centro del rango
-* Las desviaciones con respecto al valor central son igualmente probables en ambas direcciones
-* La frecuencia de estas desviaciones con respecto al valor central se produce a la misma velocidad a ambos lados del valor central.
+* there is a strong tendency for data to take a central value - many of the observations are centered around the middle of the range
+* deviations away from the central value are equally likely in both directions 
+* the frequency of these deviations away form the central value occurs at the same rate on either side of the central value.
 
-Al observar la variable `sleep_total` dentro de nuestro conjunto de datos de ejemplo, vemos que los datos son algo normales; Sin embargo, no son totalmente simétricos.
+Taking a look at the `sleep_total` variable within our example dataset, we see that the data are somewhat normal; however, they aren't entirely symmetric.
 
 ```r
 ggplot(df, aes(sleep_total)) +
-geom_density()
-``` 
+  geom_density()
+```
 
-![distribución de `msleep` `sleep_total`](images/04_descriptive/04_dataanalysis_descriptive-23.png)
+![distribution of `msleep` `sleep_total`](images/04_descriptive/04_dataanalysis_descriptive-23.png)
 
-Una variable que se distribuye más normalmente se puede ver en el conjunto de datos `iris`, cuando se observa la variable `Sepal.Width`.
+A variable that is distributed more normally can be seen in the `iris` dataset, when looking at the `Sepal.Width` variable.
 
 ```r
 ggplot(iris, aes(Sepal.Width)) +
-geom_density()
-``` 
+  geom_density()
+```
 
-![distribución de `iris` `Sepal.Width`](images/04_descriptive/04_dataanalysis_descriptive-24.png)
+![distribution of `iris` `Sepal.Width`](images/04_descriptive/04_dataanalysis_descriptive-24.png)
 
 
 
-##### Distribución sesgada
+##### Skewed Distribution
 
-Alternativamente, a veces los datos siguen una distribución sesgada. En una distribución sesgada, la mayoría de los valores caen a un extremo del rango, dejando una cola al otro lado. Cuando la cola está a la izquierda, se dice que la distribución está **sesgada a la izquierda**. Cuando está a la derecha, se dice que la distribución está**sesgada a la derecha**.
+Alternatively, sometimes data follow a skewed distribution. In a skewed distribution, most of the values fall to one end of the range, leaving a tail off to the other side. When the tail is off to the left, the distribution is said to be **skewed left**. When off to the right, the distribution is said to be **skewed right**.
 
-![Distribuciones sesgadas](images/04_descriptive/04_dataanalysis_descriptive-25.png)
+![Skewed Distributions](images/04_descriptive/04_dataanalysis_descriptive-25.png)
 
-Para ver un ejemplo del conjunto de datos `msleep`, veremos la variable `sleep_rem`. Aquí vemos que los datos están sesgados a la derecha, dado el cambio en los valores a la derecha, lo que lleva a una larga cola derecha. Aquí, la mayoría de los valores están en el extremo inferior del rango.
+To see an example from the `msleep` dataset, we'll look at the variable `sleep_rem`. Here we see that the data are skewed right, given the shift in values away from the right, leading to a long right tail. Here, most of the values are at the lower end of the range.
 
 ```r
 ggplot(df, aes(sleep_rem)) +
-geom_density()
-``` 
+  geom_density()
+```
 
-![`sleep_rem` está sesgado a la derecha](images/04_descriptive/04_dataanalysis_descriptive-26.png)
+![`sleep_rem` is skewed right](images/04_descriptive/04_dataanalysis_descriptive-26.png)
 
-##### Distribución uniforme
+##### Uniform Distribution
 
-Finalmente, en las distribuciones que analizaremos hoy, a veces es probable que se encuentren valores para una variable en cualquier parte de la distribución. La curva para esta distribución se parece más a un rectángulo, ya que la probabilidad de que una observación tome un valor es constante en todo el rango de valores posibles.
+Finally, in distributions we'll discuss today, sometimes values for a variable are equally likely to be found along any portion of the distribution. The curve for this distribution looks more like a rectangle, since the likelihood of an observation taking a value is constant across the range of possible values.
 
-![Distribución uniforme](images/04_descriptive/04_dataanalysis_descriptive-27.png)
+![Uniform Distribution](images/04_descriptive/04_dataanalysis_descriptive-27.png)
 
 ##### Outliers
 
-Ahora que hemos discutido las distribuciones, es importante discutir **valores atípicos** - o una observación que se aleje del resto de las observaciones en la distribución. Si observara una curva de densidad, podría identificar visualmente los valores atípicos como observaciones que se alejan del resto de las observaciones.
+Now that we've discussed distributions, it's important to discuss **outliers** -- or an observation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.
 
-![curva de densidad con un valor atípico](images/04_descriptive/04_dataanalysis_descriptive-28.png)
+![density curve with an outlier](images/04_descriptive/04_dataanalysis_descriptive-28.png)
 
-Por ejemplo, imagine que tenía una muestra en la que todos los individuos de su muestra tienen entre 18 y 65 años de edad, pero luego tiene una muestra que tiene 1 año y otra que tiene 95 años.
+For example, imagine you had a sample where all of the individuals in your sample are between the ages of 18 and 65, but then you have one sample that is 1 year old and another that is 95 years old.
 
-![Población de muestra](images/04_descriptive/04_dataanalysis_descriptive-29.png)
+![Sample population](images/04_descriptive/04_dataanalysis_descriptive-29.png)
 
-Si tuviéramos que graficar los datos de edad en una gráfica de densidad, se vería algo así:
+If we were to plot the age data on a density plot, it would look something like this:
 
-![ejemplo de mapa de densidad](images/04_descriptive/04_dataanalysis_descriptive-30.png)
+![example densityplot](images/04_descriptive/04_dataanalysis_descriptive-30.png)
 
-El bebé y la persona mayor saldrían como atípicos en la trama.
+The baby and elderly individual would pop out as outliers on the plot. 
 
-Después de identificar los valores atípicos, uno debe determinar si las muestras de valores atípicos deben incluirse o eliminarse de su conjunto de datos. Esto es algo a tener en cuenta al realizar un análisis.
+After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis. 
 
-![precaución](images/04_descriptive/04_dataanalysis_descriptive-31.png)
+![caution](images/04_descriptive/04_dataanalysis_descriptive-31.png)
 
-A veces puede ser difícil decidir si se debe eliminar o no una muestra del conjunto de datos. En los términos más simples, *no se debe eliminar ninguna observación de su conjunto de datos a menos que haya un**motivo válido**para hacerlo*. Para un ejemplo más extremo, ¿qué pasaría si el conjunto de datos que acabamos de analizar (con todas las muestras con edades entre 18 y 65 años) tuviera una muestra con la edad de 600? Bueno, si estos son datos humanos, claramente sabemos que es un error de entrada de datos. Tal vez se suponía que tenía 60 años, pero no podemos estar seguros. Si podemos hacer un seguimiento de ese individuo y verificarlo, es mejor hacerlo, corregir el error, anotarlo y continuar con el análisis. Sin embargo, a menudo eso no es posible. En los casos de errores evidentes de entrada de datos, es probable que tenga que eliminar esa observación del conjunto de datos. Es válido hacerlo en este caso, ya que sabe que ocurrió un error y que la observación no fue precisa.
+It can sometimes be difficult to decide whether or not a sample should be removed from the dataset. In the simplest terms, *no observation should be removed from your dataset unless there is a **valid reason** to do so*. For a more extreme example, what if that dataset we just discussed (with all the samples having ages between 18 and 65) had one sample with the age 600? Well, if these are human data, we clearly know that is a data entry error. Maybe it was supposed to be 60 years old, but we may not know for sure. If we can follow up with that individual and double-check, it's best to do that, correct the error, make a note of it, and continue you with the analysis. However, that's often not possible. In the cases of obvious data entry errors, it's likely that you'll have to remove that observation from the dataset. It's valid to do so in this case since you know that an error occurred and that the observation was not accurate.
 
-Los valores atípicos no solo se producen debido a errores de entrada de datos. Tal vez estuviste tomando el peso de tus observaciones en el transcurso de unas pocas semanas. En uno de estos días, su báscula se calibró incorrectamente, lo que llevó a mediciones incorrectas. En tal caso, tendría que eliminar estas observaciones incorrectas antes del análisis.
+Outliers do not only occur due to data entry errors. Maybe you were taking weights of your observations over the course of a few weeks. On one of these days, your scale was improperly calibrated, leading to incorrect measurements. In such a case, you would have to remove these incorrect observations before analysis. 
 
-Los valores atípicos pueden ocurrir por una variedad de razones. Los valores atípicos pueden ocurrir debido a un error humano durante la entrada de datos, problemas técnicos con las herramientas utilizadas para la medición, como resultado de cambios climáticos que afectan la precisión de la medición, o debido a procedimientos de muestreo deficientes. Siempre es importante mirar la distribución de sus observaciones de una variable para ver si algo se está alejando del resto de las observaciones. Si los hay, entonces es importante pensar por qué ocurrió esto y determinar si tiene una razón válida para eliminar las observaciones de los datos.
+Outliers can occur for a variety of reasons. Outliers can occur due human error during data entry, technical issues with tools used for measurement, as a result of weather changes that affect measurement accuracy, or due to poor sampling procedures. It's always important to look at the distribution of your observations for a variable to see if anything is falling far away from the rest of the observations. If there are, it's then important to think about why this occurred and determine whether or not you have a valid reason to remove the observations from the data. 
 
-Una nota importante es que las observaciones nunca deben ser eliminadas para que sus resultados se vean mejor. Desear mejores resultados es **no** una razón válida para eliminar observaciones de su conjunto de datos.
+An important note is that observations should **never** be removed just to make your results look better. Wanting better results is **not** a valid reason for removing observations from your dataset. 
 
-###### Identificación de valores atípicos
+###### Identifying Outliers
 
-Para identificar visualmente los valores atípicos, las gráficas de densidad y las gráficas de caja pueden ser muy útiles.
+To identify outliers visually, density plots and boxplots can be very helpful.
 
-Por ejemplo, si volvemos al conjunto de datos `iris` y observamos la distribución de `Petal.Length`, veríamos una distribución bimodal (¡otra distribución más!). Las distribuciones bimodales se pueden identificar mediante diagramas desnity que tienen dos jorobas distintas. En estas distribuciones, hay dos modos diferentes: de aquí proviene el término "bimodal" . En esta trama, la curva sugiere que hay un número de flores con una longitud de pétalo menor que 2 y muchas con una longitud de pétalo alrededor de 5.
+For example, if we returned to the `iris` dataset and looked at the distribution of `Petal.Length`, we would see a bimodal distribution (yet another distribution!). Bimodal distributions can be identified by desnityplots that have two distinct humps. In these distributions, there are two different modes -- this is where the term "bimodal" comes from. In this plot, the curve suggests there are a number of flowers with petal length less than 2 and many with petal length around 5.
 
 ```r
 ## density plot
 library(ggplot)
 ggplot(iris, aes(Petal.Length))+
-geom_density()
-``` 
+  geom_density()
+```
 
-![`iris` gráfico de densidad](images/04_descriptive/04_dataanalysis_descriptive-33.png)
+![`iris` density plot](images/04_descriptive/04_dataanalysis_descriptive-33.png)
 
-Dado que las dos jorobas en la parcela tienen aproximadamente la misma altura, esto muestra que no son solo una o dos flores con longitudes de pétalos mucho más pequeñas, sino que hay muchas. Por lo tanto, estas observaciones no son probablemente un valor atípico.
+Since the two humps in the plot are about the same height, this shows that it's  not just one or two flowers with much smaller petal lengths, but rather that there are many. Thus, these observations aren't likely an outlier.
 
-Para investigar más a fondo, veremos la longitud del pétalo desglosada por especies de flores:
+To investigate this further, we'll look at petal length broken down by flower species:
 
 ```r
 ## box plot
 ggplot(iris, aes(Species, Petal.Length))+
-geom_boxplot()
-``` 
+  geom_boxplot()
+```
 
 ![`iris` boxplot](images/04_descriptive/04_dataanalysis_descriptive-34.png)
 
-En esta gráfica de caja, observamos que `setosa` tiene una longitud de pétalo más corta, mientras que `virginica` tiene la más larga. ¡Si simplemente hubiéramos eliminado todas las flores de pétalos más cortos de nuestro conjunto de datos, habríamos perdido información sobre una especie completa!
+In this boxplot, we see in fact that `setosa` have a shorter petal length while `virginica` have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species! 
 
-Los diagramas de caja también son útiles porque trazan muestras "atípicas"  como puntos fuera de la caja. De forma predeterminada, los diagramas de caja definen "valores atípicos" as observaciones como aquellas que son 1.5 x IQR (rango intercuartil). El IQR es la distancia entre el primer y el tercer cuartil. Esta es una forma matemática para determinar si una muestra *puede*ser un valor atípico. Es visualmente útil, pero luego depende del analista determinar si se debe eliminar una observación. Si bien el diagrama de caja identifica valores atípicos en las especies setosa y versicolor, estos valores se encuentran a una distancia razonable del resto de los valores, y, a menos que pudiera determinar*por qué* ocurrió esto, no eliminaría estas observaciones del conjunto de datos
+Boxplots are also helpful because they plot "outlier" samples as points outside the box. By default, boxplots define "outliers" as observations as those that are 1.5 x IQR (interquartile range). The IQR is the distance between the first and third quartiles. This is a mathematical way to determine if a sample *may* be an outlier. It is visually helpful, but then it's up to the analyst to determine if an observation should be removed. While the boxplot identifies outliers in the setosa and versicolor species, these values are all within a reasonable distance of the rest of the values, and unless I could determine *why* this occurred, I would not remove these observations from the dataset
 
-![`iris` diagrama de caja con anotaciones](images/04_descriptive/04_dataanalysis_descriptive-35.png)
+![`iris` boxplot with annotations](images/04_descriptive/04_dataanalysis_descriptive-35.png)
 
-#### Tendencia central
+#### Central Tendency
 
-Una vez que sepa qué tan grande es su conjunto de datos, sobre qué variables tiene información, cuántos datos faltantes tiene para cada variable y la forma de sus datos, estará listo para comenzar a entender la *información dentro de los valores* de cada variable
+Once you know how large your dataset is, what variables you have information on, how much missing data you've got for each variable, and the shape of your data, you're ready to start understanding the *information within the values* of each variable. 
 
-Algunas de las medidas más simples e informativas que puede calcular sobre una variable numérica son las de **tendencia central**. Las dos medidas de tendencia central más utilizadas son: media y mediana. Estas medidas proporcionan información sobre el valor*típico*o*central* en la variable.
+Some of the simplest and most informative measures you can calculate on a numeric variable are those of **central tendency**. The two most commonly used measures of central tendency are: mean and median. These measures provide information about the *typical* or *central* value in the variable.
 
-##### significa
+##### mean
 
-La media (a menudo referida como el promedio) es igual a la suma de todas las observaciones en la variable dividida por el número total de observaciones en la variable. La media toma todos los valores de su variable y calcula el **valor más común**.
+The mean (often referred to as the average) is equal to the sum of all the observations in the variable divided by the total number of observations in the variable. The mean takes all the values in your variable and calculates the **most common value**. 
 
-Entonces, si tuvieras el siguiente vector: `a <- c(1, 2, 3, 4, 5, 6)`, la media sería 3.5.
+So if you had the following vector: `a <- c(1, 2, 3, 4, 5, 6)`, the mean would be 3.5. 
 
-![calculando la media](images/04_descriptive/04_dataanalysis_descriptive-37.png)
+![calculating the mean](images/04_descriptive/04_dataanalysis_descriptive-37.png)
 
-Pero, ¿y si agregáramos otro '3' a ese vector, de modo que fuera: `a <- c(1, 2, 3, 3, 4, 5, 6)`. Ahora, la media sería 3.43. Disminuiría el promedio para este conjunto de números, como puede ver en los cálculos aquí:
+But what if we added another '3' into that vector, so that it were: `a <- c(1, 2, 3, 3, 4, 5, 6)`. Now, the mean would be 3.43. It would decrease the average for this set of numbers as you can see in the calculations here:
 
-![promedio disminuido](images/04_descriptive/04_dataanalysis_descriptive-38.png)
+![decreased average](images/04_descriptive/04_dataanalysis_descriptive-38.png)
 
-Para calcular la media en R, la función es `mean()`. Aquí mostramos cómo calcular la media de una variable en R. Tenga en cuenta que cuando tenga NA en una variable, deberá informar a R para eliminar las NA (utilizando `na.rm=TRUE`) antes de calcular su media. De lo contrario, devolverá `NA`.
+To calculate the mean in R, the function is `mean()`. Here, we show how to calculate the mean for a variable in R. Note that when you have NAs in a variable, you'll need to let R know to remove the NAs (using `na.rm=TRUE`) before calculating your mean. Otherwise, it will return `NA`.
 
 ```r
 ## this will return NA
@@ -292,30 +292,30 @@ mean(df$sleep_cycle)
 
 ## have to tell R to ignore the NAs
 mean(df$sleep_cycle, na.rm=TRUE)
-``` 
+```
 
 ![`mean(sleep_cycle)`](images/04_descriptive/04_dataanalysis_descriptive-39.png)
 
-##### mediana
+##### median
 
-La mediana es la observación media para una variable después de que las observaciones en esa variable se hayan organizado en orden de magnitud (de la más pequeña a la más grande). La mediana es el **valor medio**.
+The median is the middle observation for a variable after the observations in that variable have been arranged in order of magnitude (from smallest to largest). The median is the **middle value**.
 
-Usando el mismo vector que usamos primero para calcular la mediana, vemos que el valor medio para este conjunto de números es 3.5 ya que este es el valor en el centro de este conjunto de números. Esto pasa a tener el mismo valor que la media.
+Using the same vector as we first use to calculate median, we see that the middle value for this set of numbers is 3.5 as this is the value at the center of this set of numbers. This happens to be the same value as the mean was. 
 
-Sin embargo, ese no es siempre el caso. Cuando sumamos ese segundo 3 en medio del conjunto de números, la mediana ahora es 3, ya que este es el valor en el centro de este conjunto de números. 3 es el valor medio.
+However, that is not always the case. When we add that second 3 in the middle of the set of numbers, the median is now 3, as this is the value at the center of this set of numbers. 3 is the middle value.
 
-![medianas](images/04_descriptive/04_dataanalysis_descriptive-41.png)
+![medians](images/04_descriptive/04_dataanalysis_descriptive-41.png)
 
-Para calcular la mediana en R, use la función `median()`. Nuevamente, cuando hay NA en la variable, debes decirle a R explícitamente que los elimine antes de calcular la mediana.
+To calculate the median in R, use the function `median()`. Again, when there are NAs in the variable, you have to tell R explicitly to remove them before calculating the median.
 
 ```r
 ## calculate the median
-median(df$sleep_cycle, na.rm=TRUE)
-``` 
+median(df$sleep_cycle, na.rm=TRUE)  
+```
 
-![mediana `sleep_cycle`](images/04_descriptive/04_dataanalysis_descriptive-42.png)
+![median `sleep_cycle`](images/04_descriptive/04_dataanalysis_descriptive-42.png)
 
-Si bien no es exactamente el mismo valor, la media y la mediana de `sleep_cycle` son similares (0.44 y 0.33). Sin embargo, este no es siempre el caso. Para los datos que están **sesgados**o contienen**valores atípicos** - valores que son muy diferentes del resto de los valores en la variable - la media y la mediana serán muy diferentes entre sí. En nuestro conjunto de datos de ejemplo, la media y los valores medianos para la variable `bodywt` son bastante diferentes entre sí.
+While not the exact same value, the mean and median for `sleep_cycle` are similar (0.44 and 0.33). However, this is not always the case. For data that are **skewed** or contain **outlier values** -- values that are very different from the rest of the values in the variable -- the  mean and the median will be very different from one another. In our example dataset, the mean and the median values for the variable `bodywt` are quite different from one another.
 
 ```r
 ## calculate mean and median
@@ -324,48 +324,48 @@ median(df$bodywt)
 
 ## look at the histogram
 ggplot(df, aes(bodywt)) +
-geom_histogram()
-``` 
+  geom_histogram()
+```
 
-![media vs mediana](images/04_descriptive/04_dataanalysis_descriptive-43.png)
+![mean vs median](images/04_descriptive/04_dataanalysis_descriptive-43.png)
 
-Cuando observamos el histograma de los datos, vemos que la mayoría de los pesos corporales pesan menos de 200 libras. Por lo tanto, la mediana, o valor que estaría en el medio si alineara todos los pesos en orden, es de 1.6 kilogramos. Sin embargo, hay algunos mamíferos que son mucho más grandes que el resto de los animales. Estos mamíferos son **valores atípicos en el conjunto de datos**. Estos valores extremos aumentan la media. Estos animales más grandes conducen la media del conjunto de datos a 166 kilogramos.
+When we look at the histogram of the data, we see that most bodyweights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
 
-Cuando tiene valores atípicos en el conjunto de datos, la mediana suele ser la medida de la tendencia central que querrá usar, ya que es resistente a los efectos de los valores atípicos.
+When you have outliers in the dataset, the median is typically the measure of central tendency you'll want to use, as it's resistant to the effects of outlier values. 
 
-##### modo
+##### mode 
 
-Hay una tercera medida, calculada con menos frecuencia, de la tendencia central para las variables continuas, conocida como el modo. Este es el valor que aparece con más frecuencia en su conjunto de datos. Por ejemplo, si su conjunto de datos `a` estuviera compuesto por los siguientes números `a <- c(0, 10, 10, 3, 5, 10, 10)`, 10 sería el modo ****, ya que ocurre cuatro veces. No importa si es el valor más grande, el valor más pequeño o en algún punto intermedio, el valor más frecuente en su conjunto de datos es el modo. No existe una función incorporada para calcular el modo en R para un valor numérico, lo que debería sugerir que, para las variables continuas, conocer el modo de una variable suele ser menos crucial que conocer la media y la mediana (lo que es cierto). Sin embargo, podrías escribir una función para calcularla. Para el vector anterior `a`, `which.max(tabulate(a))` devolvería el modo: 10. (Tenga en cuenta que esto no funcionaría si tuviera dos valores que se encontraron en el conjunto de datos en la misma frecuencia. Un enfoque más elocuente sería requerido.)
+There is a third, less-frequently calculated measure of central tendency for continuous variables, known as the mode. This is the value that comes up most frequently in your dataset. For example, if your dataset `a` were comprised of the following numbers `a <- c(0, 10, 10, 3, 5, 10, 10)`, 10 would be the **mode**, as it occurs four times. It doesn't matter whether it's the largest value, the smallest value, or somewhere in between, the most frequently value in your dataset is the mode. There is no built-in function for calculating the mode in R for a numeric value, which should suggest that, for continuous variables, knowing the mode of a variable is often less crucial than knowing the mean and median (which is true)! However, you could write a function to calculate it. For the above vector `a`, `which.max(tabulate(a))` would return the mode: 10. (Note that this would not work if you had two values that were found in the dataset at the same frequency. A more eloquent approach would be required.)
 
-![modo de una variable continua](images/04_descriptive/04_dataanalysis_descriptive-44.png)
+![mode of a continuous variable](images/04_descriptive/04_dataanalysis_descriptive-44.png)
 
-Sin embargo, para las variables categóricas, el nivel con la mayor cantidad de observaciones sería el modo. Esto se puede determinar utilizando la función `table()`, que desglosa el número de observaciones dentro de la variable categórica
+However, for categorical variables, the level with the most observations would be the mode. This can be determined using the `table()` function, which breaks down the number of observations within the categorical variable
 
-![`table()` salida](images/04_descriptive/04_dataanalysis_descriptive-45.png)
+![`table()` output](images/04_descriptive/04_dataanalysis_descriptive-45.png)
 
 
-Además, el modo para una variable categórica se puede visualizar generando un gráfico de barras:
+Further, the mode for a categorical variable can be visualized by generating a barplot:
 
 ```r
 ## plot categorical variable to visualize mode
 ggplot(df, aes(order)) +
-geom_bar() +
-theme(axis.text.x = element_text(angle = 90,
-hjust = 1, 
-vjust = 0.5))
-``` 
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 90, 
+                                   hjust = 1, 
+                                   vjust = 0.5))
+```
 
-![`geom_bar` muestra visualmente el modo](images/04_descriptive/04_dataanalysis_descriptive-46.png)
+![`geom_bar` visually displays the mode](images/04_descriptive/04_dataanalysis_descriptive-46.png)
 
 
-#### variabilidad
+#### Variability
 
-Además de las medidas de tendencia central, las medidas de variabilidad son clave para describir los valores dentro de una variable. Dos medidas comunes y útiles de variabilidad son: desviación estándar y varianza. Ambas son medidas de
-Cómo se distribuyen los valores en una variable.
+In addition to measures of central tendency, measures of variability are key in describing the values within a variable. Two common and helpful measures of variability are: standard deviation and variance. Both of these are measures of 
+how spread out the values in a variable are.
 
-##### varianza
+##### Variance
 
-La varianza te dice cómo están distribuidos los valores. Si todos los valores dentro de su variable son exactamente iguales, la varianza de esa variable será cero. Cuanto mayor sea su variación, más dispersos estarán sus valores. Tome el siguiente vector y calcule su varianza en R usando la función `var()`:
+The variance tells you how spread out the values are. If all the values within your variable are exactly the same, that variable's variance will be zero. The larger your variance, the more spread out your values are. Take the following vector and calculate its variance in R using the `var()` function:
 
 ```r
 ## variance of a vector where all values are the same
@@ -375,16 +375,16 @@ var(a)
 ## variance of a vector with one very different value
 b <-  c(29, 29, 29, 29, 723678)
 var(b)
-``` 
+```
 
-![varianza](images/04_descriptive/04_dataanalysis_descriptive-48.png)
+![variance](images/04_descriptive/04_dataanalysis_descriptive-48.png)
 
-La única diferencia entre los dos vectores es que el segundo tiene un valor que es mucho mayor que "29". La varianza para este vector es por lo tanto mucho mayor.
+The only difference between the two vectors is that the second one has one value that is much larger than "29". The variance for this vector is thus much higher.
 
 
-##### Desviación estándar
+##### Standard Deviation
 
-Por definición, la desviación estándar es la raíz cuadrada de la varianza, por lo tanto, si tuviéramos que calcular la desviación estándar en R usando la función `sd()`, veríamos que la función `sd()` es igual a la raíz cuadrada de la varianza:
+By definition, the standard deviation is the square root of the variance, thus if we were to calculate the standard deviation in R using the `sd()` function, we'd see that the `sd()` function is equal to the square root of the variance:
 
 ```r
 ## calculate standard deviation
@@ -392,140 +392,140 @@ sd(b)
 
 ## this is the same as the square root of the variance
 sqrt(var(b))
-``` 
+```
 
-![Desviación estándar](images/04_descriptive/04_dataanalysis_descriptive-49.png)
+![Standard Deviation](images/04_descriptive/04_dataanalysis_descriptive-49.png)
 
-Para ambas medidas de varianza, el valor mínimo es 0. Cuanto mayor sea el número, más dispersos estarán los valores en el valor.
+For both measures of variance, the minimum value is 0. The larger the number, the more spread out the values in the valuable are.
 
 
-### Resumiendo sus datos
+### Summarizing Your Data
 
-A menudo, querrá incluir tablas en sus informes que resuman su conjunto de datos. Estos incluirán el número de observaciones en su conjunto de datos y tal vez la media / mediana y la desviación estándar de algunas variables. Estos podrían organizarse en una tabla utilizando lo que aprendió en el curso de visualización de datos sobre la generación de tablas.
+Often, you'll want to include tables in your reports summarizing your dataset. These will include the number of observations in your dataset and maybe the mean/median and standard deviation of a few variables. These could be organized into a table using what you learned in the data visualization course about generating tables. 
 
 #### skimr
 
-Alternativamente, hay un paquete útil que resumirá todas las variables dentro de su conjunto de datos. El paquete `skimr` proporciona una salida ordenada con información sobre su conjunto de datos.
+Alternatively, there is a helpful package that will summarize all the variables within your dataset. The `skimr` package provides a tidy output with information about your dataset. 
 
-Para usar `skimr`, deberá instalar y cargar el paquete antes de usar la función útil `skim()` para obtener una instantánea de su conjunto de datos.
+To use `skimr`, you'll have to install and load the package before using the helpful function `skim()` to get a snapshot of your dataset.
 
 ```r
 install.packages("skimr")
 library(skimr)
 skim(df)
-``` 
+```
 
-![`skim()` salida](images/04_descriptive/04_dataanalysis_descriptive-50.png)
+![`skim()` output](images/04_descriptive/04_dataanalysis_descriptive-50.png)
 
-El resultado de skim resume por separado las variables categóricas y continuas. Para las variables continuas, se obtiene información sobre la columna media y mediana (`p50`). Usted sabe cuál es el rango de la variable (`p0` es el valor mínimo, `p100` es el valor máximo para las variables continuas). También obtiene una medida de variabilidad con la desviación estándar (`sd`). ¡Incluso cuantifica el número de valores perdidos (`missing`) y te muestra la distribución de cada variable (`hist`)! Esta función puede ser increíblemente útil para obtener una instantánea rápida de lo que está sucediendo con su conjunto de datos.
+The output from skim separately summarizes categorical and continuous variables. For continuous variables you get information about the mean and median (`p50`) column. You know what the range of the variable is (`p0` is the minimum value, `p100` is the maximum value for continuous variables). You also get a measure of variability with the standard deviation (`sd`). It even quantifies the number of missing values (`missing`) and shows you the distribution of each variable (`hist`)! This function can be incredibly useful to get a quick snapshot of what's going on with your dataset.
 
-#### Análisis descriptivos publicados
+#### Published Descriptive Analyses
 
-En los trabajos académicos, los análisis descriptivos a menudo conducen a la información incluida en la primera tabla del documento. Estas tablas resumen información sobre las muestras utilizadas para el análisis en el documento. Aquí, estamos viendo la primera tabla en un [artículo publicado en el New England Journal of Medicine por The CATT Research Group](https://www.nejm.org/doi/full/10.1056/nejmoa1102673).
+In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we're looking at the first table in a [paper published in the New England Journal of Medicine by The CATT Research Group](https://www.nejm.org/doi/full/10.1056/nejmoa1102673). 
 
-![Tabla 1](images/04_descriptive/04_dataanalysis_descriptive-51.png)
+![Table 1](images/04_descriptive/04_dataanalysis_descriptive-51.png)
 
-Podemos ver que hay mucha información descriptiva que se resume en esta tabla con solo echarle un vistazo. Si nos acercamos y simplemente nos enfocamos en la parte superior de la tabla, vemos que los autores han desglosado varias variables (las filas) y resumieron cuántos pacientes tenían en cada una de sus categorías experimentales (las columnas). Centrándonos específicamente en el sexo, podemos ver que había 183 mujeres y 118 hombres en su primer grupo experimental. En los paréntesis, resumen el porcentaje de su muestra. En esta misma categoría, la muestra fue 60.8% femenina y 39.2% masculina.
+We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male. 
 
-![Tabla 1 - solo la parte superior](images/04_descriptive/04_dataanalysis_descriptive-52.png)
+![Table 1 - just the top](images/04_descriptive/04_dataanalysis_descriptive-52.png)
 
 
-Brindamos esto aquí como un ejemplo de cómo alguien incluiría un análisis descriptivo en un informe o publicación. No siempre tiene que ser tan largo, pero siempre debe describir sus datos cuando los comparte con otros.
+We provide this here as an example of how someone would include a descriptive analysis in a report or publication. It doesn't always have to be this long, but you should always describe your data when sharing it with others.
 
-### Resumen
+### Summary
 
-Esta lección cubrió las partes necesarias para llevar a cabo un análisis descriptivo. En general, la descripción de un conjunto de datos implica la descripción del número de observaciones y variables en su conjunto de datos, la comprensión de la falta y la comprensión de la forma, la tendencia central y la variabilidad de cada variable. La descripción debe ocurrir como el primer paso en cualquier análisis de datos.
+This lesson covered the necessary parts of carrying out a descriptive analysis. Generally, describing a dataset involves describing the numbers of observations and variables in your dataset, getting an understanding of missingness, and, understanding the shape, central tendency, and variability of each variable. Description must happen as the first step in any data analysis.
 
-### Recursos adicionales
+### Additional Resources
 
-* [Visualizar datos incompletos y faltantes](https://flowingdata.com/2018/01/30/visualizing-incomplete-and-missing-data/?utm_content=buffer8adce&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer) por Yau](http://flowingdata.com/about-nathan)
-* [Comenzando con el paquete `naniar`](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html), de [Nicholas Tierney](http://www.njtierney.com)
-* [`visdat` package](https://github.com/ropensci/visdat), también de [Nicholas Tierney](http://www.njtierney.com) para visualizar más los conjuntos de datos durante los análisis exploratorios y descriptivos
-* [Utilizando el paquete `skimr`](https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html), por [Elin Waring](https://elinwaring.org/)
+* [Visualizing Incomplete & Missing Data](https://flowingdata.com/2018/01/30/visualizing-incomplete-and-missing-data/?utm_content=buffer8adce&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer), by [Nathan Yau](http://flowingdata.com/about-nathan)
+* [Getting Started with the `naniar` package](https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html), from [Nicholas Tierney](http://www.njtierney.com)
+* [`visdat` package](https://github.com/ropensci/visdat), also from [Nicholas Tierney](http://www.njtierney.com) to further visualize datasets during exploratory and descriptive analyses
+* [Using the `skimr` package](https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html), by [Elin Waring](https://elinwaring.org/)
 
-### Diapositivas y Video
+### Slides and Video
 
-![Análisis descriptivo](https://www.youtube.com/watch?v=ahzGpe7ts0s)
+![Descriptive Analysis](https://www.youtube.com/watch?v=ahzGpe7ts0s)
 
-* [Diapositivas](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
+* [Slides](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
 
 {quiz, id: quiz_04_descriptive}
 
-### prueba de análisis descriptivo
+### Descriptive Analysis quiz
 
 {choose-answers:4}
-?1 ¿Cuál de los siguientes describe un análisis descriptivo?
+?1 Which of the following describes a descriptive analysis?
 
-C) Haga histogramas de sus datos de muestra para calcular la media, la mediana y la varianza de cada variable en su conjunto de datos
-C) Genere una tabla que resuma el número de observaciones en su conjunto de datos, así como las tendencias centrales y las variaciones de cada variable
-o) Sacar conclusiones de su distribución de datos de muestra e inferir para la población más grande
-o) Use su distribución de datos de muestra para hacer predicciones para el futuro
-o) Adapte los modelos de regresión a sus datos de muestra y use sus datos para interpretar los coeficientes en el modelo
-o) Usa tu conjunto de datos para entender el vínculo mecánico entre dos variables
-o) Use su conjunto de datos para ejecutar un ensayo aleatorio, lo que resulta en una comprensión causal
+C) Make histograms of your sample data to calculate mean, median, and variance for each variable in your dataset
+C) Generate a table summarizing the number of observations in your dataset as well as the central tendencies and variances of each variable
+o) Draw conclusions from your sample data distribution and infer for the larger population
+o) Use your sample data distribution to make predictions for the future
+o) Fit regression models to your sample data and use your data to interpret coefficients in the model
+o) Use your dataset to understand the mechanistic link between two variables
+o) Use your dataset to run a randomized trial, resulting in causal understanding
 
 {choose-answers:4, points:3}
-?2 ¿Cuál es la forma de la distribución de la variable `mag` dentro del conjunto de datos `quakes`? (Deberá ir y trabajar con el conjunto de datos `quakes` en R para responder a esta pregunta. Este conjunto de datos está disponible automáticamente en R.)
+?2 What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
 
-C) sesgado a la derecha
+C) right-skewed
 o) Normal
-m) sesgado a la izquierda
-o) Uniforme
+m) left-skewed
+o) Uniform
 o) Poisson
 o) Bernoulli
 
 {choose-answers:4, points:3}
-?2 ¿Cuál es la forma de la distribución de la variable `lat` dentro del conjunto de datos `quakes`? (Deberá ir y trabajar con el conjunto de datos `quakes` en R para responder a esta pregunta. Este conjunto de datos está disponible automáticamente en R.)
+?2 What is the shape of the distribution for the variable `lat` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
 
-C) sesgado a la izquierda
-m) sesgado a la derecha
+C) left-skewed
+m) right-skewed
 o) Normal
-o) Uniforme
+o) Uniform
 o) Poisson
 o) Bernoulli
 
 {choose-answers:4}
-?3 Para una variable continua con una distribución sesgada, ¿cuál es la medida más adecuada de la tendencia central?
+?3 For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
 
-C) mediana
-m) significa
-o) modo
-o) desviación estándar
-o) varianza
-onaranja
+C) median
+m) mean
+o) mode
+o) standard deviation
+o) variance
+o) range
 
 {choose-answers:4}
-?4 Para describir qué tan dispersos están los números en tu variable, ¿qué podrías usar?
+?4 To describe how spread out your the numbers in your variable are, what could you use?
 
-C) desviación estándar
-C) varianza
-C) rango
-o) modo
-o) mediana
-o) significa
-o) suma
-o) tendencia central
+C) standard deviation
+C) variance
+C) range
+o) mode
+o) median
+o) mean
+o) sum
+o) central tendency
 
 {points:3}
-?5 Vaya a [Chromebook Data Science Space en RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` para comenzar. Dile a Swirl tu primer nombre cuando te pregunte cómo llamarte. Luego, escriba el número que corresponde al curso `CBDS Data Analysis`. Escriba el número que corresponde a la lección `L05 Descriptive Analysis Q01 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código al final de la lección aquí.
+?5 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 ! /.+(ql7Q|ZrQI|TB46|JwnO|aemd|pXWR|OTZn|Y7kF|wYmh|hhBL).+/i
 
 
 {points:3}
-?6 Dentro del mismo curso en swirl: `CBDS Getting Data`, navegue a la lección `L05 Descriptive Analysis Q02 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
+?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(Bkex|dcn8|dajc|PnrI|sTea|1tk7|EYBv|4JzZ|KVYf|pKRA).+/i
 
 
 {points:3}
-?7 Dentro del mismo curso en swirl: `CBDS Getting Data`, navegue a la lección `L05 Descriptive Analysis Q03 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
+?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(VbN1|L0qw|gkoN|y33z|GPHl|ShP6|ZVK1|CZDf|ssQ5|x0nO).+/i
 
 
 {points:3}
-?8 Dentro del mismo curso en swirl: `CBDS Getting Data`, navegue a la lección `L05 Descriptive Analysis Q04 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(kNEY|5NTr|PJUu|fWxw|CfsZ|H8LY|oi7K|jjht|dIzg|badT).+/i
 

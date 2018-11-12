@@ -1,259 +1,259 @@
-# Líneas de análisis de datos
+# Data Analysis Pipelines
 
-En los trabajos de ciencia de datos en la industria, a menudo se analiza un conjunto de datos a lo largo del tiempo. Lo que esto significa es que la estructura del conjunto de datos no cambia, las variables que está recolectando siguen siendo las mismas, pero las observaciones sí lo hacen. Tal vez esté recolectando cifras de ventas para una empresa, y cada mes está volviendo a analizar el conjunto de datos para ver si las tendencias han cambiado o si es necesario modificar sus predicciones. O, posiblemente, esté analizando los datos de los usuarios donde cambian los datos demográficos y la cantidad de usuarios de su producto a lo largo del tiempo. En estos casos, donde las variables no cambian pero las observaciones sí, las tuberías pueden ser increíblemente útiles.
+In data science jobs in industry, often you're analyzing a dataset over time. What this means is that the dataset's structure doesn't change -- the variables you're collecting remain the same -- but the observations do. Maybe you're collecting sales figures for a company, and each month you're reanalyzing the dataset to see if trends have changed or if your predictions need to be altered. Or, possibly, you're analyzing user data where the demographics and number of users of your product change over time. In these cases, where the variables don't change but the observations do, pipelines can be incredibly helpful.
 
-### Tuberías
+### Pipelines
 
-Las tuberías son una serie de pasos que se pueden aplicar a un conjunto de datos. Es útil generar una canalización cada vez que te encuentras con un conjunto de datos que esperas encontrar nuevamente. Una tubería podría leer en un conjunto de datos, procesar ese conjunto de datos para obtener un formato ordenado, generar cifras para resumir los datos y generar predicciones. Esta tubería podría configurarse para ejecutarse en cualquier momento en que se generen nuevos datos o en una tabla de tiempo, por ejemplo, cada mes. En este sentido, las tuberías de la ciencia de datos deben ser **automatizadas**. En otras palabras, después de construir la tubería, no debería tener que hacer ningún trabajo adicional cada vez que ejecuta las tuberías.
+Pipelines are a series of steps that can be applied to a dataset. It's helpful to generate a pipeline whenever you come across a dataset that you expect to encounter again. A pipeline could read in a dataset, process that dataset to get it into a tidy format, generate figures to summarize the data, and generate predictions. This pipeline could then be set to run any time new data are generated or on a time table, say every month. In this sense, data science pipelines should be **automated**. In other words, after you build the pipeline, you shouldn't have to do any additional work each time you run the pipelines. 
 
-Además, las tuberías tienen el beneficio adicional de que son **reproducibles**. Esto es útil para usted, ya que podrá reproducir sus resultados en cualquier momento. Pero, esto también es útil porque puede ser utilizado por cualquier persona que tenga acceso a los datos. El gasoducto funcionará si abandona la empresa y alguien se hace cargo de usted o si está enfermo y necesita tomarse un día libre.
+Additionally, pipelines have the additional benefit that they are **reproducible**. This is helpful to you, since you'll be able to reproduce your results at any point in time. But, this is also helpful because they can be used by anyone who has access to the data. The pipeline will work if you leave the company and someone takes over for you or if you're sick and need to take a day off.  
 
-### Consideraciones
+### Considerations
 
-Al generar una tubería, hay una serie de consideraciones a tener en cuenta antes y durante el desarrollo de las tuberías. Aquí, analizaremos cuándo considerar una canalización, qué considerar mientras está generando la tubería y cómo realizar un seguimiento de los cambios que se realizan en la tubería.
+When generating a pipeline, there are a number of considerations to take into account before and while you're developing the pipelines. Here, we'll discuss when to consider a pipeline, what to consider while you're generating the pipeline, and how to track changes that are made to the pipeline.
 
-#### Cuándo hacer una tubería
+#### When to make a pipeline
 
-Las tuberías son útiles cuando tiene una pregunta que responderá más de una vez. Por ejemplo, si tiene datos que se actualizarán con el tiempo, una canalización puede ser útil. Sin embargo, si está haciendo un análisis rápido en un solo conjunto de datos para responder a una pregunta que probablemente no tendrá que responder nuevamente en el futuro, entonces haga el análisis y obtenga su respuesta. Este no es el momento para generar una tubería. *Pero*, si es probable que vuelva a ejecutar el análisis en el futuro una vez que se hayan recopilado más datos, una vez que haya actualizado los números, o una vez que tenga datos de más personas, genere una tubería. En general,**las tuberías son útiles cuando hay una sola pregunta que tendrá que responder más de una vez**.
+Pipelines are helpful when you have a question that you will answer more than once. For example, if you have data that will be updated over time, a pipeline may be helpful. If, however, you're doing a quick analysis on a single set of data to answer a question that you will not likely have to answer again in the future, then just do the analysis and get your answer. This is not the time to generate a pipeline. *But*, if you'll likely run the analysis again in the future once more data has been collected, once you have updated numbers, or once you have data from more people, then generate a pipeline. Generally, **pipelines are helpful when there is a single question you will have to answer more than once**. 
 
-#### Incluyendo cheques apropiados
+#### Including appropriate checks
 
-Una vez que haya decidido que una tubería será útil, el objetivo es que genere una tubería que, una vez que haga clic en un botón, se ejecutará todo el proceso de análisis y obtendrá su respuesta. Para que esto suceda, su canalización requerirá controles antes de que comience. Estas verificaciones deben mirar para ver:
+Once you've decided that a pipeline will be helpful, the goal is that you'll generate a pipeline that, once you click a button, the entire analysis process will run and you'll get your answer. In order for this to happen, your pipeline will require checks before it gets started. These checks should look to see:
 
-* ¿Están los datos en el **formato esperado*? - ¿Estamos esperando datos tabulares con 10 columnas? Si es así, ¿los datos de entrada tienen el aspecto esperado?
-* ¿Se incluyen las **variables necesarias** en el conjunto de datos? - Si vamos a utilizar la variable `sex`, ¿está ahí? Si no, ¿hay una columna llamada `Sex` o `gender`, y es esa la columna que queremos usar?
-* ¿Son las **observaciones para las variables codificadas** como esperamos? - Si esperamos que las mujeres se codifiquen como `female`, ¿es eso lo que hay en los datos? ¿O están codificados como `F`, o incluso `0`?)
+* are the data in the **expected format*? - Are we expecting tabular data with 10 columns? If so, does in the input data look as expected?
+* are the **necessary variables included** in the dataset? - If we're going to be using the variable `sex`, is that in there? If not, is there a column called `Sex` or `gender`, and is that the column we want to use?
+* are the **observations for the variables coded** as we expect? - if we're expecting females to be coded as `female`, is that what's in the data? Or are they coded as `F`, or even `0`?)
 
-Las comprobaciones para garantizar que los datos de entrada sean el tipo correcto de datos para que la tubería se ejecute son increíblemente importantes. Estas son solo algunas comprobaciones que puede querer ejecutar en sus datos. También es posible que desee verificar para asegurarse de que los datos sean de las fechas esperadas o para asegurarse de que los datos no se truncan inesperadamente. Considerar qué controles necesitará realizar en sus datos es un primer paso importante para generar una canalización.
+Checks to ensure that the input data is the right type of data for the pipeline to run are incredibly important. These are just a few checks you may want to run on your data. You may also want to check to ensure that the data are from the dates expected or check to be sure that the data aren't unexpectedly truncated. Considering what checks you'll need to make on your data is an important first step to generating a pipeline.
 
-#### Evitando la codificación dura
+#### Avoiding Hard-Coding
 
-En el desarrollo de tuberías, generalmente querrá evitar la codificación rígida siempre que sea posible. La codificación fija en una tubería se refiere a establecer un parámetro en una tubería que no se puede modificar sin entrar y editar el código. Por ejemplo, si mientras genera una tubería por primera vez, está trabajando con un conjunto de datos que tiene 100 observaciones. ¿Qué sucede si especifica que el conjunto de datos esperado debe tener 100 filas y escribe una verificación para eso? Bueno, la próxima vez que vaya a ejecutar el informe y reciba un error porque su nuevo conjunto de datos tiene 150 observaciones. Al codificar el número "100"  como un parámetro en su canalización, forzaría a su tubería a fallar innecesariamente. **Evitar la codificación permanente siempre que sea posible es una buena regla general** a medida que genera tuberías. Esto significa que simplemente especificará la entrada a su canalización (¡que podría incluir múltiples parámetros!) Y su tubería se ejecutará utilizando los datos que ingresó y el código en su canalización para generar los resultados. No tendrá que entrar y cambiar los números que haya codificado en su canalización.
+In developing pipelines, you'll generally want to avoid hard coding whenever possible. Hard coding in a pipeline refers to setting a parameter in a pipeline that can not be altered without going in and editing the code. For example, if while generating a pipeline for the first time you're working with a dataset that has 100 observations. What if you specify that the expected dataset should have 100 rows and write a check for that. Well, the next time you go to run the report and you get an error because your new dataset has 150 observations. By hard-coding in the number "100" as a parameter in your pipeline, you would forced your pipeline to fail unnecessarily. **Avoiding hard-coding whenever possible is a good rule of thumb** as you generate pipelines. This means that you will just specify the input to your pipeline (which could include multiple parameters!) and your pipeline will run using the data you've input and the code in your pipeline to generate the results. You won't have to go in and change any numbers that you've hard-coded in your pipeline.
 
-#### escalabilidad
+#### Scalability
 
-Además, su tubería debe ser escalable. Una tubería *escalable* es una que funcionará en un conjunto de datos pequeño y continuará funcionando a medida que el conjunto de datos se haga más grande. Es mejor asegurarse de que su canalización se haya generado para que se ejecute en su conjunto de datos, así como en conjuntos de datos más grandes que puedan generarse en el futuro.
+Additionally, your pipeline should be scalable. A *scalable* pipeline is one that will function on a small dataset and will continue to function as the dataset gets larger. It's best to ensure that your pipeline has been generated so that it will run on your dataset as well as larger datasets that may be generated in the future. 
 
-#### Versiones
+#### Versioning
 
-Finalmente, las tuberías deben ser versionadas. Si el formato del conjunto de datos cambia en el futuro, querrá poder actualizar su canalización, pero no desea perder la tubería original, ya que eso es lo que funciona en los conjuntos de datos más antiguos. O, si una API cambia (¡lo que hacen!), Deberá actualizar su canalización para tener en cuenta estos cambios. De nuevo, no quieres perder la versión anterior. **Las versiones** aquí se refieren al proceso de seguimiento de cambios en su canalización.
+Finally, pipelines should be versioned. If the format of the dataset changes in the future, you'll want to be able to update your pipeline, but you don't want to loose the original pipeline, since that's what works on the older datasets. Or, if an API changes (which they do!), you'll need to update your pipeline to account for these changes. Again, you don't want to lose the older version. **Versioning** here refers to the process of tracking changes in your pipeline. 
 
-Cada vez que has presionado a GitHub, has estado usando un tipo de control de versiones. GitHub realiza un seguimiento de los compromisos, que realiza un seguimiento de cada versión de su trabajo. Sin embargo, en el desarrollo de tuberías, es mejor hacer un seguimiento explícito de las versiones de sus tuberías.
+Every time you've pushed to GitHub, you've been using a type of versioning. GitHub tracks commits, which keeps track of every version of your work. However, in pipeline development, it's best to explicitly track the versions of your pipelines. 
 
-En el software, cada versión de una pieza de software a menudo es rastreada por un conjunto de tres números, cada uno de los cuales está separado por un lugar decimal. Un esquema general utilizado en las versiones de software es la versión de una pieza de software como `major.minor.patch`. En este esquema, una versión grande con **cambios de ruptura** (cambios que podrían hacer que versiones anteriores del software sean incompatibles con la versión actual) aumentará el primer número en la secuencia (`major`). El segundo valor (`minor`) se incrementará cuando se lance una versión del software que incluya nuevas características que no sean de última hora. Las versiones en las que se incrementa el tercer valor (`patch`) en la secuencia incluyen cambios sin interrupciones que tienden a ser arreglos mínimos para el software.
+In software each version of a piece of software is often tracked by a set of three numbers, each of which is separated by a decimal place. A general scheme used in software versioning is to version a piece of software as `major.minor.patch`. In this scheme, a large release with **breaking changes** (changes that could cause previous versions of the software to be incompatible with the current version) will increase the first number in the sequence (`major`). The second value (`minor`) will be increased when a version of the software is released that includes new features that are non-breaking. Versions where the the third value (`patch`) in the sequence are increased include non-breaking changes that tend to be minimal fixes to the software. 
 
 ![major.minor.patch](images/09_pipelines/09_dataanalysis_pipelines-6.png)
 
-En este esquema, 0.9.0 representaría el software que está en desarrollo (conocido como la versión beta). Las mejoras incrementales en la versión beta serían las versiones 0.9.1 y 0.9.2, etc. El número `major` permanece en cero hasta la primera versión principal. Una vez lanzado, la primera versión del software sería 1.0.0. Pequeños cambios no importantes en esta versión aumentarían el número `patch`, haciendo versiones como 1.0.1 y 1.0.2. Cuando se agreguen nuevas características a esta pieza de software que no sean de última hora, se aumentará el segundo número `minor` y se lanzará la versión 1.1.0. La próxima vez que se agregue una característica que no se rompa, se lanzará la versión 1.2.0. Finalmente, cuando se hiciera un gran cambio en el futuro para mejorar el software en general, se lanzaría una nueva versión. Esta sería la versión 2.0.0.
+In this scheme, 0.9.0 would represent software that is in development (referred to as the beta version). Incremental improvements on the beta version would be versions 0.9.1 and 0.9.2, etc. The `major` number remains a zero until the first major release. Upon release, the first version of the software would be 1.0.0. Small non-breaking changes to this version would increase the `patch` number, making versions like 1.0.1 and 1.0.2. When new features are added to this piece of software that are non-breaking, the second `minor` number will be increased, and version 1.1.0 would be released. The next time a non-breaking feature was added, version 1.2.0 would be released. Finally, when a big breaking change were made in the future to improve the software overall, a new version would be released. This would be version 2.0.0. 
 
-![esquema de versión](images/09_pipelines/09_dataanalysis_pipelines-7.png)
+![versioning scheme](images/09_pipelines/09_dataanalysis_pipelines-7.png)
 
-Este esquema de desarrollo de software puede ser muy útil en el desarrollo de tuberías. Durante el desarrollo, una tubería debe tener una versión tal que la primera versión de la tubería sea 0.9.0. A medida que se realizan mejoras, el gasoducto puede aumentar su versión como se explicó anteriormente (0.9.1, 0.9.2, etc.). Cuando la canalización esté lista para ser implementada oficialmente, su versión será 1.0.0. Luego, a medida que se realizan los cambios y se mejora la canalización, las versiones permitirán el seguimiento de estos cambios.
+This scheme from software development can be very helpful in pipeline development. While in development, a pipeline should be versioned such that the first version of the pipeline is 0.9.0. As improvements are made, the pipeline can increase its versioned as discussed above (0.9.1, 0.9.2, etc.). When the pipeline is ready to be officially deployed, its version will be 1.0.0. Then, as changes are made and the pipeline improved, versioning will allow for these changes to be tracked.
 
 
-### Informes parametrizados
+### Parameterized Reports
 
-En R, una de las formas más sencillas de generar una canalización es escribir un informe **parametrizado**. Los informes parametrizados se pueden generar comenzando con un documento R Markdown (¡con el que ya está familiarizado!) Y agregando información adicional al YAML en la parte superior del documento. Los parámetros se pueden definir en la parte superior del informe usando el campo `params`. Por ejemplo, si desea especificar el archivo que estaba usando en su informe, podría definir un parámetro `filename` dentro del campo `params`. Luego, al representar el informe, debe especificar qué archivo usar para generar el informe, como puede ver aquí:
+In R, one of the simplest ways to generate a pipeline is to write a **parameterized** report. Parameterized reports can be generated by starting with an R Markdown document (with which you're already familiar!) and adding additional information to the YAML at the top of the document. Parameters can be defined at the top of the report using the `params` field. For example, if you wanted to specify the file you were using in your report, you could define a parameter `filename` within the `params` field. Then, when rendering the report, you would specify which file to use to generate the report, as you see here:
 
 ---
-título: mi documento
-salida: html_document
-params
-   nombre_archivo: nombre_archivo_archivo.csv
+title: My Document
+output: html_document
+params:
+   filename: filename_filedate.csv
 ---
 
-Este archivo podría luego representarse como un argumento dentro de la función `rmarkdown::render()`. El argumento `filename` podría actualizarse para usar cualquier archivo que desee usar para generar el informe:
+This file could then be rendered as an argument within the `rmarkdown::render()` function. The `filename` argument could be updated to use whichever file you want to use to generate the report:
 
 ```r
 rmarkdown::render("MyDocument.Rmd", params = list(
-filename = "filename_filedate.csv")
+  filename = "filename_filedate.csv")
 )
-``` 
+```
 
-Tenga en cuenta que para cualquier parámetro no especificado dentro de `rmarkdown::render()`, se utilizará el valor predeterminado dentro del documento R Markdown.
+Note that for any parameter not specified within `rmarkdown::render()`, the default value within the R Markdown document will be used.
 
-### Ejemplo de resultados de la encuesta de tuberías
+### Pipeline Example Survey Results
 
-Para entender realmente cómo se generaría una tubería, trabajemos con un conjunto de datos de ejemplo. En una lección anterior, hablamos sobre cómo puede leer una hoja de Google usando el paquete `googlesheets` para leer la versión más actualizada de la hoja de cálculo. En esta lección anterior, hablamos acerca de encuestar a tus amigos sobre cuántas horas pasan cada día trabajando, durmiendo, divirtiéndose, comiendo, socializando y otros. Volveremos a utilizar este ejemplo aquí para generar un informe parametrizado que analizará estos datos a medida que se actualicen.
+To really understand how a pipeline would be generated, let's work with an example set of data. In a previous lesson, we talked about how you can read in a Google Sheet using the `googlesheets` package to read in the most up-to-date version of the spreadsheet. In this previous lesson we talked about surveying your friends about how many hours they spend each day working, sleeping, having fun, eating, socializing, and other. We'll use this example again here to generate a parameterized report that will analyze these data as they're updated.
 
-#### Los datos
+#### The Data
 
-Los datos que usaremos para este ejemplo se pueden ver [aquí](https://docs.google.com/spreadsheets/d/e/2PACX-1vTuPnBT7Y6emAamDSaXo_RV-X54c0a6nJh4e-bqurRsNW_EIm6ygq90UVfySQbSg0Ue9-U4wSykQqKF/pubhtml). For our purposes, we're going to say that the first Sheet (`Sheet1`) son los datos que se recopilaron después de la primera semana de la encuesta, mientras que la Hoja 2` contiene todos los datos recopilados en las dos primeras semanas.
+The data we'll use for this example can be viewed [here](https://docs.google.com/spreadsheets/d/e/2PACX-1vTuPnBT7Y6emAamDSaXo_RV-X54c0a6nJh4e-bqurRsNW_EIm6ygq90UVfySQbSg0Ue9-U4wSykQqKF/pubhtml). For our purposes, we're going to say that the first Sheet (`Sheet1`) is the data that were collected after the first week the survey ran, while `Sheet 2` contains all data collected in the first two weeks.
 
-![Datos de la hoja de Google](images/09_pipelines/09_dataanalysis_pipelines-10.png)
+![Google Sheets data](images/09_pipelines/09_dataanalysis_pipelines-10.png)
 
-Imagina que una semana después de enviar la encuesta a tus amigos, sientes curiosidad por los resultados. ¡Así, usted escribe un informe parametrizado para visualizar los resultados! Lo hace porque desea poder analizar los datos con solo hacer clic en un botón y porque sabe que generará este informe nuevamente en el futuro una vez que se hayan recopilado más datos.
+Imagine that a week after you've sent the survey out to your friends, you're really curious about the results. Thus, you write a parameterized report to visualize the results! You do this because you want to be able to analyze the data at the click of a button _and_ because you know you'll generate this report again in the future once more data have been collected.
 
-#### Siguiendo a lo largo
+#### Following Along
 
-Si está interesado en ejecutar esta canalización y seguir por su cuenta, puede encontrar el código utilizado en esta lección [aquí](https://rstudio.cloud/project/48127). Puede hacer una copia de este espacio en RStudio Cloud y generar sus propios informes. La URL que querrá incluir cuando se le solicite es la siguiente URL: https://docs.google.com/spreadsheets/d/1MpGE4YHB14qBgrg3lqa1eq_Mb7L8TMOwTZtVzqQ0mmA.
+If you're interested in running this pipeline and following along on your own, the code used in this lesson can be found [here](https://rstudio.cloud/project/48127). You can make a copy of this space in RStudio Cloud and generate your own reports. The URL you'll want to include when prompted is the following URL: https://docs.google.com/spreadsheets/d/1MpGE4YHB14qBgrg3lqa1eq_Mb7L8TMOwTZtVzqQ0mmA.
 
-Para comenzar a escribir el informe parametrizado, querrá configurar su informe en el formato Markdown R y leer sus datos en.
+To get started writing the parameterized report, you'll want to set up your report in the R Markdown format and read your data in.
 
-#### La puesta en marcha
+#### The Setup
 
-Para comenzar, querrá abrir un nuevo documento R Markdown.
+To get started, you'll want to open up a new R Markdown document. 
 
-![Nuevo documento de Markdown R](images/09_pipelines/09_dataanalysis_pipelines-11.png)
+![New R Markdown Document](images/09_pipelines/09_dataanalysis_pipelines-11.png)
 
-En este documento, querrá especificar dos parámetros usando `params`:
+In this document you'll want to specify two parameters using `params`:
 
-![YAML de R Markdown](images/09_pipelines/09_dataanalysis_pipelines-12.png)
+![YAML of R Markdown](images/09_pipelines/09_dataanalysis_pipelines-12.png)
 
-El parámetro `file_url` dice "preguntar". Esto significa que cuando vamos a tejer el informe, queremos RStudio para preguntar en ese momento qué URL utilizar para la hoja de Google. El segundo parámetro, `worksheet`, especifica que queremos que el valor predeterminado sea la primera hoja de cálculo, pero nos damos la flexibilidad de especificar una hoja de cálculo diferente, si así lo decidimos.
+The `file_url` parameter says "ask". This means that when we go to knit the report, we want to RStudio to ask at that point what URL to use for the Google Sheet. The second parameter, `worksheet`, specifies that we want the default to be the first worksheet, but we give ourselves the flexibility to specify a different worksheet, if we so choose.
 
-Después de configurar el YAML, desearemos instalar y cargar cualquier paquete que usaremos en el fragmento de código `setup`:
+After setting up the YAML, we'll want to install and load any packages that we'll use in the `setup` code chunk:
 
 ![`setup` code chunk](images/09_pipelines/09_dataanalysis_pipelines-13.png)
 
-Aquí, estamos instalando cuatro paquetes. En este código indicamos que si los paquetes aún no se han instalado, hágalo. Luego, todos los paquetes se cargan en nuestra sesión de RStudio Cloud.
+Here, we're installing four packages. In this code we state that if the packages haven't already been installed, do so. Then, all packages are loaded into our RStudio Cloud session.
 
-#### leyendo los datos en
+#### Reading The Data In
 
-Después de configurar el entorno RStudio Cloud, los datos se leen en el fragmento de código `data`.
+After setting up the RStudio Cloud environment, the data are read in in the code chunk `data`. 
 
-![`data` fragmento de código](images/09_pipelines/09_dataanalysis_pipelines-14.png)
+![`data` code chunk](images/09_pipelines/09_dataanalysis_pipelines-14.png)
 
-Al usar `gs_url()` y `gs_read()` del paquete `googlesheets`, podemos leer la Hoja de Google y especificar qué hoja de trabajo queremos incluir para el análisis. Observe el uso del objeto `params`. Cuando este archivo está trenzado, tomará el `params` especificado en el YAML como la entrada para compilar el informe. Veremos exactamente cómo hacerlo más adelante en esta lección. Tenga en cuenta que incluir un parámetro siempre comienza con el objeto `params`. A esto le sigue un signo de dólar (`$`). Finalmente, usa el nombre especificado en el YAML para especificar qué parámetro desea incluir en su código. Específicamente aquí, primero especificamos que queremos registrar la Hoja de Google usando `params$file_url` y luego especificamos qué hoja de trabajo leer especificando `params$worksheet`.
+Using `gs_url()` and `gs_read()` from the `googlesheets` package we're able to read in the Google Sheet and specify which worksheet we want to include for analysis. Notice the use of the `params` object. When this file is knit, it will take the `params` specified in the YAML as the input for compiling the report. We'll see exactly how to do this later in this lesson. Note that including a parameter always begins with the object `params`. This is followed by a dollar sign (`$`). Finally, you use the name specified in the YAML to specify which parameter you want to include in your code. Specifically here, we first specify that we want to register the Google Sheet using `params$file_url` and then specify which worksheet to read in by specifying `params$worksheet`.
 
-#### cheques
+#### Checks
 
-Antes de escribir realmente el código para analizar los datos, debe asegurarse de que su informe ejecute las comprobaciones adecuadas de los propios datos. Como se comentó anteriormente en esta lección, estas verificaciones deben garantizar que los datos estén en el formato que espera el resto del código. Por ejemplo, si accidentalmente especificó el archivo incorrecto en el que se ejecuta el informe, querría que su informe le envíe una advertencia informándole que los datos no eran lo que esperaba el informe. Los controles son partes increíblemente importantes de una tubería de ciencia de datos y no deben pasarse por alto.
+Before actually writing the code to analyze the data, you want to be sure your report runs the appropriate checks on the data itself. As discussed earlier in this lesson, these checks should ensure that the data are in the format the rest of the code is expecting. For example, if you accidentally specified the wrong file on which to run the report, you'd want your report to send you a warning letting you know that the data were not what the report was expecting. Checks are incredibly important parts of a data science pipeline and should not be overlooked.
 
-En este ejemplo solo incluiremos una única comprobación; sin embargo, para la mayoría de las tuberías, seguramente querrá escribir algunas verificaciones más para **garantizar que su análisis se ejecutará correctamente**. Siempre intente anticipar los posibles errores que los usuarios podrían cometer al generar este informe. Luego, escribe cheques para probar cada posible escenario. Recuerde, otros deberían poder generar este informe en su ausencia.
+We will only include a single check here in this example; however, for most pipelines, you'll certainly want to write a few more checks to **ensure that your analysis will run properly**. Always try to anticipate possible mistakes that users could make in generating this report. Then, write checks to test for each possible scenario. Remember, others should be able to generate this report in your absence.
 
-Aquí, agregaríamos este código a un fragmento de código llamado `checks`.
+Here, we would add this code to a code chunk called `checks`.
 
 ![`checks` code chunk](images/09_pipelines/09_dataanalysis_pipelines-15.png)
 
-En el código de este fragmento (a continuación), estamos comprobando si los nombres de columna esperados son los que figuran en la URL de la hoja de Google que se proporcionó. Verá que especificamos cuáles son los nombres de columna esperados al crear el objeto `columns`. Luego, la verificación mira cuántas columnas en la Hoja de Google son las mismas que las columnas especificadas en el objeto `columns`. Si no son todos iguales, el informe no se compilará y se generará un error.
+In the code in this chunk (below), we're checking to see if the expected column names are what are in the Google Sheet URL that was provided. You'll see we specify what the expected column names are by creating the `columns` object. Then, the check looks to see how many columns in the Google Sheet are the same as the columns specified in the `columns` object. If they are not all equal, then the report will not compile and an error will be thrown.
 
-Tenga en cuenta que hay tres tipos de comentarios que su código puede dar en R:
+Note that there are three types of feedback your code can give in R:
 
-- **mensaje** - imprime un mensaje pero no detiene la ejecución
-- **advertencia** - imprime un mensaje de advertencia pero no detiene la ejecución
-- **detener** - detiene la ejecución de la expresión actual y ejecuta una acción de error
+- **message** - prints a message but not stop execution
+- **warning** - prints a warning message but not stop execution
+- **stop** - stops execution of the current expression and executes an error action
 
-En este código, proporcionamos un mensaje `stop()` porque no queremos que el informe realice el análisis a menos que los datos estén en el formato esperado. Sin embargo, en otros casos, es posible que solo desee imprimir un mensaje en la salida o proporcionar una advertencia al usuario, pero no detener la compilación del informe. En estos casos, usaría `message()` y `warning()`, respectivamente.
+In this code, we're providing a `stop()` message because we don't want the report to carry out the analysis unless the data are in the expected format. However, in other cases, you may just want to print a message in the output or provide the user with a warning but not stop the report from compiling. In these cases you would use `message()` and `warning()`, respectively.
 
-Finalmente, tenga en cuenta que en este fragmento de código hemos incluido `echo = FALSE`. Esto evalúa el código para que se realice la verificación, pero no se imprime en el informe de salida.
+Finally, note that in this code chunk we've included `echo = FALSE`. This evaluates the code so the check is carried out, but doesn't print it in the output report.
 
-Una vez que haya escrito suficientes comprobaciones para asegurarse de que su informe solo se compilará cuando tenga los datos correctos en el formato correcto, estará listo para comenzar el análisis.
+Once you've written enough checks to ensure that your report will only compile when you have the right data in the right format, you're ready to begin the analysis.
 
-#### El analisis
+#### The Analysis
 
-Para analizar los datos, tal vez solo esté interesado en resumir la cantidad promedio de horas que sus amigos dedican a cada actividad. Para hacer esto, primero debe limpiar los datos y luego generar un gráfico.
+To analyze the data, maybe you're just interested in summarizing the mean number of hours your friends spend doing each activity. To do this, you would first clean the data and then generate a plot.
 
-##### Limpieza de datos
+##### Data Cleaning
 
-Antes de que pueda generar este gráfico, deberá verificar y limpiar sus datos. Para este ejemplo aquí, ¿qué pasaría si las personas dijeran que pasaron más de 24 horas haciendo cosas en un día? Bueno, sabemos que solo hay 24 horas en un día, por lo que es probable que desee excluir a estas personas del análisis, ya que no sabrá con seguridad dónde ocurrió el error en su entrada de datos. Debería escribir unas pocas líneas de código para hacer esto usando sus habilidades de manejo de datos.
+Before you can generate this plot, you will want to check and clean your data. For this example here, what if people said they spent more than 24 hours doing things in a day? Well, we know there are only 24 hours in a day, so you'd likely want to exclude these individuals from the analysis, as you won't know for sure where the error in their data entry happened. You would write a few lines of code to do this using your data wrangling skills.
 
 ![`clean` code chunk](images/09_pipelines/09_dataanalysis_pipelines-18.png)
 
-Aquí, hemos especificado que no queremos que este fragmento de código se incluya en el informe final, usando `include = FALSE` en el fragmento de código. También hemos incluido comentarios para que cualquiera que vea el código en bruto sepa lo que hace el código. Pero, el informe final de punto no incluirá tales detalles.
+Here, we have specified that we don't want this code chunk included in the final report, using `include = FALSE` in the code chunk. We have also included comments so that anyone looking at the raw code would know what the code does. But, the final knit report will not include such details. 
 
-También querrá asegurarse de que su informe proporcione una descripción de cuántos datos de individuos se incluyen en su análisis y cuántas muestras se han eliminado (¡un ejemplo de un análisis descriptivo!).
+You'd also want to be sure that your report provides a description of how many individuals' data are included in your analysis and how many samples have been removed (an example of a descriptive analysis!).
 
-Debajo del fragmento de código, incluimos una breve descripción de los datos especificando cuántas muestras se incluyen en el análisis y cuántas se eliminaron debido a problemas con sus datos mediante la sintaxis de Markdown. Ninguno de los números aquí ha sido codificado. Todos ellos se rellenarán automáticamente con el número apropiado cuando se teja el informe.
+Below the code chunk, we include a brief description of the data by specifying how many samples are included in the analysis and how many have been removed due to issues with their data using Markdown syntax. None of the numbers here have been hard-coded. They will all automatically populate with the appropriate number when the report is knit.
 
-##### Análisis de los datos
+##### Data Analysis
 
-Una vez que esté seguro de que sus datos están listos para ser utilizados para el análisis, escribirá el código para generar la trama. En este caso, no nos estamos enfocando en la trama, por lo que usamos un código muy básico, pero si este fuera un informe que enviaba a su jefe o equipo, es probable que desee mejorar las etiquetas, aumentar el tamaño de la fuente y tal vez cambiar el tema. Sin embargo, con esto, está listo para tejer su informe parametrizado.
+Once you're confident that your data are ready to be used for analysis, you'd write the code to generate the plot. Here, we're not focusing on the plot, so we use very basic code, but if this were a report you were sending around to your boss or team, you'd likely want to improve the labels, increase the font size, and maybe change the theme. Nevertheless, with this, you're ready to knit your parameterized report.
 
 ![`analyze` code chunk](images/09_pipelines/09_dataanalysis_pipelines-19.png)
 
-#### tejido de punto
+#### Knitting 
 
-Para generar su informe de punto, haga clic en la flecha a la derecha de "Tejer"  y seleccione "Tejer con parámetros ..."  en el menú desplegable.
+To generate your knit report, you'll click on the arrow to the right of "Knit" and select "Knit with Parameters..." from the drop-down menu.
 
-![Tejer con parámetros ...](images/09_pipelines/09_dataanalysis_pipelines-20.png)
+![Knit with Parameters...](images/09_pipelines/09_dataanalysis_pipelines-20.png)
 
-Si se le solicita, diga sí a la instalación de los paquetes necesarios. Luego, aparecerá una ventana donde la casilla `file_url` dirá "preguntar", lo que indica que tendrá que especificar la URL aquí. La hoja de cálculo predeterminada es 1. Puede dejar esto como está o cambiarlo para especificar una hoja de cálculo diferente.
+If prompted, say yes to installing necessary packages. Then, a window will appear where the `file_url` box will say "ask", indicating that you'll have to specify the URL here. The default worksheet is 1. You can leave this as is, or change it to specify a different worksheet. 
 
-![Ventana emergente Tejer con parámetros](images/09_pipelines/09_dataanalysis_pipelines-21.png)
+![Knit with Parameters pop-up window](images/09_pipelines/09_dataanalysis_pipelines-21.png)
 
-Después de agregar la URL para la hoja de Google correspondiente, querrá hacer clic en "Tejer"
+After adding the URL for the appropriate Google Sheet, you'll want to click "Knit"
 
-![Después de agregar la URL, haga clic en Tejer](images/09_pipelines/09_dataanalysis_pipelines-22.png)
+![After adding URL, click Knit](images/09_pipelines/09_dataanalysis_pipelines-22.png)
 
-Su informe aparecerá! Aquí, vemos un resumen de los datos después de la primera semana de recopilación de información de sus amigos.
+Your report will appear! Here, we see a summary of the data after the first week of collecting information from your friends. 
 
-![Informe con datos de la encuesta](images/09_pipelines/09_dataanalysis_pipelines-23.png)
+![Report with survey data](images/09_pipelines/09_dataanalysis_pipelines-23.png)
 
-Vemos que la mayor parte del tiempo de tus amigos se gasta trabajando y durmiendo, ¡lo cual tiene bastante sentido!
+We see that most of your friends' time is spent working and sleeping, which makes enough sense!
 
-Sin embargo, el objetivo principal de este informe es que puede ejecutarlo nuevamente con facilidad para un conjunto de datos actualizado, ya que es el punto principal de una canalización. La segunda hoja en esta hoja de Google representa sus datos actualizados. Por lo tanto, haremos clic en "Tejer con parámetros"  nuevamente y especificaremos la URL apropiada (igual que antes), pero cambiaremos la hoja de trabajo a '2'. Volveremos a tejer nuestro informe.
+However, the whole point of this report is that you can run it again with ease for an updated dataset -- as that's the whole point of a pipeline. The second sheet in this Google Sheet represents your updated data. Thus, we'll click "Knit with Parameters" again and specify the appropriate URL (the same as earlier), but change worksheet to '2'. We'll again Knit our report.
 
-![Cambiar parámetro y volver a tejer](images/09_pipelines/09_dataanalysis_pipelines-24.png)
+![Change paramter and re-Knit](images/09_pipelines/09_dataanalysis_pipelines-24.png)
 
-Así, ¡vemos los datos resumidos en más de nuestros amigos! La gente sigue trabajando y durmiendo más; Sin embargo, vemos mucha más variabilidad en este conjunto de datos actualizado.
+Just like that, we see the data summarized across more of our friends! People are still working and sleeping the most; however, we see a lot more variability in this updated dataset!
 
-![Informe con datos de encuesta actualizados](images/09_pipelines/09_dataanalysis_pipelines-25.png)
+![Report with updated survey data](images/09_pipelines/09_dataanalysis_pipelines-25.png)
 
-### Resumen
+### Summary
 
-Esta lección ha cubierto qué es una canalización de ciencia de datos, cuando querría generar una, consideraciones a realizar al escribir una tubería, y un ejemplo simple de cómo generar una tubería de ciencia de datos usando informes parametrizados en R Markdown. Cuando vaya a trabajar con un conjunto de datos que se actualice o con una serie de conjuntos de datos diferentes que sean similares, comience escribiendo un sólido canal de información científica.
+This lesson has covered what a data science pipeline is, when you'd want to generate one, considerations to make when writing a pipeline, and a simple example of how to generate a data science pipeline using parameterized reports in R Markdown. Whenever you're going to be working with a dataset that updates or a number of different datasets that are similar, start by writing a robust data science pipeline.
 
-### Recursos adicionales
+### Additional Resources 
 
-* [Construyendo un pipeline de datos desde cero](https://medium.com/the-data-experience/building-a-data-pipeline-from-scratch-32b712cfb1db), por [Alan Marazzi](https://www.rdisorder.eu/)
-* [Reportes de Markdown parametrizados R con RStudio Connect](https://www.rstudio.com/resources/videos/parameterized-r-markdown-reports-with-rstudio-connect/)
-* [Informes parametrizados de RMarkdown](https://rmarkdown.rstudio.com/developer_parameterized_reports)
-* [Capítulo 15: Informes parametrizados en R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html), por Yihui Xie, J.J. Allaire, y Garrett Grolemund
+* [Building a Data Pipeline from Scratch](https://medium.com/the-data-experience/building-a-data-pipeline-from-scratch-32b712cfb1db), by [Alan Marazzi](https://www.rdisorder.eu/)
+* [Parameterized R Markdown reports with RStudio Connect](https://www.rstudio.com/resources/videos/parameterized-r-markdown-reports-with-rstudio-connect/)
+* [RMarkdown Parameterized Reports](https://rmarkdown.rstudio.com/developer_parameterized_reports)
+* [Chapter 15: Parameterized Reports in R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html), by Yihui Xie, J.J. Allaire, and Garrett Grolemund
 
 
-### Diapositivas y Video
+### Slides and Video
 
-![Líneas de análisis de datos](https://www.youtube.com/watch?v=zE_doXeNENc)
+![Data Analysis Pipelines](https://www.youtube.com/watch?v=zE_doXeNENc)
 
-* [Diapositivas](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/edit?usp=sharing)
+* [Slides](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/edit?usp=sharing)
 
 {quiz, id: quiz_09_pipelines}
 
-### Prueba de datos Análisis de tuberías
+### Data Analysis Pipelines quiz
 
 {choose-answers: 4}
-? ¿Cuándo generarías un oleoducto?
+? When would you generate a pipeline?
 
-C) Si recibió datos para analizar, pero sabía que se actualizarían en el futuro.
-C) Si le encargaron generar un informe financiero mensual
-C) Si tuvieras que generar un informe de ventas semanal.
-C) Si tuvieras que analizar diferentes conjuntos de datos que todos tenían un formato similar
-o) Si le dieron un conjunto de datos que nunca antes había visto y le dijeron que lo analizara
-o) Si su jefe pidió una respuesta rápida a una pregunta simple
-o) Si a su equipo se le dio un análisis extraño para hacer un conjunto de datos atípicos
-o) Si deseaba responder una pregunta, probablemente nunca tendría que volver a responder
-
-{choose-answers: 4}
-? Para especificar parámetros dentro de un informe parametrizado, ¿qué haría usted?
-
-C) especifique `params` dentro del YAML
-o) especifique `params` dentro del primer fragmento de código
-o) define `params` cuando tejes
-o) renderice su informe pero nunca especifique dentro del documento R Markdown
-o) Tejer su informe pero nunca especificar dentro del documento R Markdown
-o) Tejer su documento R Markdown sin parámetros
+C) If you received data to analyze but knew that it would be updated in the future
+C) If you were tasked with generating a monthly financial report 
+C) If you had to generate a weekly sales report
+C) If you had to analyze different datasets that all had a similar format
+o) If you were given a dataset that you had never seen before and told to analyze it 
+o) If your boss asked for a quick answer to a simple question
+o) If your team were given a strange analysis to do for an atypical dataset
+o) If you wanted to answer a question you were likely never to have to answer again
 
 {choose-answers: 4}
-? ¿Cuándo debería incluir los controles dentro de sus tuberías de ciencia de datos?
+? To specify parameters within a parameterized report, which would you do?
 
-C) siempre
-C) Cada vez que escribes un pipeline.
-o) Solo cuando tienes un nuevo conjunto de datos
-o) Solo cuando quieres comprobar algo muy rápido.
-o) Solo cuando está trabajando con un tipo de conjunto de datos que no conoce
-o) Nunca - llevan mucho tiempo
-o) Solo cuando tengas tiempo
+C) specify `params` within the YAML
+o) specify `params` within the first code chunk
+o) define `params` when you Knit 
+o) render your report but never specify within the R Markdown document
+o) Knit your report but never specify within the R Markdown document
+o) Knit your R Markdown document without parameters
 
 {choose-answers: 4}
-? Para usar un parámetro `URL` en su informe, ¿cómo lo especificaría?
+? When should you include checks within your data science pipelines?
 
-C) `params$URL` 
-o) `param$URL` 
-o) `param[URL]` 
-o) `params["URL"]` 
-o) `params$url` 
-o) `param$url` 
+C) Always
+C) Every time you write a pipeline
+o) Only when you have a new dataset
+o) Only when you want to check something real quick
+o) Only when you are working with a type of dataset you are unfamiliar
+o) Never - they're time-consuming
+o) Only when you have the time
+
+{choose-answers: 4}
+? To use a parameter `URL` within your report, how would you specify this?
+
+C) `params$URL`
+o) `param$URL`
+o) `param[URL]`
+o) `params["URL"]`
+o) `params$url`
+o) `param$url`
 o) `params$url_link`
 
 
