@@ -1,126 +1,126 @@
-# Exploratory Analysis 
+# Análisis exploratorio
 
-The goal of an exploratory analysis is to examine, or **explore** the data and find **relationships** that weren't previously known. Exploratory analyses explore how different measures might be related to each other but do not confirm that relationship as causal, i.e., one variable causing another. You've probably heard the phrase "Correlation does not imply causation," and exploratory analyses lie at the root of this saying. Just because you observe a relationship between two variables during exploratory analysis, it does not mean that one necessarily causes the other.
+El objetivo de un análisis exploratorio es examinar, o **explorar**los datos y encontrar**relaciones** que no se conocían previamente. Los análisis exploratorios exploran cómo las diferentes medidas podrían estar relacionadas entre sí, pero no confirman esa relación como causal, es decir, una variable que causa a otra. Probablemente ha escuchado la frase "La correlación no implica causalidad", 901570 y los análisis exploratorios se encuentran en la raíz de este dicho. El hecho de que observe una relación entre dos variables durante el análisis exploratorio, no significa que una necesariamente cause la otra.
 
-Because of this, exploratory analyses, while useful for discovering new connections, should not be the final say in answering a question! It can allow you to formulate hypotheses and drive the design of future studies and data collection, but exploratory analysis alone should never be used as the final say on why or how data might be related to each other. In short, exploratory analysis helps us ask better questions, but it does not answer questions. More specifically, we explore data in order to:
+Debido a esto, los análisis exploratorios, aunque son útiles para descubrir nuevas conexiones, ¡no deberían ser la última palabra para responder una pregunta! Puede permitirle formular hipótesis e impulsar el diseño de estudios futuros y la recopilación de datos, pero el análisis exploratorio por sí solo nunca debe usarse como la última palabra sobre por qué o cómo los datos pueden estar relacionados entre sí. En resumen, el análisis exploratorio nos ayuda a hacer mejores preguntas, pero no responde a las preguntas. Más específicamente, exploramos datos para:
 
-* Understand data properties such as nonlinear relationships, the existence of missing values, the existence of outliers, etc.
-* Find patterns in data such as associations, group differences, confounders, etc.
-* Suggest modeling strategies such as linear vs. nonlinear models, transformation
+* Comprender las propiedades de los datos, como las relaciones no lineales, la existencia de valores perdidos, la existencia de valores atípicos, etc.
+* Encontrar patrones en datos tales como asociaciones, diferencias de grupo, factores de confusión, etc.
+* Sugerir estrategias de modelado tales como modelos lineales vs. no lineales, transformación.
 * "Debug" analyses
-* Communicate results
+* Comunicar resultados.
 
 
-### General principles of exploratory analysis
+### Principios generales del análisis exploratorio.
 
-We can summarize the general principles of exploratory analysis as follows:
+Podemos resumir los principios generales del análisis exploratorio de la siguiente manera:
 
-* Look for missing values
-* Look for outlier values
-* Use plots to explore relationships
-* Use tables to explore relationships
-* If necessary, transform variables
-
-
-These principles may be more clear in an example. We will use a dataset from [Kaggle.com](www.kaggle.com) that contains 120 years of Olympics history on athletes and results. If you don't have an account on Kaggle, create one and go to the link https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results and under "Data Sources" download the `athlete_events.csv` to your computer. 
-
-![Dataset on 120 years of Olympics history on athletes and results](images/05_exploratory/05_dataanalysis_exploratory-3.png)
-
-Upload the data on RStudio.cloud and import the csv file using the commands you have learned. Unfortunately, you cannot download the csv file directly from the web address since downloading datasets on Kaggle requires logging in.
-
-![Importing data using `read_csv()`](images/05_exploratory/05_dataanalysis_exploratory-4.png)
-
-As we learned before, we can use the package `skimr` to take a look at the data. 
-
-![Using the skimr package to have a summary of the data](images/05_exploratory/05_dataanalysis_exploratory-5.png)
-
-We see that the dataset contains 15 variables and 271,116 observations. Some of the variables are of factor type and others are of integer or numeric type. The dataset includes variables on athletes such as name, sex, the sport played, whether they received a medal, age, and height. We first need to understand the data properties. So let's start with missing values.
-
-![We have different types of variables in our data](images/05_exploratory/05_dataanalysis_exploratory-6.png)
+* Buscar valores faltantes.
+* Buscar valores atípicos
+* Usar parcelas para explorar relaciones
+* Usa tablas para explorar relaciones
+* Si es necesario, transformar variables.
 
 
-First, the results of the `skim()` function indicate that some of our variables have lots of missing values. For instance, the variable `Medal` has 231,333 missing values. Generally, this is a place for concern since most statistical analyses ignore observations with missing values. However, it is obvious that the missing values for the variable `Medal` are mainly because the athlete didn't receive any medals. So this kind of missing value should not be a problem. However, we have missing values in the variables `Height` and `Age`. Since we are going to use these variables in our analysis in this lesson, observations with missing values for these two variables will be dropped from our analysis. Remember that `NA` is the most common character for missing values, but sometimes they are coded as spaces, 999, -1 or “missing”. Check for missing values in a variety of ways.
+Estos principios pueden ser más claros en un ejemplo. Usaremos un conjunto de datos de [Kaggle.com](www.kaggle.com) que contiene 120 años de historia de los Juegos Olímpicos sobre atletas y resultados. Si no tiene una cuenta en Kaggle, cree una y vaya al enlace https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results y en "Fuentes de datos" descargue el `athlete_events.csv` en su computadora.
 
-![There are some missing values in the data](images/05_exploratory/05_dataanalysis_exploratory-7.png)
+![Conjunto de datos sobre 120 años de historia de los Juegos Olímpicos sobre atletas y resultados](images/05_exploratory/05_dataanalysis_exploratory-3.png)
 
+Cargue los datos en RStudio.cloud e importe el archivo csv con los comandos que ha aprendido. Desafortunadamente, no puede descargar el archivo csv directamente desde la dirección web ya que la descarga de conjuntos de datos en Kaggle requiere iniciar sesión.
 
-Second, we can see that there are some outliers in some of the numerical variables. For example, look at the summary of the variable `Age`. Although the average age among all the athletes is around 25, there is an individual who is 97 years old (fun fact: use the command `subset(df, df$Age == 97)` to check out the information about this athlete. You will see that the name of the athlete is John Quincy Adams Ward and he competed in the sport(!) Art Competitions Mixed Sculpturing in 1928. This artist is known for his George Washington statue in front of Federal Hall in Wall Street in New York City.) It is always good to know about the existence of outliers in your sample. Outliers can significantly skew the results of your analysis. You can find outliers by looking at the distribution of your variable too.
+![Importando datos usando `read_csv()`](images/05_exploratory/05_dataanalysis_exploratory-4.png)
 
-![There is an outlier in the Age variable](images/05_exploratory/05_dataanalysis_exploratory-8.png)
+Como aprendimos anteriormente, podemos usar el paquete `skimr` para echar un vistazo a los datos.
 
+![Utilizando el paquete skimr para tener un resumen de los datos](images/05_exploratory/05_dataanalysis_exploratory-5.png)
 
-Histograms, in general, are one of the best ways to look at a variable and find abnormalities. You can see that the age of most individuals in the sample are between 18-35.
+Vemos que el conjunto de datos contiene 15 variables y 271,116 observaciones. Algunas de las variables son de tipo factor y otras son de tipo entero o numérico. El conjunto de datos incluye variables sobre atletas como el nombre, el sexo, el deporte jugado, si recibieron una medalla, edad y altura. Primero necesitamos entender las propiedades de los datos. Así que vamos a empezar con los valores perdidos.
 
-![Histogram of the variable Age](images/05_exploratory/05_dataanalysis_exploratory-9.png)
-
-
-Now, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. For instance, we like to know if there is an association between age of athletes and their gender. One of the ways to do this is to look at a boxplot of age grouped by gender, i.e., the distribution of age separated for male and female athletes. Boxplot shows the distribution of the variable age for the gender groups. You can see that the average age is slightly higher for men than for women. 
-
-![Boxplot of the variable Age for male and female individuals](images/05_exploratory/05_dataanalysis_exploratory-10.png)
-
-If we are interested in looking at the distribution of male and female athletes over time, we can use frequency tables. Let us first create a frequency table of the share of women in each Olympic event. Tables are good for looking at factor or character variables.
+![Tenemos diferentes tipos de variables en nuestros datos](images/05_exploratory/05_dataanalysis_exploratory-6.png)
 
 
-![Wrangling data to find the share of female athletes over time](images/05_exploratory/05_dataanalysis_exploratory-11.png)
+Primero, los resultados de la función `skim()` indican que algunas de nuestras variables tienen muchos valores faltantes. Por ejemplo, la variable `Medal` tiene 231,333 valores perdidos. En general, este es un lugar de preocupación ya que la mayoría de los análisis estadísticos ignoran las observaciones con valores faltantes. Sin embargo, es obvio que los valores faltantes para la variable `Medal` son principalmente porque el atleta no recibió ninguna medalla. Así que este tipo de valor perdido no debería ser un problema. Sin embargo, nos faltan valores en las variables `Height` y `Age`. Como vamos a utilizar estas variables en nuestro análisis en esta lección, las observaciones con valores perdidos para estas dos variables se eliminarán de nuestro análisis. Recuerde que `NA` es el carácter más común para los valores faltantes, pero a veces se codifican como espacios, 999, -1 o "faltantes". Compruebe los valores que faltan en una variedad de formas.
+
+![Hay algunos valores faltantes en los datos](images/05_exploratory/05_dataanalysis_exploratory-7.png)
 
 
-Now, if we want to plot this trend, we can use `geom_line()` from `ggplot`. It's interesting that the share of women among all athletes that was once at a very low level in the early 1900s has gone up to almost 50% in modern times.
+En segundo lugar, podemos ver que hay algunos valores atípicos en algunas de las variables numéricas. Por ejemplo, mire el resumen de la variable `Age`. Aunque la edad promedio entre todos los atletas es de alrededor de 25, hay una persona que tiene 97 años (dato curioso: use el comando `subset(df, df$Age == 97)` para consultar la información sobre este atleta. Verá que el nombre del atleta es John Quincy Adams Ward y compitió en el deporte (!) Art Competitions Mixed Sculpturing en 1928. Este artista es conocido por su estatua de George Washington frente al Federal Hall en Wall Street en la ciudad de Nueva York. .) Siempre es bueno saber acerca de la existencia de valores atípicos en su muestra. Los valores atípicos pueden sesgar significativamente los resultados de su análisis. También puede encontrar valores atípicos observando la distribución de su variable.
 
-![Plot of the share of female athletes over time](images/05_exploratory/05_dataanalysis_exploratory-12.png)
+![Hay un valor atípico en la variable Age](images/05_exploratory/05_dataanalysis_exploratory-8.png)
 
-In general, the most important plots in exploratory data analysis are:
 
-* Scatterplots (`geom_point()`)
-* Histograms (`geom_histogram()`)
-* Density plots (`geom_density()`)
-* Boxplots (`geom_boxplot()`)
+Los histogramas, en general, son una de las mejores maneras de observar una variable y detectar anomalías. Puede ver que la edad de la mayoría de los individuos en la muestra es entre 18 y 35 años.
+
+![Histograma de la variable Edad](images/05_exploratory/05_dataanalysis_exploratory-9.png)
+
+
+Ahora, en lugar de simplemente resumir los puntos de datos dentro de una sola variable, podemos ver cómo dos o más variables pueden estar relacionadas entre sí. Por ejemplo, nos gusta saber si existe una asociación entre la edad de los atletas y su género. Una de las maneras de hacer esto es observar un diagrama de caja de edades agrupadas por género, es decir, la distribución de la edad separada para atletas masculinos y femeninos. Boxplot muestra la distribución de la edad variable para los grupos de género. Puede ver que la edad promedio es ligeramente mayor para los hombres que para las mujeres.
+
+![Gráfico de caja de la variable Edad para hombres y mujeres](images/05_exploratory/05_dataanalysis_exploratory-10.png)
+
+Si estamos interesados ​​en ver la distribución de atletas masculinos y femeninos a lo largo del tiempo, podemos usar tablas de frecuencia. Primero creamos una tabla de frecuencia de la proporción de mujeres en cada evento olímpico. Las tablas son buenas para observar las variables de factores o caracteres.
+
+
+![Combinar datos para encontrar la proporción de atletas femeninas en el tiempo](images/05_exploratory/05_dataanalysis_exploratory-11.png)
+
+
+Ahora, si queremos trazar esta tendencia, podemos usar `geom_line()` desde `ggplot`. Es interesante que la proporción de mujeres entre todos los atletas que alguna vez estuvo en un nivel muy bajo a principios del siglo XX ha aumentado hasta casi el 50% en los tiempos modernos.
+
+![Gráfico de la participación de atletas femeninas en el tiempo](images/05_exploratory/05_dataanalysis_exploratory-12.png)
+
+En general, los gráficos más importantes en el análisis exploratorio de datos son:
+
+* Gráficos de dispersión (`geom_point()`)
+* Histogramas (`geom_histogram()`)
+* Gráficas de densidad (`geom_density()`)
+* Gráficos de caja (`geom_boxplot()`)
 * Barplots (`geom_bar()`)
 
-To end our lesson on exploratory analysis, let's consider a question: are taller athletes more likely to win a medal? To answer this question we can use different methods. We can look at the distribution of height for those who received a medal and those who didn't. We can use boxplots or barplots. The choice is yours but because boxplots are more informative, we will use them. We can first create a variable that indicates whether the athlete has any medal (the variable `Medal` indicates the type of medals). Note that the variable `has.medal` is a transformation of the variable `Medal`.
+Para terminar nuestra lección sobre análisis exploratorio, consideremos una pregunta: ¿es más probable que los atletas más altos ganen una medalla? Para responder a esta pregunta podemos utilizar diferentes métodos. Podemos ver la distribución de la altura para aquellos que recibieron una medalla y aquellos que no lo hicieron. Podemos utilizar boxplots o barplots. La elección es suya, pero como las gráficas de caja son más informativas, las utilizaremos. Primero podemos crear una variable que indique si el atleta tiene alguna medalla (la variable `Medal` indica el tipo de medallas). Tenga en cuenta que la variable `has.medal` es una transformación de la variable `Medal`.
 
-![Creating a variable that shows whether the athlete has a medal or not](images/05_exploratory/05_dataanalysis_exploratory-14.png)
+![Creando una variable que muestra si el atleta tiene una medalla o no](images/05_exploratory/05_dataanalysis_exploratory-14.png)
 
-And now, we use the following code to create the boxplot.
+Y ahora, usamos el siguiente código para crear el diagrama de caja.
 
-![Boxplot for the relationship between height and having won a medal](images/05_exploratory/05_dataanalysis_exploratory-15.png)
+![Gráfico de caja para la relación entre la altura y haber ganado una medalla](images/05_exploratory/05_dataanalysis_exploratory-15.png)
 
-What is obvious is that those who have a medal are taller. Can we say that being tall increases the probability of winning a medal in the Olympics? The answer to this question is that we don't know. There are some possible scenarios. For instance, it could be true that being tall increase the chances of winning medals. But it could also be that there are more medals awarded in sports such as volleyball or basketball that require taller athletes. In these sports, every member of the winning team gets a medal (even if country counts only one medal is counted for the country). As a result, we may end up having so many tall athletes with a medal in each Olympics. It could also be that there are other confounding factors involved that explain why an athlete wins a medal. We will learn about confounding variables in future lessons. For now, it's important to know, as we said in the beginning of this lesson, that association or correlation does not mean causation.
+Lo que es obvio es que los que tienen una medalla son más altos. ¿Podemos decir que ser alto aumenta la probabilidad de ganar una medalla en los Juegos Olímpicos? La respuesta a esta pregunta es que no sabemos. Hay algunos escenarios posibles. Por ejemplo, podría ser cierto que ser alto aumenta las posibilidades de ganar medallas. Pero también podría ser que haya más medallas otorgadas en deportes como el voleibol o el baloncesto que requieren atletas más altos. En estos deportes, cada miembro del equipo ganador obtiene una medalla (incluso si el país cuenta solo una medalla se cuenta para el país). Como resultado, podemos terminar teniendo tantos atletas altos con una medalla en cada Olimpiada. También podría ser que haya otros factores de confusión involucrados que expliquen por qué un atleta gana una medalla. Aprenderemos sobre variables de confusión en lecciones futuras. Por ahora, es importante saber, como dijimos al comienzo de esta lección, que asociación o correlación no significa causalidad.
 
 
-### Slides and Video
+### Diapositivas y Video
 
-![Exploratory Analysis](https://www.youtube.com/watch?v=lqHlLC652zw)
+![Análisis exploratorio](https://www.youtube.com/watch?v=lqHlLC652zw)
 
-* [Slides](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing)
+* [Diapositivas](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing)
 
 {quiz, id: quiz_05_exploratory}
 
-### Exploratory Analysis quiz
+### prueba de análisis exploratorio
 
-{choose-answers:4} 
-?1 What one of the following is not among the reasons we use exploratory analysis?
+{choose-answers:4}
+?1 ¿Cuál de las siguientes no está entre las razones por las que usamos el análisis exploratorio?
 
-C) Using prediction analysis
-C) Performing regression analysis to be able to infer results about the general population
-o) Understand data properties such as nonlinear relationships, the existence of missing values, the existence of outliers, etc.
-o) Find patterns in data such as associations, group differences, confounders, etc.
-o) Suggest modeling strategies such as linear vs. nonlinear models, transformation
+C) Uso del análisis de predicción.
+C) Realizar análisis de regresión para poder inferir resultados sobre la población general.
+o) Comprender las propiedades de los datos, como las relaciones no lineales, la existencia de valores perdidos, la existencia de valores atípicos, etc.
+o) Encontrar patrones en datos tales como asociaciones, diferencias de grupo, factores de confusión, etc.
+o) Sugerir estrategias de modelado tales como modelos lineales vs. no lineales, transformación
 o) "Debug" analyses
-o) Communicate results
+o) Comunicar resultados
 
-{choose-answers:4} 
-?2 Which one of the following is not among the general principles of exploratory analysis?
+{choose-answers:4}
+?2 ¿Cuál de los siguientes no se encuentra entre los principios generales del análisis exploratorio?
 
-C) Outliers should not be checked since they contain important information
-C) Nonlinear regressions are better than linear regressions
-C) Always use summary tables in exploratory analysis instead of graphs
-o) Look for missing values
-o) Use plots to explore relationships
-o) Use tables to explore relationships
-o) If necessary, transform variables
+C) Los valores atípicos no deben ser verificados ya que contienen información importante
+C) Las regresiones no lineales son mejores que las regresiones lineales
+C) Siempre use tablas de resumen en el análisis exploratorio en lugar de gráficos
+o) Busca valores faltantes
+o) Usar parcelas para explorar relaciones
+o) Usa tablas para explorar relaciones
+o) Si es necesario, transformar variables.
 
-{choose-answers:4, points:2} 
-?3 In the dataset used in this lesson, what is the number of missing values in the variable `Age`?
+{choose-answers:4, points:2}
+?3 En el conjunto de datos utilizado en esta lección, ¿cuál es el número de valores faltantes en la variable `Age`?
 
 C) 9474
 m) 60171
@@ -128,8 +128,8 @@ o) 261642
 o) 0
 o) 271116
 
-{choose-answers:4, points:2} 
-?3 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the number of missing values in the variable `Height`?
+{choose-answers:4, points:2}
+?3 En el [conjunto de datos](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) utilizado en esta lección, ¿cuál es el número de valores faltantes en el variable `Height`?
 
 C) 60171
 m) 9474
@@ -137,8 +137,8 @@ o) 261642
 o) 0
 o) 271116
 
-{choose-answers:4} 
-?4 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the weight of the heaviest athlete?
+{choose-answers:4}
+?4 En el [conjunto de datos](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) utilizado en esta lección, ¿cuál es el peso del atleta más pesado?
 
 C) 214
 o) 25
@@ -147,8 +147,8 @@ o) 70
 o) 70.7
 o) 79
 
-{choose-answers:4} 
-?4 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the height of the tallest athlete?
+{choose-answers:4}
+?4 En el [conjunto de datos](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) utilizado en esta lección, ¿cuál es la altura del atleta más alto?
 
 C) 226
 m) 214
@@ -158,42 +158,42 @@ o) 100
 o) 70.7
 o) 79
 
-{choose-answers:4} 
-?5 Which one of the following `ggplot2` functions can be used to produce a scatter plot?
+{choose-answers:4}
+?5 ¿Cuál de las siguientes funciones `ggplot2` se puede usar para producir un diagrama de dispersión?
 
-C) `geom_point()`
-m) `geom_bar()`
-o) `geom_histogram()`
-o) `geom_density()`
-o) `geom_boxplot()`
+C)`
+m)`
+o)`
+o)`
+o)`
 
-{choose-answers:4} 
-?5 Which one of the following `ggplot2` functions can be used to produce a bar chart?
+{choose-answers:4}
+?5 ¿Cuál de las siguientes funciones de `ggplot2` se puede usar para producir un gráfico de barras?
 
-C) `geom_bar()`
-m) `geom_point()`
-o) `geom_histogram()`
-o) `geom_density()`
-o) `geom_boxplot()`
+C)`
+m)`
+o)`
+o)`
+o)`
 
 {points:3}
-?6 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+?6 Vaya a [Chromebook Data Science Space en RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` para comenzar. Dile a Swirl tu primer nombre cuando te pregunte cómo llamarte. Luego, escriba el número que corresponde al curso `CBDS Data Analysis`. Escriba el número que corresponde a la lección `L05 Exploratory Analysis Q01 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código al final de la lección aquí.
 
 ! /.+(FdHp|vp1F|ZDic|jFbv|t8UC|USLe|1dZb|a66z|P4Jk|kzFD).+/i
 
 
 {points:3}
-?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?7 Dentro del mismo curso de swirl: `CBDS Getting Data`, navegue a la lección `L05 Exploratory Analysis Q02 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
 
 ! /.+(b3JA|Bx0b|JwPw|DlLI|Zq19|vn6g|DpIe|gMM5|mAiU|vRzJ).+/i
 
 {points:3}
-?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?8 Dentro del mismo curso de swirl: `CBDS Getting Data`, navegue a la lección `L05 Exploratory Analysis Q03 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
 
 ! /.+(2CZB|FauT|Bjpx|MnXb|CLcf|Ainc|dvav|Fvcl|6gNn|zchI).+/i
 
 {points:3}
-?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?9 Dentro del mismo curso de swirl: `CBDS Getting Data`, navegue a la lección `L05 Exploratory Analysis Q04 Swirl`. ¡Haz este módulo remolino! Una vez completado, pegue el código proporcionado al final del módulo de remolino aquí.
 
 ! /.+(S9C5|GkSz|LsiP|cm9Z|tsT1|xx8h|ud6J|dtF8|cpWo|UxWB).+/i
 

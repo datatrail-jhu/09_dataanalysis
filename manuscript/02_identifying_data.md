@@ -1,348 +1,348 @@
-# Do I Have The Data I Need?
+# ¿Tengo los datos que necesito?
 
-After identifying your problem and transforming it into a data science question, your next step is to identify and ensure that you have access to the data necessary to answer the question. However, good data can be hard to come by. Depending on your question, it can be costly or simply infeasible to obtain the data you need. 
+Después de identificar su problema y transformarlo en una pregunta de ciencia de datos, su próximo paso es identificar y asegurarse de tener acceso a los datos necesarios para responder a la pregunta. Sin embargo, una buena información puede ser difícil de conseguir. Dependiendo de su pregunta, puede ser costoso o simplemente imposible obtener los datos que necesita.
 
-For instance, consider wanting to know the answer to the question "Does money make people happy?" One way to get data for your problem is to give people cash and to collect data from those same individuals later to see if the money they received made happier. First, this isn't a cheap experiment, so you may not have the money to do this. Second, how would you want to *measure happiness*? You can't just step on a scale and measure someone's happiness. If you had each individual report their happiness on a scale of 1-10, one person may rate their happiness at an 8. Another person, who could be just as happy as the person who rated their happiness at an 8 may rate their happiness at a 6. You can see quickly how getting the right data to answer this question may not be so simple.
+Por ejemplo, considere querer saber la respuesta a la pregunta "¿El dinero hace felices a las personas?" Una forma de obtener datos para su problema es dar dinero a las personas y recopilar datos de esas mismas personas más adelante para ver si el dinero que recibieron se hizo más feliz. Primero, esto no es un experimento barato, por lo que es posible que no tenga el dinero para hacer esto. En segundo lugar, ¿cómo querrías *medir la felicidad*? No puedes simplemente pisar una escala y medir la felicidad de alguien. Si cada individuo reportara su felicidad en una escala del 1 al 10, una persona puede calificar su felicidad con un 8. Otra persona, que podría ser tan feliz como la persona que calificó su felicidad con un 8, puede calificar su felicidad con a 6. Puede ver rápidamente cómo obtener los datos correctos para responder a esta pregunta puede no ser tan simple.
 
-![Does money make people happy?](images/02_identifying_data/02_dataanalysis_identifying_data-3.png)
+![¿El dinero hace feliz a la gente?](images/02_identifying_data/02_dataanalysis_identifying_data-3.png)
 
-In another situation, what if you are interested in answering the question "Does texting while driving causes accidents?" It wouldn't be ethical to run a study and tell people to text while they're driving and then determine if those who texted had more care accidents. It's not okay to design experiments that knowingly put participants at risk of harm.
+En otra situación, ¿qué sucede si está interesado en responder la pregunta "¿Los mensajes de texto mientras se conduce causan accidentes?" No sería ético realizar un estudio y decirle a las personas que escriban mensajes de texto mientras conducen y luego determinar si los que enviaron mensajes de texto tuvieron más accidentes de atención. No está bien diseñar experimentos que, a sabiendas, pongan a los participantes en riesgo de sufrir daños.
 
-![Does texting while driving cause accidents?](images/02_identifying_data/02_dataanalysis_identifying_data-5.png)
+![¿Los mensajes de texto mientras se conduce causan accidentes?](images/02_identifying_data/02_dataanalysis_identifying_data-5.png)
 
-Thus, although each of us generate data daily through the apps we use or through our activity on social media platforms, often the data most easily available are *not* the data we need to answer the questions we're most interested in answering. In this lesson we'll discuss **how to determine whether or not you have the data** you need to answer the question you have, **limitations of the data** you have, **considerations to make** when you don't yet have the data you need, and what to do to **get the data you need**. 
+Por lo tanto, aunque cada uno de nosotros genera datos diariamente a través de las aplicaciones que usamos o a través de nuestra actividad en las plataformas de redes sociales, a menudo los datos más fácilmente disponibles son *no*los datos que necesitamos para responder las preguntas que más nos interesa responder. En esta lección, analizaremos**cómo determinar si tiene o no los datos**necesita responder la pregunta que tiene,**limitaciones de los datos**que tiene,**consideraciones que debe hacer**cuando aún no tiene los datos que necesita, y qué hacer para**obtener los datos que necesita**.
 
-### The Data Science Question
+### La pregunta de la ciencia de datos
 
-In the last lesson we discussed how to take a problem you're interested in understanding better and turning it into a data science question. Specifically, the last lesson looked at [David Robinson](http://varianceexplained.org/about/)'s [blog post analyzing Donald Trump's tweets](http://varianceexplained.org/r/trump-tweets/). David Robinson set out to answer the specific question **"How do the tweets on the _@realDonaldTrump_ account differ between those posted using an iPhone vs. those posted using an Android?"** Before answering the question, David Robinson determined what/whose data would need to be collected, what measurements he would need, the limitations to the analysis, and the type of analysis he would use.
+En la última lección, discutimos cómo resolver un problema que le interesa entender mejor y convertirlo en una pregunta de ciencia de datos. Específicamente, la última lección miró a [David Robinson](http://varianceexplained.org/about/) del [blog post analizando los tweets de Donald Trump](http://varianceexplained.org/r/trump-tweets/). David Robinson se dispuso a responder la pregunta específica **"¿En qué se diferencian los tweets de la cuenta _@realDonaldTrump_ entre los que se publicaron con un iPhone y los que se publicaron con un Android?"** Antes de responder a la pregunta, David Robinson determinó qué / los datos que se necesitarían recopilar, las medidas que necesitaría, las limitaciones del análisis y el tipo de análisis que usaría.
 
-In this lesson, we're going to really focus on the second and third questions there. What data do you need to answer your data science question and what limitations do these data have? We'll focus on the details of how to get the data necessary to answer the question of interest. We'll walk through this process again using the [Trump Tweets blog post](http://varianceexplained.org/r/trump-tweets/) as an example.
+En esta lección, vamos a centrarnos realmente en la segunda y tercera pregunta. ¿Qué datos necesita para responder su pregunta de ciencia de datos y qué limitaciones tienen estos datos? Nos centraremos en los detalles de cómo obtener los datos necesarios para responder a la pregunta de interés. Repasaremos este proceso nuevamente usando la [publicación de blog de Trump Tweets](http://varianceexplained.org/r/trump-tweets/) como ejemplo.
 
 ![Trump Tweets Blog Post](images/02_identifying_data/02_dataanalysis_identifying_data-9.png)
 
-### The Perfect Dataset: The Data We Want
+### El conjunto de datos perfecto: los datos que queremos
 
-Once you determine your data science question of interest, it's helpful to **envision the perfect dataset**. This dataset likely doesn't exist in the real world, but our goal will be to get data that match this optimal dataset *as closely as possible*. 
+Una vez que determine la pregunta de interés de la ciencia de datos, es útil **visualizar el conjunto de datos perfecto**. Es probable que este conjunto de datos no exista en el mundo real, pero nuestro objetivo será obtener datos que coincidan con este conjunto de datos óptimo*lo más cerca posible*.
 
-Thus to answer the question
+Así responder a la pregunta.
 
-> Do the tweets on the _@realDonaldTrump_ account differ between those posted using an iPhone vs. those posted using an Android? Are the Android tweets angrier and more negative?
+> ¿Los tweets en la cuenta _@realDonaldTrump_ difieren entre los publicados con un iPhone y los publicados con Android? ¿Son los tweets de Android más enojados y más negativos?
 
-we would ideally want a dataset where each row is a different tweet with each row containing information on the following variables:
+lo ideal sería que quisiéramos un conjunto de datos donde cada fila sea un tweet diferente con cada fila que contenga información sobre las siguientes variables:
 
-* `date` - date the tweet was written
-* `time` - time the tweet went out
-* `os` - the operating system of where the tweet came from (Android or iPhone)
-* `author`- author of each tweet
-* `location` - where the author was when the tweet was written
-* `tweet` - what the tweet said
-* `censored` - whether or not the tweet was later deleted
-  * `censored_date` - date on which the tweet was deleted
-  * `censored_time` - time at which the tweet was deleted
-* `anger` - some measurement of how angry and negative the tweet is
+* `date` - fecha en que se escribió el tweet
+* `time` - la hora en que se publicó el tweet
+* `os`: el sistema operativo de donde proviene el tweet (Android o iPhone)
+* `author`- autor de cada tweet
+* `location` - donde estaba el autor cuando se escribió el tweet
+* `tweet`: lo que dijo el tweet
+* `censored` - si el tweet se eliminó o no más tarde
+* `censored_date` - fecha en que se eliminó el tweet
+* `censored_time`: hora en que se eliminó el tweet
+* `anger` - alguna medida de cuán enojado y negativo está el tweet
 
-Additionally, in a perfect world, we'd have all the tweets ever tweeted from _@realDonaldTrump_. 
+Además, en un mundo perfecto, habríamos twitteado todos los tweets de _@realDonaldTrump_.
 
-Having all these data in this format would enable us to answer the question of interest! 
+¡Tener todos estos datos en este formato nos permitiría responder la pregunta de interés!
 
-### The Data We Have
+### Los datos que tenemos
 
-*But*, the data we *have* are typically not *exactly* the data we *want*.
+*Pero*, los datos que*tenemos*normalmente no son*exactamente*los datos que*queremos*.
 
-In this case, David Robinson was able to use the `twitteR` package and the Twitter API to obtain a number of Donald Trump's tweets. Ultimately, the dataset he used for his analysis contained 628 tweets from an iPhone, and 762 tweets from an Android. That's not nearly *all* the tweets from this account; however, the Twitter API limits the number of tweets one can obtain. Already, the **data we have are not the optimal data we wanted**, but that's ok. 
+En este caso, David Robinson pudo usar el paquete `twitteR` y la API de Twitter para obtener varios tweets de Donald Trump. En última instancia, el conjunto de datos que utilizó para su análisis contenía 628 tweets de un iPhone y 762 tweets de un Android. Eso no es casi *todos*los tweets de esta cuenta; sin embargo, la API de Twitter limita la cantidad de tweets que se pueden obtener. Ya, los**datos que tenemos no son los datos óptimos que queríamos**, pero eso está bien.
 
-Additionally, the data from the Twitter API does *not* include the `author`, the author's location, nor any information about deleted tweets. Again, the data we have are quite different from our optimal data.
+Además, los datos de la API de Twitter *no* incluyen el `author`, la ubicación del autor, ni ninguna información sobre los tweets eliminados. Una vez más, los datos que tenemos son muy diferentes de nuestros datos óptimos.
 
-Finally, the dataset does not include any measure of how angry or negative the content of the tweets are. David will have to use the tweets to determine that during his analysis.
+Finalmente, el conjunto de datos no incluye ninguna medida de qué tan enojado o negativo está el contenido de los tweets. David tendrá que usar los tweets para determinar eso durante su análisis.
 
-![The data we have](images/02_identifying_data/02_dataanalysis_identifying_data-12.png)
+![Los datos que tenemos](images/02_identifying_data/02_dataanalysis_identifying_data-12.png)
 
-Nevertheless, David did have information on this subset of tweets, including the date, time, os, and what the tweet said. While not exactly the data he would have likely liked to have, David was still able to use these data while noting the limitations of the data in his blog post!
+Sin embargo, David tenía información sobre este subconjunto de tweets, incluida la fecha, la hora, el sistema operativo y lo que decía el tweet. Si bien no es exactamente la información que probablemente le hubiera gustado tener, ¡David todavía podía usar estos datos al tiempo que notaba las limitaciones de los datos en su blog!
 
-### The Data We Can Get (Easily)
+### Los datos que podemos obtener (fácilmente)
 
-In this case, David Robinson had enough data to answer the question he was interested in. However, often you may not have the data you need right from the beginning. After looking at the data you have, it's worth considering whether or not there are data that you need that you can easily get access to. 
+En este caso, David Robinson tenía suficientes datos para responder la pregunta que le interesaba. Sin embargo, a menudo es posible que no tenga los datos que necesita desde el principio. Después de ver los datos que tiene, vale la pena considerar si hay datos que necesita y a los que puede acceder fácilmente.
 
-Depending upon your data science question, you may consider obtaining data from any of the sources discussed in the Getting Data course. For example, you could look at data from:
+Dependiendo de su pregunta de ciencia de datos, puede considerar obtener datos de cualquiera de las fuentes discutidas en el curso Obtención de datos. Por ejemplo, puedes mirar datos de:
 
-* Government Data
+* Datos del gobierno
 * APIs
-* Open Datasets (such as those on [Kaggle](www.kaggle.com) or [data.world](data.world))
-* your company
+* Abrir conjuntos de datos (como los de [Kaggle](www.kaggle.com) o [data.world](data.world))
+* tu compañía
 
-These are all examples of places where it's usually pretty easy to obtain data. And, ideally, whenever possible, you'll want to work with **raw data** -- data that haven't yet been cleaned (i.e. outliers have not yet been removed) so that you know you have the most complete dataset from the start. You can then clean and wrangle the data after getting the raw data.
+Todos estos son ejemplos de lugares donde normalmente es bastante fácil obtener datos. E, idealmente, siempre que sea posible, querrá trabajar con **datos sin procesar**: datos que aún no se han limpiado (es decir, los valores atípicos aún no se han eliminado) para que sepa que tiene el conjunto de datos más completo de el comienzo. Luego puede limpiar y disputar los datos después de obtener los datos en bruto.
 
-However, what if the data you want don't exist in any of these places? When the data aren't available,  it's up to you (your team, your boss, or your company) to collect the data. 
+Sin embargo, ¿qué sucede si los datos que desea no existen en ninguno de estos lugares? Cuando los datos no están disponibles, depende de usted (su equipo, su jefe o su empresa) recopilar los datos.
 
-### Data Collection
+### Recopilación de datos
 
-In practice, data are defined by how they are collected. While it may not always be up to you to determine how the data are going to be collected, it's important to understand the different ways in which data are collected:
+En la práctica, los datos se definen por la forma en que se recopilan. Si bien no siempre depende de usted determinar cómo se recopilarán los datos, es importante comprender las diferentes formas en que se recopilan los datos:
 
-* __Observational data__ are collected from a sample of the bigger population of interest. For instance, data on household expenditure in the U.S. are usually collected from a sample of American household. Observational data can be in the following forms:
+* ___ Se recopilan datos de observación de una muestra de la población de interés más grande. Por ejemplo, los datos sobre el gasto de los hogares en los Estados Unidos generalmente se obtienen de una muestra de hogares estadounidenses. Los datos de observación pueden estar en las siguientes formas:
 
-  * __Cross-sectional data__ are collected from a sample of the bigger population of interest *at a specific point in time*.
+  * ___ Los datos transversales se recopilan de una muestra de la mayor población de interés en un momento específico en el tiempo*.
 
-  * __Longitudinal data__ are collected from a sample of the population of interest but *at multiple points in time*. For instance, data on the effect of peer effect in school on life outcomes are measured at multiple points in the lives of the individuals.
+  * ___Los datos longitudinales se recopilan de una muestra de la población de interés pero *en múltiples puntos en el tiempo*. Por ejemplo, los datos sobre el efecto del efecto de los compañeros en la escuela sobre los resultados de la vida se miden en múltiples puntos de la vida de los individuos.
 
-  * __Panel data__ are collected from a sample of the population of interest *at multiple points in time* but the *sample may change from one point in time to another*. For example, if data is collected on 1000 individual in the year 2010, in 2015 the data may be collected from 1000 individual that may or may not overlap with the 2010 sample.
+  * ___ Los datos del panel se recolectan de una muestra de la población de interés *en varios puntos en el tiempo*, pero la muestra*puede cambiar de un punto en el tiempo a otro*. Por ejemplo, si los datos se recopilan en 1000 individuos en el año 2010, en 2015 los datos se pueden recopilar de 1000 individuos que pueden o no coincidir con la muestra de 2010.
 
-* __Experimental data__ are collected through a randomized experiment. In an experiment, the researchers divide the sample into to or more (that is chosen from the bigger population of interest) and assign the treatment (let's say the vaccination) to one group while the group receives no treatment. The outcomes are then observed and compared. This differs from observational data, which involves collecting data without changing any of the existing conditions. 
-   
-If you are able to generate the dataset you need or collect the data you wanted to answer your question, then you're all set. But, what if there are limitations to you getting those data?   
+* ___ Los datos experimentales se recopilan a través de un experimento aleatorio. En un experimento, los investigadores dividen la muestra en o más (que se elige de la población más grande de interés) y asignan el tratamiento (digamos la vacuna) a un grupo mientras que el grupo no recibe tratamiento. Los resultados son observados y comparados. Esto difiere de los datos de observación, que involucran la recopilación de datos sin cambiar ninguna de las condiciones existentes.
+   
+Si puede generar el conjunto de datos que necesita o recopilar los datos que desea responder a su pregunta, entonces está todo listo. Pero, ¿qué pasa si hay limitaciones para que usted obtenga esos datos?
 
-### The Data We Can't Get
+### Los datos que no podemos obtener
 
-Often there will be data you would love to have to answer your data science question, but you won't be able to get those data. There are a number of limitations to data collection. We'll discuss a number of common ones here.
+A menudo, habrá datos que le encantaría tener que responder a su pregunta de ciencia de datos, pero no podrá obtener esos datos. Hay una serie de limitaciones para la recopilación de datos. Discutiremos algunos de los más comunes aquí.
 
-#### Limited Resources
+#### Recursos limitados
 
-In the introduction to this lesson, we discussed an experiment where we would give people money and measure their happiness. However, if we didn't have the money to carry out this experiment, we wouldn't be able to run this experiment and thus, **money** would be a limited resource.
+En la introducción de esta lección, discutimos un experimento donde daríamos dinero a las personas y mediríamos su felicidad. Sin embargo, si no tuviéramos el dinero para realizar este experimento, no podríamos realizar este experimento y, por lo tanto, **dinero** sería un recurso limitado.
 
-However, money is not the only limiting factor. What if you need to know the answer to your question next month but it would take you a year to collect the necessary data? In this case **time** would be a limited resource.
+Sin embargo, el dinero no es el único factor limitante. ¿Qué sucede si necesita saber la respuesta a su pregunta el próximo mes pero le tomaría un año recopilar los datos necesarios? En este caso **tiempo** sería un recurso limitado.
 
-Alternatively, what if another company had the data you needed, but the company you work for is a competitor. In this case, they likely wouldn't share the data with you. **Access to data** can also be limiting.
+Alternativamente, qué sucede si otra compañía tenía los datos que necesitaba, pero la empresa para la que trabaja es un competidor. En este caso, probablemente no compartirían los datos contigo. **El acceso a los datos** también puede ser limitante.
 
-#### Ethical Limitations
+#### Limitaciones éticas
 
-In the introduction to this lesson, we also talked about the case where we wanted to know if texting increases the number of accidents. We mentioned that we wouldn't be able to carry out the experiment of telling people to text when they're driving and then seeing if those people get into more accidents due to ethical limitations. It is unethical to collect data knowingly putting individuals in harms way.
+En la introducción de esta lección, también hablamos sobre el caso en el que queríamos saber si los mensajes de texto aumentan el número de accidentes. Mencionamos que no podríamos llevar a cabo el experimento de decirle a las personas que escriban mensajes de texto cuando están conduciendo y luego ver si esas personas sufren más accidentes debido a limitaciones éticas. No es ético recopilar datos a sabiendas, lo que pone a las personas en peligro.
 
-However, there are more nuanced situations as well. What if you want to collect data about reproductive health. You may want to know *everything* about each mother's medical history, including very sensitive and personal information. For example, you may want to know whether or not each individual in your dataset has ever had an abortion. Asking sensitive and invasive questions should only be asked when absolutely necessary. Further, this data will *always* have to be stored securely, and can only be asked with approval of and oversight committee (such as an Institutional Review Board). Thus, while it may be *helpful* to have information about certain variables, it may be inappropriate or too invasive to obtain this information.
+Sin embargo, también hay situaciones más matizadas. ¿Qué pasa si desea recopilar datos sobre la salud reproductiva. Es posible que desee saber *todo*sobre el historial médico de cada madre, incluida información muy confidencial y personal. Por ejemplo, es posible que desee saber si cada individuo en su conjunto de datos ha tenido un aborto alguna vez. Las preguntas sensibles e invasivas solo se deben hacer cuando sea absolutamente necesario. Además, estos datos*siempre* deberán almacenarse de forma segura, y solo podrán solicitarse con la aprobación y el comité de supervisión (como una Junta de Revisión Institucional). Por lo tanto, aunque puede ser útil obtener información sobre ciertas variables, puede ser inapropiado o demasiado invasivo para obtener esta información.
 
-#### Security
+#### Seguridad
 
-Mentioned briefly above, but to really spell it out here: not all data are publicly-available and not all data *should* be publicly-available. Personal data and data that contain sensitive information must be secured properly and cannot be shared freely. While the data you want may exist somewhere, you may not have access to it, nor will you be granted access to it for security reasons. In these cases, you will not be able to use these data. 
+Se mencionó brevemente más arriba, pero para explicarlo realmente aquí: no todos los datos están disponibles públicamente y no todos los datos *deben* estar públicamente disponibles. Los datos personales y los datos que contienen información confidencial deben protegerse adecuadamente y no pueden compartirse libremente. Si bien los datos que desea pueden existir en algún lugar, es posible que no tenga acceso a ellos, ni se le otorgará acceso a ellos por razones de seguridad. En estos casos, no podrá utilizar estos datos.
 
-### Questions to Ask Ourselves
+### Preguntas para hacernos a nosotros mismos
 
-If you run into problems obtaining or collecting the data you need to answer your question, there are a number of questions to ask yourself:
+Si tiene problemas para obtener o recopilar los datos que necesita para responder a su pregunta, hay una serie de preguntas que debe hacerse:
 
-* Can I **change the question** in such a way that is still interesting but that can be answered with the data that I *do* have?
-* If I use the data to which I have access, **is the project still worth doing**? 
-* **Will the project be feasible** if I change it?
-* If it is still feasible, I'll need to **rework the question and redesign my data collection plan**. What will that look like? 
+* ¿Puedo **cambiar la pregunta** de tal manera que aún sea interesante pero que pueda responderse con los datos que tengo?
+* Si uso los datos a los que tengo acceso, **¿vale la pena hacer el proyecto**?
+* **¿Será factible el proyecto** si lo cambio?
+* Si aún es posible, necesitaré **volver a trabajar la pregunta y rediseñar mi plan de recopilación de datos**. ¿Cómo será eso?
 
-In the case where you decide to change the question and determine that the project is still worth doing at this point, it's important to go back through the exercise of determining what data you would optimally have, what you do have, and what you can get easily to ensure that you won't be wasting your time by moving forward with the project.
+En el caso de que decida cambiar la pregunta y determine que el proyecto aún vale la pena hacer en este momento, es importante volver al ejercicio para determinar qué datos tendrá de manera óptima, qué tiene y qué puede obtener. fácilmente para asegurarse de que no perderá el tiempo avanzando con el proyecto.
 
-However, in some cases, you'll have a super interesting question, but you won't be able to do the project given the data you have. In these situations, save the idea for a later point when you may have the resources or access to the data you need, and then move onto the next one. Everyone has had to abandon projects in their career, and it's ok to move on. It's much better to leave a project behind in the planning stages than to spend months or years on a project/analysis that was doomed from the start!
+Sin embargo, en algunos casos, tendrá una pregunta muy interesante, pero no podrá hacer el proyecto dados los datos que tiene. En estas situaciones, guarde la idea para un momento posterior en el que pueda tener los recursos o el acceso a los datos que necesita y luego pase a la siguiente. Todos han tenido que abandonar proyectos en su carrera, y está bien seguir adelante. Es mucho mejor dejar un proyecto atrás en las etapas de planificación que pasar meses o años en un proyecto / análisis que estaba condenado desde el principio.
 
-### Are the Data We Have Good Data?
+### ¿Son los datos que tenemos buenos datos?
 
-All that said, once you have your data science question *and* the data you want to use, you'll need to determine **whether the data are good enough**. If they're not, before you spend hours on it, quit and look for other sources of data. 
+Dicho todo esto, una vez que tenga su pregunta de ciencia de datos *y*los datos que desea utilizar, deberá determinar**si los datos son lo suficientemente buenos**. Si no lo son, antes de pasar horas en él, abandone y busque otras fuentes de datos.
 
-#### The need to wrangle
+#### La necesidad de disputar
 
-For example, data downloaded from other resources often need to be cleaned and wrangled. (Note: If the data that you obtain, however, are pre-processed, make sure you understand how the processing was done!) To clean your data, you'll always want to record the steps you take to reformat the data. We suggest the following steps to check and tidy the data for your analysis. Make sure:
+Por ejemplo, los datos descargados de otros recursos a menudo necesitan ser limpiados y manipulados. (Nota: si los datos que obtiene, sin embargo, son preprocesados, ¡asegúrese de entender cómo se realizó el procesamiento!) Para limpiar sus datos, siempre querrá registrar los pasos que debe seguir para reformatear los datos. Sugerimos los siguientes pasos para verificar y ordenar los datos para su análisis. Asegurarse:
 
-* each variable forms a column
-* each observation forms a row
-* each table/file stores data about one kind of observation (e.g. people/hospitals).
-* if variables are collected from multiple sources, they are merged properly 
-* column names are easy to use and informative
-* apparent mistakes in the data have been removed
-* missing values are formatted uniformly and correctly
-* variable values are internally consistent
-* appropriate transformed variables have been added
+* cada variable forma una columna
+* cada observación forma una fila
+* cada tabla / archivo almacena datos sobre un tipo de observación (por ejemplo, personas / hospitales).
+* Si las variables se recopilan de varias fuentes, se combinan correctamente.
+* Los nombres de las columnas son fáciles de usar e informativos.
+* Se han eliminado los errores aparentes en los datos.
+* Los valores faltantes están formateados uniformemente y correctamente.
+* Los valores variables son internamente consistentes.
+* Se han añadido variables transformadas apropiadas.
 
-These are the concepts previously discussed in the Data Tidying lessons in an earlier course in this Course Set, so many of them should be familiar. Cleaning data to make sure the dataset is in a tidy format, that the variables are all appropriately-named, and that hte values within each variable are as you expect them to be is an important step in determining whether or not the data you have will be useful in answering your data science question. These topics will be further discussed in the Descriptive Analysis and Exploratory Analysis lessons in the later lessons in this course.
+Estos son los conceptos discutidos previamente en las lecciones de Tidying de datos en un curso anterior en este conjunto de cursos, por lo que muchos de ellos deberían ser familiares. Limpiar los datos para asegurarse de que el conjunto de datos esté en un formato ordenado, que todas las variables tengan un nombre apropiado y que los valores de hte dentro de cada variable sean lo que usted espera que sean, es un paso importante para determinar si los datos que tiene serán o no ser útil en responder a su pregunta de ciencia de datos Estos temas se tratarán más a fondo en las lecciones de Análisis descriptivo y Análisis exploratorio en las lecciones posteriores de este curso.
 
-#### When data aren't good
+#### Cuando los datos no son buenos
 
-That all said, let's assume you have the dataset that contains the variables you are looking for, and it is tidy and ready to go for your analysis. It's always nice to step back to make sure the data is the right data before you spend hours and hours on your analysis. So, let's discuss some of the potential and common issues people run into with their data.
+Dicho todo esto, supongamos que tiene el conjunto de datos que contiene las variables que está buscando, y está ordenado y listo para su análisis. Siempre es bueno retroceder para asegurarse de que los datos sean los correctos antes de pasar horas y horas en su análisis. Entonces, hablemos de algunos de los problemas potenciales y comunes que las personas encuentran con sus datos.
 
-##### Number of observations is too small
+##### El número de observaciones es demasiado pequeño
 
-It happens quite often that collecting data is expensive or not easy. For instance, in a medical study on the effect of a drug on patients with Alzheimer disease, researchers will be happy if they can get a sample of 100 people. These studies are expensive, and it's hard to find volunteers who enroll in the study. It is also the case with most social experiments. While data are everywhere, the data you need may not be. Therefore, most data scientists at some point in their career face the curse of small sample size. Small sample size makes it hard to be confident about the results of your analysis. So when you can, and it's feasible, **a large sample is preferable to a small sample**. But when your only available dataset to work with is small you will have to note that in your analysis. Although we won't learn them in this course, there are particular methods for inferential analysis when sample size is small.
+Sucede con bastante frecuencia que la recopilación de datos es costosa o no es fácil. Por ejemplo, en un estudio médico sobre el efecto de un medicamento en pacientes con enfermedad de Alzheimer, los investigadores estarán felices si pueden obtener una muestra de 100 personas. Estos estudios son costosos y es difícil encontrar voluntarios que se inscriban en el estudio. También es el caso de la mayoría de los experimentos sociales. Mientras que los datos están en todas partes, los datos que necesita pueden no estar. Por lo tanto, la mayoría de los científicos de datos en algún momento de su carrera enfrentan la maldición del tamaño pequeño de la muestra. El tamaño pequeño de la muestra hace que sea difícil confiar en los resultados de su análisis. Entonces, cuando puede, y es factible, **una muestra grande es preferible a una muestra pequeña**. Pero cuando su único conjunto de datos disponible para trabajar sea pequeño, deberá tenerlo en cuenta en su análisis. Aunque no los aprenderemos en este curso, existen métodos particulares para el análisis inferencial cuando el tamaño de la muestra es pequeño.
 
-##### Dataset does not contain the exact variables you are looking for
+##### El conjunto de datos no contiene las variables exactas que está buscando
 
-In data analysis, it is common that you don't always have what you need. You may need to know individuals' IQ, but all you have is their GPA. You may need to understand food expenditure, but you have total expenditure. You may need to know parental education, but all you have is the number of books the family owns. It is often that the variable that we need in the analysis does not exist in the dataset and we can't measure it. In these cases, our best bet is to find the closest variables to that variable. Variables that may be different in nature but are highly *correlated* with (similar to) the variable of interest are what are often used in such cases. These variables are called **proxy variables**.
+En el análisis de datos, es común que no siempre tenga lo que necesita. Es posible que necesite conocer el coeficiente intelectual de los individuos, pero todo lo que tiene es su GPA. Puede que tenga que entender el gasto en alimentos, pero tiene un gasto total. Es posible que necesite conocer la educación de los padres, pero todo lo que tiene es la cantidad de libros que posee la familia. Es frecuente que la variable que necesitamos en el análisis no exista en el conjunto de datos y no podamos medirla. En estos casos, nuestra mejor apuesta es encontrar las variables más cercanas a esa variable. Las variables que pueden ser de naturaleza diferente pero están altamente *correlacionadas*con (similar a) la variable de interés son las que se usan a menudo en tales casos. Estas variables son llamadas**variables proxy**.
 
-For instance, if we don't have parental education in our dataset, we can use the number of books the family has in their home as a proxy. Although the two variables are different, they are highly correlated (very similar), since more educated parents tend to have more books at home. So in *most* cases where you can't have the variable you need in your analysis, you can replace it with a proxy. Again, it must always be noted clearly in your analysis why you used a proxy variable and what variable was used as your proxy.
+Por ejemplo, si no tenemos educación parental en nuestro conjunto de datos, podemos usar la cantidad de libros que la familia tiene en su hogar como proxy. Aunque las dos variables son diferentes, están altamente correlacionadas (son muy similares), ya que los padres más educados tienden a tener más libros en casa. Entonces, en la mayoría de los casos en los que no puede tener la variable que necesita en su análisis, puede reemplazarla con un proxy. Una vez más, siempre debe tenerse en cuenta en su análisis por qué usó una variable proxy y qué variable se usó como su proxy.
 
-##### Variables in the dataset are not collected in the same year
+##### Las variables en el conjunto de datos no se recogen en el mismo año
 
-Imagine we want to find the relationship between the effect of cab prices and the number of rides in New York City. We want to see how people react to price changes. We get a hold of data on **cab prices in 2018**, but we only have data on the **number of rides from 2015**. Can these two variables be used together in our analysis? Simply, no. If we want to anser this question, we can't match these two sets of data. If we're using the prices from 2018, we should find the number of rides **from 2018** as well. Unfortunately, a lot of the time, this is an issue you'll run into. You'll either have to find a way to get the data from the same year or go back to the drawing board and ask a different question. This issue can be ignored only in cases where we're confident the variables does not change much from year to year.
+Imagine que queremos encontrar la relación entre el efecto de los precios de los taxis y el número de viajes en la ciudad de Nueva York. Queremos ver cómo reacciona la gente a los cambios de precios. Obtenemos datos sobre los precios de los taxis **en 2018**, pero solo tenemos datos sobre el**número de viajes de 2015**. ¿Pueden estas dos variables ser usadas juntas en nuestro análisis? Simplemente, no. Si queremos responder a esta pregunta, no podemos hacer coincidir estos dos conjuntos de datos. Si estamos usando los precios de 2018, también deberíamos encontrar el número de viajes**de 2018**. Desafortunadamente, muchas veces, este es un problema que te encontrarás. Tendrá que encontrar la manera de obtener los datos del mismo año o volver al tablero de dibujo y hacer una pregunta diferente. Este problema se puede ignorar solo en los casos en que estamos seguros de que las variables no cambian mucho de un año a otro.
 
-##### Dataset is not representative of the population that you are interested in
+##### El conjunto de datos no es representativo de la población que le interesa
 
-You will hear the term *representative sample*, but what is it? Before defining a representative sample, let's see what a population is in statistical terms. We have used the word *population* without really getting into its definition.
+Escuchará el término *muestra representativa*, pero ¿qué es? Antes de definir una muestra representativa, veamos qué es una población en términos estadísticos. Hemos usado la palabra "población" sin entrar realmente en su definición.
 
-A sample is part of a population. A population, in general, is every member of the whole group of people we are interested in. Sometimes it is possible to collect data for the entire population, like in the U.S. Census, but in most cases, we can't. So we collect data on only a subset of the population. For example, if we are studying the effect of sugar consumption on diabetes, we can't collect data on the entire population of the United States. Instead, we collect data on a *sample* of the *population*. Now, that we know what sample and population are, let's go back to the definition of a representative sample.
+Una muestra es parte de una población. Una población, en general, es cada miembro del grupo de personas que nos interesa. A veces es posible recopilar datos para toda la población, como en el Censo de EE. UU., Pero en la mayoría de los casos, no podemos. Así que recopilamos datos solo sobre un subconjunto de la población. Por ejemplo, si estamos estudiando el efecto del consumo de azúcar en la diabetes, no podemos recopilar datos sobre toda la población de los Estados Unidos. En su lugar, recopilamos datos sobre una *muestra*de la*población*. Ahora que sabemos qué son la muestra y la población, volvamos a la definición de una muestra representativa.
 
-A **representative sample** is a sample that accurately reflects the larger population. For instance, if the population is every adult in the United States, the sample includes an appropriate share of men and women, racial groups, educational groups, age groups, geographical groups, and income groups. If the population is supposed to be every adult in the U.S., then you can't collect data on just people in California, or just young people, or only men. This is the idea of a representative sample. It has to model the broader population in all major respects.
+Una **muestra representativa** es una muestra que refleja con precisión la población más grande. Por ejemplo, si la población es cada adulto en los Estados Unidos, la muestra incluye una proporción adecuada de hombres y mujeres, grupos raciales, grupos educativos, grupos de edad, grupos geográficos y grupos de ingresos. Si se supone que la población es cada adulto en los EE. UU., Entonces no puede recopilar datos sobre solo personas en California, o solo jóvenes, o solo hombres. Esta es la idea de una muestra representativa. Tiene que modelar la población más amplia en todos los aspectos importantes.
 
-We give you one example in politics. Most recent telephone poles in the United States have been bad at predicting election outcomes. Why? This is because by calling people's landlines you can't guarantee you will have a representative sample of the voting age population since younger people are not likely to have landlines. Therefore, most telephone polls are skewed toward older adults.
+Te damos un ejemplo en política. Los postes telefónicos más recientes en los Estados Unidos han sido malos para predecir los resultados de las elecciones. ¿Por qué? Esto se debe a que al llamar a teléfonos fijos de personas no puede garantizar que tendrá una muestra representativa de la población en edad de votar, ya que las personas más jóvenes probablemente no tengan teléfonos fijos. Por lo tanto, la mayoría de las encuestas telefónicas están sesgadas hacia los adultos mayores.
 
-Random sampling is a necessary approach to having a representative sample. Random sampling in data collection means that you randomly choose your subjects and don't choose who gets to be in the sample and who doesn't. In random sampling, you select your subjects from the population at random like based on a coin toss. The following are examples of lousy sampling:
+El muestreo aleatorio es un enfoque necesario para tener una muestra representativa. El muestreo aleatorio en la recopilación de datos significa que usted elige aleatoriamente a sus sujetos y no elige quién llega a estar en la muestra y quién no. En el muestreo aleatorio, seleccionas tus sujetos de la población al azar, como en base a un lanzamiento de moneda. Los siguientes son ejemplos de muestreo pésimo:
 
-* A research project on attitudes toward owning guns through a survey sent to subscribers of a gun-related magazine (gun magazine subscribers are not representative of the general population, and the sample is very biased)
-* A research project on television program choices by looking at Facebook TV interests (not everybody has a Facebook account)
-* A research study on school meals and educational outcomes done in a neighborhood with residents mainly from one racial group (school meal can have a different effect on different income and ethnic groups)
-* A researcher polls people as they walk by on the street.
-* A TV show host asks the program viewers to visit the network website and respond to a poll.
+* Un proyecto de investigación sobre las actitudes hacia la posesión de armas a través de una encuesta enviada a los suscriptores de una revista relacionada con armas (los suscriptores de la revista sobre armas no son representativos de la población general, y la muestra está muy sesgada)
+* Un proyecto de investigación sobre opciones de programas de televisión mirando los intereses de la televisión de Facebook (no todos tienen una cuenta de Facebook)
+* Un estudio de investigación sobre comidas escolares y resultados educativos realizado en un vecindario con residentes principalmente de un grupo racial (la comida escolar puede tener un efecto diferente en diferentes ingresos y grupos étnicos)
+* Un investigador encuesta a las personas mientras caminan por la calle.
+* El presentador de un programa de televisión solicita a los espectadores del programa que visiten el sitio web de la red y respondan una encuesta.
 
-With this logic, most online surveys or surveys on social media has to be taken with a grain of salt because not members of all social groups have an online presentation or use social media. 
+Con esta lógica, la mayoría de las encuestas en línea o encuestas en las redes sociales deben tomarse con un grano de sal porque no todos los miembros de todos los grupos sociales tienen una presentación en línea o usan las redes sociales.
 
-The moral of the story is that **always think about what your population is**. Your population will change from one project to the next. If you are researching the effect of smoking on pregnant women, then your population is, well, pregnant women (and not men(. After you know your population, then you will always want collect data from a sample that is representative of your population. Random sampling helps. 
+La moraleja de la historia es que **siempre piensa en lo que es tu población**. Tu población cambiará de un proyecto a otro. Si está investigando el efecto del hábito de fumar en las mujeres embarazadas, entonces su población es, además, mujeres embarazadas (y no hombres). Después de conocer a su población, siempre deseará recopilar datos de una muestra que sea representativa de su población. El muestreo aleatorio ayuda.
 
-And lastly, if you have no choice but to work with a dataset that is not collected randomly and is biased, be careful not to generalize your results to the entire population. If you collect data on pregnant women of age 18-24, you can't generalize your results to older women. If you collect data from the political attitudes of residents of Washington, DC, you can't say anything about the whole nation.
+Y, por último, si no tiene más remedio que trabajar con un conjunto de datos que no se recopila de forma aleatoria y está sesgado, tenga cuidado de no generalizar sus resultados a toda la población. Si recopila datos sobre mujeres embarazadas de 18 a 24 años, no puede generalizar sus resultados a mujeres mayores. Si recopila datos de las actitudes políticas de los residentes de Washington, DC, no puede decir nada sobre toda la nación.
 
-##### Some variables in the dataset are measured with error
+##### Algunas variables en el conjunto de datos se miden con error
 
-Another curse of a dataset is measurement error. In simple, measurement error refers to incorrect measurement of variables in your sample. Just like measuring things in the physical world comes with error (like measuring distance, exact temperature, BMI, etc.), measuring variables in the social context can come with an error. When you ask people how many books they have read in the past year, not everyone remembers it correctly. Similarly, you may have measurement error when you ask people about their income. A good researcher recognizes measurement error in the data before any analysis and takes it into account during their analysis.
+Otra maldición de un conjunto de datos es el error de medición. En forma simple, el error de medición se refiere a la medición incorrecta de las variables en su muestra. Al igual que la medición de cosas en el mundo físico viene con un error (como medir la distancia, la temperatura exacta, el IMC, etc.), las variables de medición en el contexto social pueden generar un error. Cuando le preguntas a la gente cuántos libros han leído en el último año, no todos lo recuerdan correctamente. De manera similar, puede tener un error de medición cuando le pregunta a las personas sobre sus ingresos. Un buen investigador reconoce el error de medición en los datos antes de cualquier análisis y lo tiene en cuenta durante su análisis.
 
-##### Variables are confounded
+##### Las variables están confundidas
 
-What if you were interested in determining what variables lead to increases in crime? To do so, you obtain data from a US city with lots of different variables and crime rates for a particular time period. You would then wrangle the data and at first you look at the relationship between popsicle sales and crime rates. You see that the more popsicles that are sold, the higher the crime rate. 
+¿Qué pasaría si estuviera interesado en determinar qué variables conducen a aumentos en el crimen? Para hacerlo, obtiene datos de una ciudad de los EE. UU. Con muchas variables y tasas de delincuencia diferentes para un período de tiempo determinado. Luego, disputarías los datos y al principio verías la relación entre las ventas de paletas y las tasas de criminalidad. Verá que mientras más paletas se vendan, mayor será la tasa de criminalidad.
 
-![popsicles and crime rate](images/02_identifying_data/02_dataanalysis_identifying_data-45.png)
+![paletas y tasa de criminalidad](images/02_identifying_data/02_dataanalysis_identifying_data-45.png)
 
-Your first thought may be that popsicles lead to crimes being committed. However, there is a confounder that's not being considered!
+Tu primer pensamiento puede ser que las paletas conducen a que se cometan crímenes. Sin embargo, hay un confusor que no está siendo considerado!
 
-We will see in detail what confounders are in the lesson on Inferential Analysis but in short **confounders** are other variables that may affect our outcome but are also correlated with (have a relationship with) our main variable of interest. In the popsicle example, temperature is an important confounder. More crimes happen when it's warm out *and* more popsicles are sold. It's not the popsicles at all driving the relationship. Instead temperature is likely the culprit. 
+Veremos en detalle qué factores de confusión se encuentran en la lección sobre Análisis inferencial, pero en breve **los factores de confusión**son otras variables que pueden afectar nuestro resultado, pero también están relacionadas con (tienen una relación con) nuestra principal variable de interés. En el ejemplo de paleta, la temperatura es un factor de confusión importante. Ocurren más delitos cuando hace calor*y* se venden más paletas. No son los popsicles que conducen la relación. En cambio, la temperatura es probablemente el culpable.
 
-![temperature is a confounder](images/02_identifying_data/02_dataanalysis_identifying_data-46.png)
+![la temperatura es un factor de confusión](images/02_identifying_data/02_dataanalysis_identifying_data-46.png)
 
-Therefore, if we're really interested in what increases crime rate, we should also consider the temperature. Thus, it's important to understand the relationship between the variables in your dataset. This will be further discussed in the Exploratory Analysis lesson.
-  
+Por lo tanto, si estamos realmente interesados ​​en lo que aumenta la tasa de criminalidad, también debemos considerar la temperatura. Por lo tanto, es importante comprender la relación entre las variables en su conjunto de datos. Esto será discutido más a fondo en la lección de Análisis Exploratorio.
+  
 
-### A case study: Why were polls so wrong about the 2016 US election?
+### Un estudio de caso: ¿Por qué las encuestas estaban tan equivocadas sobre las elecciones de 2016 en los Estados Unidos?
 
-The results of the 2016 US presidential election came as a surprise to a lot of the media outlets and poll experts. Most polls consistently projected that Hillary Clinton would defeat Donald Trump. Election forecasters put Clinton at a winning position at a chance as high as 70-99 percent. Polls are usually trustworthy, but what happened in 2016?
+Los resultados de las elecciones presidenciales de los EE. UU. De 2016 fueron una sorpresa para muchos medios de comunicación y expertos en encuestas. La mayoría de las encuestas proyectaron consistentemente que Hillary Clinton derrotaría a Donald Trump. Los pronosticadores electorales colocan a Clinton en una posición ganadora con una posibilidad tan alta como 70-99 por ciento. Las encuestas son generalmente confiables, pero ¿qué pasó en 2016?
 
-![Why were polls so wrong about the 2016 US election?](images/02_identifying_data/02_dataanalysis_identifying_data-47.png)
+![¿Por qué las encuestas estaban tan equivocadas acerca de las elecciones de 2016 en Estados Unidos?](images/02_identifying_data/02_dataanalysis_identifying_data-47.png)
 
-We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms were not wholly appropriate. To be more specific, the problem was what is called the **nonresponse bias**. Nonresponse bias is the bias the sample caused by a particular **section of the population systematically refusing to answer to the poll or survey**. The consequence of nonresponse bias is a *sample that is not representative of the population* as we discussed above. (For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election.() It is known that less educated voters who constituted a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) as another reason why polls failed to predict the outcome of the election accurately. 
+Todavía no sabemos toda la historia. Pero para empezar, el único tema que todos están de acuerdo es que los datos utilizados en los algoritmos de predicción no eran del todo apropiados. Para ser más específico, el problema fue lo que se denomina **sesgo de no respuesta**. El sesgo de no respuesta es el sesgo que la muestra causada por una sección particular**de la población rechaza sistemáticamente para responder a la encuesta o encuesta**. La consecuencia del sesgo de no respuesta es una*muestra que no es representativa de la población* como se analizó anteriormente. (Por ejemplo, la mayoría de las personas ricas se niegan a anunciar sus ingresos en las encuestas y, como resultado, existe un sesgo de falta de respuesta en la mayoría de las encuestas de ingresos. Bien, volvamos a la elección.) Se sabe que los votantes con menor educación que constituían una mayoría de Los votantes de Trump son difíciles de alcanzar para los encuestadores. El resultado de esto fue la falta de este segmento pro-Trump de la población en las encuestas durante las semanas previas a la elección. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) como otra razón por la que las encuestas no pudieron predecir con precisión el resultado de la elección.
 
-While it's always easier to look back at a failed analysis and determine what went wrong then to identify the issues up front, researchers would have benefited from determining if the data they had were the most appropriate for answering their question of interest. 
+Si bien siempre es más fácil mirar hacia atrás a un análisis fallido y determinar qué fue lo que no funcionó para identificar los problemas por adelantado, los investigadores se habrían beneficiado al determinar si los datos que tenían eran los más adecuados para responder a su pregunta de interés.
 
-### Summary
+### Resumen
 
-Once you've honed in on a good data science question, it's important to determine if the data available to you are the data you need. To do this:
+Una vez que se haya concentrado en una buena pregunta de ciencia de datos, es importante determinar si los datos disponibles para usted son los datos que necesita. Para hacer esto:
 
-1. Imagine the optimal dataset
-2. Determine what data you have
-3. Identify the data you can (easily) get
-4. Figure out limitations in the data you have
-5. Are the limitations so great that you need to re-work your question?
-  - If yes, start over and form a new data science question, then return to step 1
-  - If not, continue with your analysis, *but* note all limitations in your analysis 
-6. Explore and wrangle the dataset 
-7. Analyze the data and answer the data science question!
+1. Imagina el conjunto de datos óptimo
+2. Determina qué datos tienes
+3. Identifique los datos que puede obtener (fácilmente)
+4. Averigüe las limitaciones en los datos que tiene
+5. ¿Son las limitaciones tan grandes que necesita volver a trabajar su pregunta?
+  - En caso afirmativo, comience de nuevo y forme una nueva pregunta de ciencia de datos, luego regrese al paso 1
+  - Si no es así, continúe con su análisis, *pero* note todas las limitaciones en su análisis
+6. Explora y disputa el conjunto de datos
+7. ¡Analiza los datos y responde la pregunta de la ciencia de datos!
 
-All in all, the data and how they're collected matters. There is a term in statistics that says "**garbage in, garbage out**," which means poor quality input will always produce poor output. A data analysis that is based on faulty data produces faulty results. Be cautious about the data that you use in your analysis, ensure that the data you need to answer your question of interest are the data you have, and *always* tell your listeners and readers about the deficiencies of your data. After all, you will know your data better than anyone else!
+En definitiva, los datos y cómo se recopilan son importantes. Hay un término en las estadísticas que dice "**basura dentro, basura fuera**", 405247, lo que significa que una entrada de mala calidad siempre producirá una salida pobre. Un análisis de datos basado en datos defectuosos produce resultados defectuosos. Tenga cuidado con los datos que utiliza en su análisis, asegúrese de que los datos que necesita para responder a su pregunta de interés sean los que tiene, y*siempre* informe a sus oyentes y lectores sobre las deficiencias de sus datos. Después de todo, ¡conocerá sus datos mejor que nadie!
 
 
-### Slides and Video
+### Diapositivas y Video
 
-![Do I Have The Data I Need](https://www.youtube.com/watch?v=74r9V5S42fI)
+![Tengo los datos que necesito](https://www.youtube.com/watch?v=74r9V5S42fI)
 
-* [Slides](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)
+* [Diapositivas](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)
 
 {quiz, id: quiz_02_identifying_data}
 
-### Do I Have the Data quiz
+### ¿Tengo el cuestionario de datos?
 
-{choose-answers:4} 
-? What is NOT among the best practices of acquiring data?
+{choose-answers:4}
+? ¿Qué NO está entre las mejores prácticas de adquisición de datos?
 
-C) Never ask for the raw data. Tidy data is always better.
-C) You should never ask others to share their data with you.
-o) Make sure you follow the terms of service of the data. 
-o) You can use data from the web.
-o) Cite the source of your data.
-o) If you can't find the right data for your purpose, think about how you can collect it.
+C) Nunca pedir los datos en bruto. Los datos ordenados siempre son mejores.
+C) Nunca debes pedir a otros que compartan sus datos contigo.
+o) Asegúrate de seguir los términos de servicio de los datos.
+o) Puede utilizar los datos de la web.
+o) Cita la fuente de tus datos.
+o) Si no puede encontrar los datos correctos para su propósito, piense en cómo puede recopilarlos.
 
-{choose-answers:4} 
-? What kind of data is the following: Data that is collected from the same sample of the population at multiple points in time.
+{choose-answers:4}
+? El tipo de datos es el siguiente: Datos que se recopilan de la misma muestra de la población en varios puntos en el tiempo.
 
-C) Longitudinal data
-o) Cross-sectional data
-o) Experimental data
-o) Time series data
-o) Panel data
+C) Datos longitudinales.
+o) Datos transversales
+o) datos experimentales
+o) Datos de series de tiempo.
+o) datos del panel
 
-{choose-answers:4} 
-? What's the similarity between panel data and longitudinal data?
+{choose-answers:4}
+? ¿Cuál es la similitud entre los datos del panel y los datos longitudinales?
 
-C) both refer to data that is collected at multiple points in time
-C) both are considered observational data
-o) both refer to data that is collected from the same sample over time
-o) both are considered big data
-o) both are data that contain the whole population
+C) ambos se refieren a datos que se recopilan en múltiples momentos
+C) Ambos son considerados datos observacionales.
+o) ambos se refieren a datos que se recopilan de la misma muestra a lo largo del tiempo
+o) ambos son considerados big data
+o) ambos son datos que contienen toda la población
 
-{choose-answers:4} 
-? Which steps do you have to take when checking and tidying data?
+{choose-answers:4}
+? ¿Qué pasos debe seguir para verificar y ordenar los datos?
 
-C) variable values are internally consistent
-C) appropriate transformed variables have been added
-C) ensure that each observation is in a different row
-C) ensure that each variable is in a single column
-o) column names should be abbreviations
-o) data should be tidied and the original data should be removed
-o) all missing values should be removed from the data
-o) all long data should be made wide; all wide data should be made long
+C) los valores variables son internamente consistentes
+C) Se han añadido variables transformadas apropiadas.
+C) Asegurar que cada observación esté en una fila diferente.
+C) asegurarse de que cada variable está en una sola columna
+o) los nombres de las columnas deben ser abreviaturas
+o) los datos deben estar ordenados y los datos originales deben eliminarse
+o) todos los valores perdidos deben ser eliminados de los datos
+o) todos los datos largos deben ser amplios; todos los datos amplios deben hacerse largos
 
-{choose-answers:4} 
-? Which one of the following is NOT among the common issues with data?
+{choose-answers:4}
+? ¿Cuál de los siguientes NO está entre los problemas comunes con los datos?
 
-C) Variables are collected from different locations.
-C) Sample is large.
-o) Data is too small.
-o) There is measurement error in the data.
-o) Variables in the dataset are not collected in the same year.
+C) Las variables se recogen desde diferentes lugares.
+C) La muestra es grande.
+o) Los datos son demasiado pequeños.
+o) Hay error de medición en los datos.
+o) Las variables en el conjunto de datos no se recogen en el mismo año.
 
-{choose-answers:4} 
-? What is a proxy variables?
+{choose-answers:4}
+? ¿Qué es una variable proxy?
 
-C) A variable that is highly correlated with the variable of interest and can be used instead of it.
-C) A variable that that is well-correlated with the variable of interest and can be used in the variable of interest's place.
-o) A variable that is exactly the same as the variable of interest.
-o) A variable that is measured in the same way as the variable of interest.
-o) A variable that is not correlated with the variable of interest, but is similar to the variable of interest.
-o) A variable in your dataset that is different from the variable of interest.
+C) Una variable que está altamente correlacionada con la variable de interés y puede usarse en lugar de ella.
+C) Una variable que está bien correlacionada con la variable de interés y puede usarse en el lugar de la variable de interés.
+o) Una variable que es exactamente la misma que la variable de interés.
+o) Una variable que se mide de la misma manera que la variable de interés.
+o) Una variable que no está correlacionada con la variable de interés, pero es similar a la variable de interés.
+o) Una variable en su conjunto de datos que es diferente de la variable de interés.
 
-{choose-answers:4} 
-? Which of the following is a representative sample?
+{choose-answers:4}
+? ¿Cuál de las siguientes es una muestra representativa?
 
-C) Sample: randomly selected sample of teachers in the U.S., population: all teachers in the U.S.
-C) Sample: randomly selected sample of teenagers in Chicago, population: all teenagers in Chicago
-o) Sample: a sample of people in a bar, population: adult population in the U.S.
-o) Sample: a randomly selected sample of parent in a school, population: parents in Boston
-o) Sample: a randomly selected sample of college students in Johns Hopkins University, population: college students in private universities
-o) Sample: a sample of people in high school in the U.S., population: adult population in the U.S.
+C) Muestra: muestra seleccionada al azar de maestros en los EE. UU., Población: todos los docentes en los EE. UU.
+C) Muestra: muestra seleccionada al azar de adolescentes en Chicago, población: todos adolescentes en Chicago
+o) Muestra: una muestra de personas en un bar, población: población adulta en los EE. UU.
+o) Muestra: una muestra seleccionada al azar de padres en una escuela, población: padres en Boston
+o) Muestra: una muestra seleccionada al azar de estudiantes universitarios en la Universidad Johns Hopkins, población: estudiantes universitarios en universidades privadas
+o) Muestra: una muestra de personas en la escuela secundaria en los EE. UU., población: población adulta en los EE. UU.
 
-{choose-answers:4} 
-? What does the expression garbage in, garbage out mean?
+{choose-answers:4}
+? ¿Qué significa la expresión basura en, basura fuera?
 
-C) If the data used in analysis is of poor quality, the results of the analysis will be poor.
-C) Data that are of poor quality will lead to results that are also of poor quality.
-o) If the analysis is poor, that means the analyst used poor quality data.
-o) If the analyst is not good, it doesn't matter what data he or she uses.
-o) If you use high quality data in an analysis, the results will certainly be high quality.
-o) If you use poor quality data but work really hard, you can get good results.
+C) Si los datos utilizados en el análisis son de baja calidad, los resultados del análisis serán deficientes.
+C) Los datos que son de baja calidad conducirán a resultados que también son de mala calidad.
+o) Si el análisis es deficiente, eso significa que el analista utilizó datos de mala calidad.
+o) Si el analista no es bueno, no importa qué datos use.
+o) Si utiliza datos de alta calidad en un análisis, los resultados serán sin duda de alta calidad.
+o) Si utiliza datos de baja calidad pero trabaja muy duro, puede obtener buenos resultados.
 
-{choose-answers:4} 
-? What should you do if the data you have can't be used to answer the data science question you have?
+{choose-answers:4}
+? ¿Qué debe hacer si los datos que tiene no pueden usarse para responder la pregunta de ciencia de datos que tiene?
 
-C) Re-work your data science question
-C) Identify data available to you that can be used 
-o) Remove observations until you get the answer you want
-o) Carry on anyway. You may be able to figure it out
-o) Analyze the data and interpret the results to get the answer you want
-o) Hack a secure system to get the data you want but to which you don't have access
+C) Vuelva a trabajar su pregunta de ciencia de datos
+C) Identifique los datos disponibles para usted que pueden ser utilizados
+o) Elimina las observaciones hasta que obtengas la respuesta que deseas
+o) Continuar de todos modos. Usted puede ser capaz de resolverlo
+o) Analice los datos e interprete los resultados para obtener la respuesta que desea
+o) Hackee un sistema seguro para obtener los datos que desea pero a los que no tiene acceso
 
-{choose-answers:4} 
-? Which of these is a reason you may not be able to get the data you need to answer your data science question?
+{choose-answers:4}
+? ¿Cuál de estas es una razón por la que no puede obtener los datos que necesita para responder su pregunta de ciencia de datos?
 
-C) money
-C) access to the data
-C) privacy concerns
-C) time
-C) it's company data (you don't have access to)
-o) it's publicly-available
-o) it's on your computer
-o) it's on kaggle.com
-o) it's at data.world
+C) dinero
+C) Acceso a los datos.
+C) problemas de privacidad
+C) tiempo
+C)
+o) está disponible públicamente
+o) esta en tu computadora
+o) está en kaggle.com
+o) está en data.world
 
 {/quiz}

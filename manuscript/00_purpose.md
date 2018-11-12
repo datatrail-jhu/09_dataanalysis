@@ -6,179 +6,179 @@ default-random-choice-order: true
 default-quiz-show-answers: none
 }
 
-# The Purpose of Data Science
+# El propósito de la ciencia de datos
 
-Data science has multiple definitions. For this course we use [the definition](https://simplystatistics.org/2015/03/17/data-science-done-well-looks-easy-and-that-is-a-big-problem-for-data-scientists/): 
+La ciencia de datos tiene múltiples definiciones. Para este curso usamos [la definición](https://simplystatistics.org/2015/03/17/data-science-done-well-looks-easy-and-that-is-a-big-problem-for-data-scientists/):
 
-> Data science is the process of formulating a quantitative question that can be answered with data, collecting and cleaning the data, analyzing the data, and communicating the answer to the question to a relevant audience.
+> La ciencia de datos es el proceso de formular una pregunta cuantitativa que puede responderse con datos, recopilar y limpiar los datos, analizar los datos y comunicar la respuesta a la pregunta a un público relevante.
 
-In general the data science process is iterative and the different components blend together a little bit. But for simplicity lets discretize the tasks into the following 7 steps:
+En general, el proceso de la ciencia de datos es iterativo y los diferentes componentes se mezclan un poco. Pero para simplificar, permite discretizar las tareas en los siguientes 7 pasos:
 
-1. Define the question you want to ask the data
-2. Get the data
-3. Clean the data
-4. Explore the data
-5. Fit statistical models
-6. Communicate the results
-7. Make your analysis reproducible
-
-
-This course is focused on three of these steps: (1) defining the question you want to ask, (4) exploring the data and (5) fitting statistical models to the data. 
-
-We have seen in previous courses how to extract data from the web and from databases and we have seen how to clean it up and tidy the data. You also know how to use plots and graphs to visualize your data. You can think of this class as using those tools to start to answer questions using the tools you have learned in previous classes. 
+1. Defina la pregunta que desea hacer los datos.
+2. Obtener los datos
+3. limpiar los datos
+4. Explora los datos
+5. Ajustar modelos estadísticos.
+6. Comunicar los resultados.
+7. Haz tu análisis reproducible
 
 
-### Types of data science questions
+Este curso se centra en tres de estos pasos: (1) definir la pregunta que desea formular, (4) explorar los datos y (5) ajustar los modelos estadísticos a los datos.
 
-We will look at a few different types of questions that you might want to answer from data. This flowchart gives some questions you can ask to figure out what type of question your analysis focuses on. Each type of question has different goals.
-
-
-There are four classes of question that we will focus on in this class. 
-
-* Descriptive: The goal of descriptive data science questions is to understand the components of a data set, describe what they are, and explain that description to others who might want to understand the data. This is the simplest type of data analysis. 
-
-* Exploratory: The goal of exploratory data science questions is to find unknown relationships between the different variables you have measured in your data set. Exploratory analysis is open ended and designed to find expected or unexpected relationships between different measurements. 
-
-* Inferential: The goal of inferential data science questions is to is to use a small sample of data to say something about what would happen if we collected more data. Inferential questions come up because we want to understand the relationships between different variables but it is too expensive or difficult to collect data on every person or object. 
-
-* Predictive: The goal of predictive data science question is to use data from a large collection to predict values for new individuals. This might be predicting what will happen in the future or predicting characteristics that are difficult to measure. Predictive data science is sometimes called machine learning. 
-
-![Types of Data Analysis](images/00_purpose/00_dataanalysis_purpose-4.png)
-
-The questions we will focus on are the types where we look for relationships between measurements or variables. But in these types of analyses we won't be able to tell anything about what happens if you _change_ one of the variables. To figure out what happens if you change a variable, you need a more advanced type of analysis. These analyses - causal and mechanistic - require data on specific types of problem and collected in special ways. For this class, the primary thing we need to be aware of is that just because two variables are correlated with each other it doesn't mean that changing one causes a change in the other. 
-
-[One way](http://www.tylervigen.com/spurious-correlations) that people illustrate this idea is to look at data where two variables show a relationship, but are clearly *not* related to each other. For example, in a specific time range, the number of people who drown while falling into a pool is related to the number of films that Nicholas Cage appears in. These two variables are clearly unrelated to each other, but the data seems to show a relationship. We'll discuss more later in this class
-
-![Spurious Correlation](images/00_purpose/00_dataanalysis_purpose-10.png)
-
-### Examples of data science questions
-
-Let's begin with some example data science projects, how they are asked, and how they are approached. In each example, we explain the problem as a data science question and guess what sort of analysis is fit for approaching the problem.
+Hemos visto en cursos anteriores cómo extraer datos de la web y de las bases de datos, y hemos visto cómo limpiarlos y ordenar los datos. También sabe cómo usar gráficos y gráficas para visualizar sus datos. Puede pensar que esta clase usa esas herramientas para comenzar a responder preguntas utilizando las herramientas que ha aprendido en clases anteriores.
 
 
-#### Example 1: Credit card fraud detection
+### Tipos de preguntas de ciencia de datos
 
-If you have a credit card, every time you charge something, the bank keeps a record of that charge. This can be useful for you when you want to keep track of your finances. But banks use the information for other purposes as well. If you lose your credit card and someone starts using it to buy things for themselves this is called credit card fraud. By collecting data from everyone, credit card companies are able to predict potential fraudulent transactions before consumers notice anything. So the question is: "Can we predict which credit card charges are fraudulent?".  But this is not a data science question yet. To ask this liek a data scientist we might ask, "Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?". Since we are interested in predicting whether a charge is fraud or genuine, this will be a predictive analysis.
-
-- **Problem:** Detecting whether credit card charges are fraudulent. 
-- **Data science question:** Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?
-- **Type of analysis:** Predictive analysis
-
-#### Example 2: Analysis of YouTube comments
-
-Any text you can find on the web can be considered to be data. You can use this data to understand how people behave on the web. For example,
-when companies like YouTube want to understand whether their users are behaving nicely or badly, they might look at the comments they leave. So the question might be, "Are the comments on our platform mostly nice or mostly mean?". To write this in terms of a data science question you might ask, "Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?". This is a question you could answer by collecting information on words and labeling them with whether they are nice or mean. This is an example of descriptive analysis since once we have the data, the analysis boils down to comparing the number of positive comments to negative comments.
-
-- **Problem:** Understanding whether users are nice or mean on YouTube
-- **Data science question:** Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?
-- **Type of analysis:** Descriptive analysis
+Veremos algunos tipos diferentes de preguntas que tal vez desee responder a partir de los datos. Este diagrama de flujo proporciona algunas preguntas que puede hacer para averiguar en qué tipo de pregunta se centra su análisis. Cada tipo de pregunta tiene diferentes objetivos.
 
 
-#### Example 3: Sesame Street and kids brain development
+Hay cuatro clases de preguntas en las que nos centraremos en esta clase.
 
-Sesame Street is a children's entertainment and educational program. Scientists might be interested in whether watching Sesame Street helps brain development in kids. To turn this into a data science question we need to make it more specific and focused on data. So we might convert this to a data science question like, "Can we compare children who watch Sesame Street and those who don't to see whose test scores are higher?" A complication is that it might be difficult and expensive to get parents to have their children participate in the study. So we might take a small sample of students and measure their test scores and find out whether they watch TV. Since we want to say something about _all_ children, but have only measured data on a few, this would be an inferential analysis.  
+* Descriptivo: el objetivo de las preguntas de ciencia de datos descriptivos es comprender los componentes de un conjunto de datos, describir lo que son y explicar esa descripción a otras personas que quieran entender los datos. Este es el tipo más simple de análisis de datos.
 
-- **Problem:** Does Sesame Street affect kids brain development?
-- **Data science question:** Is there a relationship between watching Sesame Street and test scores among children?
-- **Type of analysis:** Inferential analysis
+* Exploratorio: el objetivo de las preguntas exploratorias de la ciencia de datos es encontrar relaciones desconocidas entre las diferentes variables que ha medido en su conjunto de datos. El análisis exploratorio es abierto y está diseñado para encontrar relaciones esperadas o inesperadas entre diferentes mediciones.
+
+* Inferencial: el objetivo de las preguntas de ciencia de datos inferenciales es utilizar una pequeña muestra de datos para decir algo sobre lo que sucedería si recopilamos más datos. Surgen preguntas inferenciales porque queremos entender las relaciones entre diferentes variables, pero es demasiado caro o difícil recopilar datos sobre cada persona u objeto.
+
+* Predictivo: el objetivo de la pregunta de ciencia de datos predictivos es usar datos de una gran colección para predecir valores para nuevos individuos. Esto podría ser predecir lo que sucederá en el futuro o predecir características que son difíciles de medir. La ciencia predictiva de datos a veces se llama aprendizaje automático.
+
+![Tipos de análisis de datos](images/00_purpose/00_dataanalysis_purpose-4.png)
+
+Las preguntas en las que nos centraremos son los tipos en los que buscamos relaciones entre medidas o variables. Pero en este tipo de análisis, no podremos decir nada sobre lo que sucede si usted cambia una de las variables. Para averiguar qué sucede si cambia una variable, necesita un tipo de análisis más avanzado. Estos análisis, causales y mecánicos, requieren datos sobre tipos específicos de problemas y se recopilan de manera especial. Para esta clase, lo principal que debemos tener en cuenta es que el hecho de que dos variables estén correlacionadas entre sí no significa que el cambio de una cause un cambio en la otra.
+
+[De una manera](http://www.tylervigen.com/spurious-correlations) que las personas ilustren esta idea es mirar datos donde dos variables muestran una relación, pero están claramente *no* relacionadas entre sí. Por ejemplo, en un rango de tiempo específico, el número de personas que se ahogan mientras caen en un grupo se relaciona con el número de películas en las que aparece Nicholas Cage. Estas dos variables claramente no están relacionadas entre sí, pero los datos parecen mostrar un relación. Discutiremos más adelante en esta clase.
+
+![Correlación espuria](images/00_purpose/00_dataanalysis_purpose-10.png)
+
+### Ejemplos de preguntas de ciencia de datos
+
+Comencemos con algunos ejemplos de proyectos de ciencia de datos, cómo se les pregunta y cómo se los aborda. En cada ejemplo, explicamos el problema como una pregunta de ciencia de datos y adivinamos qué tipo de análisis es adecuado para abordar el problema.
 
 
-### How to start a data analysis
+#### Ejemplo 1: Detección de fraude de tarjeta de crédito
 
-The way to start a data analysis project is to start with a question. As we saw in the above examples, the questions should not start with the data. They should start with a general question that you want to start to answer. This approach is called ["problem forward, not solution backward"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/).
+Si tiene una tarjeta de crédito, cada vez que cobra algo, el banco lleva un registro de ese cargo. Esto puede ser útil para usted cuando desea realizar un seguimiento de sus finanzas. Pero los bancos usan la información para otros propósitos también. Si pierde su tarjeta de crédito y alguien comienza a usarla para comprar cosas para sí mismos, esto se llama fraude de tarjeta de crédito. Al recopilar datos de todos, las compañías de tarjetas de crédito pueden predecir posibles transacciones fraudulentas antes de que los consumidores noten algo. Entonces la pregunta es: "¿Podemos predecir qué cargos de tarjeta de crédito son fraudulentos?". Pero esta no es una pregunta de ciencia de datos todavía. Para preguntarle a este experto científico de datos, podríamos preguntar: "¿Podemos usar la hora del cargo, la ubicación del cargo y el precio del cargo para predecir si el cargo es fraudulento o no?". Ya que estamos interesados ​​en predecir si un cargo es fraudulento o genuino, este será un análisis predictivo.
 
-After you have asked your general question, the next step is to turn it into a data science question. This usually involves making the question more concrete, identifying what type of question you are asking, and identifying the parts of the data that you will use to answer the question. We will cover how to convert general questions to data science questions in a future lesson. 
+- **Problema:** Detectar si los cargos de la tarjeta de crédito son fraudulentos.
+- **Pregunta de ciencia de datos:** ¿Podemos usar el momento del cargo, la ubicación del cargo y el precio del cargo para predecir si el cargo es fraudulento o no?
+- **Tipo de análisis:** Análisis predictivo.
 
-The next steps involve exploring and analyzing the data. The bulk of the rest of this course will focus on the tools you can use to analyze data and find summaries or relationships that answer the questions you ask when starting a data analysis. 
+#### Ejemplo 2: Análisis de los comentarios de YouTube
+
+Cualquier texto que pueda encontrar en la web puede considerarse como datos. Puede utilizar estos datos para comprender cómo se comportan las personas en la web. Por ejemplo,
+cuando las compañías como YouTube quieren entender si sus usuarios se están comportando bien o mal, pueden ver los comentarios que dejan. Entonces, la pregunta podría ser: "¿Son los comentarios en nuestra plataforma en su mayoría agradables o en su mayoría significan?". Para escribir esto en términos de una pregunta de ciencia de datos, podría preguntar: "¿Son las palabras que la gente usa en sus comentarios con más frecuencia palabras positivas (grande, impresionante, agradable, útil) o palabras negativas (mala, estúpida, coja, horrible)? ". Esta es una pregunta que puede responder al recopilar información sobre las palabras y etiquetarlas con si son buenas o malas. Este es un ejemplo de análisis descriptivo, ya que una vez que tenemos los datos, el análisis se reduce a comparar el número de comentarios positivos con los comentarios negativos.
+
+- **Problema:** Comprender si los usuarios son agradables o malos en YouTube
+- **Pregunta de ciencia de datos:** ¿Las palabras que las personas usan en sus comentarios son con más frecuencia palabras positivas (grande, impresionante, agradable, útil) o palabras negativas (mala, estúpida, coja, horrible)?
+- **Tipo de análisis:** Análisis descriptivo.
 
 
-### Slides and Video
+#### Ejemplo 3: Sesame Street y el desarrollo del cerebro de los niños
 
-![The Purpose of Data Science](https://www.youtube.com/watch?v=coS7Dk0xbog)
+Sesame Street es un programa educativo y de entretenimiento para niños. Los científicos podrían estar interesados ​​en saber si ver Sesame Street ayuda al desarrollo del cerebro en los niños. Para convertir esto en una pregunta de ciencia de datos, necesitamos que sea más específico y centrado en los datos. Entonces podríamos convertir esto en una pregunta de ciencia de datos como, "¿Podemos comparar a los niños que ven Sesame Street y aquellos que no ven qué puntajes en las pruebas son más altos?"  Una complicación es que puede ser difícil y costoso lograr que los padres hagan que sus hijos participen en el estudio. Por lo tanto, podríamos tomar una pequeña muestra de estudiantes y medir sus calificaciones en los exámenes y averiguar si ven televisión. Ya que queremos decir algo sobre todos los niños, pero solo hemos medido datos sobre unos pocos, este sería un análisis inferencial.
 
-* [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
+- **Problema:** ¿Sesame Street afecta el desarrollo cerebral de los niños?
+- **Pregunta sobre ciencia de datos:** ¿Existe una relación entre ver Sesame Street y los puntajes de las pruebas entre niños?
+- **Tipo de análisis:** Análisis inferencial.
+
+
+### Cómo iniciar un análisis de datos
+
+La manera de comenzar un proyecto de análisis de datos es comenzar con una pregunta. Como vimos en los ejemplos anteriores, las preguntas no deben comenzar con los datos. Deben comenzar con una pregunta general que desee comenzar a responder. Este enfoque se denomina ["problema hacia adelante, no solución hacia atrás"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/).
+
+Una vez que haya formulado su pregunta general, el siguiente paso es convertirla en una pregunta de ciencia de datos. Por lo general, esto implica hacer que la pregunta sea más concreta, identificar qué tipo de pregunta está haciendo e identificar las partes de los datos que usará para responder la pregunta. Cubriremos cómo convertir preguntas generales a preguntas de ciencia de datos en una lección futura.
+
+Los siguientes pasos implican explorar y analizar los datos. La mayor parte del resto de este curso se centrará en las herramientas que puede utilizar para analizar datos y encontrar resúmenes o relaciones que respondan a las preguntas que hace al iniciar un análisis de datos.
+
+
+### Diapositivas y Video
+
+![El propósito de Data Science](https://www.youtube.com/watch?v=coS7Dk0xbog)
+
+* [Diapositivas](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)
 
 {quiz, id: quiz_00_purpose}
 
-### Purpose of Data Science quiz
+### Propósito del cuestionario de Data Science
 
 {choose-answers: 4}
-?1 A data science problem solving process can be broken down to the following in what order?
+?1 Un proceso de resolución de problemas de ciencia de datos se puede dividir en lo siguiente en qué orden?
 
-C) Define the question, get the data, clean the data, explore the data, fit statistical models, communicate the results, make your analysis reproducible
-o) Get the data, clean the data, define the question, explore the data, fit statistical models, communicate the results, make your analysis reproducible
-o)  Get the data, clean the data, fit statistical models, define the question, explore the data, communicate the results, make your analysis reproducible
-o) Make your analysis reproducible, Define the question, get the data, clean the data, fit statistical models, communicate the results
-o) Define the question, get the data, clean the data, fit statistical models
-
-{choose-answers: 4}
-?2 Which of the following describes a predictive analysis?
-
-C) Using data collected from many people to predict the values for a new person
-C) Using data collected in the past to predict values for an individual in the future
-o) Finding if one variable is related to another one
-o) Finding if a large number of variables influence another one
-o) Using data to predict the relationship between two variables for all people. 
-o) Showing the effect on a variable of changing the values of another variable. 
+C) Defina la pregunta, obtenga los datos, limpie los datos, explore los datos, ajuste modelos estadísticos, comunique los resultados, haga que su análisis sea reproducible
+o) Obtenga los datos, limpie los datos, defina la pregunta, explore los datos, ajuste modelos estadísticos, comunique los resultados, haga que su análisis sea reproducible
+o) Obtenga los datos, limpie los datos, ajuste los modelos estadísticos, defina la pregunta, explore los datos, comunique los resultados, haga que su análisis sea reproducible
+o) Haga su análisis reproducible, defina la pregunta, obtenga los datos, limpie los datos, ajuste los modelos estadísticos, comunique los resultados
+o) Defina la pregunta, obtenga los datos, limpie los datos, ajuste los modelos estadísticos
 
 {choose-answers: 4}
-?3 We collect data on all the songs in the Spotify catalogue and want to summarize how many are country western, hip-hop, classic rock, or other. What type of analysis is this?
+?2 ¿Cuál de los siguientes describe un análisis predictivo?
 
-C) Descriptive
-o) Exploratory
-o) Predictive
-o) Inferential
-o) Causal
-o) Mechanistic
-
-{choose-answers: 4}
-?3 We collect data on all the foods in a grocery store and want to summarize the categories each item falls into (such as produce, meats & poultry, grains, etc..) What type of analysis is this?
-
-C) Descriptive
-o) Exploratory
-o) Predictive
-o) Inferential
-o) Causal
-o) Mechanistic
+C) Usar datos recopilados de muchas personas para predecir los valores para una nueva persona
+C) Usar datos recopilados en el pasado para predecir valores para una persona en el futuro
+o) Encontrar si una variable está relacionada con otra.
+o) Encontrar si una gran cantidad de variables influyen en otra.
+o) Usar datos para predecir la relación entre dos variables para todas las personas.
+o) Mostrando el efecto sobre una variable de cambiar los valores de otra variable.
 
 {choose-answers: 4}
-?4 We collect data on a small sample of songs from the Spotify catalogue and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? 
+?3 Recopilamos datos sobre todas las canciones en el catálogo de Spotify y queremos resumir cuántos son country western, hip-hop, rock clásico u otros. ¿Qué tipo de análisis es este?
 
-C) Inferential
-o) Descriptive
-o) Exploratory
-o) Predictive
-o) Causal
-o) Mechanistic
-
-{choose-answers: 4}
-?4 We collect data a sample of foods at a number of different grocery stores across the country and want to figure out the relationship between the region of the country and number of types of apples sold. What type of analysis is this?
-
-C) Inferential
-o) Descriptive
-o) Exploratory
-o) Predictive
-o) Causal
-o) Mechanistic
+C) descriptivo
+o) Exploratorio
+o) Predictivo
+o) Inferencial
+o) causal
+o) mecanicista
 
 {choose-answers: 4}
-?5 We collect data a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? 
+?3 Recopilamos datos sobre todos los alimentos en una tienda de comestibles y queremos resumir las categorías en las que cae cada artículo (como productos, carnes y aves, granos, etc.) ¿Qué tipo de análisis es este?
 
-C) Exploratory
-o) Descriptive
-o) Predictive
-o) Inferential
-o) Causal
-o) Mechanistic
+C) descriptivo
+o) Exploratorio
+o) Predictivo
+o) Inferencial
+o) causal
+o) mecanicista
 
 {choose-answers: 4}
-?5 We collect data a sample of foods from across the country and want to look for the relationships between any pair of foods to figure out if there are any foods that are commonly sold together. What type of analysis is this?
+?4 Recopilamos datos sobre una pequeña muestra de canciones del catálogo de Spotify y queremos averiguar la relación entre el uso de la palabra "camión"  y si una canción es de country western. ¿Qué tipo de análisis es este?
 
-C) Exploratory
-o) Descriptive
-o) Predictive
-o) Inferential
-o) Causal
-o) Mechanistic
+C) Inferencial
+o) Descriptivo
+o) Exploratorio
+o) Predictivo
+o) causal
+o) mecanicista
+
+{choose-answers: 4}
+?4 Recopilamos datos de una muestra de alimentos en diferentes tiendas de abarrotes en todo el país y queremos averiguar la relación entre la región del país y la cantidad de tipos de manzanas vendidas. ¿Qué tipo de análisis es este?
+
+C) Inferencial
+o) Descriptivo
+o) Exploratorio
+o) Predictivo
+o) causal
+o) mecanicista
+
+{choose-answers: 4}
+?5 Recopilamos datos de una muestra de las canciones del catálogo de Spotify y queremos buscar las relaciones entre cualquier par de palabras para averiguar si hay alguna palabra que se use comúnmente en las canciones. ¿Qué tipo de análisis es este?
+
+C) Exploratorio
+o) Descriptivo
+o) Predictivo
+o) Inferencial
+o) causal
+o) mecanicista
+
+{choose-answers: 4}
+?5 Recopilamos datos de una muestra de alimentos de todo el país y queremos buscar las relaciones entre cualquier par de alimentos para determinar si hay alimentos que se venden juntos. ¿Qué tipo de análisis es este?
+
+C) Exploratorio
+o) Descriptivo
+o) Predictivo
+o) Inferencial
+o) causal
+o) mecanicista
 
 {/quiz}
