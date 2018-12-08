@@ -43,12 +43,14 @@ There are four classes of question that we will focus on in this class.
 
 * Predictive: The goal of predictive data science question is to use data from a large collection to predict values for new individuals. This might be predicting what will happen in the future or predicting characteristics that are difficult to measure. Predictive data science is sometimes called machine learning. 
 
+{format: png}
 ![Types of Data Analysis](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/export/png?id=1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I&pageid=g3ec461ec74_0_22)
 
 The questions we will focus on are the types where we look for relationships between measurements or variables. But in these types of analyses we won't be able to tell anything about what happens if you _change_ one of the variables. To figure out what happens if you change a variable, you need a more advanced type of analysis. These analyses - causal and mechanistic - require data on specific types of problem and collected in special ways. For this class, the primary thing we need to be aware of is that just because two variables are correlated with each other it doesn't mean that changing one causes a change in the other. 
 
 [One way](http://www.tylervigen.com/spurious-correlations) that people illustrate this idea is to look at data where two variables show a relationship, but are clearly *not* related to each other. For example, in a specific time range, the number of people who drown while falling into a pool is related to the number of films that Nicholas Cage appears in. These two variables are clearly unrelated to each other, but the data seems to show a relationship. We'll discuss more later in this class
 
+{format: png}
 ![Spurious Correlation](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/export/png?id=1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I&pageid=g3ec461ec74_0_222)
 
 ### Examples of data science questions

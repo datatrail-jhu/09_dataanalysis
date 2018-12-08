@@ -4,10 +4,12 @@ After identifying your problem and transforming it into a data science question,
 
 For instance, consider wanting to know the answer to the question "Does money make people happy?" One way to get data for your problem is to give people cash and to collect data from those same individuals later to see if the money they received made happier. First, this isn't a cheap experiment, so you may not have the money to do this. Second, how would you want to *measure happiness*? You can't just step on a scale and measure someone's happiness. If you had each individual report their happiness on a scale of 1-10, one person may rate their happiness at an 8. Another person, who could be just as happy as the person who rated their happiness at an 8 may rate their happiness at a 6. You can see quickly how getting the right data to answer this question may not be so simple.
 
+{format: png}
 ![Does money make people happy?](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3ec882b221_0_25)
 
 In another situation, what if you are interested in answering the question "Does texting while driving causes accidents?" It wouldn't be ethical to run a study and tell people to text while they're driving and then determine if those who texted had more care accidents. It's not okay to design experiments that knowingly put participants at risk of harm.
 
+{format: png}
 ![Does texting while driving cause accidents?](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3ec882b221_0_56)
 
 Thus, although each of us generate data daily through the apps we use or through our activity on social media platforms, often the data most easily available are *not* the data we need to answer the questions we're most interested in answering. In this lesson we'll discuss **how to determine whether or not you have the data** you need to answer the question you have, **limitations of the data** you have, **considerations to make** when you don't yet have the data you need, and what to do to **get the data you need**. 
@@ -18,6 +20,7 @@ In the last lesson we discussed how to take a problem you're interested in under
 
 In this lesson, we're going to really focus on the second and third questions there. What data do you need to answer your data science question and what limitations do these data have? We'll focus on the details of how to get the data necessary to answer the question of interest. We'll walk through this process again using the [Trump Tweets blog post](http://varianceexplained.org/r/trump-tweets/) as an example.
 
+{format: png}
 ![Trump Tweets Blog Post](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3ec882b221_0_155)
 
 ### The Perfect Dataset: The Data We Want
@@ -55,6 +58,7 @@ Additionally, the data from the Twitter API does *not* include the `author`, the
 
 Finally, the dataset does not include any measure of how angry or negative the content of the tweets are. David will have to use the tweets to determine that during his analysis.
 
+{format: png}
 ![The data we have](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3ec882b221_0_186)
 
 Nevertheless, David did have information on this subset of tweets, including the date, time, os, and what the tweet said. While not exactly the data he would have likely liked to have, David was still able to use these data while noting the limitations of the data in his blog post!
@@ -195,12 +199,14 @@ Another curse of a dataset is measurement error. In simple, measurement error re
 
 What if you were interested in determining what variables lead to increases in crime? To do so, you obtain data from a US city with lots of different variables and crime rates for a particular time period. You would then wrangle the data and at first you look at the relationship between popsicle sales and crime rates. You see that the more popsicles that are sold, the higher the crime rate. 
 
+{format: png}
 ![popsicles and crime rate](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3db10fb92e_0_125)
 
 Your first thought may be that popsicles lead to crimes being committed. However, there is a confounder that's not being considered!
 
 We will see in detail what confounders are in the lesson on Inferential Analysis but in short **confounders** are other variables that may affect our outcome but are also correlated with (have a relationship with) our main variable of interest. In the popsicle example, temperature is an important confounder. More crimes happen when it's warm out *and* more popsicles are sold. It's not the popsicles at all driving the relationship. Instead temperature is likely the culprit. 
 
+{format: png}
 ![temperature is a confounder](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3e017d0f95_0_0)
 
 Therefore, if we're really interested in what increases crime rate, we should also consider the temperature. Thus, it's important to understand the relationship between the variables in your dataset. This will be further discussed in the Exploratory Analysis lesson.
@@ -210,6 +216,7 @@ Therefore, if we're really interested in what increases crime rate, we should al
 
 The results of the 2016 US presidential election came as a surprise to a lot of the media outlets and poll experts. Most polls consistently projected that Hillary Clinton would defeat Donald Trump. Election forecasters put Clinton at a winning position at a chance as high as 70-99 percent. Polls are usually trustworthy, but what happened in 2016?
 
+{format: png}
 ![Why were polls so wrong about the 2016 US election?](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3ec882b221_0_938)
 
 We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms were not wholly appropriate. To be more specific, the problem was what is called the **nonresponse bias**. Nonresponse bias is the bias the sample caused by a particular **section of the population systematically refusing to answer to the poll or survey**. The consequence of nonresponse bias is a *sample that is not representative of the population* as we discussed above. (For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election.() It is known that less educated voters who constituted a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) as another reason why polls failed to predict the outcome of the election accurately. 
