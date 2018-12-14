@@ -471,7 +471,7 @@ o) p < 0.05
 ?3 If your beta coefficient for a model that looked at the relationship between height and weight (for example: `lm(height ~ weight)`) were 0.2, what would that mean?
 
 C) for every 1 lb increase in weight, you would expect height to increase by 0.2 inches.
-C) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
+C) for every 1 lb decrease in weight, you would expect height to decrease by 0.2 inches.
 m) for every 1 lb increase in height, you would expect weight to increase by 0.2 inches.
 o) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
 o) for every 1 lb increase in height, you would expect weight to decrease by 0.2 inches.
