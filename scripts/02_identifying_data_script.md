@@ -30,9 +30,7 @@ In practice, data are defined by how they are collected. While it may not always
 
 Cross-sectional data are collected from a sample of the bigger population of interest at a specific point in time.
 
-Longitudinal data are collected from a sample of the population of interest but at multiple points in time. For instance, data on the effect of peer effect in school on life outcomes are measured at multiple points in the lives of the individuals.
-
-Panel data are collected from a sample of the population of interest at multiple points in time but the sample may change from one point in time to another. For example, if data is collected on 1000 individual in the year 2010, in 2015 the data may be collected from 1000 individual that may or may not overlap with the 2010 sample.
+Longitudinal or panel data are collected from a sample of the population of interest but at multiple points in time. For instance, data on the effect of peer effect in school on life outcomes are measured at multiple points in the lives of the individuals. In longitudinal or panel data, the sample does not change from one point in time to another. For example, if data is collected on 1000 individuals in the year 2010, in 2015 the data is likely collected from the same 1000 individuals.
 
 Additionally, Experimental data are collected through a randomized experiment. In an experiment, the researchers divide the sample into to or more (that is chosen from the bigger population of interest) and assign the treatment (let's say the vaccination) to one group while the group receives no treatment. The outcomes are then observed and compared. This differs from observational data, which involves collecting data without changing any of the existing conditions. 
 
