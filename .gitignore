@@ -4,6 +4,8 @@
 .Ruserdata
 .httr-oauth
 *.mp4
+manuscript/quiz
 for_jeff/*
 manuscript/resources/videos/*
+manuscript/resources/images/*
 athlete_events.csv

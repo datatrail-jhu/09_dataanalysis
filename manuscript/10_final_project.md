@@ -94,11 +94,13 @@ Included in the data are a number of **demographic variables** (such as responde
 
 There are multiple ways to access the ATUS data; however, for this project, you'll get the raw data directly from the source. The data for each year can be found at [https://www.bls.gov/tus/#data](https://www.bls.gov/tus/#data). Once there, there is an option of downloading a multi-year file, which includes data for all of the years the survey has been conducted, but **for the purposes of this project, let's just look at the data for 2016**. Under **Data Files**, click on `American Time Use Survey--2016 Microdata files`. 
 
-![American Time Use Survey](images/10_final_project/10_dataanalysis_final_project-1.png)
+{format: png}
+![American Time Use Survey](https://docs.google.com/presentation/d/1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac/export/png?id=1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac&pageid=g3fa7766823_0_0)
 
 You will be brought to a new screen. Scroll down to the section **2016 Basic ATUS Data Files**. Under this section, you'll want to **click to download** the following two files: `ATUS 2016 Activity summary file (zip)` and `ATUS-CPS 2016 file (zip)`. 
 
-![Download Data Files](images/10_final_project/10_dataanalysis_final_project-2.png)
+{format: png}
+![Download Data Files](https://docs.google.com/presentation/d/1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac/export/png?id=1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac&pageid=g3fa7766823_0_9)
 
 * `ATUS 2016 Activity summary file (zip)` contains information about the total time each ATUS respondent spent doing each activity listed in the survey. The activity data includes information such as activity codes, activity start and stop times, and locations.
 * `ATUS-CPS 2016 file (zip)` contains information about each household member of all individuals selected to participate in the ATUS.
