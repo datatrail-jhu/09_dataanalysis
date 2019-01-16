@@ -4,6 +4,7 @@ Inferential Analysis is what analysts carry out *after* they've described and ex
 
 Let's break this all down a little bit. The goal of inferential analyses is to use a relatively **small sample** of data to **infer** or say something about the **population** at large. This is required because often we *want* to answer questions about a population. Let's take a dummy example here where we have a population of 14 shapes.
 
+
 {format: png}
 ![The population](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_5)
 
@@ -516,7 +517,7 @@ o) p < 0.05
 ?3 If your beta coefficient for a model that looked at the relationship between height and weight (for example: `lm(height ~ weight)`) were 0.2, what would that mean?
 
 C) for every 1 lb increase in weight, you would expect height to increase by 0.2 inches.
-C) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
+C) for every 1 lb decrease in weight, you would expect height to decrease by 0.2 inches.
 m) for every 1 lb increase in height, you would expect weight to increase by 0.2 inches.
 o) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
 o) for every 1 lb increase in height, you would expect weight to decrease by 0.2 inches.
@@ -567,18 +568,17 @@ o) `lm()`
 {points:3}
 ?7 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
-! /.+(c66R|iLNb|LpE7|4eHK|tvFJ|iDpc|fTC3|pivl|Ctjm|9XvR).+/i
-
+! /.*(c66R|iLNb|LpE7|4eHK|tvFJ|iDpc|fTC3|pivl|Ctjm|9XvR).*/i
 
 {points:3}
 ?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(Hx3B|B1rr|VRPL|kcDX|o17f|iVYf|NJP5|YAsw|YEXw|Xl5D).+/i
+! /.*(Hx3B|B1rr|VRPL|kcDX|o17f|iVYf|NJP5|YAsw|YEXw|Xl5D).*/i
 
 {points:3}
 ?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(Vj1T|ht5U|jd5g|yG4O|hhUB|3ngr|5SXs|e5RA|clMC|bwnm).+/i
+! /.*(Vj1T|ht5U|jd5g|yG4O|hhUB|3ngr|5SXs|e5RA|clMC|bwnm).*/i
 
 {/quiz}
 

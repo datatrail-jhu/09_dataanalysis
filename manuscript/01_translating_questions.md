@@ -42,7 +42,6 @@ __When I run more do I lose weight?__
 {format: png}
 ![When I run more do I lose weight?](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3fa6327ef6_0_234)
 
-
 __Are customers more likely to click on ads with puppies?__
 
 

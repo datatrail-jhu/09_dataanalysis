@@ -547,26 +547,26 @@ o) sum
 o) central tendency
 
 {points:3}
-?5 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+?5 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L04 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
-! /.+(ql7Q|ZrQI|TB46|JwnO|aemd|pXWR|OTZn|Y7kF|wYmh|hhBL).+/i
-
-
-{points:3}
-?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(Bkex|dcn8|dajc|PnrI|sTea|1tk7|EYBv|4JzZ|KVYf|pKRA).+/i
+! /.*(ql7Q|ZrQI|TB46|JwnO|aemd|pXWR|OTZn|Y7kF|wYmh|hhBL).*/i
 
 
 {points:3}
-?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(VbN1|L0qw|gkoN|y33z|GPHl|ShP6|ZVK1|CZDf|ssQ5|x0nO).+/i
+! /.*(Bkex|dcn8|dajc|PnrI|sTea|1tk7|EYBv|4JzZ|KVYf|pKRA).*/i
 
 
 {points:3}
-?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(kNEY|5NTr|PJUu|fWxw|CfsZ|H8LY|oi7K|jjht|dIzg|badT).+/i
+! /.*(VbN1|L0qw|gkoN|y33z|GPHl|ShP6|ZVK1|CZDf|ssQ5|x0nO).*/i
+
+
+{points:3}
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.*(kNEY|5NTr|PJUu|fWxw|CfsZ|H8LY|oi7K|jjht|dIzg|badT).*/i
 
 {/quiz}

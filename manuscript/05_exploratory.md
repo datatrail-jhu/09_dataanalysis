@@ -48,12 +48,10 @@ First, the results of the `skim()` function indicate that some of our variables 
 {format: png}
 ![There are some missing values in the data](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_44)
 
-
 Second, we can see that there are some outliers in some of the numerical variables. For example, look at the summary of the variable `Age`. Although the average age among all the athletes is around 25, there is an individual who is 97 years old (fun fact: use the command `subset(df, df$Age == 97)` to check out the information about this athlete. You will see that the name of the athlete is John Quincy Adams Ward and he competed in the sport(!) Art Competitions Mixed Sculpturing in 1928. This artist is known for his George Washington statue in front of Federal Hall in Wall Street in New York City.) It is always good to know about the existence of outliers in your sample. Outliers can significantly skew the results of your analysis. You can find outliers by looking at the distribution of your variable too.
 
 {format: png}
 ![There is an outlier in the Age variable](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_49)
-
 
 Histograms, in general, are one of the best ways to look at a variable and find abnormalities. You can see that the age of most individuals in the sample are between 18-35.
 
@@ -97,7 +95,6 @@ And now, we use the following code to create the boxplot.
 ![Boxplot for the relationship between height and having won a medal](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_91)
 
 What is obvious is that those who have a medal are taller. Can we say that being tall increases the probability of winning a medal in the Olympics? The answer to this question is that we don't know. There are some possible scenarios. For instance, it could be true that being tall increase the chances of winning medals. But it could also be that there are more medals awarded in sports such as volleyball or basketball that require taller athletes. In these sports, every member of the winning team gets a medal (even if country counts only one medal is counted for the country). As a result, we may end up having so many tall athletes with a medal in each Olympics. It could also be that there are other confounding factors involved that explain why an athlete wins a medal. We will learn about confounding variables in future lessons. For now, it's important to know, as we said in the beginning of this lesson, that association or correlation does not mean causation.
-
 
 ### Slides and Video
 
@@ -191,22 +188,21 @@ o) `geom_boxplot()`
 {points:3}
 ?6 Go to the [Chromebook Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
-! /.+(FdHp|vp1F|ZDic|jFbv|t8UC|USLe|1dZb|a66z|P4Jk|kzFD).+/i
-
+! /.*(FdHp|vp1F|ZDic|jFbv|t8UC|USLe|1dZb|a66z|P4Jk|kzFD).*/i
 
 {points:3}
 ?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(b3JA|Bx0b|JwPw|DlLI|Zq19|vn6g|DpIe|gMM5|mAiU|vRzJ).+/i
+! /.*(b3JA|Bx0b|JwPw|DlLI|Zq19|vn6g|DpIe|gMM5|mAiU|vRzJ).*/i
 
 {points:3}
 ?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(2CZB|FauT|Bjpx|MnXb|CLcf|Ainc|dvav|Fvcl|6gNn|zchI).+/i
+! /.*(2CZB|FauT|Bjpx|MnXb|CLcf|Ainc|dvav|Fvcl|6gNn|zchI).*/i
 
 {points:3}
 ?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.+(S9C5|GkSz|LsiP|cm9Z|tsT1|xx8h|ud6J|dtF8|cpWo|UxWB).+/i
+! /.*(S9C5|GkSz|LsiP|cm9Z|tsT1|xx8h|ud6J|dtF8|cpWo|UxWB).*/i
 
 {/quiz}
