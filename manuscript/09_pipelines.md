@@ -134,7 +134,7 @@ Here, we would add this code to a code chunk called `checks`.
 {format: png}
 ![`checks` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_43)
 
-In the code in this chunk (below), we're checking to see if the expected column names are what are in the Google Sheet URL that was provided. You'll see we specify what the expected column names are by creating the `columns` object. Then, the check looks to see how many columns in the Google Sheet are the same as the columns specified in the `columns` object. If they are not all equal, then the report will not compile and an error will be thrown.
+In the code in this chunk (above), we're checking to see if the expected column names are what are in the Google Sheet URL that was provided. You'll see we specify what the expected column names are by creating the `columns` object. Then, the check looks to see how many columns in the Google Sheet are the same as the columns specified in the `columns` object. If they are not all equal, then the report will not compile and an error will be thrown.
 
 Note that there are three types of feedback your code can give in R:
 

@@ -481,7 +481,7 @@ In this lesson, we have covered *a lot*. We started off discussing that inferent
 
 ### Slides and Video
 
-![Inferential Analysis](https://www.youtube.com/watch?v=11DqIm2BbHI)
+![Inferential Analysis](https://www.youtube.com/watch?v=uabQUHwuxCs)
 
 * [Slides](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/edit?usp=sharing)
 

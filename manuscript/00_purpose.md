@@ -60,7 +60,7 @@ Let's begin with some example data science projects, how they are asked, and how
 
 #### Example 1: Credit card fraud detection
 
-If you have a credit card, every time you charge something, the bank keeps a record of that charge. This can be useful for you when you want to keep track of your finances. But banks use the information for other purposes as well. If you lose your credit card and someone starts using it to buy things for themselves this is called credit card fraud. By collecting data from everyone, credit card companies are able to predict potential fraudulent transactions before consumers notice anything. So the question is: "Can we predict which credit card charges are fraudulent?".  But this is not a data science question yet. To ask this liek a data scientist we might ask, "Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?". Since we are interested in predicting whether a charge is fraud or genuine, this will be a predictive analysis.
+If you have a credit card, every time you charge something, the bank keeps a record of that charge. This can be useful for you when you want to keep track of your finances. But banks use the information for other purposes as well. If you lose your credit card and someone starts using it to buy things for themselves this is called credit card fraud. By collecting data from everyone, credit card companies are able to predict potential fraudulent transactions before consumers notice anything. So the question is: "Can we predict which credit card charges are fraudulent?".  But this is not a data science question yet. To ask this like a data scientist we might ask, "Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?". Since we are interested in predicting whether a charge is fraud or genuine, this will be a predictive analysis.
 
 - **Problem:** Detecting whether credit card charges are fraudulent. 
 - **Data science question:** Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?
@@ -154,7 +154,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?4 We collect data a sample of foods at a number of different grocery stores across the country and want to figure out the relationship between the region of the country and number of types of apples sold. What type of analysis is this?
+?4 We collect data about a sample of foods at a number of different grocery stores across the country and want to figure out the relationship between the region of the country and number of types of apples sold. What type of analysis is this?
 
 C) Inferential
 o) Descriptive
@@ -164,7 +164,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?5 We collect data a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? 
+?5 We collect data about a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? 
 
 C) Exploratory
 o) Descriptive
