@@ -95,7 +95,7 @@ As a reminder, as was discussed in the inferential analysis, just because one va
 
 ### Model Selection
 
-Additionally, there are many ways to generate prediction models. Each model was developed for a different and specific purpose. We'll discuss a few types of predictive models here, with a focus on usign linear regression. However, regardless of which model you choose to use for prediction, it's best to keep in mind that, in general, the **more data** you have and the **simpler your model is**, the best chance you have at accurately predicting future outcomes:
+Additionally, there are many ways to generate prediction models. Each model was developed for a different and specific purpose. We'll discuss a few types of predictive models here, with a focus on using linear regression. However, regardless of which model you choose to use for prediction, it's best to keep in mind that, in general, the **more data** you have and the **simpler your model is**, the best chance you have at accurately predicting future outcomes:
 
 * More data - The more observations you have and the more variables you have to choose from to include in your model, the more likely you are to generate an accurate predictive model. Note, however, large datasets with lots of missing data or data that have been incorrectly entered are *not* better than small, complete, and accurate datasets. Having a trustworthy dataset to build your model is critical.
 * Simple Models - If you can accurately predict an individual's height by only considering that person's parents height, then go for it. There's no need to include other variables if a single variable generates accurate predictions. A simple model that predicts accurately (regardless of the dataset in which you're predicting) is better than a complicated model.
@@ -352,7 +352,7 @@ Data splitting from above will be used here. Thus, our training set will still b
 
 Given the relatively small nature of this dataset, we'll build the CART using all of the data; however, further and more robust optimization of what variables are included in the model is possible within the `caret` package.
 
-Here we specify that we want to predict `Species`, that we want to use a CART to do so by setting the method to `rf`, and that, since it's a categorical variable, we're going to use `Accuracy` to as our assessment metric.
+Here we specify that we want to predict `Species`, that we want to use a CART to do so by setting the method to `rpart`, and that, since it's a categorical variable, we're going to use `Accuracy` to as our assessment metric.
 
 ```r
 ## CART
@@ -370,7 +370,7 @@ predictions_cart <- predict(fit.cart, iris_tune)
 
 table(iris_tune$Species, predictions_cart)
 ``` 
-##### Accuracy Assessment
+#### Accuracy Assessment
 
 {format: png}
 ![`table()` output](https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&pageid=g3db61636bd_0_1187)
@@ -389,7 +389,7 @@ In this lesson we have covered the basics of what predictive analysis is, what t
 
 ### Slides and Video
 
-![Prediction & Machine Learning](https://www.youtube.com/watch?v=pg78Oe7mWaw)
+![Prediction & Machine Learning](https://www.youtube.com/watch?v=qNC5OGra4d8)
 
 * [Slides](https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/edit?usp=sharing)
 

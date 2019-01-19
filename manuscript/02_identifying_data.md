@@ -185,7 +185,7 @@ Random sampling is a necessary approach to having a representative sample. Rando
 
 With this logic, most online surveys or surveys on social media has to be taken with a grain of salt because not members of all social groups have an online presentation or use social media. 
 
-The moral of the story is that **always think about what your population is**. Your population will change from one project to the next. If you are researching the effect of smoking on pregnant women, then your population is, well, pregnant women (and not men(. After you know your population, then you will always want collect data from a sample that is representative of your population. Random sampling helps. 
+The moral of the story is that **always think about what your population is**. Your population will change from one project to the next. If you are researching the effect of smoking on pregnant women, then your population is, well, pregnant women (and not men). After you know your population, then you will always want collect data from a sample that is representative of your population. Random sampling helps. 
 
 And lastly, if you have no choice but to work with a dataset that is not collected randomly and is biased, be careful not to generalize your results to the entire population. If you collect data on pregnant women of age 18-24, you can't generalize your results to older women. If you collect data from the political attitudes of residents of Washington, DC, you can't say anything about the whole nation.
 
@@ -217,7 +217,7 @@ The results of the 2016 US presidential election came as a surprise to a lot of 
 {format: png}
 ![Why were polls so wrong about the 2016 US election?](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&pageid=g3ec882b221_0_938)
 
-We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms were not wholly appropriate. To be more specific, the problem was what is called the **nonresponse bias**. Nonresponse bias is the bias the sample caused by a particular **section of the population systematically refusing to answer to the poll or survey**. The consequence of nonresponse bias is a *sample that is not representative of the population* as we discussed above. (For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election.() It is known that less educated voters who constituted a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) as another reason why polls failed to predict the outcome of the election accurately. 
+We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms were not wholly appropriate. To be more specific, the problem was what is called the **nonresponse bias**. Nonresponse bias is the bias the sample caused by a particular **section of the population systematically refusing to answer to the poll or survey**. The consequence of nonresponse bias is a *sample that is not representative of the population* as we discussed above. (For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election. It is known that less educated voters who constituted a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) as another reason why polls failed to predict the outcome of the election accurately. 
 
 While it's always easier to look back at a failed analysis and determine what went wrong then to identify the issues up front, researchers would have benefited from determining if the data they had were the most appropriate for answering their question of interest. 
 
@@ -240,7 +240,7 @@ All in all, the data and how they're collected matters. There is a term in stati
 
 ### Slides and Video
 
-![Do I Have The Data I Need](https://www.youtube.com/watch?v=74r9V5S42fI)
+![Do I Have The Data I Need](https://www.youtube.com/watch?v=90SP7w_6SYo)
 
 * [Slides](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)
 
