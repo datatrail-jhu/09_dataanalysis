@@ -39,9 +39,9 @@ Once the repository has been created, Click on `Clone or download` and copy the 
 
 ### RStudio Cloud Setup
 
-- Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC)
+- Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD)
 - Click on the "Projects" tab at the top of the workspace
-- Make a copy of the project: `cbds_final_project`
+- Make a copy of the project: `final_project`
 
 In this project you should see a `final_project.Rmd ` file. You'll use this to get started working on your project!
 

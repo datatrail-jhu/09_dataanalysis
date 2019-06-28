@@ -186,7 +186,7 @@ o) `geom_density()`
 o) `geom_boxplot()`
 
 {points:3}
-?6 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/3919/join?access_code=RUUQ%2BeEgKea0oMF7EJy4UePldyBBMu7d0amv2KFC) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+?6 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 ! /.*(FdHp|vp1F|ZDic|jFbv|t8UC|USLe|1dZb|a66z|P4Jk|kzFD).*/i
 
