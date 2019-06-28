@@ -444,22 +444,3 @@ o) `cart`
 
 {/quiz}
 
-{exercise, id: exercise_07_prediction_ml}
-
-### DataCamp:  Machine Learning Toolbox
-
-{case-sensitive: false}
-? To get more practice with machine learning and the `caret` package, go to the course [Machine Learning Toolbox](https://www.datacamp.com/courses/machine-learning-toolbox) on DataCamp. Login and complete the first two lessons:
-
-- Regression models: fitting them and evaluating their performance
-- Classification models: fitting them and evaluating their performance
-
-Once you've completed the course, type "completed" in the box below.
-
-*Note*: This requires a DataCamp login, which costs money. As an exercise, this is not required to pass the course but it *will* help you get a better grasp on the concepts covered in these lessons.
-
-*Reminder*: Videos in DataCamp are essential to understanding the material. It's best not to skip over these videos!
-
-! completed
-
-{/exercise}
