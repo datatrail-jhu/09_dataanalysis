@@ -568,17 +568,17 @@ o) `lm()`
 {points:3}
 ?7 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
-! /.*(c66R|iLNb|LpE7|4eHK|tvFJ|iDpc|fTC3|pivl|Ctjm|9XvR).*/i
+! /.*(PT5C|YSx1|ohkU|9mXn|hfHc|zsat|Og9F|f7yi|j0WN|IpKr).*/i
 
 {points:3}
 ?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(Hx3B|B1rr|VRPL|kcDX|o17f|iVYf|NJP5|YAsw|YEXw|Xl5D).*/i
+! /.*(b400|rnZg|KcBS|RIzd|SCcB|wXcf|u4HM|DaLn|IgfM|ZG2V).*/i
 
 {points:3}
 ?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(Vj1T|ht5U|jd5g|yG4O|hhUB|3ngr|5SXs|e5RA|clMC|bwnm).*/i
+! /.*(4RjS|gRfS|D9lg|lMMv|HoyQ|NYt0|C1Yu|slGZ|gocd|wtzZ).*/i
 
 {/quiz}
 
