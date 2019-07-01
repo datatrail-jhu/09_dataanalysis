@@ -549,24 +549,24 @@ o) central tendency
 {points:3}
 ?5 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L04 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
-! /.*(8Oz0|RQEO|d5Ok|SmZS|6kKc|6wjt|IIjG|7vXF|4yrH|Jes3).*/i
+! /.+(8Oz0|RQEO|d5Ok|SmZS|6kKc|6wjt|IIjG|7vXF|4yrH|Jes3).+/i
 
 
 {points:3}
 ?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(uQcf|scL2|nxSh|iBc8|0q0s|p9tw|6rQ6|nfZx|DBCh|ExwY).*/i
+! /.+(uQcf|scL2|nxSh|iBc8|0q0s|p9tw|6rQ6|nfZx|DBCh|ExwY).+/i
 
 
 {points:3}
 ?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(Sm3D|Kh1S|IS3v|Nl2p|Smov|DRxH|JBhG|mQtm|Pj5y|GX22).*/i
+! /.+(Sm3D|Kh1S|IS3v|Nl2p|Smov|DRxH|JBhG|mQtm|Pj5y|GX22).+/i
 
 
 {points:3}
 ?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(tpUZ|OEj0|y6LY|sdxD|o4DB|AS4m|VmqK|7GjF|hYQ2|dvIe).*/i
+! /.+(tpUZ|OEj0|y6LY|sdxD|o4DB|AS4m|VmqK|7GjF|hYQ2|dvIe).+/i
 
 {/quiz}

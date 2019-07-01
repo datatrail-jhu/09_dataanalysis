@@ -188,21 +188,21 @@ o) `geom_boxplot()`
 {points:3}
 ?6 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
-! /.*(XERJ|rNCn|49A4|Dmgt|caSc|eXsP|RN7v|kfbH|bbBx|7aek).*/i
+! /.+(XERJ|rNCn|49A4|Dmgt|caSc|eXsP|RN7v|kfbH|bbBx|7aek).+/i
 
 {points:3}
 ?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(rtkr|0ciB|gXV3|1tNg|qgTv|K2iF|Vzjn|jNiN|zwK7|dgFD).*/i
+! /.+(rtkr|0ciB|gXV3|1tNg|qgTv|K2iF|Vzjn|jNiN|zwK7|dgFD).+/i
 
 {points:3}
 ?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(XPwX|qhFQ|9fHG|cfJ3|wbIW|KYcl|weA4|Ck9J|NWrW|lgP2).*/i
+! /.+(XPwX|qhFQ|9fHG|cfJ3|wbIW|KYcl|weA4|Ck9J|NWrW|lgP2).+/i
 
 {points:3}
 ?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-! /.*(ilKD|Lu7f|hBVK|wGXf|bSKM|hYPf|FlHZ|2iPI|fbQm|tsAg).*/i
+! /.+(ilKD|Lu7f|hBVK|wGXf|bSKM|hYPf|FlHZ|2iPI|fbQm|tsAg).+/i
 
 {/quiz}
