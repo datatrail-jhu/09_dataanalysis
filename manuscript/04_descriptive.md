@@ -12,14 +12,14 @@ If you think of a dataset as the animal in the elephant in the middle of this pi
 
 Descriptive analysis will first and foremost generate simple summaries about the samples and their measurements to describe the data you're working with. There are a number of common descriptive statistics that we'll discuss in this lesson: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance). 
 
-This type of analysis is aimed at **summarizing your dataset** Unlike analysis approaches we'll discuss in coming lessons, descriptive analysis is *not* for generalizing the results of the analysis to a larger population *nor* trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we're just summarizing what we're working with. 
+This type of analysis is aimed at **summarizing your dataset**. Unlike analysis approaches we'll discuss in coming lessons, descriptive analysis is *not* for generalizing the results of the analysis to a larger population *nor* trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we're just summarizing what we're working with. 
 
-Some examples of purely descriptive analysis can be seen in censuses. In a census, the government collects a series of measurements on *all* of the country's citizens. After collecting these data, they are summarized. From this descriptive analysis, we learn a lot about a country. You'll be able to learn the age distribution of the population. 
+Some examples of purely descriptive analysis can be seen in censuses. In a census, the government collects a series of measurements on *all* of the country's citizens. After collecting these data, they are summarized. From this descriptive analysis, we learn a lot about a country. For example, you can learn the age distribution of the population by looking at U.S. census data.
 
 {format: png}
 ![2010 census Data broken down by age](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_1)
 
-This can be further broken down (or **stratified**) by sex to describe the age distribution by sex. The goal of these analysis is  to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is to summarize the data collected. 
+This can be further broken down (or **stratified**) by sex to describe the age distribution by sex. The goal of these analyses is  to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is only to summarize the data collected. 
 
 {format: png}
 ![2010 census Data broken down by age and sex](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_74)
@@ -72,7 +72,7 @@ Well, we could use `dim()` and then use the `colnames()` function to determine w
 colnames(df)
 ```
 
-The output from colnames tells us that there are 11 variables in our dataset and lets us know what the variable names are for these data.
+The output from `colnames` tells us that there are 11 variables in our dataset and lets us know what the variable names are for these data.
 
 {format: png}
 ![`colnames()` output](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_20)
@@ -107,7 +107,7 @@ glimpse(df)
 
 In any analysis after your descriptive analysis, missing data can cause a problem. Thus, it's best to get an understanding of missingness in your data right from the start. **Missingness** refers to observations that are not included for a variable. In R, `NA` is the preferred way to specify missing data, so if you're ever generating data, its best to include `NA` wherever you have a missing value. 
 
-However, individuals who are less familiar with R code missingness in a number of different ways in their data: `-999`, `N/A`, `.`, ` `. As such, it's best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a single dataset will code missingness differently. This shouldn't happen, but it does, so always use caution when looking for missingness.
+However, individuals who are less familiar with R code missingness in a number of different ways in their data: `-999`, `N/A`, `.`, or a blank space. As such, it's best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a single dataset will code missingness differently. This shouldn't happen, but it does, so always use caution when looking for missingness.
 
 In this dataset, all missing values are coded as `NA`, and from the output of `str(df)` (or `glimpse(df)`), we see that at least a few variables have `NA` values. We'll want to quantify this missingness though to see which variables have missing data and how many observations within each variable have missing data. 
 
@@ -260,7 +260,7 @@ An important note is that observations should **never** be removed just to make 
 
 To identify outliers visually, density plots and boxplots can be very helpful.
 
-For example, if we returned to the `iris` dataset and looked at the distribution of `Petal.Length`, we would see a bimodal distribution (yet another distribution!). Bimodal distributions can be identified by desnityplots that have two distinct humps. In these distributions, there are two different modes -- this is where the term "bimodal" comes from. In this plot, the curve suggests there are a number of flowers with petal length less than 2 and many with petal length around 5.
+For example, if we returned to the `iris` dataset and looked at the distribution of `Petal.Length`, we would see a bimodal distribution (yet another distribution!). Bimodal distributions can be identified by density plots that have two distinct humps. In these distributions, there are two different modes -- this is where the term "bimodal" comes from. In this plot, the curve suggests there are a number of flowers with petal length less than 2 and many with petal length around 5.
 
 ```r
 ## density plot
@@ -361,7 +361,7 @@ ggplot(df, aes(bodywt)) +
 {format: png}
 ![mean vs median](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_330)
 
-When we look at the histogram of the data, we see that most bodyweights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
+When we look at the histogram of the data, we see that most body weights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
 
 When you have outliers in the dataset, the median is typically the measure of central tendency you'll want to use, as it's resistant to the effects of outlier values. 
 

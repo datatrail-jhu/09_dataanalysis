@@ -52,7 +52,7 @@ Having all these data in this format would enable us to answer the question of i
 
 *But*, the data we *have* are typically not *exactly* the data we *want*.
 
-In this case, David Robinson was able to use the `twitteR` package and the Twitter API to obtain a number of Donald Trump's tweets. Ultimately, the dataset he used for his analysis contained 628 tweets from an iPhone, and 762 tweets from an Android. That's not nearly *all* the tweets from this account; however, the Twitter API limits the number of tweets one can obtain. Already, the **data we have are not the optimal data we wanted**, but that's ok. 
+In this case, David Robinson was able to use the `twitteR` package and the Twitter API to obtain a number of Donald Trump's tweets. Ultimately, the dataset he used for his analysis contained 628 tweets from an iPhone, and 762 tweets from an Android. That's not nearly *all* the tweets from this account; however, the Twitter API limits the number of tweets one can obtain. Already, the **data we have are not the optimal data we wanted**, but that's OK. 
 
 Additionally, the data from the Twitter API does *not* include the `author`, the author's location, nor any information about deleted tweets. Again, the data we have are quite different from our optimal data.
 
@@ -106,13 +106,13 @@ Alternatively, what if another company had the data you needed, but the company 
 
 #### Ethical Limitations
 
-In the introduction to this lesson, we also talked about the case where we wanted to know if texting increases the number of accidents. We mentioned that we wouldn't be able to carry out the experiment of telling people to text when they're driving and then seeing if those people get into more accidents due to ethical limitations. It is unethical to collect data knowingly putting individuals in harms way.
+In the introduction to this lesson, we also talked about the case where we wanted to know if texting increases the number of accidents. We mentioned that we wouldn't be able to carry out the experiment of telling people to text when they're driving and then seeing if those people get into more accidents due to ethical limitations. It is **unethical to collect data knowingly putting individuals in harms way**.
 
-However, there are more nuanced situations as well. What if you want to collect data about reproductive health. You may want to know *everything* about each mother's medical history, including very sensitive and personal information. For example, you may want to know whether or not each individual in your dataset has ever had an abortion. Asking sensitive and invasive questions should only be asked when absolutely necessary. Further, this data will *always* have to be stored securely, and can only be asked with approval of and oversight committee (such as an Institutional Review Board). Thus, while it may be *helpful* to have information about certain variables, it may be inappropriate or too invasive to obtain this information.
+However, there are more nuanced situations as well. What if you want to collect data about reproductive health? You may want to know *everything* about each mother's medical history, including very sensitive and personal information. For example, you may want to know whether or not each individual in your dataset has ever had an abortion. Asking sensitive and invasive questions should only be asked when absolutely necessary. Further, this data will *always* have to be stored securely, and can only be asked with approval of and oversight committee (such as an Institutional Review Board). Thus, while it may be *helpful* to have information about certain variables, it may be inappropriate or too invasive to obtain this information.
 
 #### Security
 
-Mentioned briefly above, but to really spell it out here: not all data are publicly-available and not all data *should* be publicly-available. Personal data and data that contain sensitive information must be secured properly and cannot be shared freely. While the data you want may exist somewhere, you may not have access to it, nor will you be granted access to it for security reasons. In these cases, you will not be able to use these data. 
+Mentioned briefly above, but to really spell it out here: not all data are publicly-available and not all data *should* be publicly-available. **Personal data and data that contain sensitive information must be secured properly and cannot be shared freely**. While the data you want may exist somewhere, you may not have access to it, nor will you be granted access to it for security reasons. In these cases, you will not be able to use these data. 
 
 ### Questions to Ask Ourselves
 
@@ -125,7 +125,7 @@ If you run into problems obtaining or collecting the data you need to answer you
 
 In the case where you decide to change the question and determine that the project is still worth doing at this point, it's important to go back through the exercise of determining what data you would optimally have, what you do have, and what you can get easily to ensure that you won't be wasting your time by moving forward with the project.
 
-However, in some cases, you'll have a super interesting question, but you won't be able to do the project given the data you have. In these situations, save the idea for a later point when you may have the resources or access to the data you need, and then move onto the next one. Everyone has had to abandon projects in their career, and it's ok to move on. It's much better to leave a project behind in the planning stages than to spend months or years on a project/analysis that was doomed from the start!
+However, in some cases, you'll have a super interesting question, but you won't be able to do the project given the data you have. In these situations, save the idea for a later point when you may have the resources or access to the data you need, and then move onto the next one. Everyone has had to abandon projects in their career, and it's OK to move on. It's much better to leave a project behind in the planning stages than to spend months or years on a project/analysis that was doomed from the start!
 
 ### Are the Data We Have Good Data?
 
@@ -145,7 +145,7 @@ For example, data downloaded from other resources often need to be cleaned and w
 * variable values are internally consistent
 * appropriate transformed variables have been added
 
-These are the concepts previously discussed in the Data Tidying lessons in an earlier course in this Course Set, so many of them should be familiar. Cleaning data to make sure the dataset is in a tidy format, that the variables are all appropriately-named, and that hte values within each variable are as you expect them to be is an important step in determining whether or not the data you have will be useful in answering your data science question. These topics will be further discussed in the Descriptive Analysis and Exploratory Analysis lessons in the later lessons in this course.
+These are the concepts previously discussed in the Data Tidying lessons in an earlier course in this Course Set, so many of them should be familiar. Cleaning data to make sure the dataset is in a tidy format, that the variables are all appropriately-named, and that the values within each variable are as you expect them to be is an important step in determining whether or not the data you have will be useful in answering your data science question. These topics will be further discussed in the Descriptive Analysis and Exploratory Analysis lessons in the later lessons in this course.
 
 #### When data aren't good
 
@@ -163,7 +163,7 @@ For instance, if we don't have parental education in our dataset, we can use the
 
 ##### Variables in the dataset are not collected in the same year
 
-Imagine we want to find the relationship between the effect of cab prices and the number of rides in New York City. We want to see how people react to price changes. We get a hold of data on **cab prices in 2018**, but we only have data on the **number of rides from 2015**. Can these two variables be used together in our analysis? Simply, no. If we want to anser this question, we can't match these two sets of data. If we're using the prices from 2018, we should find the number of rides **from 2018** as well. Unfortunately, a lot of the time, this is an issue you'll run into. You'll either have to find a way to get the data from the same year or go back to the drawing board and ask a different question. This issue can be ignored only in cases where we're confident the variables does not change much from year to year.
+Imagine we want to find the relationship between the effect of cab prices and the number of rides in New York City. We want to see how people react to price changes. We get a hold of data on **cab prices in 2018**, but we only have data on the **number of rides from 2015**. Can these two variables be used together in our analysis? Simply, no. If we want to answer this question, we can't match these two sets of data. If we're using the prices from 2018, we should find the number of rides **from 2018** as well. Unfortunately, a lot of the time, this is an issue you'll run into. You'll either have to find a way to get the data from the same year or go back to the drawing board and ask a different question. This issue can be ignored only in cases where we're confident the variables does not change much from year to year.
 
 ##### Dataset is not representative of the population that you are interested in
 

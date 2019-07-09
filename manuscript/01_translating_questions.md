@@ -26,9 +26,9 @@ The first question is focused on figuring out who or what you are trying to stud
 
 The second question focuses on figuring out which variables are measured or will be measured in the data that you have. We have discussed previously about all the different potential data types you might have, including standard quantitative or qualitative data, text, images, or videos can be data. When answering this question it helps to be specific. For example, unstructured text from a social media post may not be helpful, but words and labels for the words in that post may be the data that you are looking for. 
 
-The third question is critical for being careful in a data analysis. When you use the problem forward approach, you might start with a general question. But it might not be possible to answer that question with data we have. For example, it may be difficult to study directly the way that cigarrette smoke affects children since most children don't smoke. You might have to change your question to studying the way that second-hand smoking affects children or the way that parents smoking habits affect children. A key part of translating a general question into a data science question is identifying these limitations. 
+The third question is critical for being careful in a data analysis. When you use the problem forward approach, you might start with a general question. But it might not be possible to answer that question with data we have. For example, it may be difficult to study directly the way that cigarette smoke affects children since most children don't smoke. You might have to change your question to studying the way that second-hand smoking affects children or the way that parents smoking habits affect children. A key part of translating a general question into a data science question is identifying these limitations. 
 
-The fourth question is focused on figuring out what type of analysis you are doing. We introduced the flowchart for defining the question type in a previous lecture. The key questions to ask are how the data are summarized, what are the goals you are trying to achieve, and what does success for your analysis look like? One of the [most common errors](http://science.sciencemag.org/content/347/6228/1314) that people make in doing a data analysis is to answer the wrong type of data analytic question. 
+The fourth question is focused on figuring out what type of analysis you are doing. We introduced the flowchart for defining the question type in an earlier lesson. The key questions to ask are how the data are summarized, what are the goals you are trying to achieve, and what does success for your analysis look like? One of the [most common errors](http://science.sciencemag.org/content/347/6228/1314) that people make in doing a data analysis is to answer the wrong type of data analytic question. 
 
 Let's try this approach out on a couple of made up examples and a real example to help you understand how to translate general questions into data science questions. 
 
@@ -87,17 +87,17 @@ We could collect this information by looking at the _@RealDonaldTrump_ twitter p
 
 We also need to figure out how to define "hyperbolic" which was the hypothesis in the original question. It is hard to directly label tweets as hyperbolic or non-hyperbolic. But we can collect the text of the tweets themselves. If we alter the question a little to "Are the Android tweets angrier and more negative than the iPhone tweets?" we can use the text of the tweets themselves to answer this question. There are lists of words that are already labeled as "angry" so we can look for those words among the tweets from Android phones and iPhones. 
 
-We can also collect the time that each tweet occured, since this will help us separate tweets coming from one type of phone or another. 
+We can also collect the time that each tweet occurred, since this will help us separate tweets coming from one type of phone or another. 
 
 
 __How do the data I have limit the type of question I can answer?__
 
-One critical piece of informtion we are missing from this data is _who_ sent the tweet out. We can hypothesize that one person has an Android and a different person has an iPhone. But we can't say for sure which person is tweeting from which type of phone. So we have changed the question from a question about _who_ is tweeting to _what is the difference_ between tweets from the two types of phones. 
+One critical piece of information we are missing from this data is _who_ sent the tweet out. We can hypothesize that one person has an Android and a different person has an iPhone. But we can't say for sure which person is tweeting from which type of phone. So we have changed the question from a question about _who_ is tweeting to _what is the difference_ between tweets from the two types of phones. 
 
 __What is the type of data science question we are trying to answer?__
 
 
-Using some exploratory analysis, David Robison first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words "badly" or "crazy" are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone. 
+Using some exploratory analysis, David Robinson first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words "badly" or "crazy" are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone. 
 
 {format: png}
 ![Exploratory Analysis](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3e007f2873_0_1)
@@ -147,7 +147,7 @@ o) How do the data I have limit the type of question I can answer?
 ? Your colleague tells you they want to predict the number of donations they will get next year to your non-profit. Which of the following is a question you should ask them to translate this to a data science question?
 
 C) What are the data you have on donations the last years and what are the other things you've measured each year that might predict donations? 
-C) What dontations data do you have from previous years and what are other metrics have been tracked that might predict donations? 
+C) What donations data do you have from previous years and what are other metrics have been tracked that might predict donations? 
 o) Why do you care about predicting donations since it is a totally random process? 
 o) Is the data that you have collected in Excel spreadsheets or in a Google Doc? 
 o) What is the biggest donation that you have ever received? 

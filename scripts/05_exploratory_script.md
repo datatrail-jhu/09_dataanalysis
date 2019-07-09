@@ -6,9 +6,9 @@ Because of this, exploratory analyses, while useful for discovering new connecti
 
 We can summarize the general principles of exploratory analysis as follows: Look for missing values, Look for outlier values, Use plots to explore relationships, Use tables to explore relationships, and If necessary, transform variables.
 
-These principles may be more clear in an example. We will use a dataset from kaggle.com that contains 120 years of Olympics history on athletes and results. If you don't have an account on Kaggle, create one and go to this link and under "Data Sources" download the athlete underscore events dot csv to your computer. 
+These principles may be more clear in an example. We will use a dataset from kaggle.com that contains 120 years of Olympics history on athletes and results. If you don't have an account on Kaggle, create one and go to this link and under "Data Sources" download the athlete underscore events dot CSV to your computer. 
 
-Upload the data on R Studio.cloud and import the csv file using the commands you have learned. Unfortunately, you cannot download the csv file directly from the web address since downloading datasets on Kaggle requires logging in.
+Upload the data on R Studio.cloud and import the CSV file using the commands you have learned. Unfortunately, you cannot download the CSV file directly from the web address since downloading datasets on Kaggle requires logging in.
 
 As we learned before, we can use the package skim r to take a look at the data. 
 
@@ -28,6 +28,6 @@ Now, if we want to plot this trend, we can use geom line from g g plot. It's int
 
 In general, the most important plots in exploratory data analysis are: Scatterplots, Histograms, Density plots, Box plots, and Bar plots.
 
-To end our lesson on exploratory analysis, let's consider a question: are taller athletes more likely to win a medal? To answer this question we can use different methods. We can look at the distribution of height for those who received a medal and those who didn't. We can use box plots or bar plots. The choice is yours but because box plots are more informative, we will use them. We can first create a variable that indicates whether the athlete has any medal (the variableMedal indicates the type of medals). Note that the variable has medal is a transformation of the variable Medal.
+To end our lesson on exploratory analysis, let's consider a question: are taller athletes more likely to win a medal? To answer this question we can use different methods. We can look at the distribution of height for those who received a medal and those who didn't. We can use box plots or bar plots. The choice is yours but because box plots are more informative, we will use them. We can first create a variable that indicates whether the athlete has any medal (the variable Medal indicates the type of medals). Note that the variable has medal is a transformation of the variable Medal.
 
 And now, we use the following code to create the box plot. What is obvious is that those who have a medal are taller. Can we say that being tall increases the probability of winning a medal in the Olympics? The answer to this question is that we don't know. There are some possible scenarios. For instance, it could be true that being tall increase the chances of winning medals. But it could also be that there are more medals awarded in sports such as volleyball or basketball that require taller athletes. In these sports, every member of the winning team gets a medal (even if country counts only one medal is counted for the country). As a result, we may end up having so many tall athletes with a medal in each Olympics. It could also be that there are other confounding factors involved that explain why an athlete wins a medal. We will learn about confounding variables in future lessons. For now, it's important to know, as we said in the beginning of this lesson, that association or correlation does not mean causation.

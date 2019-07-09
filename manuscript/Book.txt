@@ -4,6 +4,8 @@
 04_descriptive.md
 05_exploratory.md
 06_inferential.md
+#06_2_inferential_examples.md
+#06_3_inferential_extensions.md
 07_prediction_ml.md
 08_workflow.md
 09_pipelines.md

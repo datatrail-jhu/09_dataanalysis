@@ -60,7 +60,7 @@ Let's begin with some example data science projects, how they are asked, and how
 
 #### Example 1: Credit card fraud detection
 
-If you have a credit card, every time you charge something, the bank keeps a record of that charge. This can be useful for you when you want to keep track of your finances. But banks use the information for other purposes as well. If you lose your credit card and someone starts using it to buy things for themselves this is called credit card fraud. By collecting data from everyone, credit card companies are able to predict potential fraudulent transactions before consumers notice anything. So the question is: "Can we predict which credit card charges are fraudulent?".  But this is not a data science question yet. To ask this like a data scientist we might ask, "Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?". Since we are interested in predicting whether a charge is fraud or genuine, this will be a predictive analysis.
+If you have a credit card, every time you charge something, the bank keeps a record of that charge. This can be useful for you when you want to keep track of your finances. But banks use the information for other purposes as well. If you lose your credit card and someone starts using it to buy things for themselves this is called credit card fraud. By collecting data from everyone, credit card companies are able to predict potential fraudulent transactions before consumers notice anything. So the question is: "Can we predict which credit card charges are fraudulent?".  But this is not a data science question yet. To ask this like a data scientist we might ask, "Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?". Since we are interested in predicting whether a charge is fraud or genuine, this will be a **predictive analysis**.
 
 - **Problem:** Detecting whether credit card charges are fraudulent. 
 - **Data science question:** Can we use the time of the charge, the location of the charge, and the price of the charge to predict whether that charge is fraudulent or not?
@@ -68,17 +68,16 @@ If you have a credit card, every time you charge something, the bank keeps a rec
 
 #### Example 2: Analysis of YouTube comments
 
-Any text you can find on the web can be considered to be data. You can use this data to understand how people behave on the web. For example,
-when companies like YouTube want to understand whether their users are behaving nicely or badly, they might look at the comments they leave. So the question might be, "Are the comments on our platform mostly nice or mostly mean?". To write this in terms of a data science question you might ask, "Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?". This is a question you could answer by collecting information on words and labeling them with whether they are nice or mean. This is an example of descriptive analysis since once we have the data, the analysis boils down to comparing the number of positive comments to negative comments.
+Any text you can find on the web can be considered to be data. You can use this data to understand how people behave on the web. For example,when companies like YouTube want to understand whether their users are behaving nicely or badly, they might look at the comments they leave. So the question might be, "Are the comments on our platform mostly nice or mostly mean?" To write this in terms of a data science question you might ask, "Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?" This is a question you could answer by collecting information on words and labeling them with whether they are nice or mean. This is an example of **descriptive analysis** since once we have the data, the analysis boils down to comparing the number of positive comments to negative comments.
 
 - **Problem:** Understanding whether users are nice or mean on YouTube
 - **Data science question:** Are the words that people use in their comments more frequently positive words (great, awesome, nice, useful) or negative words (bad, stupid, lame, awful)?
 - **Type of analysis:** Descriptive analysis
 
 
-#### Example 3: Sesame Street and kids brain development
+#### Example 3: Sesame Street and kids' brain development
 
-Sesame Street is a children's entertainment and educational program. Scientists might be interested in whether watching Sesame Street helps brain development in kids. To turn this into a data science question we need to make it more specific and focused on data. So we might convert this to a data science question like, "Can we compare children who watch Sesame Street and those who don't to see whose test scores are higher?" A complication is that it might be difficult and expensive to get parents to have their children participate in the study. So we might take a small sample of students and measure their test scores and find out whether they watch TV. Since we want to say something about _all_ children, but have only measured data on a few, this would be an inferential analysis.  
+Sesame Street is a children's entertainment and educational program. Scientists might be interested in whether watching Sesame Street helps brain development in kids. To turn this into a data science question we need to make it more specific and focused on data. So we might convert this to a data science question like, "Can we compare children who watch Sesame Street and those who don't to see whose test scores are higher?" A complication is that it might be difficult and expensive to get parents to have their children participate in the study. So we might take a small sample of students and measure their test scores and find out whether they watch TV. Since we want to say something about _all_ children, but have only measured data on a few, this would be an **inferential analysis**.  
 
 - **Problem:** Does Sesame Street affect kids brain development?
 - **Data science question:** Is there a relationship between watching Sesame Street and test scores among children?
@@ -124,7 +123,7 @@ o) Using data to predict the relationship between two variables for all people.
 o) Showing the effect on a variable of changing the values of another variable. 
 
 {choose-answers: 4}
-?3 We collect data on all the songs in the Spotify catalogue and want to summarize how many are country western, hip-hop, classic rock, or other. What type of analysis is this?
+?3 We collect data on all the songs in the Spotify catalog and want to summarize how many are country western, hip-hop, classic rock, or other. What type of analysis is this?
 
 C) Descriptive
 o) Exploratory
@@ -144,7 +143,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?4 We collect data on a small sample of songs from the Spotify catalogue and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? 
+?4 We collect data on a small sample of songs from the Spotify uncatalogued and want to figure out the relationship between the use of the word "truck" and whether a song is country western. What type of analysis is this? 
 
 C) Inferential
 o) Descriptive
@@ -164,7 +163,7 @@ o) Causal
 o) Mechanistic
 
 {choose-answers: 4}
-?5 We collect data about a sample of songs from the Spotify catalogue and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? 
+?5 We collect data about a sample of songs from the Spotify uncatalogued and want to look for the relationships between any pair of words to figure out if there are any words that are commonly used together in songs. What type of analysis is this? 
 
 C) Exploratory
 o) Descriptive
