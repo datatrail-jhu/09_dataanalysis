@@ -1,16 +1,27 @@
-# Inferential Analysis 
+# Inferential Analysis: Overview
 
 Inferential Analysis is what analysts carry out *after* they've described and explored their data set. After understanding your dataset better, analysts often try to infer something from the data. This is done using **statistical tests**. While we'll only be discussing **linear regression** in this lesson, there are *many* different statistical tests, each of which (when appropriately applied) can be used for inferential data analysis. 
 
-Let's break this all down a little bit. The goal of inferential analyses is to use a relatively **small sample** of data to **infer** or say something about the **population** at large. This is required because often we *want* to answer questions about a population. Let's take a dummy example here where we have a population of 14 shapes.
+To get started with inference in this lesson, we'll cover:
 
+- Random Sampling & Inference
+- Uncertainty
+- Linear Regression
+- Confounding
+- Correlation
+
+While it is certainly a lot, it will be *incredibly* important for you to understand this material going forward, so take your time on this overview and be sure to understand each paragraph, example, and image. Then, in the following lessons, you'll be able to work through some more examples and get more practice with inferential analysis.
+
+### Getting Started with Inference
+
+Ok, so let's break this all down a little bit. The goal of inferential analyses is to use a relatively **small sample** of data to **infer** or say something about the **population** at large. This is required because often we *want* to answer questions about a population. Let's take a dummy example here where we have a population of 14 shapes.
+
+Here, in this graphic, the shapes represent individuals in the population and the colors of the shapes can be either pink or grey:
 
 {format: png}
 ![The population](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_5)
 
-Here, in this graphic, the shapes represent individuals in the population and the colors of the shapes can be either pink or grey.
-
-In this example we only have fourteen shapes in the population; however, in inferential data analysis, it's not usually possible to sample *everyone* in the population. Consider if this population were everyone in the United States or every college student in the world. As getting information from every individual would be infeasible, data are instead collected on a subset, or a **sample** of the individuals in the larger population. 
+In this example we only have fourteen shapes in the population; however, in inferential data analysis, it's not usually possible to sample *everyone* in the population. Consider if this population were everyone in the United States or every college student in the world. As getting information from every individual would be infeasible. Data are instead collected on a subset, or a **sample** of the individuals in the larger population. 
 
 {format: png}
 ![A sample is collected from the population](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_25)
@@ -37,7 +48,7 @@ Or maybe five shapes in the population are grey?
 {format: png}
 ![Maybe the population really has five grey shapes in it...](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_269)
 
-Given the sample we've taken, we can guess that 4-5 shapes in our population will be grey, but we aren't certain *exactly* what that number is. In statistics, this "best guess" is known as an **estimate**. This means that we estimate that 4.667 shapes will be gray. *But*, there is uncertainty in that number. Because we're taking our best guess at figuring out what that estimate should be, there's also a measure of uncertainty in that estimate. Inferential data analysis includes generating the estimate *and* the measure of uncertainty around that estimate.
+Given the sample we've taken, we can guess that 4-5 shapes in our population will be grey, but we aren't certain *exactly* what that number is. In statistics, this "best guess" is known as an **estimate**. This means that we estimate that 4.667 shapes will be gray. *But*, there is uncertainty in that number. Because we're taking our best guess at figuring out what that estimate should be, there's also a measure of uncertainty in that estimate. Inferential data analysis includes **generating the estimate *and* the measure of uncertainty around that estimate**.
 
 Let's return back to the example where we *know* the truth in the population. Hey look! There were actually only three grey shapes after all. It is totally possible that if you put all those shapes into a bag and pulled three out that two would be pink and one would be grey. As statisticians, we'd say that getting this sample was **probable** (it's within the realm of possibility), but it's not the most likely (The most likely was either 4 or 5.) This really drives home why it's important to add uncertainty to your estimate whenever you're doing inferential analysis!  
 
@@ -83,95 +94,6 @@ To answer this question, a subset of the US population was studied, and the rese
 {format: png}
 ![Studies use representative samples to infer information about the larger population](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1563)
 
-### Mean different from expectation?
-
-To get started on inferential data analysis, let's consider the case where you're interested in analyzing data about a single numeric variable. If you were doing descriptive statistics on this dataset, you'd likely calculate the mean for that variable. But, what if, in addition to knowing the mean, you wanted to know if the values in that variable were all within the bounds of normal variation. You could calculate that using inferential data analysis. You could use the data you have to *infer* whether or not the data are within the expected bounds.
-
-For example, let's say you had a dataset that included the number of ounces *actually* included in 100 cans of a soft drink. You'd expect that each can have exactly 12 oz of liquid; however, there is some variation in the process. So, let's test whether or not you're consistently getting shorted on the amount of liquid in your can. 
-
-In fact, let's go ahead and generate the dataset ourselves!
-
-```r
-## generate the dataset
-set.seed(34) 
-soda_ounces <- rnorm(100, mean = 12, sd = 0.04)
-head(soda_ounces)
-```
-
-In this code, we're specifying that we want to take a random draw of 100 different values (representing our 100 cans of soft drink), where the mean is 12 (representing the 12 ounces of soda expected to be within each can), and allowing for some variation (we've set the standard deviation to be 0.04).
-
-{format: png}
-![output looking at `soda_ounces` dataset](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1350)
-
-We can see that the values are approximately, but not always exactly equal to the expected 12 ounces. 
-
-#### Testing mean difference from expectation in R
-
-To make an inference as to whether or not we're consistently getting shorted, we're going to use this sample of 100 cans. Note that we're using this sample of cans to infer something about all cans of this soft drink, since we aren't able to measure the number of ounces in all cans of the soft drink generated. 
-
-To carry out this statistical test, we'll use a t-test. However, before we can do so we have to ensure that the data follow a normal distribution, since this is the primary assumption of the t-test.
-
-```r
-library(ggplot2)
-
-## check for normality
-ggplot(as.data.frame(soda_ounces))+
-  geom_histogram(aes(soda_ounces), bins = 10)
-```
-
-Here, we see that the data are approximately normally distributed, allowing for a t-test to be used.
-
-{format: png}
-![histogram of `soda_ounces`](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1361)
-
-A t-test will check whether the observed ounces differs from the expected mean (12 oz). To run a t-test in R, the function is `t.test()`
-
-```r
-## carry out t-test
-t.test(soda_ounces, mu = 12)
-```
-
-{format: png}
-![t-test output](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1355)
-
-In the output from this function, we'll focus on the 95 percent confidence interval. Confidence Intervals provide the range of values likely to contain the unknown population parameter. Here, the population parameter we're interested in is the mean. Thus, the 95% Confidence Intervals provides us the range where, upon repeated sampling, the calculated mean would fall 95 percent of the time. More specifically, if the 95 percent confidence interval contains the expected mean (12 oz), then we can be confident that the company is not shorting us on the amount of liquid they're putting into each can.
-
-Here, since 12 is between 11.99187 and 12.00754, we can see that the amounts in the 100 sampled cans are within the expected variation. We could infer from this sample that the population of all cans of this soft drink are likely to have an appropriate amount of liquid in the cans.
-
-### Proportion Differences
-
-Beyond looking at a single numeric variable, what if you had two groups and wanted to know if the proportions of a second variable within the groups differed? To test to see if the proportions within one group differs from the proportions in the second group, we'll use the function `prop.test()`. 
-
-For this example, we'll look to the `quine` dataset from the `MASS` package. This dataset includes a sample of 146 students in rural New South Wales. In this case, our **population** is students in Rural New South Wales. Our **sample** is the 146 students for whom we have data. 
-
-In this example, we're going to check to see if the proportion of aboriginal males in the dataset is different from the proportion of aboriginal females. The variable `Eth` contains an "A" if the individual is aboriginal, "N" otherwise. Sex is coded such that "M" is male and "F" is female.
-
-```r
-library(MASS)
-
-## take a look at the raw values
-table(quine$Eth, quine$Sex)
-```
-
-{format: png}
-![raw numbers from `quine` dataset](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1372)
-
-From the raw values, we see there are 38 aboriginal females and 31 males. It's hard to tell from this output whether or not those proportions truly differ from one another. Is 38 out of 80 different than 31 out of 66? Thus, we'll use a statistical test to draw an inference from this sample.
-
-
-#### Proportion Differences Testing in R 
-
-As mentioned above, `prop.test()` allows you to test whether or not the proportions between groups are the same.
-
-```r
-## test for differences in proportions between groups
-prop.test(table(quine$Eth, quine$Sex)) 
-```
-
-{format: png}
-![`prop.test()` output](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1377)
-
-Here, again, we'll looked to the confidence interval to interpret our results. If the proportion of aboriginals in each group is equal, we'd expect the difference between them to be zero. Thus, if zero is contained within the 95% confidence interval, there is no statistical difference between the proportions of aboriginals in the male and female groups. This is the case we see here in these data, as zero is between -0.16 and 0.17. 
 
 ### Linear Regression
 
@@ -252,7 +174,29 @@ If points at one end are much closer to the best-fitting line than points are at
 {format: png}
 ![Variance must be consistent across the variable for linear regression to be used](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1054)
 
-If these two assumptions hold, linear regression can be considered for your analysis.
+##### Normality of residuals
+
+When we fit a linear regression, typically the data do not fall *perfectly* along the regression line. Rather, there is some distance from each point to the line. Some points are quite close to the line, while others are further away. Each point's distance to the regression line can be calculated. This distance is the **residual** measurement. 
+
+{format: png}
+![Residuals are calculcated by measuring the distance from each point to the regression line](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_0_79)
+
+
+In linear regression, one assumption is that these residuals follow a Normal distribution. This means that if you were to calculate each residual (each point's distance to the regression line) and then plot a histogram of all of those values - that plot should look like a Normal Distribution.
+
+{format: png}
+![Linear regression assumes normality of residuals](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_0_129)
+
+If you do not see normality of residuals, this can suggest that outlier values - observations more extreme than the rest of the data - may exist in your data. This can severely affect you regression results and lead you to conclude something that is untrue about your data.
+
+Thus, it is your job, when running linear regression to check for:
+
+1. Non-linearity
+2. Heteroscedasticity
+3. Outlier values 
+4. Normality of residuals
+
+We'll discuss how to use diagnostic plots below to check that these assumptions have been met and that outlier values are not severely affecting your results.
 
 ### What can linear regression infer?
 
@@ -292,7 +236,7 @@ With this dataset, we'll answer the question:
 
 > Can we infer the height of a tree given its girth? 
 
-Presumably, it's easier to measure a trees girth (width around) than it is to measure its height. Thus, here we want to know whether or not height and girt are associated. 
+Presumably, it's easier to measure a trees girth (width around) than it is to measure its height. Thus, here we want to know whether or not height and girth are associated. 
 
 In this case, since we're asking if we can infer height from girth, girth is the independent variable and height is the dependent variable. In other words, we're asking does height *depend* on girth?
 
@@ -323,32 +267,111 @@ ggplot(trees, aes(Height, Girth)) +
 
 On this graph, the relationship looks approximately linear and the variance (distance from points to the line) is constant across the data. Given this, it's appropriate to use linear regression for these data.
 
-Now that that's established, we can run the linear regression. To do so, we'll use the `lm()` function. The syntax for this function is `lm(dependent_variable ~ independent_Variable, data = dataset)`.
+**Fitting the model**
+
+Now that that's established, we can run the linear regression. To do so, we'll use the `lm()` function to **fit the model**. The syntax for this function is `lm(dependent_variable ~ independent_variable, data = dataset)`. 
 
 ```r
 ## run the regression
 fit <- lm(Girth ~ Height , data = trees)
+```
 
+**Model Diagnostics**
+
+Above, we discussed a number of assumptions of linear regression. After fitting a model, it's necessary to check the model to see if the model satisfies the assumptions of linear regression. If the model does not fit the data well (for example, the relationship is nonlinear), then you cannot use and interpret the model.
+
+In order to assess your model, a number of diagnostic plots can be very helpful. Diagnostic plots can be generated using the `plot()` function with the fitted model as an argument.
+
+```r
+par(mfrow = c(2, 2))
+plot(fit)
+```
+This generates four plots:
+
+{format: png}
+![diagnostic linear regression plots using `plot()`](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_0_210)
+
+1. **Residuals vs Fitted** - checks linear relationship assumption of linear regression. A linear relationship will demonstrate a horizontal red line here. Deviations from a horizontal line suggest nonlinearity and that a different approach may be necessary.
+
+2. **Normal Q-Q** - checks whether or not the residuals (the difference between the observed and predicted values) from the model are normally distributed. The best fit models points fall along the dashed line on the plot. Deviation from this line suggests that a different analytical approach may be required.
+
+3. **Scale-Location** - checks the homoscedasticity of the model. A horizontal red line with points equally spread out indicates a well-fit model. A non-horizontal line or points that cluster together suggests that your data are not homoscedastic.
+
+4. **Residuals vs Leverage** - helps to identify outlier or extreme values that may disproportionately affect the model's results. Their inclusion or exclusion from the analysis may affect the results of the analysis. Note that the top three most extreme values are identified with numbers next to the points in all four plots.
+
+**Tree girth and height example**
+
+In our example looking at the relationship between tree girth and height, we can first check **linearity of the data** by looking at the **Residuals vs Fitted** plot. Here, we do see a red line that is approximately horizontal, which is what we're looking for. Additionally, we're looking to be sure there is no clear pattern in the points on the plot - we *want* them to be random on this plot. Clustering of a bunch of points together or trends in this plot would indicate that the data do not have a linear relationship.
+
+{format: png}
+![Residuals plot has data scattered randomly throughout and a mostly horizontal fitted line](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_0_217)
+
+
+To check for **homogeneity of the variance**, we can turn to the **Scale-Location** plot. Here, we're again looking for a horizontal red line. In this dataset, there's a suggestion that there is some heteroscedasticity, with points not being equally far from the regression line across the observations. 
+
+While not discussed explicitly here in this lesson, we will note that when the data are nonlinear or the variances are not homogeneous (are not homoscedastic), **transformations** of the data can often be applied and then linear regression can be used.
+
+**QQ Plots** are very helpful in assessing the **normality of residuals**. Normally distributed residuals will fall along the grey dotted line. Deviation from the line suggests the residuals are not normally distributed.Here, in this example, we do not see the points fall perfectly along the dotted line, suggesting that our residuals are not normally distributed.
+
+{format: png}
+![Deviation from the dotted line suggests non-normality of residuals](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_0_227)
+
+A histogram (or densityplot) of the residuals can also be used for this portion of regression diagnostics. Here, we're looking for a Normal distribution of the residuals. 
+
+```r
+library(ggplot2)
+ggplot(fit, aes(fit$residuals)) + 
+  geom_histogram(bins = 5)
+```
+
+The QQ Plot and the histogram of the residuals will always give the same answer. Here, we see that with our limited sample size, we do not have perfectly Normally distributed residuals; however, the points do not fall wildly far from the dotted line.
+
+{format: png}
+![Residuals are not perfectly Normally distributed](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_0_251)
+
+Finally, whether or not **outliers** (extreme observations) are driving our results can be assessed by looking at the **Residuals vs Leverage** plot.
+
+Generally speaking, standardized residuals greater than 3 or less than -3 are to be considered as outliers. Here, we do not see any values in that range (by looking at the y-axis), suggesting that there are no extreme outliers driving the results of our analysis.
+
+{format: png}
+![Outliers in a dataset can affect the results of your analysis](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=gg5d2253b705_0_237)
+
+
+**Interpreting the model**
+
+While the relationship in our example appears to be linear, does not indicate being driven by outliers, is approximately homoscedastic and has residuals that are not perfectly Normally distributed, but fall close to the line in the QQ plot, we can discuss how to interpret the results of the model.
+
+```r
 ## take a look at the output
 summary(fit)
 ```
 
 The `summary()` function summarizes the model as well as the output of the model. We can see the values we're interested in in this summary, including the beta estimate, the standard error (SE), and the p-value. 
-Specifically, from the beta estimate, which is positive, we confirm that the relationship is positive (which we could also tell from the scatterplot). We can also interpret this beta estimate explicitly. 
 
-Specifically, the beta estimate is the amount the dependent variable will change given a one unit increase in he independent variable. In the case of the trees, a beta estimate of 0.256, says that for every inch a tree's girth increases, its height will increase by 0.256 inches. Thus, we not only know that there's a positive relationship between the two variables, but we know by precisely how much one variable will change given a single unit increase in the other variable.
+Specifically, from the beta estimate, which is positive, we confirm that the relationship is positive (which we could also tell from the scatterplot). We can also interpret this beta estimate explicitly. 
 
 {format: png}
 ![Beta, SE, and p-value all included in `summary()` output](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1309)
 
-Additionally, the strength of this relationship is summarized using the adjusted R-squared metric. The closer this value is to 1, the closer the points in your dataset fall to the line of best fit. The further they are from the line, the closer this value will be to zero.
+Specifically, the **beta estimate** (also known as the beta coefficient or coefficient in the `Estimate` column) is the **amount the dependent variable will change given a one unit increase in he independent variable**. In the case of the trees, a beta estimate of 0.256, says that for every inch a tree's girth increases, its height will increase by 0.256 inches. Thus, we not only know that there's a positive relationship between the two variables, but we know by precisely how much one variable will change given a single unit increase in the other variable. Note that we're looking at the second row in the output here, where the row label is "Height". This row quantifies the relationship between our two variables. The first row quantifies the intercept, or where the line crosses the y-axis.
+
+The standard error and p-value are also included in this output. Error is typically something we want to minimize (in life and statistical analyses), so the *smaller* the error, the *more confident* we are in the association between these two variables. 
+
+The beta estimate and the standard error are then both considered in the calculation of the p-value (found in the column `Pr[>|t|]`). The smaller this value is, the more confident we are that this relationship is not due to random chance alone.
+
+**Variance Explained**
+
+Additionally, the strength of this relationship is summarized using the adjusted R-squared metric. This metric explains how much of the variance this regression line explains. The more variance explained, the closer this value is to 1. And, the closer this value is to 1, the closer the points in your dataset fall to the line of best fit. The further they are from the line, the closer this value will be to zero.
 
 {format: png}
 ![Adjusted R-squared specifies how closely the data fall are to the regression line](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1325)
 
-As we saw in the scatterplot, the data are not right up against the regression line, so a value of 0.2445 seems reasonable.
+As we saw in the scatterplot, the data are not right up against the regression line, so a value of 0.2445 seems reasonable, suggesting that this model (this regression line) explains 24.45% of the variance in the data.
+
+**Using `broom**
 
 Finally, while the `summary()` output are visually helpful, if you want to get any of the numbers out from that model, it's not always straightforward. Thankfully, there is a package to help you with that! The `tidy()` function from the `broom` package helps take the summary output from a statistical model and organize it into a tabular output. 
+
 ```r
 #install.packages("broom")
 library(broom)
@@ -364,6 +387,7 @@ Note that the values haven't changed. They're just organized into an easy-to-use
 Finally, it's important to always keep in mind that the **interpretation of your inferential data analysis** is incredibly important. When you use linear regression to test for association, you're looking at the relationship between the two variables. While girth can be used to infer a tree's height, this is just a correlation. It **does not mean** that an increase in girth **causes** the tree to grow more. Associations are *correlations*. They are **not** causal. We'll discuss this more later in the lesson. 
 
 For now, however, in response to our question, can we infer a tree's height from its girth, the answer is yes. We would expect, on average, a tree's height to increase 0.255 inches for every one inch increase in girth.
+
 
 ### Confounding
 
@@ -461,7 +485,7 @@ We can similarly interpret the coefficients by focusing on the engines (`vs`). F
 {format: png}
 ![confounding model taken into account](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1531)
 
-Finally, we'll point out that the p-value for `wt` decreased in this model relative to the model where we didn't account for confounding. This is because the model was not initially taking into account the engine difference. Sometimes when confounders are accounted for, your variable of interest will become more significant; however, frequently, the p-value will increase, and that's ok. What's important is that the data are most appropriately modeled.
+Finally, we'll point out that the p-value for `wt` decreased in this model relative to the model where we didn't account for confounding. This is because the model was not initially taking into account the engine difference. Sometimes when confounders are accounted for, your variable of interest will become more significant; however, frequently, the p-value will increase, and that's OK. What's important is that the data are most appropriately modeled.
 
 ### Correlation is not Causation
 
@@ -522,21 +546,11 @@ m) for every 1 lb increase in height, you would expect weight to increase by 0.2
 o) for every 1 lb decrease in weight, you would expect height to increase by 0.2 inches.
 o) for every 1 lb increase in height, you would expect weight to decrease by 0.2 inches.
 o) for every 1 lb increase in weight, you would expect height to increase by 1 inch.
-o) for every 1 lb decrease in weight, you would expect hight to decrease by 1 inch.
-
-{choose-answers:4}
-?4 If you had a single numeric variable that was normally distributed, what test would you use to determine if its mean were different than the expected mean?
-
-C) t-test
-C) `t.test()`
-o) `prop.test()`
-o) `lm()`
-o) simple linear regression
-o) multiple linear regression
+o) for every 1 lb decrease in weight, you would expect hit to decrease by 1 inch.
 
 
 {choose-answers:4}
-?5 To account for confounding, what is one approach you could consider?
+?4 To account for confounding, what is one approach you could consider?
 
 C) multiple linear regression
 o) t-test
@@ -546,7 +560,7 @@ o) `lm()`
 o) simple linear regression
 
 {choose-answers:4, points:2}
-?6 This code would run which of the following analyses: `lm(weight ~ height, data = df)`
+?5 This code would run which of the following analyses: `lm(weight ~ height, data = df)`
 
 C) simple linear regression
 m) multiple linear regression
@@ -556,7 +570,7 @@ o) `prop.test()`
 o) `lm()`
 
 {choose-answers:4, points:2}
-?6 This code would run which of the following analyses: `lm(weight ~ height + sex, data = df)`
+?5 This code would run which of the following analyses: `lm(weight ~ height + sex, data = df)`
 
 C) multiple linear regression
 m) simple linear regression
@@ -566,17 +580,17 @@ o) `prop.test()`
 o) `lm()`
 
 {points:3}
-?7 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+?6 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 ! /.+(PT5C|YSx1|ohkU|9mXn|hfHc|zsat|Og9F|f7yi|j0WN|IpKr).+/i
 
 {points:3}
-?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(b400|rnZg|KcBS|RIzd|SCcB|wXcf|u4HM|DaLn|IgfM|ZG2V).+/i
 
 {points:3}
-?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(4RjS|gRfS|D9lg|lMMv|HoyQ|NYt0|C1Yu|slGZ|gocd|wtzZ).+/i
 
