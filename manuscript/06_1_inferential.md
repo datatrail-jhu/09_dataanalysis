@@ -681,6 +681,7 @@ o) `lm()`
 {choose-answers:4, points:2}
 ?6 Given the following plot, how many outliers would you conclude exist in your dataset?
 
+{format: png}
 ![Residuals vs Leverage Plot](images/outliers.png)
 
 C) 1

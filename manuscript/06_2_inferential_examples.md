@@ -222,6 +222,7 @@ o) -4
 {choose-answers: 4} 
 ? In the *Sesame Street* effect on educational attainment study (Case Study #1 in the lesson), the authors used coverage data as its measure of *Sesame Street* Availability. Below is a figure from their paper plotting those data. Which of the following statements is true, based in their figure?
 
+{format: png}
 ![Sesame Street Coverage throughout the USA](images/sesame_street_coverage.png)
 
 C) *Sesame Street* was more available in the Eastern half of the United States
@@ -235,6 +236,7 @@ o) *Sesame Street* was less available in the Western half of the United States
 {choose-answers: 4, points: 2} 
 ? While not discussed directly in the lesson, the authors of the *Sesame Street* study also looked at the effect of *Sesame Street* Coverage (Simulated coverage rate in the figure) on the Percentage of those between ages 2 and 5 who watched *Sesame Street*. The authors carried out linear regression. Which of the following statements correctly explains this relationship given the figure below?
 
+{format: png}
 ![*Sesame Street* viewership vs. availability](images/sesame_street_regression.png)
 
 C) Places where *Sesame Street* was more available had more children who watched *Sesame Street*.
