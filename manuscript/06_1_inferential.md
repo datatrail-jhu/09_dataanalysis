@@ -587,7 +587,7 @@ confint(regression_output)
 
 Now that you've seen how to measure the linear relationship between variables (linear regression) and how to determine if the mean of a dataset differs from expectation (t-test), it's important to know that you can ask lots of different questions using extensions of linear regression.
 
-These have been nicely summarized by  Jonas Kristoffer Lindeløv in is blog post [Common statistical tests are linear models (or: how to teach stats)](https://lindeloev.github.io/tests-as-linear). We've included the table summarizing his post here, but we recommend you check it out and the examples included within it carefully!
+These have been nicely summarized by  Jonas Kristoffer Lindelov in is blog post [Common statistical tests are linear models (or: how to teach stats)](https://lindeloev.github.io/tests-as-linear). We've included the table summarizing his post here, but we recommend you check it out and the examples included within it carefully!
 
 {format: png}
 ![Common statistical tests are linear models](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g5d2253b705_2_105)
@@ -599,7 +599,7 @@ In this lesson, we have covered *a lot*. We started off discussing that inferent
 
 ### Additional Resources
 
-* [Common statistical tests are linear models (or: how to teach stats)](https://lindeloev.github.io/tests-as-linear), blog post by Jonas Kristoffer Lindeløv
+* [Common statistical tests are linear models (or: how to teach stats)](https://lindeloev.github.io/tests-as-linear), blog post by Jonas Kristoffer Lindelov
 
 
 ### Slides and Video
@@ -681,7 +681,7 @@ o) `lm()`
 {choose-answers:4, points:2}
 ?6 Given the following plot, how many outliers would you conclude exist in your dataset?
 
-![Residuals vs Leverage Plot](outliers.png)
+![Residuals vs Leverage Plot](images/outliers.png)
 
 C) 1
 m) 0
@@ -689,23 +689,34 @@ o) 2
 o) 3
 o) 4
 
+{choose-answers:4}
+?7 If you had a single numeric variable that was normally distributed, what test would you use to determine if its mean were different than the expected mean?
+
+C) t-test
+o) `prop.test()`
+o) `lm()`
+o) simple linear regression
+o) multiple linear regression
+
+
+
 {points:3}
-?7 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+?8 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) Then, type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L06 Inferential Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 ! /.+(PT5C|YSx1|ohkU|9mXn|hfHc|zsat|Og9F|f7yi|j0WN|IpKr).+/i
 
 {points:3}
-?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(b400|rnZg|KcBS|RIzd|SCcB|wXcf|u4HM|DaLn|IgfM|ZG2V).+/i
 
 {points:3}
-?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?10 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(4RjS|gRfS|D9lg|lMMv|HoyQ|NYt0|C1Yu|slGZ|gocd|wtzZ).+/i
 
 {points:3}
-?10 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?11 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 !/.+(Fv8V|3iQb|1diH|A0kK|ovFN|Wd5e|mKy2|sCkw|V7bl|y6Ey).+/i
 
