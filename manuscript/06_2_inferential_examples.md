@@ -170,7 +170,7 @@ To understand the answer to the question "Is religion good for you?," readers ha
 Let's first try to interpret the relationship between people's religiosity (independent variable) how people rank their lives (the dependent variable fist focusing on ladder score - a measure from 0 to 10) among individuals in the USA. 
 
 {format: png}
-![Religious ndividuals in the USA have higher self-reported well-being](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_5)
+![Religious individuals in the USA have higher self-reported well-being](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_21)
 
 Focusing on the pink box here, we see that person-level data has a positive beta coefficient, indicating a positive relationship between religiosity and well-being. This means that religious people (on average) tend to have higher ladder measure of well-being than non-religious individuals. The second row here demonstrates that when accounting for income (with multiple regression), this result remains and in fact gets stronger (0.263 > 0.248). We can also see that these results come from analyzing individual data from more than 1 million individuals(the Observations column) and that the error around this estimate is quite small (SE column). 
 
@@ -181,7 +181,7 @@ Moving to the third row here, we see that at the state level (rather than the in
 Now, remember that well-being was measured in more than one way. We can now look at the USA-level results where there were only two possible options - yes or no to the question: "Did you experience a lot of happiness yesterday?"
 
 {format: png}
-![Religious individuals in the USA have higher self-reported well-being](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_28)
+![Little or no effect of religiosity on yesterday's happiness in USA ](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_28)
 
 Here the results are all positive, but also very close to zero, suggesting that the effect of religiosity on yesterday's measure of happiness is quite small.
 
@@ -204,7 +204,7 @@ In this lesson we walked through two real-life examples of inference being used 
 
 ### Additional Resources
 
-- [Early Childhood Education by Television: Lessons from Sesame Street](https://pubs.aeaweb.org/doi/pdfplus/10.1257/app.20170300), by Melissa S. Kearney and Phillip B. Levine
+- [Early Childhood Education by Television: Lessons from *Sesame Street*](https://pubs.aeaweb.org/doi/pdfplus/10.1257/app.20170300), by Melissa S. Kearney and Phillip B. Levine
 - [Why Kids Who Watched *Sesame Street* Did Better In School](https://qz.com/1554895/why-kids-who-watched-sesame-street-did-better-in-school/), article in Quartz by Annabelle Timsit
 - [Two Happiness Puzzles](https://www.aeaweb.org/articles?id=10.1257/aer.103.3.591), by Angus Deaton and Arthur A. Stone
 
