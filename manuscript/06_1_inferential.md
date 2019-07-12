@@ -682,7 +682,7 @@ o) `lm()`
 ?6 Given the following plot, how many outliers would you conclude exist in your dataset?
 
 {format: png}
-![Residuals vs Leverage Plot](images/outliers.png)
+![Residuals vs Leverage Plot](outliers.png)
 
 C) 1
 m) 0
@@ -719,7 +719,7 @@ o) multiple linear regression
 {points:3}
 ?11 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L06 Inferential Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
-!/.+(Fv8V|3iQb|1diH|A0kK|ovFN|Wd5e|mKy2|sCkw|V7bl|y6Ey).+/i
+! /.+(Fv8V|3iQb|1diH|A0kK|ovFN|Wd5e|mKy2|sCkw|V7bl|y6Ey).+/i
 
 {/quiz}
 

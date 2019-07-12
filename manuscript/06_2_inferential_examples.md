@@ -234,7 +234,7 @@ o) -4
 ? In the *Sesame Street* effect on educational attainment study (Case Study #1 in the lesson), the authors used coverage data as its measure of *Sesame Street* Availability. Below is a figure from their paper plotting those data. Which of the following statements is true, based in their figure?
 
 {format: png}
-![Sesame Street Coverage throughout the USA](images/sesame_street_coverage.png)
+![Sesame Street Coverage throughout the USA](sesame_street_coverage.png)
 
 C) *Sesame Street* was more available in the Eastern half of the United States
 o) *Sesame Street* was only available in the Eastern half of the United States
@@ -248,7 +248,7 @@ o) *Sesame Street* was less available in the Western half of the United States
 ? While not discussed directly in the lesson, the authors of the *Sesame Street* study also looked at the effect of *Sesame Street* Coverage (Simulated coverage rate in the figure) on the Percentage of those between ages 2 and 5 who watched *Sesame Street*. The authors carried out linear regression. Which of the following statements correctly explains this relationship given the figure below?
 
 {format: png}
-![*Sesame Street* viewership vs. availability](images/sesame_street_regression.png)
+![*Sesame Street* viewership vs. availability](sesame_street_regression.png)
 
 C) Places where *Sesame Street* was more available had more children who watched *Sesame Street*.
 o) Places where *Sesame Street* was more available had fewer children who watched *Sesame Street*.
@@ -260,7 +260,7 @@ o) Every state had at least 20% of children watching *Sesame Street*.
 {choose-answers: 4, points: 2} 
 ? Using that same figure, we see that there is an equation on the plot. The value 0.5862 is the beta coefficient. Which of the following is an accurate interpretation of this value?
 
-![*Sesame Street* viewership vs. availability](images/sesame_street_regression.png)
+![*Sesame Street* viewership vs. availability](sesame_street_regression.png)
 
 C) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* increases by 0.5862.
 o) For every 10 points the Simulated coverage rate increases, the percentage of children ages 2-5 who watch *Sesame Street* increases by 0.5862.
