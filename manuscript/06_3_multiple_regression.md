@@ -1,4 +1,4 @@
-# Multiple Regression
+# Inference: Multiple Regression
 
 <!-- Google Slide ID -->
 <!-- SLIDEID -->
@@ -7,9 +7,9 @@
 <!-- ![](https://docs.google.com/presentation/d/SLIDEID/export/png?id=SLIDEID&pageid=PAGE_ID) -->
 <!-- or use  `didactr::gs_slide_df("SLIDEID")$png_markdown` -->
 
-### Confounding
-
 In the last lesson, we finished discussing how to use `lm()` to assess the association between two numeric variables. However, there is one *incredibly* important topic that we have to discuss before moving on from linear regression. **Confounding** in something to watch out for in any analysis you're doing that looks at the relationship between two more more variables. So...what is confounding?
+
+### Confounding
 
 Well, let's consider an example. What if we were interested in understanding the relationship between shoe size and literacy. To do so, we took a look at this small sample of two humans, one who wears small shoes and is not literate and one adult who wears big shoes and is literate.
 

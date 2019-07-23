@@ -1,4 +1,4 @@
-# Linear Regression
+# Inference: Linear Regression
 
 <!-- Google Slide ID -->
 <!-- SLIDEID -->

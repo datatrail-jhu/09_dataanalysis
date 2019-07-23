@@ -1,5 +1,4 @@
-
-# Inferential Analysis: Examples
+# Inference: Examples
 
 <!-- Google Slide ID -->
 <!-- 11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ -->
