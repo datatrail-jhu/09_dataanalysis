@@ -191,17 +191,17 @@ o) `geom_boxplot()`
 ! /.+(XERJ|rNCn|49A4|Dmgt|caSc|eXsP|RN7v|kfbH|bbBx|7aek).+/i
 
 {points:3}
-?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?7 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(rtkr|0ciB|gXV3|1tNg|qgTv|K2iF|Vzjn|jNiN|zwK7|dgFD).+/i
 
 {points:3}
-?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?8 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(XPwX|qhFQ|9fHG|cfJ3|wbIW|KYcl|weA4|Ck9J|NWrW|lgP2).+/i
 
 {points:3}
-?9 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?9 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(ilKD|Lu7f|hBVK|wGXf|bSKM|hYPf|FlHZ|2iPI|fbQm|tsAg).+/i
 

@@ -553,19 +553,19 @@ o) central tendency
 
 
 {points:3}
-?6 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?6 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L04 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(uQcf|scL2|nxSh|iBc8|0q0s|p9tw|6rQ6|nfZx|DBCh|ExwY).+/i
 
 
 {points:3}
-?7 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?7 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L04 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(Sm3D|Kh1S|IS3v|Nl2p|Smov|DRxH|JBhG|mQtm|Pj5y|GX22).+/i
 
 
 {points:3}
-?8 Within the same course on swirl: `CBDS Getting Data`, navigate to the lesson `L04 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+?8 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L04 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(tpUZ|OEj0|y6LY|sdxD|o4DB|AS4m|VmqK|7GjF|hYQ2|dvIe).+/i
 
