@@ -7,7 +7,7 @@
 06_2_regression.md
 06_3_multiple_regression.md
 06_4_inferential_examples.md
-# 06_5_practice.md
+06_5_practice.md
 07_prediction_ml.md
 08_workflow.md
 09_pipelines.md
