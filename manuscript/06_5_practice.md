@@ -27,7 +27,15 @@ To get started working with these data in RStudio Cloud, we'll need to first rea
 
 ```r
 # uncomment if packages not yet installed
-s               
+# install.packages("readr")
+
+library(readr)
+
+# read in coverage data
+coverage <- read_csv("https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-coverage.csv", skip = 2, n_max  = 52)
+                    
+# read in spending data
+spending <- read_csv("https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-spending.csv", skip = 2, n_max  = 52)
 ```
 
 Note in the code here there are a few additional arguments that have to be included. We use `skip = 2` to skip the first two rows in the file and set `n_max  = 52`. This is something we haven't seen previously, but `n_max` specifies the maximum number of records to read in. Here, we're specifying to find the location where the column `Location` is Notes and then stop the row before that. This will ignore Notes included at the end of the file. You can see the notes included if you scroll to the end of one of these [files on GitHub](https://github.com/opencasestudies/ocs-healthexpenditure/blob/master/data/KFF/healthcare-coverage.csv).
@@ -43,6 +51,7 @@ The first thing you'll want to do is get a sense of what data are included in ea
 library(dplyr)
 glimpse(coverage)
 ```
+
 {format: png}
 ![`glimpse()` gives us a look at what's included in our coverage dataset](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_0)
 
@@ -63,13 +72,12 @@ When we look at the `glimpse()` output for spending, we see that we again have t
 
 Also, we see that all observations (aside from Location) are numeric (`dbl`), so it doesn't appear we have any "N/A" issues here. 
 
-Before we go any further, let's address those "N/A" values. If you looked at the `read_csv` documentation, you're aware that `na` is an argument to that function and `content` uses `read_csv()`. So, let's read these data in once again, but specify that "N/A" is how missing data has been specified in the coverage dataset.
+Before we go any further, let's address those "N/A" values. If you looked at the `read_csv` documentation, you're aware that `na` is an argument to that function. So, let's read these data in once again, but specify that "N/A" is how missing data has been specified in the coverage dataset.
 
 ```r
 # read in coverage data
 # consider how N/A is specified
-coverage <- content(coverage_response, type="text/csv", skip = 2,
-                    n_max  = 52, na = "N/A")
+coverage <- read_csv("https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-coverage.csv", skip = 2, n_max  = 52, na = "N/A")                    
 ```
 
 Now, after specifying how to handle missing values, when we use `glimpse(coverage)` we see that numeric data are all of type `dbl` as we expected! It's important to always take a look at the output you generate. If we hadn't looked at our `glimpse()` output carefully, we would have missed this and our variable would have been of the wrong type! So, a friendly reminder to **always look at your output**.
