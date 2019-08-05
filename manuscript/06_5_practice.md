@@ -23,25 +23,11 @@ The specific question we're setting out to answer is:
 
 The data and motivation for this question come from an awesome project called [Open Case Studies](https://opencasestudies.github.io/). This project provides datasets and tutorials that use real data to teach data-related concepts. The specific case study we're using in this lesson can be found [here](https://github.com/opencasestudies/ocs-healthexpenditure). We're going to walk through this analysis step by step, using a number of their approaches and materials. But, you can certainly find more information in the [case study](https://opencasestudies.github.io/casestudies/ocs-healthexpenditure.html) directly!
 
-To get started working with these data in RStudio Cloud, we'll need to first read the data in. We're using the same approach we've used in previous courses, where we use `GET()` from the `httr` package to make the API call and then read the dataset in using `content()`. 
+To get started working with these data in RStudio Cloud, we'll need to first read the data in using read_csv and the URL directly.
 
 ```r
 # uncomment if packages not yet installed
-# install.packages("httr")
-# install.packages("readr")
-
-library(httr)
-library(readr)
-
-# read in coverage data
-coverage_response <- GET(url = "https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-coverage.csv")
-coverage <- content(coverage_response, type="text/csv", skip = 2,
-                    n_max  = 52)
-                    
-# read in spending data
-spending_response <- GET(url = "https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-spending.csv")
-spending <- content(spending_response, type="text/csv", skip = 2,
-                    n_max  = 52)                  
+s               
 ```
 
 Note in the code here there are a few additional arguments that have to be included. We use `skip = 2` to skip the first two rows in the file and set `n_max  = 52`. This is something we haven't seen previously, but `n_max` specifies the maximum number of records to read in. Here, we're specifying to find the location where the column `Location` is Notes and then stop the row before that. This will ignore Notes included at the end of the file. You can see the notes included if you scroll to the end of one of these [files on GitHub](https://github.com/opencasestudies/ocs-healthexpenditure/blob/master/data/KFF/healthcare-coverage.csv).
@@ -524,5 +510,27 @@ o) `lm(prop_coverage ~ spending_capita + region + type + year, data = hc_2014)`
 o) `lm(prop_coverage ~ spending_capita, data = hc_2014)`
 o) `lm(prop_coverage ~ spending_capita, data = hc_2013)`
 o) `lm(prop_coverage ~ spending_capita, data = hc)`
+
+{points:3}
+? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L09 Inference Practice Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+
+Note: The data used in the swirl modules in this lesson are data modified from [Kaggle](https://www.kaggle.com/javadzabihi/happiness-2017-visualization-prediction/data).
+
+! /.+(OfKY|kamA|rH7Q|7Wxt|kqco|f833|Xyg9|2l9Z|pk23|udzU).+/i
+
+{points:3}
+? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L09 Inference Practice Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(7pnh|tCdv|dPMN|3c6k|6VA1|ZpGD|HVke|Pm4W|xrTw|G94S).+/i
+
+{points:3}
+? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L09 Inference Practice Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(rZB0|a0pT|LmWc|MSyw|0JJX|VRrh|PyDp|B9P5|TNcN|qqhC).+/i
+
+{points:3}
+? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L09 Inference Practice Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(A3lS|FZhi|5lcO|2mqf|i9V5|Gt8h|tPEG|pfak|f5XF|JvpZ).+/i
 
 {/quiz}

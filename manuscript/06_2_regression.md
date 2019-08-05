@@ -333,15 +333,15 @@ o) The scatterpot demonstrates a negative relationship
 o) The scatterpot demonstrates a positive relationship
 
 {choose-answers:4}
-? To fit a linear regression model in with of the following functions would you use?
+? To fit a linear regression model which of the following functions would you use?
 
-C) `fit()`
+C) `lm()`
+o) `fit()`
 o) `model()`
-o) `lm()`
 o) `broom()`
 o) `stats()`
 o) `caret()`
-
+  
 
 {choose-answers:4, points:2}
 ? Given the following plot, how many outliers would you conclude exist in your dataset?
@@ -377,5 +377,14 @@ o) for every 1 lb increase in height, you would expect weight to decrease by 0.2
 o) for every 1 lb increase in weight, you would expect height to increase by 1 inch.
 o) for every 1 lb decrease in weight, you would expect hit to decrease by 1 inch.
 
+{points:3}
+? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L07 Linear Regression Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+
+! /.+(Xlrd|QMv6|h2jy|QlJS|j5VR|Di3C|uJGq|Nnmv|Qelb|ZlCk).+/i
+
+{points:3}
+? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L07 Linear Regression Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+
+! /.+(pD5N|G6sU|Hsa5|PLxZ|gEJC|dN2G|0rf4|qg4V|ZL0f|5zQ7).+/i
 
 {/quiz}
