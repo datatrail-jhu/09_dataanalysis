@@ -8,7 +8,7 @@ The first thing you'll want to do is get a sense of what data are included in ea
 
 But first, let's see if we have the same issue in the spending dataset. When we look at the glimpse output for spending, we see that we again have the same number of observations (N=52) but here we have 25 variables summarizing total health spending from 1991-2014. So, right off the bat we know that the only two years we have overlapping information are 2013 and 2014. Something to keep in mind! Also, we see that all observations (aside from Location) are numeric (dbl), so it doesn't appear we have any "N/A" issues here. 
 
-Before we go any further, let's address those "N/A" values. If you looked at the read_csv documentation, you're aware that na is an argument to that function and content uses read_csv. So, let's read these data in once again, but specify that "N/A" is how missing data has been specified in the coverage dataset.
+Before we go any further, let's address those "N/A" values. If you looked at the read_csv documentation, you're aware that na is an argument to that function. So, let's read these data in once again, but specify that "N/A" is how missing data has been specified in the coverage dataset.
 
 Now, after specifying how to handle missing values, when we use glimpse(coverage) we see that numeric data are all of type dbl as we expected! It's important to always take a look at the output you generate. If we hadn't looked at our glimpse output carefully, we would have missed this and our variable would have been of the wrong type! So, a friendly reminder to always look at your output.
 

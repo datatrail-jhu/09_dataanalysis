@@ -106,7 +106,7 @@ In this first inference lesson, we introduced simply an overview of inferential 
 
 ### Slides and Video
 
-![Inferential Analysis](https://www.youtube.com/watch?v=uabQUHwuxCs)
+![Inferential Analysis](https://youtu.be/fOv0epNcVqA)
 
 * [Slides](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/edit?usp=sharing)
 

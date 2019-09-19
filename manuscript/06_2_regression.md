@@ -302,18 +302,9 @@ For now, however, in response to our question, can we infer a tree's height from
 
 In this lesson we've discussed not just what inference is generally, but how to carry out an inferential analysis using simple linear regression. We've discussed assumptions of linear regression and the interpretation of both the linear regression model itself and the diagnostic plots that accompany this type of analysis. In the following lesson we'll extend this concept further to discuss confounding, multiple regression, and additional statistical tests.
 
-### Additional Resources
-
-
-
-
-### Summary
-
-### Additional Resources
-
 ### Slides and Video
 
-<!-- ![Linear Regression](YouTube Link) -->
+![Inference: Linear Regression](https://youtu.be/mTn1L45trSQ)
 
   - [Slides](https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/edit?usp=sharing)
 
