@@ -10,7 +10,7 @@ It happens quite often that collecting data is expensive or not easy. For instan
 
 In data analysis, it is common that you don't always have what you need. You may need to know individuals' IQ, but all you have is their GPA. You may need to understand food expenditure, but you have total expenditure. You may need to know parental education, but all you have is the number of books the family owns. It is often that the variable that we need in the analysis does not exist in the dataset and we can't measure it. In these cases, our best bet is to find the closest variables to that variable. Variables that may be different in nature but are highly *correlated* with the variable of interest. These variables are called proxy variable.
 
-For instance, if we don't have parental education in our dataset, we can proxy it with the number of books the family has in their home. Although the two variables are different, they are highly correlated; more educated parents have more books at home. So in *most* cases where you can't have the variable you need in your analysis, you can replace it with a proxy. 
+For instance, if we don't have parental education in our dataset, we can proxy it with the number of books the family has in their home. Although the two variables are different, they are highly correlated; more educated parents have more books at home. So in *most* cases where you can't have the variable you need in your analysis, you can replace it with a proxy.
 
 ### Variables in the dataset are not collected in the same year
 
@@ -35,7 +35,7 @@ Random sampling is a necessary approach to having a representative sample. Rando
 * A researcher polls people as they walk by on the street.
 * A TV show host asks the program viewers to visit the network website and respond to a poll.
 
-With this logic, most online surveys or surveys on social media has to be taken with a grain of salt because not members of all social groups have an online presentation or use social media. 
+With this logic, most online surveys or surveys on social media has to be taken with a grain of salt because not members of all social groups have an online presentation or use social media.
 
 The moral of the story is that always think about what your population is. Your population can be anything depending on your project. If you are researching the effect of smoking on pregnant women, then your population is, well, pregnant women and not men. After you know your population, then always collect data from a sample that is representative of your population. Random sampling helps. And lastly, if you have no choice but to work with a dataset that is not collected randomly and is biased, be careful not to generalize your results to the entire population. If you collect data on pregnant women of age 18-24, you can't generalize your results to older women. If you collect data from the political attitudes of residents of Washington, DC, you can't say anything about the whole nation.
 
@@ -50,7 +50,7 @@ The results of the 2016 US presidential election came as a surprise to a lot of 
 
 ![Why were polls so wrong about the 2016 US election?](images/03_how_to_know/03_dataanalysis_how_to_know-10.png)
 
-We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms. To be more specific, the problem was what is called the nonresponse bias. Nonresponse bias is the bias the sample caused by a particular section of the population systematically refusing to answer to the poll or survey. The consequence of nonresponse bias is a sample that is not representative of the population as we discussed above. For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election. It is known that less educated voters who constitute a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls and the hypothesis of the shy voters as other reasons polls failed to predict the outcome of the election correctly. 
+We don't know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms. To be more specific, the problem was what is called the nonresponse bias. Nonresponse bias is the bias the sample caused by a particular section of the population systematically refusing to answer to the poll or survey. The consequence of nonresponse bias is a sample that is not representative of the population as we discussed above. For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election. It is known that less educated voters who constitute a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. [Pew Research](http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/) also points out to dishonesty in responses to polls and the hypothesis of the shy voters as other reasons polls failed to predict the outcome of the election correctly.
 
 All in all, the data and how they're collected matters. There is a term in statistics that says "garbage in, garbage out," which means poor quality input will always produce poor output. A data analysis that is based on faulty data produces faulty results. Be cautious about the data that you use in your analysis and always tell your listeners and readers about the deficiencies of your data. After all, you know your data better than anyone else.
 
@@ -60,43 +60,3 @@ All in all, the data and how they're collected matters. There is a term in stati
 ![How to Know if You Don't Have the Right Data](UPDATE)
 
 * [Slides](https://docs.google.com/presentation/d/1AT2PhPZBMMA8eA5Ne3DjL2SIAKUejEAKRjUL7JbxlM8/edit?usp=sharing)
-
-{quiz, id: quiz_03_how_to_know}
-
-### How to Know quiz
-
-{choose-answers:4} 
-? Which one of the following is NOT among the common issues with data?
-
-C) Variables are collected from different locations.
-C) Sample is large.
-o) Data is too small.
-o) There is measurement error in the data.
-o) Variables in the dataset are not collected in the same year.
-
-{choose-answers:4} 
-? What is a proxy variables?
-
-C) A variable that is highly correlated with the variable of interest and can be used instead of it.
-o) A variable that is exactly the same as the variable of interest.
-o) A variable that is measured in the same way as the variable of interest.
-o) A variable that is not correlated with the variable of interest, but is similar to the variable of interest.
-
-{choose-answers:4} 
-? Which of the following is a representative sample?
-
-C) Sample: randomly selected sample of teachers in the U.S., population: all teachers in the U.S.
-C) Sample: randomly selected sample of teenagers in Chicago, population: all teenagers in Chicago
-o) Sample: a sample of people in a bar, population: adult population in the U.S.
-o) Sample: a randomly selected sample of parent in a school, population: parents in Boston
-o) Sample: a randomly selected sample of college students in Johns Hopkins University, population: college students in private universities.
-
-{choose-answers:4} 
-? What does the expression garbage in, garbage out means?
-
-C) If the data used in analysis is of poor quality, the results of the analysis will be poor.
-o) If the analysis is poor, that means the analyst used poor quality data.
-o) If the analyst is not good, it doesn't matter what data he or she uses.
-o) If you use high quality data in an analysis, the results will certainly be high quality.
-
-{/quiz}
