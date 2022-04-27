@@ -43,7 +43,7 @@ One of the best datasets for analyzing SPAM data is the *spam* data in the `kern
 {format: png}
 ![spam dataset from the `kernlab` package](https://docs.google.com/presentation/d/1TYOQzkJL8ZSGMQP25XAIsMvbB3mo2NOoCzT5Sp7hkFA/export/png?id=1TYOQzkJL8ZSGMQP25XAIsMvbB3mo2NOoCzT5Sp7hkFA&pageid=g3df3d0cd9c_0_0)
 
-```{r}
+```{r, eval=FALSE}
 library(kernlab)
 data(spam)
 ```
