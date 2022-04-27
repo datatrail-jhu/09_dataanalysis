@@ -52,6 +52,7 @@ ExwY
 filedate
 Fitbit
 FiveThirtyEight
+FiveThirtyEight's
 github
 GjF
 glms
@@ -111,6 +112,7 @@ README
 RealDonaldTrump
 repo
 Rmarkdown
+RMarkdown
 Rmd
 rQ
 RQEO
