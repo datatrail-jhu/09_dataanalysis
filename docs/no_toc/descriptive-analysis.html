@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Descriptive Analysis | My Document</title>
+  <meta name="description" content="Chapter 4 Descriptive Analysis | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Descriptive Analysis | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Descriptive Analysis | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="do-i-have-the-data-i-need.html"/>
+<link rel="next" href="exploratory-analysis.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="descriptive-analysis" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Descriptive Analysis</h1>
+<p>The goal of descriptive analysis is to <strong>describe</strong> or <strong>summarize</strong> a set of data. Whenever you get a new dataset to examine, this is the first analysis you will perform. In fact, if you never summarize the data, it’s <em>not</em> a data analysis.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da35c43c3_0_0" alt="Descriptive Analysis summarizes the dataset" /></p>
+<p>If you think of a dataset as the animal in the elephant in the middle of this picture, you doing a descriptive analysis are the blind monks examining every part of the elephant. Just like the blind monks who are examining each and every part of the elephant to understand it completely, the <strong>goal of a descriptive analysis is to understand the data you’re working with completely</strong>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da35c43c3_0_147" alt="examining a dataset" /></p>
+<p>Descriptive analysis will first and foremost generate simple summaries about the samples and their measurements to describe the data you’re working with. There are a number of common descriptive statistics that we’ll discuss in this lesson: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance).</p>
+<p>This type of analysis is aimed at <strong>summarizing your dataset</strong>. Unlike analysis approaches we’ll discuss in coming lessons, descriptive analysis is <em>not</em> for generalizing the results of the analysis to a larger population <em>nor</em> trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we’re just summarizing what we’re working with.</p>
+<p>Some examples of purely descriptive analysis can be seen in censuses. In a census, the government collects a series of measurements on <em>all</em> of the country’s citizens. After collecting these data, they are summarized. From this descriptive analysis, we learn a lot about a country. For example, you can learn the age distribution of the population by looking at U.S. census data.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_1" alt="2010 census Data broken down by age" /></p>
+<p>This can be further broken down (or <strong>stratified</strong>) by sex to describe the age distribution by sex. The goal of these analyses is to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is only to summarize the data collected.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_74" alt="2010 census Data broken down by age and sex" /></p>
+<p>In this lesson, we’ll discuss the steps required to carry out a descriptive analysis. As this will be the first thing you do whenever you’re working with a new dataset, it’s important to work through the examples in this lesson step-by-step.</p>
+<div id="how-to-describe-a-dataset" class="section level3" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> How to Describe a Dataset</h3>
+<p>When provided a new tabular dataset, whether it’s a CSV you’ve been sent by your boss or a table you’ve scraped from the Internet, the first thing you’ll want to do is describe the dataset. This helps you understand how big the dataset is, what information is contained in the dataset, and how each variable in the dataset is distributed.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_131" alt="Descriptive Analysis" /></p>
+<p>For this lesson, we’re going to move <em>away</em> from the <code>iris</code> or <code>mtcars</code> dataset (since you probably already have a pretty good understanding of those datasets) and work with a dataset we haven’t used too much in this Course Set: <code>msleep</code> (from the <code>ggplot2</code> package). This dataset includes information about mammals and their sleep habits. We’ll load that package in and assign the dataset to the object <code>df</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="descriptive-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load package</span></span>
+<span id="cb1-2"><a href="descriptive-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb1-3"><a href="descriptive-analysis.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="descriptive-analysis.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="descriptive-analysis.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## assign to object `df`</span></span>
+<span id="cb1-6"><a href="descriptive-analysis.html#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> msleep</span></code></pre></div>
+<p>Generally, the first thing you’ll want to know about your dataset is how many observations and how many variables you’re working with. You’ll want to understand the size of your dataset.</p>
+<p>You can always look at the Environment tab in RStudio Cloud to see how many observations and variables there are in your dataset; however, once you have many objects, you’ll have to scroll through or search this list to find the information you’re looking for.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_5" alt="Environment tab" /></p>
+<p>To avoid having to do that, the simplest approach to getting this information is the <code>dim()</code> function, which will give you the <strong>dimensions</strong> of your data frame. The output will display with the number of rows (observations) first, followed by the number of columns (variables).</p>
+<pre><code>## determine the dimensions
+ dim(df)</code></pre>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_13" alt="dim() output" /></p>
+<div id="variables" class="section level4" number="4.0.1.1">
+<h4><span class="header-section-number">4.0.1.1</span> Variables</h4>
+<p>There are additional ways to learn a bit more about the dataset using a different function. What if we wanted to know not only the dimensions of our dataset but wanted to learn a little bit more about the variables we’re working with?</p>
+<p>Well, we could use <code>dim()</code> and then use the <code>colnames()</code> function to determine what the variable names are in our dataset:</p>
+<pre><code>## determine variable names
+colnames(df)</code></pre>
+<p>The output from <code>colnames</code> tells us that there are 11 variables in our dataset and lets us know what the variable names are for these data.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_20" alt="colnames() output" /></p>
+<p>But, what if we didn’t want to use two different functions for this <em>and</em> wanted a little bit more information, such as what <em>type</em> of information is stored in each of these variables (columns)? To get <em>that</em> information, we’d turn to the function <code>str()</code>, which provides us information about the structure of the dataset.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="descriptive-analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## display structure</span></span>
+<span id="cb4-2"><a href="descriptive-analysis.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_25" alt="str() output" /></p>
+<p>The output here still tells us the size of <code>df</code> and the variable names, but we also learn what the class of each variable is and see a few of the values for each of the variables.</p>
+<p>A very similar function to <code>str()</code> is the <code>glimpse()</code> function from the <code>dplyr</code> package. As you’ve been introduced to this function previously, we just wanted to remind you that <code>glimpse()</code> can also be used to understand the size and structure of your data frame</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="descriptive-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load package</span></span>
+<span id="cb5-2"><a href="descriptive-analysis.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb5-3"><a href="descriptive-analysis.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-4"><a href="descriptive-analysis.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="descriptive-analysis.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## get a glimpse of your data</span></span>
+<span id="cb5-6"><a href="descriptive-analysis.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_56" alt="glimpse() output" /></p>
+</div>
+<div id="missing-values" class="section level4" number="4.0.1.2">
+<h4><span class="header-section-number">4.0.1.2</span> Missing Values</h4>
+<p>In any analysis after your descriptive analysis, missing data can cause a problem. Thus, it’s best to get an understanding of missingness in your data right from the start. <strong>Missingness</strong> refers to observations that are not included for a variable. In R, <code>NA</code> is the preferred way to specify missing data, so if you’re ever generating data, its best to include <code>NA</code> wherever you have a missing value.</p>
+<p>However, individuals who are less familiar with R code missingness in a number of different ways in their data: <code>-999</code>, <code>N/A</code>, <code>.</code>, or a blank space. As such, it’s best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a single dataset will code missingness differently. This shouldn’t happen, but it does, so always use caution when looking for missingness.</p>
+<p>In this dataset, all missing values are coded as <code>NA</code>, and from the output of <code>str(df)</code> (or <code>glimpse(df)</code>), we see that at least a few variables have <code>NA</code> values. We’ll want to quantify this missingness though to see which variables have missing data and how many observations within each variable have missing data.</p>
+<p>To do this, we can write a function that will calculate missingness within each of our variables. To do this we’ll combine a few functions. In the code here <code>is.na()</code> returns a logical (TRUE/FALSE) depending upon whether or not the value is missing (TRUE if it is missing). <code>sum()</code> then calculates the number of TRUE values there are within an observation. We wrap this into a function and then use <code>sapply()</code> to calculate the number of missing values in each variable. The second bit of code does the exact same thing but divides those numbers by the total number of observations (using <code>nrow(df)</code>. For each variable, this returns the proportion of missingness:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="descriptive-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate how many NAs there are in each variable</span></span>
+<span id="cb6-2"><a href="descriptive-analysis.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb6-3"><a href="descriptive-analysis.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="descriptive-analysis.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate the proportion of missingness</span></span>
+<span id="cb6-5"><a href="descriptive-analysis.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## for each variable</span></span>
+<span id="cb6-6"><a href="descriptive-analysis.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))<span class="sc">/</span><span class="fu">nrow</span>(df)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_237" alt="missingness in msleep" /></p>
+<p>Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable <code>brainwt</code>, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset.</p>
+<p>It’s also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using <code>ggplot2</code>; however, <a href="http://www.njtierney.com/about/">Nicholas Tierney</a> has already written one for you. He has written two helpful packages for exploratory and descriptive data analyses: <a href="https://github.com/njtierney/naniar"><code>naniar</code></a> and <a href="https://github.com/ropensci/visdat"><code>visdat</code></a>. For our purposes, we’ll just install and load <code>naniar</code> here; however, links to both have been included in the additional resources section at the end of this lesson. We recommend looking through the examples provided in the documentation to see additional capabilities within these packages.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="descriptive-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install naniar package</span></span>
+<span id="cb7-2"><a href="descriptive-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;naniar&quot;</span>)</span>
+<span id="cb7-3"><a href="descriptive-analysis.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb7-4"><a href="descriptive-analysis.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="descriptive-analysis.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## visualize missingness</span></span>
+<span id="cb7-6"><a href="descriptive-analysis.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(df)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_232" alt="vis_miss() output" /></p>
+<p>Here, we see the variables listed along the top with percentages summarizing how many observations are missing data for that particular variable. Each row in the visualization is a different observation. Missing data are black. Non-missing values are in grey. Focusing again on <code>brainwt</code>, we can see the 27 missing values visually. We can also see that <code>sleep_cycle</code> has the most missingness, while many variables have no missing data.</p>
+<p>The relative missingness within a dataset can be easily captured with another function from the <code>naniar</code> package: <code>gg_miss_var()</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="descriptive-analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## visualize relative missingness</span></span>
+<span id="cb8-2"><a href="descriptive-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(df) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g451d0f51be_0_2" alt="gg_miss_var() output" /></p>
+<p>Here, the variables are listed along the left-hand side and the number of missing values for each variable is plotted. We can clearly see that <code>brainwt</code> has 27 missing values in this dataset, while sleep_cycle has the most missingness among variables in this dataset.</p>
+<p>Getting an understanding of what values are missing in your dataset is critical before moving on to any other type of analysis.</p>
+</div>
+<div id="shape" class="section level4" number="4.0.1.3">
+<h4><span class="header-section-number">4.0.1.3</span> Shape</h4>
+<p>Determining the shape of your variable is essential before any further analysis is done. Statistical methods used for inference (discussed in a later lesson) often require your data to be distributed in a certain manner before they can be applied to the data. Thus, being able to describe the shape of your variables is necessary during your descriptive analysis.</p>
+<p>When talking about the shape of one’s data, we’re discussing how the values (observations) within the variable are distributed. Often, we first determine how spread out the numbers are from one another (do all the observations fall between 1 and 10? 1 and 1000? -1000 and 10?). This is known as the <strong>range</strong> of the values. The range is described by the minimum and maximum values taken by observations in the variable.</p>
+<p>After establishing the range, we determine the shape or <strong>distribution</strong> of the data. More explicitly, the distribution of the data explains <em>how</em> the data are spread out over this range. Are most of the values all in the center of this range? Or, are they spread out evenly across the range? There are a number of distributions used commonly in data analysis to describe the values within a variable. We’ll cover just a few of them in this lesson, but keep in mind this is certainly <em>not</em> an exhaustive list.</p>
+<div id="normal-distribution" class="section level5" number="4.0.1.3.1">
+<h5><span class="header-section-number">4.0.1.3.1</span> Normal Distribution</h5>
+<p>The <strong>Normal distribution</strong> (also referred to as the <strong>Gaussian</strong> distribution) is a very common distribution and is often described as a bell-shaped curve. In this distribution, the values are symmetric around the central value with a high density of the values falling right around the central value. The left hand of the curve mirrors the right hand of the curve.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_363" alt="Normal Distribution" /></p>
+<p>A variable can be described as normally distributed if:</p>
+<ul>
+<li>there is a strong tendency for data to take a central value - many of the observations are centered around the middle of the range</li>
+<li>deviations away from the central value are equally likely in both directions</li>
+<li>the frequency of these deviations away form the central value occurs at the same rate on either side of the central value.</li>
+</ul>
+<p>Taking a look at the <code>sleep_total</code> variable within our example dataset, we see that the data are somewhat normal; however, they aren’t entirely symmetric.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="descriptive-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(sleep_total)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="descriptive-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_376" alt="distribution of msleep sleep_total" /></p>
+<p>A variable that is distributed more normally can be seen in the <code>iris</code> dataset, when looking at the <code>Sepal.Width</code> variable.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="descriptive-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Width)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="descriptive-analysis.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_426" alt="distribution of iris Sepal.Width" /></p>
+</div>
+<div id="skewed-distribution" class="section level5" number="4.0.1.3.2">
+<h5><span class="header-section-number">4.0.1.3.2</span> Skewed Distribution</h5>
+<p>Alternatively, sometimes data follow a skewed distribution. In a skewed distribution, most of the values fall to one end of the range, leaving a tail off to the other side. When the tail is off to the left, the distribution is said to be <strong>skewed left</strong>. When off to the right, the distribution is said to be <strong>skewed right</strong>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_380" alt="Skewed Distributions" /></p>
+<p>To see an example from the <code>msleep</code> dataset, we’ll look at the variable <code>sleep_rem</code>. Here we see that the data are skewed right, given the shift in values away from the right, leading to a long right tail. Here, most of the values are at the lower end of the range.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="descriptive-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(sleep_rem)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="descriptive-analysis.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_385" alt="sleep_rem is skewed right" /></p>
+</div>
+<div id="uniform-distribution" class="section level5" number="4.0.1.3.3">
+<h5><span class="header-section-number">4.0.1.3.3</span> Uniform Distribution</h5>
+<p>Finally, in distributions we’ll discuss today, sometimes values for a variable are equally likely to be found along any portion of the distribution. The curve for this distribution looks more like a rectangle, since the likelihood of an observation taking a value is constant across the range of possible values.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_389" alt="Uniform Distribution" /></p>
+</div>
+<div id="outliers" class="section level5" number="4.0.1.3.4">
+<h5><span class="header-section-number">4.0.1.3.4</span> Outliers</h5>
+<p>Now that we’ve discussed distributions, it’s important to discuss <strong>outliers</strong> – or an observation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_59" alt="density curve with an outlier" /></p>
+<p>For example, imagine you had a sample where all of the individuals in your sample are between the ages of 18 and 65, but then you have one sample that is 1 year old and another that is 95 years old.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_0" alt="Sample population" /></p>
+<p>If we were to plot the age data on a density plot, it would look something like this:</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_40" alt="example densityplot" /></p>
+<p>The baby and elderly individual would pop out as outliers on the plot.</p>
+<p>After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_74" alt="caution" /></p>
+<p>It can sometimes be difficult to decide whether or not a sample should be removed from the dataset. In the simplest terms, <em>no observation should be removed from your dataset unless there is a <strong>valid reason</strong> to do so</em>. For a more extreme example, what if that dataset we just discussed (with all the samples having ages between 18 and 65) had one sample with the age 600? Well, if these are human data, we clearly know that is a data entry error. Maybe it was supposed to be 60 years old, but we may not know for sure. If we can follow up with that individual and double-check, it’s best to do that, correct the error, make a note of it, and continue you with the analysis. However, that’s often not possible. In the cases of obvious data entry errors, it’s likely that you’ll have to remove that observation from the dataset. It’s valid to do so in this case since you know that an error occurred and that the observation was not accurate.</p>
+<p>Outliers do not only occur due to data entry errors. Maybe you were taking weights of your observations over the course of a few weeks. On one of these days, your scale was improperly calibrated, leading to incorrect measurements. In such a case, you would have to remove these incorrect observations before analysis.</p>
+<p>Outliers can occur for a variety of reasons. Outliers can occur due human error during data entry, technical issues with tools used for measurement, as a result of weather changes that affect measurement accuracy, or due to poor sampling procedures. It’s always important to look at the distribution of your observations for a variable to see if anything is falling far away from the rest of the observations. If there are, it’s then important to think about why this occurred and determine whether or not you have a valid reason to remove the observations from the data.</p>
+<p>An important note is that observations should <strong>never</strong> be removed just to make your results look better. Wanting better results is <strong>not</strong> a valid reason for removing observations from your dataset.</p>
+<div id="identifying-outliers" class="section level6" number="4.0.1.3.4.1">
+<h6><span class="header-section-number">4.0.1.3.4.1</span> Identifying Outliers</h6>
+<p>To identify outliers visually, density plots and boxplots can be very helpful.</p>
+<p>For example, if we returned to the <code>iris</code> dataset and looked at the distribution of <code>Petal.Length</code>, we would see a bimodal distribution (yet another distribution!). Bimodal distributions can be identified by density plots that have two distinct humps. In these distributions, there are two different modes – this is where the term “bimodal” comes from. In this plot, the curve suggests there are a number of flowers with petal length less than 2 and many with petal length around 5.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="descriptive-analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## density plot</span></span>
+<span id="cb12-2"><a href="descriptive-analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot)</span>
+<span id="cb12-3"><a href="descriptive-analysis.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length))<span class="sc">+</span></span>
+<span id="cb12-4"><a href="descriptive-analysis.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_4" alt="iris density plot" /></p>
+<p>Since the two humps in the plot are about the same height, this shows that it’s not just one or two flowers with much smaller petal lengths, but rather that there are many. Thus, these observations aren’t likely an outlier.</p>
+<p>To investigate this further, we’ll look at petal length broken down by flower species:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="descriptive-analysis.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## box plot</span></span>
+<span id="cb13-2"><a href="descriptive-analysis.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Petal.Length))<span class="sc">+</span></span>
+<span id="cb13-3"><a href="descriptive-analysis.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_20" alt="iris boxplot" /></p>
+<p>In this boxplot, we see in fact that <code>setosa</code> have a shorter petal length while <code>virginica</code> have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species!</p>
+<p>Boxplots are also helpful because they plot “outlier” samples as points outside the box. By default, boxplots define “outliers” as observations as those that are 1.5 x IQR (interquartile range). The IQR is the distance between the first and third quartiles. This is a mathematical way to determine if a sample <em>may</em> be an outlier. It is visually helpful, but then it’s up to the analyst to determine if an observation should be removed. While the boxplot identifies outliers in the setosa and versicolor species, these values are all within a reasonable distance of the rest of the values, and unless I could determine <em>why</em> this occurred, I would not remove these observations from the dataset</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_9" alt="iris boxplot with annotations" /></p>
+</div>
+</div>
+</div>
+<div id="central-tendency" class="section level4" number="4.0.1.4">
+<h4><span class="header-section-number">4.0.1.4</span> Central Tendency</h4>
+<p>Once you know how large your dataset is, what variables you have information on, how much missing data you’ve got for each variable, and the shape of your data, you’re ready to start understanding the <em>information within the values</em> of each variable.</p>
+<p>Some of the simplest and most informative measures you can calculate on a numeric variable are those of <strong>central tendency</strong>. The two most commonly used measures of central tendency are: mean and median. These measures provide information about the <em>typical</em> or <em>central</em> value in the variable.</p>
+<div id="mean" class="section level5" number="4.0.1.4.1">
+<h5><span class="header-section-number">4.0.1.4.1</span> mean</h5>
+<p>The mean (often referred to as the average) is equal to the sum of all the observations in the variable divided by the total number of observations in the variable. The mean takes all the values in your variable and calculates the <strong>most common value</strong>.</p>
+<p>So if you had the following vector: <code>a &lt;- c(1, 2, 3, 4, 5, 6)</code>, the mean would be 3.5.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_287" alt="calculating the mean" /></p>
+<p>But what if we added another ‘3’ into that vector, so that it were: <code>a &lt;- c(1, 2, 3, 3, 4, 5, 6)</code>. Now, the mean would be 3.43. It would decrease the average for this set of numbers as you can see in the calculations here:</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_322" alt="decreased average" /></p>
+<p>To calculate the mean in R, the function is <code>mean()</code>. Here, we show how to calculate the mean for a variable in R. Note that when you have NAs in a variable, you’ll need to let R know to remove the NAs (using <code>na.rm=TRUE</code>) before calculating your mean. Otherwise, it will return <code>NA</code>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="descriptive-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this will return NA</span></span>
+<span id="cb14-2"><a href="descriptive-analysis.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>sleep_cycle)</span>
+<span id="cb14-3"><a href="descriptive-analysis.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="descriptive-analysis.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## have to tell R to ignore the NAs</span></span>
+<span id="cb14-5"><a href="descriptive-analysis.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>sleep_cycle, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_246" alt="mean(sleep_cycle)" /></p>
+</div>
+<div id="median" class="section level5" number="4.0.1.4.2">
+<h5><span class="header-section-number">4.0.1.4.2</span> median</h5>
+<p>The median is the middle observation for a variable after the observations in that variable have been arranged in order of magnitude (from smallest to largest). The median is the <strong>middle value</strong>.</p>
+<p>Using the same vector as we first use to calculate median, we see that the middle value for this set of numbers is 3.5 as this is the value at the center of this set of numbers. This happens to be the same value as the mean was.</p>
+<p>However, that is not always the case. When we add that second 3 in the middle of the set of numbers, the median is now 3, as this is the value at the center of this set of numbers. 3 is the middle value.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_312" alt="medians" /></p>
+<p>To calculate the median in R, use the function <code>median()</code>. Again, when there are NAs in the variable, you have to tell R explicitly to remove them before calculating the median.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="descriptive-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate the median</span></span>
+<span id="cb15-2"><a href="descriptive-analysis.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>sleep_cycle, <span class="at">na.rm=</span><span class="cn">TRUE</span>)  </span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_280" alt="median sleep_cycle" /></p>
+<p>While not the exact same value, the mean and median for <code>sleep_cycle</code> are similar (0.44 and 0.33). However, this is not always the case. For data that are <strong>skewed</strong> or contain <strong>outlier values</strong> – values that are very different from the rest of the values in the variable – the mean and the median will be very different from one another. In our example dataset, the mean and the median values for the variable <code>bodywt</code> are quite different from one another.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="descriptive-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate mean and median</span></span>
+<span id="cb16-2"><a href="descriptive-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>bodywt)</span>
+<span id="cb16-3"><a href="descriptive-analysis.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>bodywt)</span>
+<span id="cb16-4"><a href="descriptive-analysis.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="descriptive-analysis.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="do">## look at the histogram</span></span>
+<span id="cb16-6"><a href="descriptive-analysis.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(bodywt)) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="descriptive-analysis.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_330" alt="mean vs median" /></p>
+<p>When we look at the histogram of the data, we see that most body weights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are <strong>outliers in the dataset</strong>. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms.</p>
+<p>When you have outliers in the dataset, the median is typically the measure of central tendency you’ll want to use, as it’s resistant to the effects of outlier values.</p>
+</div>
+<div id="mode" class="section level5" number="4.0.1.4.3">
+<h5><span class="header-section-number">4.0.1.4.3</span> mode</h5>
+<p>There is a third, less-frequently calculated measure of central tendency for continuous variables, known as the mode. This is the value that comes up most frequently in your dataset. For example, if your dataset <code>a</code> were comprised of the following numbers <code>a &lt;- c(0, 10, 10, 3, 5, 10, 10)</code>, 10 would be the <strong>mode</strong>, as it occurs four times. It doesn’t matter whether it’s the largest value, the smallest value, or somewhere in between, the most frequently value in your dataset is the mode. There is no built-in function for calculating the mode in R for a numeric value, which should suggest that, for continuous variables, knowing the mode of a variable is often less crucial than knowing the mean and median (which is true)! However, you could write a function to calculate it. For the above vector <code>a</code>, <code>which.max(tabulate(a))</code> would return the mode: 10. (Note that this would not work if you had two values that were found in the dataset at the same frequency. A more eloquent approach would be required.)</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_257" alt="mode of a continuous variable" /></p>
+<p>However, for categorical variables, the level with the most observations would be the mode. This can be determined using the <code>table()</code> function, which breaks down the number of observations within the categorical variable</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_262" alt="table() output" /></p>
+<p>Further, the mode for a categorical variable can be visualized by generating a barplot:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="descriptive-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot categorical variable to visualize mode</span></span>
+<span id="cb17-2"><a href="descriptive-analysis.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(order)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="descriptive-analysis.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href="descriptive-analysis.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb17-5"><a href="descriptive-analysis.html#cb17-5" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb17-6"><a href="descriptive-analysis.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_267" alt="geom_bar visually displays the mode" /></p>
+</div>
+</div>
+<div id="variability" class="section level4" number="4.0.1.5">
+<h4><span class="header-section-number">4.0.1.5</span> Variability</h4>
+<p>In addition to measures of central tendency, measures of variability are key in describing the values within a variable. Two common and helpful measures of variability are: standard deviation and variance. Both of these are measures of
+how spread out the values in a variable are.</p>
+<div id="variance" class="section level5" number="4.0.1.5.1">
+<h5><span class="header-section-number">4.0.1.5.1</span> Variance</h5>
+<p>The variance tells you how spread out the values are. If all the values within your variable are exactly the same, that variable’s variance will be zero. The larger your variance, the more spread out your values are. Take the following vector and calculate its variance in R using the <code>var()</code> function:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="descriptive-analysis.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## variance of a vector where all values are the same</span></span>
+<span id="cb18-2"><a href="descriptive-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">29</span>)</span>
+<span id="cb18-3"><a href="descriptive-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(a)</span>
+<span id="cb18-4"><a href="descriptive-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="descriptive-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## variance of a vector with one very different value</span></span>
+<span id="cb18-6"><a href="descriptive-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">723678</span>)</span>
+<span id="cb18-7"><a href="descriptive-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_445" alt="variance" /></p>
+<p>The only difference between the two vectors is that the second one has one value that is much larger than “29”. The variance for this vector is thus much higher.</p>
+</div>
+<div id="standard-deviation" class="section level5" number="4.0.1.5.2">
+<h5><span class="header-section-number">4.0.1.5.2</span> Standard Deviation</h5>
+<p>By definition, the standard deviation is the square root of the variance, thus if we were to calculate the standard deviation in R using the <code>sd()</code> function, we’d see that the <code>sd()</code> function is equal to the square root of the variance:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="descriptive-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate standard deviation</span></span>
+<span id="cb19-2"><a href="descriptive-analysis.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(b)</span>
+<span id="cb19-3"><a href="descriptive-analysis.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="descriptive-analysis.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="do">## this is the same as the square root of the variance</span></span>
+<span id="cb19-5"><a href="descriptive-analysis.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(b))</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_450" alt="Standard Deviation" /></p>
+<p>For both measures of variance, the minimum value is 0. The larger the number, the more spread out the values in the valuable are.</p>
+</div>
+</div>
+</div>
+<div id="summarizing-your-data" class="section level3" number="4.0.2">
+<h3><span class="header-section-number">4.0.2</span> Summarizing Your Data</h3>
+<p>Often, you’ll want to include tables in your reports summarizing your dataset. These will include the number of observations in your dataset and maybe the mean/median and standard deviation of a few variables. These could be organized into a table using what you learned in the data visualization course about generating tables.</p>
+<div id="skimr" class="section level4" number="4.0.2.1">
+<h4><span class="header-section-number">4.0.2.1</span> skimr</h4>
+<p>Alternatively, there is a helpful package that will summarize all the variables within your dataset. The <code>skimr</code> package provides a tidy output with information about your dataset.</p>
+<p>To use <code>skimr</code>, you’ll have to install and load the package before using the helpful function <code>skim()</code> to get a snapshot of your dataset.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="descriptive-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;skimr&quot;</span>)</span>
+<span id="cb20-2"><a href="descriptive-analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb20-3"><a href="descriptive-analysis.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(df)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_455" alt="skim() output" /></p>
+<p>The output from skim separately summarizes categorical and continuous variables. For continuous variables you get information about the mean and median (<code>p50</code>) column. You know what the range of the variable is (<code>p0</code> is the minimum value, <code>p100</code> is the maximum value for continuous variables). You also get a measure of variability with the standard deviation (<code>sd</code>). It even quantifies the number of missing values (<code>missing</code>) and shows you the distribution of each variable (<code>hist</code>)! This function can be incredibly useful to get a quick snapshot of what’s going on with your dataset.</p>
+</div>
+<div id="published-descriptive-analyses" class="section level4" number="4.0.2.2">
+<h4><span class="header-section-number">4.0.2.2</span> Published Descriptive Analyses</h4>
+<p>In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we’re looking at the first table in a <a href="https://www.nejm.org/doi/full/10.1056/nejmoa1102673">paper published in the New England Journal of Medicine by The CATT Research Group</a>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_91" alt="Table 1" /></p>
+<p>We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_99" alt="Table 1 - just the top" /></p>
+<p>We provide this here as an example of how someone would include a descriptive analysis in a report or publication. It doesn’t always have to be this long, but you should always describe your data when sharing it with others.</p>
+</div>
+</div>
+<div id="summary-1" class="section level3" number="4.0.3">
+<h3><span class="header-section-number">4.0.3</span> Summary</h3>
+<p>This lesson covered the necessary parts of carrying out a descriptive analysis. Generally, describing a dataset involves describing the numbers of observations and variables in your dataset, getting an understanding of missingness, and, understanding the shape, central tendency, and variability of each variable. Description must happen as the first step in any data analysis.</p>
+</div>
+<div id="additional-resources" class="section level3" number="4.0.4">
+<h3><span class="header-section-number">4.0.4</span> Additional Resources</h3>
+<ul>
+<li><a href="https://flowingdata.com/2018/01/30/visualizing-incomplete-and-missing-data/?utm_content=buffer8adce&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">Visualizing Incomplete &amp; Missing Data</a>, by <a href="http://flowingdata.com/about-nathan">Nathan Yau</a></li>
+<li><a href="https://cran.r-project.org/web/packages/naniar/vignettes/getting-started-w-naniar.html">Getting Started with the <code>naniar</code> package</a>, from <a href="http://www.njtierney.com">Nicholas Tierney</a></li>
+<li><a href="https://github.com/ropensci/visdat"><code>visdat</code> package</a>, also from <a href="http://www.njtierney.com">Nicholas Tierney</a> to further visualize datasets during exploratory and descriptive analyses</li>
+<li><a href="https://cran.r-project.org/web/packages/skimr/vignettes/Using_skimr.html">Using the <code>skimr</code> package</a>, by <a href="https://elinwaring.org/">Elin Waring</a></li>
+</ul>
+</div>
+<div id="slides-and-video-3" class="section level3" number="4.0.5">
+<h3><span class="header-section-number">4.0.5</span> Slides and Video</h3>
+<div class="figure">
+<img src="https://www.youtube.com/watch?v=ahzGpe7ts0s" alt="" />
+<p class="caption">Descriptive Analysis</p>
+</div>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing">Slides</a></li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="do-i-have-the-data-i-need.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploratory-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

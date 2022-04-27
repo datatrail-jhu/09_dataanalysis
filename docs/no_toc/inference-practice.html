@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Inference: Practice | My Document</title>
+  <meta name="description" content="Chapter 10 Inference: Practice | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Inference: Practice | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Inference: Practice | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inference-examples.html"/>
+<link rel="next" href="prediction-machine-learning.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="inference-practice" class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Inference: Practice</h1>
+<!-- Google Slide ID -->
+<!-- 1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU -->
+<!-- Include a slide PNG with Page_ID from this Slide Deck: -->
+<!-- ![](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=PAGE_ID) -->
+<!-- or use  `didactr::gs_slide_df("1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU")$png_markdown` -->
+<p>Often when we’re learning new concepts we get focused on one part of the process (getting the code to run!) and lose sight of the big picture (why are we doing this analysis again?). In the last few lessons we’ve discussed a lot. We’ve discussed regression conceptually, gone through examples of running simple and multiple regression, and saw a few examples of regression in the real world. Now it’s time to make sure we’re able to carry out our own regression analysis from start to finish! The goal of this lesson is to ask an inference-focused question and use data to answer that question. In this we’ll explore a dataset (EDA!) and fit a regression model (using linear regression!)</p>
+<p>Be sure that you’re carrying out the analysis on your own throughout this lesson to understand what’s going on here <em>and</em> because you’ll need the objects created in this lesson to complete the quiz at the end. Feel free to copy the code but make sure you’re <em>understanding</em> not only the code but also the <em>output</em>. Getting code to run is half the battle, but we need to be sure we understand the output of the code for it to mean anything!</p>
+<div id="the-question" class="section level3" number="10.0.1">
+<h3><span class="header-section-number">10.0.1</span> The Question</h3>
+<p>Health Care in the United States is a complicated mess of confusing coverage policies, costly procedures, and hard-to-understand insurance companies. But, understanding this system and how it affects health in the United States is important! In this lesson, we’re going to walk through an example using a real dataset to better understand healthcare coverage and spending across the United States.</p>
+<p>The specific question we’re setting out to answer is:</p>
+<blockquote>
+<p>What is the relationship between healthcare coverage and healthcare spending in the United States?</p>
+</blockquote>
+</div>
+<div id="the-data" class="section level3" number="10.0.2">
+<h3><span class="header-section-number">10.0.2</span> The Data</h3>
+<p>The data and motivation for this question come from an awesome project called <a href="https://opencasestudies.github.io/">Open Case Studies</a>. This project provides datasets and tutorials that use real data to teach data-related concepts. The specific case study we’re using in this lesson can be found <a href="https://github.com/opencasestudies/ocs-healthexpenditure">here</a>. We’re going to walk through this analysis step by step, using a number of their approaches and materials. But, you can certainly find more information in the <a href="https://opencasestudies.github.io/casestudies/ocs-healthexpenditure.html">case study</a> directly!</p>
+<p>To get started working with these data in RStudio Cloud, we’ll need to first read the data in using read_csv and the URL directly.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="inference-practice.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uncomment if packages not yet installed</span></span>
+<span id="cb36-2"><a href="inference-practice.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
+<span id="cb36-3"><a href="inference-practice.html#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="inference-practice.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb36-5"><a href="inference-practice.html#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="inference-practice.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># read in coverage data</span></span>
+<span id="cb36-7"><a href="inference-practice.html#cb36-7" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-coverage.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">2</span>, <span class="at">n_max  =</span> <span class="dv">52</span>)</span>
+<span id="cb36-8"><a href="inference-practice.html#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="inference-practice.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read in spending data</span></span>
+<span id="cb36-10"><a href="inference-practice.html#cb36-10" aria-hidden="true" tabindex="-1"></a>spending <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-spending.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">2</span>, <span class="at">n_max  =</span> <span class="dv">52</span>)</span></code></pre></div>
+<p>Note in the code here there are a few additional arguments that have to be included. We use <code>skip = 2</code> to skip the first two rows in the file and set <code>n_max  = 52</code>. This is something we haven’t seen previously, but <code>n_max</code> specifies the maximum number of records to read in. Here, we’re specifying to find the location where the column <code>Location</code> is Notes and then stop the row before that. This will ignore Notes included at the end of the file. You can see the notes included if you scroll to the end of one of these <a href="https://github.com/opencasestudies/ocs-healthexpenditure/blob/master/data/KFF/healthcare-coverage.csv">files on GitHub</a>.</p>
+<p>Recognizing that these steps have to be done is part of carrying out a project. It’s your job as the analyst to know and understand the dataset inside out and backwards. Familiarizing yourself with the many arguments in functions like <code>read_csv()</code> from <code>readr</code> (use <code>?readr::read_csv</code> to see them) will help you keep in mind the things to look out for when reading datasets into R.</p>
+</div>
+<div id="descriptive-analysis-1" class="section level3" number="10.0.3">
+<h3><span class="header-section-number">10.0.3</span> Descriptive Analysis</h3>
+<p>The first thing you’ll want to do is get a sense of what data are included in each dataset to familiarize yourself with the information included. Remember that the <code>glimpse()</code> function can be very helpful here!</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="inference-practice.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb37-2"><a href="inference-practice.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb37-3"><a href="inference-practice.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(coverage)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_0" alt="glimpse() gives us a look at what’s included in our coverage dataset" /></p>
+<p>Looking at the output here, we see that there are 52 observations and 29 variables being measured. We see that the observations are the states in the US (likely including Washington, DC) and one for the US overall. We then see that a number of pieces of data (variables) have been collected over four years (2013-2016).</p>
+<p>We also get an idea of what <em>types</em> of data are stored in our dataset. We see lots of numeric variable (<code>dbl</code>) and a few strings (<code>chr</code>). But wait…should those strings <em>actually</em> be strings? It looks like there’s numeric information stored in those variables (<code>2013__Other Public</code>, for example). It looks like the way missing data has been specified in these data (“N/A”) is causing some issues… R is expecting “NA” by default…so we’ll have to go back and specify for R to look for “N/A” as well in just a second.</p>
+<p>But first, let’s see if we have the same issue in the spending dataset.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="inference-practice.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spending)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_6" alt="glimpse() demonstrates we have the same number of observations in the spending dataset" /></p>
+<p>When we look at the <code>glimpse()</code> output for spending, we see that we again have the same number of observations (N=52) but here we have 25 variables summarizing total health spending from 1991-2014. So, right off the bat we know that the only two years we have overlapping information are 2013 and 2014. Something to keep in mind!</p>
+<p>Also, we see that all observations (aside from Location) are numeric (<code>dbl</code>), so it doesn’t appear we have any “N/A” issues here.</p>
+<p>Before we go any further, let’s address those “N/A” values. If you looked at the <code>read_csv</code> documentation, you’re aware that <code>na</code> is an argument to that function. So, let’s read these data in once again, but specify that “N/A” is how missing data has been specified in the coverage dataset.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="inference-practice.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in coverage data</span></span>
+<span id="cb39-2"><a href="inference-practice.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># consider how N/A is specified</span></span>
+<span id="cb39-3"><a href="inference-practice.html#cb39-3" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-coverage.csv&quot;</span>, <span class="at">skip =</span> <span class="dv">2</span>, <span class="at">n_max  =</span> <span class="dv">52</span>, <span class="at">na =</span> <span class="st">&quot;N/A&quot;</span>)                    </span></code></pre></div>
+<p>Now, after specifying how to handle missing values, when we use <code>glimpse(coverage)</code> we see that numeric data are all of type <code>dbl</code> as we expected! It’s important to always take a look at the output you generate. If we hadn’t looked at our <code>glimpse()</code> output carefully, we would have missed this and our variable would have been of the wrong type! So, a friendly reminder to <strong>always look at your output</strong>.</p>
+<p>Now that our datasets are in good order and we have an idea of what information is included in them generally, remember that the <code>skimr</code> package is also very helpful for getting a quick and deep understanding of your data. If we use the <code>skim()</code> function from this package on each dataset, we can learn more information about the data we have.</p>
+<p>In this output, we get information not just about how many observations we have and what variables we have information about and their types, we also start to get an understanding of the typical values (mean, median) and range (min, max) for the data in our dataset.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="inference-practice.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;skimr&quot;)</span></span>
+<span id="cb40-2"><a href="inference-practice.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb40-3"><a href="inference-practice.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="inference-practice.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(coverage)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_11" alt="skim() provides a ton of helpful information" /></p>
+<p>For example, in our <code>coverage</code> dataset, we quickly see that most variables have complete information, but there is missing information in the <code>Other Public</code> variables across the years. We also know that the average (mean) for Total has remained constant (1.2 x 10^7) for the years included in this dataset.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="inference-practice.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(spending)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_11" alt="skim() summarizes the spending dataset" /></p>
+<p>We can similarly see at a glance that there is no missing information in the <code>spending</code> dataset. However, unlike in the coverage dataset, here, with data from more years we can see spending has increased over time. Specifically, the average in 1991 was 25996.06 and 98570.17 by 2014.</p>
+<p>Using <code>glimpse()</code> and <code>skim()</code> we get an understanding of what information is included in our dataset as well as what typical values are and what data are missing.</p>
+<p>What we <em>don’t</em> get here is variability across states, whether one state spends more than others, and what the relationship between spending and coverage is. That’s what EDA is for!</p>
+</div>
+<div id="eda" class="section level3" number="10.0.4">
+<h3><span class="header-section-number">10.0.4</span> EDA</h3>
+<p>With an understanding of the data we have, we’re now able to start understanding the dataset deeply through exploratory data analysis (EDA).</p>
+<p>To ensure that we’re going in the right direction, it’s important to keep our question of interest in mind. We ultimately want to measure the relationship between healthcare coverage and healthcare spending in the United States. At this point, these data are stored in two different dataframes. To explore their relationship, we’ll want to wrangle them into a single dataframe before continuing forward.</p>
+<div id="data-wrangling" class="section level4" number="10.0.4.1">
+<h4><span class="header-section-number">10.0.4.1</span> Data Wrangling</h4>
+<p>To decide how to best do this we have to consider <em>what</em> type of join we need here. Remember that there are a number of common joins: <code>left_join</code>, <code>left_join</code>, <code>inner_join</code>, and <code>full_join</code>. (Refer back to the <a href="https://leanpub.com/universities/courses/jhu/DataTrail-getting-data">Getting Data</a> course if you need a review on these). We have to decide for our purposes which join is most appropriate.</p>
+<p>We noted earlier that coverage and spending only overlap by two years (2013 and 2014). If we only want to analyze the data where we have information from both years, we’ll need to use <code>inner_join</code>.</p>
+<p>Additionally, we’ll need to be able to tell R what columns to join on. Unfortunately, at this point our data are not in the tidiest of formats. Remember, tidy data has the following properties:</p>
+<ul>
+<li>Each variable in a column.</li>
+<li>Each observation in a row.</li>
+<li>Each type of observational unit forms a table</li>
+</ul>
+<p>Neither dataset follows these principles. We’ll have to wrangle our data to get them into the appropriate format before we can join them together!</p>
+<p>To do this, remember that <code>tidyr</code> is a really helpful package for wrangling and reshaping data. (Refer back to the <a href="https://leanpub.com/universities/courses/jhu/DataTrail-tidying">Data Tidying</a> course if you need a refresher on reshaping data.) Currently, the <code>coverage</code> dataset is in a wide format, but we want it in a long format where each Location is a row and we have information about the year, type and total coverage in the columns. To accomplish this, we’ll use <code>gather()</code>!</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="inference-practice.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyr&quot;)</span></span>
+<span id="cb42-2"><a href="inference-practice.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb42-3"><a href="inference-practice.html#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="inference-practice.html#cb42-4" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> <span class="fu">gather</span>(coverage, <span class="st">&quot;year_type&quot;</span>, <span class="st">&quot;tot_coverage&quot;</span>, <span class="sc">-</span>Location)</span>
+<span id="cb42-5"><a href="inference-practice.html#cb42-5" aria-hidden="true" tabindex="-1"></a>coverage</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_39" alt="gather() takes our “wide” coverage dataset to “long”" /></p>
+<p>We’ll want to do the same to our <code>spending</code> dataset:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="inference-practice.html#cb43-1" aria-hidden="true" tabindex="-1"></a>spending <span class="ot">&lt;-</span> <span class="fu">gather</span>(spending, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;tot_spending&quot;</span>, <span class="sc">-</span>Location)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_44" alt="gather() takes our spending dataset from “wide” to “long”" /></p>
+<p>We’re making progress! Our data are in a tidy format now; however, you may have noticed that information about year is tied up with other information. We’ll want to separate that out. Fortunately, <code>tidyr</code> has the incredibly helpful <code>separate()</code> function! We’ll use that to separate out year information so that we can use that in our join! Note that here we’re including <code>convert = TRUE</code> so that the resulting year columns is of type <code>int</code>.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inference-practice.html#cb44-1" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> coverage <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="inference-practice.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(year_type, <span class="at">sep=</span><span class="st">&quot;__&quot;</span>, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;type&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_49" alt="separate() to separate column contents" /></p>
+<p>And, just like that, we’ve got <code>year</code> in its own column!</p>
+<p>Now, let’s repeat that for our <code>spending</code> dataset! We’ve also included the <code>select()</code> function to remove the <code>name</code> column. This includes the same information (“Total Health Spending”) for every row, and thus we can get rid of it. We use the <code>-</code> operator to remove a column from our dataset:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="inference-practice.html#cb45-1" aria-hidden="true" tabindex="-1"></a>spending <span class="ot">&lt;-</span> spending <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="inference-practice.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(year, <span class="at">sep=</span><span class="st">&quot;__&quot;</span>, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;name&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="inference-practice.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name)</span>
+<span id="cb45-4"><a href="inference-practice.html#cb45-4" aria-hidden="true" tabindex="-1"></a>spending</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_49" alt="spending dataset now has appropriate tidy data format and appropriate columns" /></p>
+</div>
+<div id="join-inner_join" class="section level4" number="10.0.4.2">
+<h4><span class="header-section-number">10.0.4.2</span> Join: <code>inner_join</code></h4>
+<p>The datasets are now in a tidy format with each row containing an observation (different state or location) and each column contains a variable. We can also now join our data so that we’re only looking at coverage and spending data from the years we have both pieces of information. We’ll join using the <code>Location</code> and <code>year</code> columns.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inference-practice.html#cb46-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(coverage, spending, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Location&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb46-2"><a href="inference-practice.html#cb46-2" aria-hidden="true" tabindex="-1"></a>hc</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_59" alt="inner_join() gets information in a single dataframe" /></p>
+<p>We now have a dataset with 728 observations where each row contains coverage and spending information for a particular <code>Location</code> in a particular <code>year</code>.</p>
+<p>Okay, before we move on, you may think to yourself…“OK, I <em>know</em> that different states have different populations. That’s probably important here.” If you thought that to yourself, you’re right! And, you’re also in luck. That information is hiding within the <code>type</code> variable. The <code>Total</code> information here includes the total population. We can include that as a column in our dataset!</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="inference-practice.html#cb47-1" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="inference-practice.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Total&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="inference-practice.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Location, year, <span class="at">population =</span> tot_coverage)</span>
+<span id="cb47-4"><a href="inference-practice.html#cb47-4" aria-hidden="true" tabindex="-1"></a>pop</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_59" alt="extract population information" /></p>
+<p>The <code>population</code> column now includes the population for each <code>Location</code> in each <code>year</code> in our dataset!</p>
+<p>Let’s add that information to our <code>hc</code> dataset by first removing all rows where <code>type</code> is “Total” (using <code>filter()</code>) and then by combining the datasets (using <code>left_join</code>).</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="inference-practice.html#cb48-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="inference-practice.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">!=</span> <span class="st">&quot;Total&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="inference-practice.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pop, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Location&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb48-4"><a href="inference-practice.html#cb48-4" aria-hidden="true" tabindex="-1"></a>hc</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_74" alt="with population information included in hc" /></p>
+<p>With population information, we will want to calculate spending per capita and the proportion of people covered in each state. Spending per capita calculates the spending per person. Having these values allow us to compare values across states with different populations. We use mutate to accomplish this:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="inference-practice.html#cb49-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="inference-practice.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">spending_capita =</span> (tot_spending<span class="sc">*</span><span class="fl">1e6</span>) <span class="sc">/</span> population,</span>
+<span id="cb49-3"><a href="inference-practice.html#cb49-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">prop_coverage =</span> tot_coverage <span class="sc">/</span> population)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_84" alt="calculated spending_capita using population information" /></p>
+<p>Okay, we’re almost fully wrangled! But, before we move on, we know what Location is in each row; however, it <em>could</em> be helpful to have the two-letter abbreviation and region of the United States in this dataset, so let’s add that in. And, we’re in luck! There’s an R package (<code>datasets</code>) with just that information in it that you can use! Let’s use the data in that dataset to add that information to our <code>hc</code> dataframe!</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="inference-practice.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb50-2"><a href="inference-practice.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span></code></pre></div>
+<p>Note that this includes a number of objects that start <code>state.</code>. We’ll add the two-letter abbreviation (<code>state.abb</code>) and region (<code>state.region</code>) to our <code>hc</code> dataset using <code>mutate()</code>.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="inference-practice.html#cb51-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href="inference-practice.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">abb =</span> state.abb[<span class="fu">match</span>(Location, state.name)],</span>
+<span id="cb51-3"><a href="inference-practice.html#cb51-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">region =</span> state.region[<span class="fu">match</span>(Location, state.name)])</span>
+<span id="cb51-4"><a href="inference-practice.html#cb51-4" aria-hidden="true" tabindex="-1"></a>hc</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_74" alt="abb and region information added to hc dataset" /></p>
+<p>Note that this adds two additional columns (<code>abb</code> and region<code>) to our</code>hc` dataframe. Also, note that where there is not state information (“United States” and “District of Columbia”), these columns have NA, as we would expect!</p>
+<p>And just like that, we have all the information we’ll need! It took some work to get there, and it may not always be obvious exactly what step has to be done next, but by keeping the tidy data principles in mind and using the tools we’ve learned, we’re ready to explore these data further!</p>
+</div>
+<div id="exploratory-visualizations" class="section level4" number="10.0.4.3">
+<h4><span class="header-section-number">10.0.4.3</span> Exploratory Visualizations</h4>
+<p>With our dataset in the correct format, let’s take a look using <code>ggplot2</code> to better understand our data!</p>
+<p>We’re ultimately interested in understanding the relationship between coverage and spending across states, so we’ll want to be sure to look at the distributions of each of those variables. But, we’ll want to use the ones adjusted for population as those are comparable across states.</p>
+<p>We’ll also want to remove the rows that are not states (US, and Washington DC).</p>
+<p>And, let’s just look at Employer-supplied health coverage.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="inference-practice.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># focus on 50 states</span></span>
+<span id="cb52-2"><a href="inference-practice.html#cb52-2" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="inference-practice.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Location <span class="sc">!=</span> <span class="st">&quot;District of Columbia&quot;</span>,  </span>
+<span id="cb52-4"><a href="inference-practice.html#cb52-4" aria-hidden="true" tabindex="-1"></a>         Location <span class="sc">!=</span> <span class="st">&quot;United States&quot;</span>)</span>
+<span id="cb52-5"><a href="inference-practice.html#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="inference-practice.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co"># just employer</span></span>
+<span id="cb52-7"><a href="inference-practice.html#cb52-7" aria-hidden="true" tabindex="-1"></a>hc_employer <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
+<span id="cb52-8"><a href="inference-practice.html#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Employer&quot;</span>)</span></code></pre></div>
+<p>Now, we’re ready to look at some histograms! As a reminder, we won’t spend a ton of time making these perfect visualizations because during EDA the goal is not to communicate our results perfectly, but rather just to inform us (the analysts) about the data. Later on if you were to present these in a meeting or at a conference, you would want to spend time making sure they’re explanatory (rather than just exploratory) visualizations.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="inference-practice.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb53-2"><a href="inference-practice.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb53-3"><a href="inference-practice.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="inference-practice.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_employer, <span class="fu">aes</span>(prop_coverage)) <span class="sc">+</span></span>
+<span id="cb53-5"><a href="inference-practice.html#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_93" alt="prop_coverage shows a bimodal distribution" /></p>
+<p>The proportion covered shows a distribution where coverage ranges from around 40% to 60% across the 50 states in 2013.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="inference-practice.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_employer, <span class="fu">aes</span>(spending_capita)) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="inference-practice.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_93" alt="spending_capita shows is approximately Normal" /></p>
+<p>Unlike the proportion covered, spending per capita is approximately Normal with a median somewhere right below $8,000. We do see a few outliers. We’ll want to see which states these are that have much lower and much higher than average spending per capita.</p>
+<p>We’re ultimately interested in understanding the relationship between these two variables, so let’s take a look at that with a scatterplot:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="inference-practice.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_employer,</span>
+<span id="cb55-2"><a href="inference-practice.html#cb55-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> spending_capita, <span class="at">y =</span> prop_coverage)) <span class="sc">+</span></span>
+<span id="cb55-3"><a href="inference-practice.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb55-4"><a href="inference-practice.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;spending per capita&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="inference-practice.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_110" alt="relationship between spending and coverage" /></p>
+<p>At a glance, there appears to be a linear relationship between these two variables where the more spending per person in a state, the higher proportion of the population has health care supplied by the employer. To fully understand this relationship, let’s explore it with linear regression!</p>
+</div>
+</div>
+<div id="linear-regression" class="section level3" number="10.0.5">
+<h3><span class="header-section-number">10.0.5</span> Linear Regression</h3>
+<p>To answer our question:</p>
+<blockquote>
+<p>What is the relationship between healthcare coverage and healthcare spending in the United States?</p>
+</blockquote>
+<p>we’ll model this relationship using linear regression. Visually, this trend-line would look as follows:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="inference-practice.html#cb56-1" aria-hidden="true" tabindex="-1"></a>hc_employer <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="inference-practice.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">&quot;2013&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="inference-practice.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> spending_capita, <span class="at">y =</span> prop_coverage)) <span class="sc">+</span></span>
+<span id="cb56-4"><a href="inference-practice.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb56-5"><a href="inference-practice.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;spending per capita&quot;</span>) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="inference-practice.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>) <span class="sc">+</span></span>
+<span id="cb56-7"><a href="inference-practice.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_116" alt="visualizing the linear relationship with ggplot2" /></p>
+<p>In addition to looking at this visually, we also want to understand the regression model and take a look at model diagnostics. To do so we’ll use <code>lm</code> and <code>tidy</code>. (<code>tidy</code> is from the <code>broom</code> package)</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="inference-practice.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;broom&quot;)</span></span>
+<span id="cb57-2"><a href="inference-practice.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb57-3"><a href="inference-practice.html#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="inference-practice.html#cb57-4" aria-hidden="true" tabindex="-1"></a>hc_2013 <span class="ot">&lt;-</span> hc_employer <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">&quot;2013&quot;</span>)</span>
+<span id="cb57-5"><a href="inference-practice.html#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="inference-practice.html#cb57-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(prop_coverage <span class="sc">~</span> spending_capita,</span>
+<span id="cb57-7"><a href="inference-practice.html#cb57-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> hc_2013)</span>
+<span id="cb57-8"><a href="inference-practice.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_121" alt="broom output for 2013 linear regression model" /></p>
+<p>Here we see that across states in the US in 2013, for every 1 dollar more spent on healthcare, the proportion of individuals covered increase by 0.000019 (the <code>estimate</code> column in the <code>tidy()</code> output).</p>
+<p>While this number is quite small, a 1 USD increase in health care spending is probably not the right unit to consider. We would likely want to consider a $1000 increase in spending. For example, to interpret this model, we’d say that for every $1000 more in health care spending, we see a 1.9% increase in the population covered across the US. (We get this number by multiplying the coefficient 0.000019 * 1000 and then converting from proportion to percentage by multiplying by 100.)</p>
+<p>But, remember that each point here represents a state! And, states that are in the same region of the US may be clustered. The region a state is in may affect health care spending and the proportion of the population covered! A confounder! Visually, let’s take a look by labeling each point with the two-letter state abbreviation and coloring the points based on the region of the US where the state is located.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="inference-practice.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_2013, <span class="fu">aes</span>(<span class="at">x =</span> spending_capita, <span class="at">y =</span> prop_coverage,</span>
+<span id="cb58-2"><a href="inference-practice.html#cb58-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> region)) <span class="sc">+</span></span>
+<span id="cb58-3"><a href="inference-practice.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb58-4"><a href="inference-practice.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">xlab</span>(<span class="st">&quot;spending per capita&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-5"><a href="inference-practice.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-6"><a href="inference-practice.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-7"><a href="inference-practice.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>abb), <span class="at">nudge_x =</span> <span class="dv">150</span>)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_126" alt="states cluster based on geographic location" /></p>
+<p>In this plot we see that states tend to cluster. States in the Northeast tend to spend more on healthcare and have a higher proportion of the population covered, whereas the opposite is true in the South. This suggests that to understand the overall relationship, we likely want to consider region as a confounder in the analysis.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="inference-practice.html#cb59-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(prop_coverage <span class="sc">~</span> spending_capita <span class="sc">+</span> region,</span>
+<span id="cb59-2"><a href="inference-practice.html#cb59-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> hc_2013)</span>
+<span id="cb59-3"><a href="inference-practice.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit2)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_131" alt="broom output for 2013 multiple regression model accounting for region as a confounder" /></p>
+<p>In this regression model, we see when we focus on the <code>spending_capita</code> row, that the <code>estimate</code> is much smaller (0.000006) and, when we look at the <code>p.value</code> column, that this result is likely insignificant (as we would see results this extreme by chance along 35.9% of the time). This suggests that regional differences are contributing largely to the relationship between spending per capita and the proportion of the population with health coverage. Without considering this confounder we would have come to the wrong conclusion! What we learned here was that there are regional differences across the country regarding how much is spent and how much of the population has health coverage! What we <em>didn’t</em> learn is that there is a significant relationship between spending and coverage.</p>
+<p>To see this visually, consider faceting by region:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="inference-practice.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_2013, <span class="fu">aes</span>(<span class="at">x =</span> spending_capita, <span class="at">y =</span> prop_coverage,</span>
+<span id="cb60-2"><a href="inference-practice.html#cb60-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> region)) <span class="sc">+</span></span>
+<span id="cb60-3"><a href="inference-practice.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb60-4"><a href="inference-practice.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">xlab</span>(<span class="st">&quot;spending per capita&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-5"><a href="inference-practice.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-6"><a href="inference-practice.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-7"><a href="inference-practice.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>abb), <span class="at">nudge_x =</span> <span class="dv">150</span>) <span class="sc">+</span></span>
+<span id="cb60-8"><a href="inference-practice.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>region)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_136" alt="faceting by region demonstrates limited relationship between spending and proportion of population covered" /></p>
+<p>Here, we see pretty flat lines (particularly in the Northeast and the West), supporting the findings from our multiple regression model.</p>
+<div id="model-diagnostics" class="section level4" number="10.0.5.1">
+<h4><span class="header-section-number">10.0.5.1</span> Model diagnostics</h4>
+<p>Don’t forget that we have to check our model assumptions to determine whether linear regression was appropriate. To do this we can use the <code>plot</code> function on the output from fitting our model:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="inference-practice.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb61-2"><a href="inference-practice.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit2)</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_242" alt="model diagnostics" /></p>
+<p>We’re looking here for:</p>
+<ul>
+<li>a horizontal red line in our Residuals vs. Fitted plot, demonstrating a linear relationship between variables.</li>
+<li>a horizontal line in our Scale-Location plot, demonstrating the data are homoscedastic,</li>
+<li>points falling along the dotted line in our QQ Plot, demonstrating the residuals are Normally distributed</li>
+<li>standardized residuals to fall between -2 and 2 in the Residuals vs. Leverage plot, suggesting there are no obvious outliers driving our regression results</li>
+</ul>
+<p>In our model diagnostics plot, we see that the first three bullet points are met, demonstrating that linear regression is appropriate; however, we see in the Residuals vs. Leverage plot that there are some outlier states in our analysis. Before finalizing our analysis, we would want to figure out which states these are and why their values are outliers in this dataset.</p>
+<p>Finally, note that we only looked at “Employer” type of coverage in 2013. Feel free to carry out similar analyses as we’ve done here to look at other <code>type</code>s of coverage and/or for the <code>year</code> 2014 to be sure you fully understand these analyses.</p>
+</div>
+</div>
+<div id="summary-6" class="section level3" number="10.0.6">
+<h3><span class="header-section-number">10.0.6</span> Summary</h3>
+<p>In this lesson, we’ve put a whole lot together. We walked through how to carry out a regression from start to finish. From asking the question, to reading the dataset in, to exploring the dataset, and to generating the model, there is a lot to do! Hopefully this has started to pull the previous few lessons all together and you’re getting more comfortable with what inference is, know how to carry it out in R, and most importantly understand how to interpret these analyses.</p>
+</div>
+<div id="additional-resources-4" class="section level3" number="10.0.7">
+<h3><span class="header-section-number">10.0.7</span> Additional Resources</h3>
+<ul>
+<li><a href="https://opencasestudies.github.io/">Open Case Studies</a>, by Pei-Lun Kuo, Leah Jager, Margaret Taub, and Stephanie Hicks
+<ul>
+<li><a href="https://opencasestudies.github.io/casestudies/ocs-healthexpenditure.html">Health Expenditures Case Study</a></li>
+<li><a href="https://github.com/opencasestudies/ocs-healthexpenditure">Case Study on GitHub</a></li>
+</ul></li>
+<li><a href="http://stat545.com/bit001_dplyr-cheatsheet.html">join cheatsheet</a>, by Jenny Bryan</li>
+<li><a href="https://leanpub.com/universities/courses/jhu/DataTrail-getting-data">DataTrail Getting Data Course</a></li>
+<li><a href="https://leanpub.com/universities/courses/jhu/DataTrail-tidying">DataTrail Data Tidying Course</a></li>
+</ul>
+</div>
+<div id="slides-and-video-9" class="section level3" number="10.0.8">
+<h3><span class="header-section-number">10.0.8</span> Slides and Video</h3>
+<div class="figure">
+<img src="https://youtu.be/RuVXyAqI4vU" alt="" />
+<p class="caption">Inference: Practice</p>
+</div>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/edit?usp=sharing">Slides</a></li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inference-examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prediction-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
