@@ -4,7 +4,7 @@ In data science jobs in industry, often you're analyzing a dataset over time. Wh
 
 ### Pipelines
 
-Pipelines are a series of steps that can be applied to a dataset. It's helpful to generate a pipeline whenever you come across a dataset that you expect to encounter again. A pipeline could read in a dataset, process that dataset to get it into a tidy format, generate figures to summarize the data, and generate predictions. This pipeline could then be set to run any time new data are generated or on a time table, say every month. In this sense, data science pipelines should be **automated**. In other words, after you build the pipeline, you shouldn't have to do any additional work each time you run the pipelines. 
+Pipelines are a series of steps that can be applied to a dataset. It's helpful to generate a pipeline whenever you come across a dataset that you expect to encounter again. A pipeline could read in a dataset, process that dataset to get it into a tidy format, generate figures to summarize the data, and generate predictions. This pipeline could then be set to run any time new data are generated or on a time table, say every month. In this sense, data science pipelines should be **automated**. In other words, after you build the pipeline, you shouldn't have to do any additional work each time you run the pipelines.
 
 Additionally, pipelines have the additional benefit that they are **reproducible**. This is helpful to you, since you'll be able to reproduce your results at any point in time. But, this is also helpful because they can be used by anyone who has access to the data. The pipeline will work if you leave the company and someone takes over for you or if you're sick and need to take a day off.  
 
@@ -14,7 +14,7 @@ When generating a pipeline, there are a number of considerations to take into ac
 
 #### When to make a pipeline
 
-Pipelines are helpful when you have a question that you will answer more than once. For example, if you have data that will be updated over time, a pipeline may be helpful. If, however, you're doing a quick analysis on a single set of data to answer a question that you will not likely have to answer again in the future, then just do the analysis and get your answer. This is not the time to generate a pipeline. *But*, if you'll likely run the analysis again in the future once more data has been collected, once you have updated numbers, or once you have data from more people, then generate a pipeline. Generally, **pipelines are helpful when there is a single question you will have to answer more than once**. 
+Pipelines are helpful when you have a question that you will answer more than once. For example, if you have data that will be updated over time, a pipeline may be helpful. If, however, you're doing a quick analysis on a single set of data to answer a question that you will not likely have to answer again in the future, then just do the analysis and get your answer. This is not the time to generate a pipeline. *But*, if you'll likely run the analysis again in the future once more data has been collected, once you have updated numbers, or once you have data from more people, then generate a pipeline. Generally, **pipelines are helpful when there is a single question you will have to answer more than once**.
 
 #### Including appropriate checks
 
@@ -32,20 +32,20 @@ In developing pipelines, you'll generally want to avoid hard coding whenever pos
 
 #### Scalability
 
-Additionally, your pipeline should be scalable. A *scalable* pipeline is one that will function on a small dataset and will continue to function as the dataset gets larger. It's best to ensure that your pipeline has been generated so that it will run on your dataset as well as larger datasets that may be generated in the future. 
+Additionally, your pipeline should be scalable. A *scalable* pipeline is one that will function on a small dataset and will continue to function as the dataset gets larger. It's best to ensure that your pipeline has been generated so that it will run on your dataset as well as larger datasets that may be generated in the future.
 
 #### Versioning
 
-Finally, pipelines should be versioned. If the format of the dataset changes in the future, you'll want to be able to update your pipeline, but you don't want to loose the original pipeline, since that's what works on the older datasets. Or, if an API changes (which they do!), you'll need to update your pipeline to account for these changes. Again, you don't want to lose the older version. **Versioning** here refers to the process of tracking changes in your pipeline. 
+Finally, pipelines should be versioned. If the format of the dataset changes in the future, you'll want to be able to update your pipeline, but you don't want to loose the original pipeline, since that's what works on the older datasets. Or, if an API changes (which they do!), you'll need to update your pipeline to account for these changes. Again, you don't want to lose the older version. **Versioning** here refers to the process of tracking changes in your pipeline.
 
-Every time you've pushed to GitHub, you've been using a type of versioning. GitHub tracks commits, which keeps track of every version of your work. However, in pipeline development, it's best to explicitly track the versions of your pipelines. 
+Every time you've pushed to GitHub, you've been using a type of versioning. GitHub tracks commits, which keeps track of every version of your work. However, in pipeline development, it's best to explicitly track the versions of your pipelines.
 
-In software each version of a piece of software is often tracked by a set of three numbers, each of which is separated by a decimal place. A general scheme used in software versioning is to version a piece of software as `major.minor.patch`. In this scheme, a large release with **breaking changes** (changes that could cause previous versions of the software to be incompatible with the current version) will increase the first number in the sequence (`major`). The second value (`minor`) will be increased when a version of the software is released that includes new features that are non-breaking. Versions where the the third value (`patch`) in the sequence are increased include non-breaking changes that tend to be minimal fixes to the software. 
+In software each version of a piece of software is often tracked by a set of three numbers, each of which is separated by a decimal place. A general scheme used in software versioning is to version a piece of software as `major.minor.patch`. In this scheme, a large release with **breaking changes** (changes that could cause previous versions of the software to be incompatible with the current version) will increase the first number in the sequence (`major`). The second value (`minor`) will be increased when a version of the software is released that includes new features that are non-breaking. Versions where the the third value (`patch`) in the sequence are increased include non-breaking changes that tend to be minimal fixes to the software.
 
 {format: png}
 ![major.minor.patch](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_101)
 
-In this scheme, 0.9.0 would represent software that is in development (referred to as the beta version). Incremental improvements on the beta version would be versions 0.9.1 and 0.9.2, etc. The `major` number remains a zero until the first major release. Upon release, the first version of the software would be 1.0.0. Small non-breaking changes to this version would increase the `patch` number, making versions like 1.0.1 and 1.0.2. When new features are added to this piece of software that are non-breaking, the second `minor` number will be increased, and version 1.1.0 would be released. The next time a non-breaking feature was added, version 1.2.0 would be released. Finally, when a big breaking change were made in the future to improve the software overall, a new version would be released. This would be version 2.0.0. 
+In this scheme, 0.9.0 would represent software that is in development (referred to as the beta version). Incremental improvements on the beta version would be versions 0.9.1 and 0.9.2, etc. The `major` number remains a zero until the first major release. Upon release, the first version of the software would be 1.0.0. Small non-breaking changes to this version would increase the `patch` number, making versions like 1.0.1 and 1.0.2. When new features are added to this piece of software that are non-breaking, the second `minor` number will be increased, and version 1.1.0 would be released. The next time a non-breaking feature was added, version 1.2.0 would be released. Finally, when a big breaking change were made in the future to improve the software overall, a new version would be released. This would be version 2.0.0.
 
 {format: png}
 ![versioning scheme](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_180)
@@ -95,7 +95,7 @@ To get started writing the parameterized report, you'll want to set up your repo
 
 #### The Setup
 
-To get started, you'll want to open up a new R Markdown document. 
+To get started, you'll want to open up a new R Markdown document.
 
 {format: png}
 ![New R Markdown Document](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_8)
@@ -116,7 +116,7 @@ Here, we're installing four packages. In this code we state that if the packages
 
 #### Reading The Data In
 
-After setting up the RStudio Cloud environment, the data are read in in the code chunk `data`. 
+After setting up the RStudio Cloud environment, the data are read in in the code chunk `data`.
 
 {format: png}
 ![`data` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_23)
@@ -159,7 +159,7 @@ Before you can generate this plot, you will want to check and clean your data. F
 {format: png}
 ![`clean` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_52)
 
-Here, we have specified that we don't want this code chunk included in the final report, using `include = FALSE` in the code chunk. We have also included comments so that anyone looking at the raw code would know what the code does. But, the final knit report will not include such details. 
+Here, we have specified that we don't want this code chunk included in the final report, using `include = FALSE` in the code chunk. We have also included comments so that anyone looking at the raw code would know what the code does. But, the final knit report will not include such details.
 
 You'd also want to be sure that your report provides a description of how many individuals' data are included in your analysis and how many samples have been removed (an example of a descriptive analysis!).
 
@@ -172,14 +172,14 @@ Once you're confident that your data are ready to be used for analysis, you'd wr
 {format: png}
 ![`analyze` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_73)
 
-#### Knitting 
+#### Knitting
 
 To generate your knit report, you'll click on the arrow to the right of "Knit" and select "Knit with Parameters..." from the drop-down menu.
 
 {format: png}
 ![Knit with Parameters...](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_28)
 
-If prompted, say yes to installing necessary packages. Then, a window will appear where the `file_url` box will say "ask", indicating that you'll have to specify the URL here. The default worksheet is 1. You can leave this as is, or change it to specify a different worksheet. 
+If prompted, say yes to installing necessary packages. Then, a window will appear where the `file_url` box will say "ask", indicating that you'll have to specify the URL here. The default worksheet is 1. You can leave this as is, or change it to specify a different worksheet.
 
 {format: png}
 ![Knit with Parameters pop-up window](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_32)
@@ -189,7 +189,7 @@ After adding the URL for the appropriate Google Sheet, you'll want to click "Kni
 {format: png}
 ![After adding URL, click Knit](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_38)
 
-Your report will appear! Here, we see a summary of the data after the first week of collecting information from your friends. 
+Your report will appear! Here, we see a summary of the data after the first week of collecting information from your friends.
 
 {format: png}
 ![Report with survey data](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_62)
@@ -210,7 +210,7 @@ Just like that, we see the data summarized across more of our friends! People ar
 
 This lesson has covered what a data science pipeline is, when you'd want to generate one, considerations to make when writing a pipeline, and a simple example of how to generate a data science pipeline using parameterized reports in R Markdown. Whenever you're going to be working with a dataset that updates or a number of different datasets that are similar, start by writing a robust data science pipeline.
 
-### Additional Resources 
+### Additional Resources
 
 * [Building a Data Pipeline from Scratch](https://medium.com/the-data-experience/building-a-data-pipeline-from-scratch-32b712cfb1db), by [Alan Marazzi](https://www.rdisorder.eu/)
 * [Parameterized R Markdown reports with RStudio Connect](https://www.rstudio.com/resources/videos/parameterized-r-markdown-reports-with-rstudio-connect/)
@@ -223,54 +223,3 @@ This lesson has covered what a data science pipeline is, when you'd want to gene
 ![Data Analysis Pipelines](https://www.youtube.com/watch?v=zE_doXeNENc)
 
 * [Slides](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/edit?usp=sharing)
-
-{quiz, id: quiz_09_pipelines}
-
-### Data Analysis Pipelines quiz
-
-{choose-answers: 4}
-? When would you generate a pipeline?
-
-C) If you received data to analyze but knew that it would be updated in the future
-C) If you were tasked with generating a monthly financial report 
-C) If you had to generate a weekly sales report
-C) If you had to analyze different datasets that all had a similar format
-o) If you were given a dataset that you had never seen before and told to analyze it 
-o) If your boss asked for a quick answer to a simple question
-o) If your team were given a strange analysis to do for an atypical dataset
-o) If you wanted to answer a question you were likely never to have to answer again
-
-{choose-answers: 4}
-? To specify parameters within a parameterized report, which would you do?
-
-C) specify `params` within the YAML
-o) specify `params` within the first code chunk
-o) define `params` when you Knit 
-o) render your report but never specify within the R Markdown document
-o) Knit your report but never specify within the R Markdown document
-o) Knit your R Markdown document without parameters
-
-{choose-answers: 4}
-? When should you include checks within your data science pipelines?
-
-C) Always
-C) Every time you write a pipeline
-o) Only when you have a new dataset
-o) Only when you want to check something real quick
-o) Only when you are working with a type of dataset you are unfamiliar
-o) Never - they're time-consuming
-o) Only when you have the time
-
-{choose-answers: 4}
-? To use a parameter `URL` within your report, how would you specify this?
-
-C) `params$URL`
-o) `param$URL`
-o) `param[URL]`
-o) `params["URL"]`
-o) `params$url`
-o) `param$url`
-o) `params$url_link`
-
-
-{/quiz}

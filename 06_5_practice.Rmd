@@ -33,7 +33,7 @@ library(readr)
 
 # read in coverage data
 coverage <- read_csv("https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-coverage.csv", skip = 2, n_max  = 52)
-                    
+
 # read in spending data
 spending <- read_csv("https://raw.githubusercontent.com/opencasestudies/ocs-healthexpenditure/master/data/KFF/healthcare-spending.csv", skip = 2, n_max  = 52)
 ```
@@ -70,7 +70,7 @@ glimpse(spending)
 
 When we look at the `glimpse()` output for spending, we see that we again have the same number of observations (N=52) but here we have 25 variables summarizing total health spending from 1991-2014. So, right off the bat we know that the only two years we have overlapping information are 2013 and 2014. Something to keep in mind!
 
-Also, we see that all observations (aside from Location) are numeric (`dbl`), so it doesn't appear we have any "N/A" issues here. 
+Also, we see that all observations (aside from Location) are numeric (`dbl`), so it doesn't appear we have any "N/A" issues here.
 
 Before we go any further, let's address those "N/A" values. If you looked at the `read_csv` documentation, you're aware that `na` is an argument to that function. So, let's read these data in once again, but specify that "N/A" is how missing data has been specified in the coverage dataset.
 
@@ -108,7 +108,7 @@ skim(spending)
 
 We can similarly see at a glance that there is no missing information in the `spending` dataset. However, unlike in the coverage dataset, here, with data from more years we can see spending has increased over time. Specifically, the average in 1991 was 25996.06 and 98570.17 by 2014.
 
-Using `glimpse()` and `skim()` we get an understanding of what information is included in our dataset as well as what typical values are and what data are missing. 
+Using `glimpse()` and `skim()` we get an understanding of what information is included in our dataset as well as what typical values are and what data are missing.
 
 What we *don't* get here is variability across states, whether one state spends more than others, and what the relationship between spending and coverage is. That's what EDA is for!
 
@@ -159,20 +159,20 @@ We're making progress! Our data are in a tidy format now; however, you may have 
 
 
 ```r
-coverage <- coverage %>% 
+coverage <- coverage %>%
   separate(year_type, sep="__", into=c("year", "type"), convert = TRUE)
 ```
 
 {format: png}
 ![`separate()` to separate column contents](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_49)
 
-And, just like that, we've got `year` in its own column! 
+And, just like that, we've got `year` in its own column!
 
 Now, let's repeat that for our `spending` dataset! We've also included the `select()` function to remove the `name` column. This includes the same information ("Total Health Spending") for every row, and thus we can get rid of it. We use the `-` operator to remove a column from our dataset:
 
 ```r
-spending <- spending %>% 
-  separate(year, sep="__", into=c("year", "name"), convert = TRUE) %>% 
+spending <- spending %>%
+  separate(year, sep="__", into=c("year", "name"), convert = TRUE) %>%
   select(-name)
 spending
 ```
@@ -192,13 +192,13 @@ hc
 {format: png}
 ![`inner_join()` gets information in a single dataframe](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_59)
 
-We now have a dataset with 728 observations where each row contains coverage and spending information for a particular `Location` in a particular `year`. 
+We now have a dataset with 728 observations where each row contains coverage and spending information for a particular `Location` in a particular `year`.
 
 Okay, before we move on, you may think to yourself..."OK, I *know* that different states have different populations. That's probably important here." If you thought that to yourself, you're right! And, you're also in luck. That information is hiding within the `type` variable. The `Total` information here includes the total population. We can include that as a column in our dataset!
 
 ```r
-pop <- hc %>% 
-  filter(type == "Total") %>% 
+pop <- hc %>%
+  filter(type == "Total") %>%
   select(Location, year, population = tot_coverage)
 pop
 ```
@@ -210,8 +210,8 @@ The `population` column now includes the population for each `Location` in each 
 Let's add that information to our `hc` dataset by first removing all rows where `type` is "Total" (using `filter()`) and then by combining the datasets (using `left_join`).
 
 ```r
-hc <- hc %>% 
-  filter(type != "Total") %>% 
+hc <- hc %>%
+  filter(type != "Total") %>%
   left_join(pop, by = c("Location", "year"))
 hc
 ```
@@ -223,9 +223,9 @@ With population information, we will want to calculate spending per capita and t
 
 
 ```r
-hc <- hc %>% 
+hc <- hc %>%
     mutate(spending_capita = (tot_spending*1e6) / population,
-           prop_coverage = tot_coverage / population) 
+           prop_coverage = tot_coverage / population)
 ```
 
 {format: png}
@@ -241,7 +241,7 @@ data(state)
 Note that this includes a number of objects that start `state.`. We'll add the two-letter abbreviation (`state.abb`) and region (`state.region`) to our `hc` dataset using `mutate()`.
 
 ```r
-hc <- hc %>% 
+hc <- hc %>%
   mutate(abb = state.abb[match(Location, state.name)],
         region = state.region[match(Location, state.name)])
 hc
@@ -260,18 +260,18 @@ With our dataset in the correct format, let's take a look using `ggplot2` to bet
 
 We're ultimately interested in understanding the relationship between coverage and spending across states, so we'll want to be sure to look at the distributions of each of those variables. But, we'll want to use the ones adjusted for population as those are comparable across states.
 
-We'll also want to remove the rows that are not states (US, and Washington DC). 
+We'll also want to remove the rows that are not states (US, and Washington DC).
 
 And, let's just look at Employer-supplied health coverage.
 
 ```r
 # focus on 50 states
-hc <- hc %>% 
+hc <- hc %>%
   filter(Location != "District of Columbia",  
          Location != "United States")
 
 # just employer
-hc_employer <- hc %>% 
+hc_employer <- hc %>%
   filter(type == "Employer")
 ```
 
@@ -288,7 +288,7 @@ ggplot(hc_employer, aes(prop_coverage)) +
 {format: png}
 ![`prop_coverage` shows a bimodal distribution](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_93)
 
-The proportion covered shows a distribution where coverage ranges from around 40% to 60% across the 50 states in 2013. 
+The proportion covered shows a distribution where coverage ranges from around 40% to 60% across the 50 states in 2013.
 
 ```r
 ggplot(hc_employer, aes(spending_capita)) +
@@ -303,10 +303,10 @@ Unlike the proportion covered, spending per capita is approximately Normal with 
 We're ultimately interested in understanding the relationship between these two variables, so let's take a look at that with a scatterplot:
 
 ```r
-ggplot(hc_employer, 
+ggplot(hc_employer,
        aes(x = spending_capita, y = prop_coverage)) +
-  geom_point() + 
-  xlab("spending per capita") + 
+  geom_point() +
+  xlab("spending per capita") +
   ylab("coverage proportion")
 ```
 
@@ -317,19 +317,19 @@ At a glance, there appears to be a linear relationship between these two variabl
 
 ### Linear Regression
 
-To answer our question: 
+To answer our question:
 
-> What is the relationship between healthcare coverage and healthcare spending in the United States? 
+> What is the relationship between healthcare coverage and healthcare spending in the United States?
 
 we'll model this relationship using linear regression. Visually, this trend-line would look as follows:
 
 ```r
-hc_employer %>% 
-  filter(year == "2013") %>% 
-  ggplot(aes(x = spending_capita, y = prop_coverage)) + 
-  geom_point() + 
-  xlab("spending per capita") + 
-  ylab("coverage proportion") + 
+hc_employer %>%
+  filter(year == "2013") %>%
+  ggplot(aes(x = spending_capita, y = prop_coverage)) +
+  geom_point() +
+  xlab("spending per capita") +
+  ylab("coverage proportion") +
   geom_smooth(method = "lm", col = "red")
 ```
 
@@ -344,7 +344,7 @@ library(broom)
 
 hc_2013 <- hc_employer %>% filter(year == "2013")
 
-fit <- lm(prop_coverage ~ spending_capita, 
+fit <- lm(prop_coverage ~ spending_capita,
          data = hc_2013)
 tidy(fit)
 ```
@@ -352,19 +352,19 @@ tidy(fit)
 {format: png}
 ![`broom` output for 2013 linear regression model](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_121)
 
-Here we see that across states in the US in 2013, for every 1 dollar more spent on healthcare, the proportion of individuals covered increase by 0.000019 (the `estimate` column in the `tidy()` output). 
+Here we see that across states in the US in 2013, for every 1 dollar more spent on healthcare, the proportion of individuals covered increase by 0.000019 (the `estimate` column in the `tidy()` output).
 
 While this number is quite small, a 1 USD increase in health care spending is probably not the right unit to consider. We would likely want to consider a $1000 increase in spending. For example, to interpret this model, we'd say that for every $1000 more in health care spending, we see a 1.9% increase in the population covered across the US. (We get this number by multiplying the coefficient 0.000019 * 1000 and then converting from proportion to percentage by multiplying by 100.)
 
 But, remember that each point here represents a state! And, states that are in the same region of the US may be clustered. The region a state is in may affect health care spending and the proportion of the population covered! A confounder! Visually, let's take a look by labeling each point with the two-letter state abbreviation and coloring the points based on the region of the US where the state is located.
 
 ```r
-ggplot(hc_2013, aes(x = spending_capita, y = prop_coverage, 
-           color = region)) + 
-geom_point() + 
-xlab("spending per capita") + 
-ylab("coverage proportion") + 
-geom_smooth(method = "lm", col = "red") + 
+ggplot(hc_2013, aes(x = spending_capita, y = prop_coverage,
+           color = region)) +
+geom_point() +
+xlab("spending per capita") +
+ylab("coverage proportion") +
+geom_smooth(method = "lm", col = "red") +
 geom_text(aes(label=abb), nudge_x = 150)
 ```
 
@@ -374,7 +374,7 @@ geom_text(aes(label=abb), nudge_x = 150)
 In this plot we see that states tend to cluster. States in the Northeast tend to spend more on healthcare and have a higher proportion of the population covered, whereas the opposite is true in the South. This suggests that to understand the overall relationship, we likely want to consider region as a confounder in the analysis.
 
 ```r
-fit2 <- lm(prop_coverage ~ spending_capita + region, 
+fit2 <- lm(prop_coverage ~ spending_capita + region,
          data = hc_2013)
 tidy(fit2)
 ```
@@ -388,13 +388,13 @@ In this regression model, we see when we focus on the `spending_capita` row, tha
 To see this visually, consider faceting by region:
 
 ```r
-ggplot(hc_2013, aes(x = spending_capita, y = prop_coverage, 
-           color = region)) + 
-geom_point() + 
-xlab("spending per capita") + 
-ylab("coverage proportion") + 
-geom_smooth(method = "lm", col = "red") + 
-geom_text(aes(label=abb), nudge_x = 150) + 
+ggplot(hc_2013, aes(x = spending_capita, y = prop_coverage,
+           color = region)) +
+geom_point() +
+xlab("spending per capita") +
+ylab("coverage proportion") +
+geom_smooth(method = "lm", col = "red") +
+geom_text(aes(label=abb), nudge_x = 150) +
 facet_wrap(~region)
 ```
 
@@ -411,13 +411,13 @@ Don't forget that we have to check our model assumptions to determine whether li
 par(mfrow = c(2,2))
 plot(fit2)
 ```
- 
+
  {format: png}
 ![model diagnostics](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_242)
 
 We're looking here for:
 
-* a horizontal red line in our Residuals vs. Fitted plot, demonstrating a linear relationship between variables. 
+* a horizontal red line in our Residuals vs. Fitted plot, demonstrating a linear relationship between variables.
 * a horizontal line in our Scale-Location plot, demonstrating the data are homoscedastic,
 * points falling along the dotted line in our QQ Plot, demonstrating the residuals are Normally distributed
 * standardized residuals to fall between -2 and 2 in the Residuals vs. Leverage plot, suggesting there are no obvious outliers driving our regression results
@@ -444,101 +444,3 @@ In this lesson, we've put a whole lot together. We walked through how to carry o
 ![Inference: Practice](https://youtu.be/RuVXyAqI4vU)
 
   - [Slides](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/edit?usp=sharing)
-
-{quiz, id: quiz_06_5_practice}
-
-### Inference: Practice quiz
-
-{choose-answers: 4, points: 2} 
-? In evaluating the output from the following code, which of the following statements is true?
-
-```r
-hc %>%
-  ggplot(aes(x = spending_capita, y = prop_coverage, 
-             color = region)) + 
-  geom_point() + 
-  xlab("spending per capita") + 
-  ylab("coverage proportion") + 
-  geom_smooth(method = "lm", col = "red") + 
-  geom_text(aes(label=abb), nudge_x = 150) + 
-  facet_grid(year~type)
-```
-
-C) Patterns were largely consistent across types of insurance between 2013 and 2013
-C) Among the 50 states, Arkansas (AK) is the most frequent outlier
-o) Among the 50 states, New York (NY) is the most frequent outlier
-o) The more spending by a state the higher the proportion of Uninsured individuals a state tends to have.
-o) There was a positive relationship between spending and coverage proportion for Employer-provided insurance in 2013 but not in 2014.
-o) There was a negative relationship between spending and coverage proportion for Employer-provided insurance in 2013 but not in 2014.
-o) There was a positive relationship between spending and coverage proportion for Employer-provided insurance in 2014 but not in 2013.
-o) There was a positive relationship between spending and coverage proportion for Employer-provided insurance in 2014 but not in 2013.
-
-{choose-answers: 4, points: 2} 
-? Consider the output from the following. What is the beta estimate for this model?
-
-```r
-hc_2014 <- hc_employer %>% filter(year == "2014")
-
-fit3 <- lm(prop_coverage ~ spending_capita, 
-         data = hc_2014)
-tidy(fit3)
-```
-
-C) 0.0000164
-o) 0.365
-o) 0.0000000165
-o) 0.0136 
-o) 0.0539
-o) 0.00000638
-o) 0.00000640
-o) 0.0000190
-
-{choose-answers: 4} 
-? In the last question you carried out the simple regression for 2014. In the lesson we carried out simple regression for the same variables in 2013. Which of the following is true when comparing the results from these two analyses?
-
-C) The relationship between was positive in both 2013 and 2014
-o) The relationship between was negative in both 2013 and 2014
-o) The relationship between spending and coverage was stronger in 2014 than 2013
-o) The relationship between spending and coverage was negative in 2013 but positive in 2014
-o) The relationship between spending and coverage was negative in 2014 but positive in 2013
-o) The relationship between spending and coverage was zero in 2013 but positive in 2014
-o) The relationship between spending and coverage was zero in 2014 but positive in 2013
-o) The relationship between spending and coverage was zero in 2013 but negative in 2014
-o) The relationship between spending and coverage was zero in 2014 but negative in 2013
-
-{choose-answers: 4} 
-? To measure the effect of spending on proportion coverage when accounting for the type of insurance, year, and region, which model would you fit?
-
-C) `lm(prop_coverage ~ spending_capita + region + type + year, data = hc)`
-o) `lm(prop_coverage ~ spending_capita + region + insurance + year, data = hc)`
-o) `lm(prop_coverage ~ spending_capita + region + insurance + year, data = hc_2013)`
-o) `lm(prop_coverage ~ spending_capita + region + insurance + year, data = hc_2014)`
-o) `lm(prop_coverage ~ spending_capita + region + type + year, data = hc_2013)`
-o) `lm(prop_coverage ~ spending_capita + region + type + year, data = hc_2014)`
-o) `lm(prop_coverage ~ spending_capita, data = hc_2014)`
-o) `lm(prop_coverage ~ spending_capita, data = hc_2013)`
-o) `lm(prop_coverage ~ spending_capita, data = hc)`
-
-{points:3}
-? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `DataTrail Data Analysis`. Type the number that corresponds to the lesson `L09 Inference Practice Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
-
-Note: The data used in the swirl modules in this lesson are data modified from [Kaggle](https://www.kaggle.com/javadzabihi/happiness-2017-visualization-prediction/data).
-
-! /.+(OfKY|kamA|rH7Q|7Wxt|kqco|f833|Xyg9|2l9Z|pk23|udzU).+/i
-
-{points:3}
-? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L09 Inference Practice Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(7pnh|tCdv|dPMN|3c6k|6VA1|ZpGD|HVke|Pm4W|xrTw|G94S).+/i
-
-{points:3}
-? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L09 Inference Practice Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(rZB0|a0pT|LmWc|MSyw|0JJX|VRrh|PyDp|B9P5|TNcN|qqhC).+/i
-
-{points:3}
-? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L09 Inference Practice Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(A3lS|FZhi|5lcO|2mqf|i9V5|Gt8h|tPEG|pfak|f5XF|JvpZ).+/i
-
-{/quiz}

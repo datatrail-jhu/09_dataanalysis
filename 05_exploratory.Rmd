@@ -1,4 +1,4 @@
-# Exploratory Analysis 
+# Exploratory Analysis
 
 The goal of an exploratory analysis is to examine, or **explore** the data and find **relationships** that weren't previously known. Exploratory analyses explore how different measures might be related to each other but do not confirm that relationship as causal, i.e., one variable causing another. You've probably heard the phrase "Correlation does not imply causation," and exploratory analyses lie at the root of this saying. Just because you observe a relationship between two variables during exploratory analysis, it does not mean that one necessarily causes the other.
 
@@ -22,7 +22,7 @@ We can summarize the general principles of exploratory analysis as follows:
 * If necessary, transform variables
 
 
-These principles may be more clear in an example. We will use a dataset from [Kaggle.com](www.kaggle.com) that contains 120 years of Olympics history on athletes and results. If you don't have an account on Kaggle, create one and go to the link https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results and under "Data Sources" download the `athlete_events.csv` to your computer. 
+These principles may be more clear in an example. We will use a dataset from [Kaggle.com](www.kaggle.com) that contains 120 years of Olympics history on athletes and results. If you don't have an account on Kaggle, create one and go to the link https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results and under "Data Sources" download the `athlete_events.csv` to your computer.
 
 {format: png}
 ![Dataset on 120 years of Olympics history on athletes and results](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_24)
@@ -32,7 +32,7 @@ Upload the data on RStudio.cloud and import the CSV file using the commands you 
 {format: png}
 ![Importing data using `read_csv()`](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_30)
 
-As we learned before, we can use the package `skimr` to take a look at the data. 
+As we learned before, we can use the package `skimr` to take a look at the data.
 
 {format: png}
 ![Using the skimr package to have a summary of the data](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_35)
@@ -59,7 +59,7 @@ Histograms, in general, are one of the best ways to look at a variable and find 
 ![Histogram of the variable Age](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_40)
 
 
-Now, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. For instance, we like to know if there is an association between age of athletes and their gender. One of the ways to do this is to look at a boxplot of age grouped by gender, i.e., the distribution of age separated for male and female athletes. Boxplot shows the distribution of the variable age for the gender groups. You can see that the average age is slightly higher for men than for women. 
+Now, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. For instance, we like to know if there is an association between age of athletes and their gender. One of the ways to do this is to look at a boxplot of age grouped by gender, i.e., the distribution of age separated for male and female athletes. Boxplot shows the distribution of the variable age for the gender groups. You can see that the average age is slightly higher for men than for women.
 
 {format: png}
 ![Boxplot of the variable Age for male and female individuals](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&pageid=g3a82126a9f_0_5)
@@ -101,108 +101,3 @@ What is obvious is that those who have a medal are taller. Can we say that being
 ![Exploratory Analysis](https://www.youtube.com/watch?v=lqHlLC652zw)
 
 * [Slides](https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing)
-
-{quiz, id: quiz_05_exploratory}
-
-### Exploratory Analysis quiz
-
-{choose-answers:4} 
-?1 What one of the following is not among the reasons we use exploratory analysis?
-
-C) Using prediction analysis
-C) Performing regression analysis to be able to infer results about the general population
-o) Understand data properties such as nonlinear relationships, the existence of missing values, the existence of outliers, etc.
-o) Find patterns in data such as associations, group differences, confounders, etc.
-o) Suggest modeling strategies such as linear vs. nonlinear models, transformation
-o) "Debug" analyses
-o) Communicate results
-
-{choose-answers:4} 
-?2 Which one of the following is not among the general principles of exploratory analysis?
-
-C) Outliers should not be checked since they contain important information
-C) Nonlinear regressions are better than linear regressions
-C) Always use summary tables in exploratory analysis instead of graphs
-o) Look for missing values
-o) Use plots to explore relationships
-o) Use tables to explore relationships
-o) If necessary, transform variables
-
-{choose-answers:4, points:2} 
-?3 In the dataset used in this lesson, what is the number of missing values in the variable `Age`?
-
-C) 9474
-m) 60171
-o) 261642
-o) 0
-o) 271116
-
-{choose-answers:4, points:2} 
-?3 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the number of missing values in the variable `Height`?
-
-C) 60171
-m) 9474
-o) 261642
-o) 0
-o) 271116
-
-{choose-answers:4} 
-?4 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the weight of the heaviest athlete?
-
-C) 214
-o) 25
-o) 60
-o) 70
-o) 70.7
-o) 79
-
-{choose-answers:4} 
-?4 In the [dataset](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results) used in this lesson, what is the height of the tallest athlete?
-
-C) 226
-m) 214
-o) 127
-o) 60
-o) 100
-o) 70.7
-o) 79
-
-{choose-answers:4} 
-?5 Which one of the following `ggplot2` functions can be used to produce a scatter plot?
-
-C) `geom_point()`
-m) `geom_bar()`
-o) `geom_histogram()`
-o) `geom_density()`
-o) `geom_boxplot()`
-
-{choose-answers:4} 
-?5 Which one of the following `ggplot2` functions can be used to produce a bar chart?
-
-C) `geom_bar()`
-m) `geom_point()`
-o) `geom_histogram()`
-o) `geom_density()`
-o) `geom_boxplot()`
-
-{points:3}
-?6 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `DataTrail Data Analysis`. Type the number that corresponds to the lesson `L05 Exploratory Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
-
-! /.+(XERJ|rNCn|49A4|Dmgt|caSc|eXsP|RN7v|kfbH|bbBx|7aek).+/i
-
-{points:3}
-?7 Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L05 Exploratory Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(rtkr|0ciB|gXV3|1tNg|qgTv|K2iF|Vzjn|jNiN|zwK7|dgFD).+/i
-
-{points:3}
-?8 Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L05 Exploratory Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(XPwX|qhFQ|9fHG|cfJ3|wbIW|KYcl|weA4|Ck9J|NWrW|lgP2).+/i
-
-{points:3}
-?9 Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L05 Exploratory Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(ilKD|Lu7f|hBVK|wGXf|bSKM|hYPf|FlHZ|2iPI|fbQm|tsAg).+/i
-
-{/quiz}

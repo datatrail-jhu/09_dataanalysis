@@ -1,0 +1,26 @@
+book_filename: "DataTrail"
+chapter_name: "Chapter "
+repo: https://github.com/jhudsl/OTTR_Template/
+rmd_files: ["00_purpose.Rmd",
+            "01_translating_questions.Rmd",
+            "02_identifying_data.Rmd",
+            "04_descriptive.Rmd",
+            "05_exploratory.Rmd",
+            "06_1_inferential.Rmd",
+            "06_2_regression.Rmd",
+            "06_3_multiple_regression.Rmd",
+            "06_4_inferential_examples.Rmd",
+            "06_5_practice.Rmd",
+            "07_prediction_ml.Rmd",
+            "08_workflow.Rmd",
+            "09_pipelines.Rmd",
+            "10_final_project.Rmd",
+            "References.Rmd",
+            "About.Rmd"]
+new_session: yes
+bibliography: [book.bib]
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter"
+output_dir: "docs"

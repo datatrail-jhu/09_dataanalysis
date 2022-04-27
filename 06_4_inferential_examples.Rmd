@@ -7,7 +7,7 @@
 <!-- ![](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=PAGE_ID) -->
 <!-- or use  `didactr::gs_slide_df("11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ")$png_markdown` -->
 
-In the last lesson, we went through a number of the basics of simple linear regression, discussed confounding, introduced multiple linear regression, and discussed analytical approaches built off of linear regression. Through that lesson and in the swirl modules in the quiz, we went through a few simple examples; however, since linear regression is the foundation of *tons* of work being done in the real world, we wanted to walk through two additional examples - which we'll call case studies - in this lesson. 
+In the last lesson, we went through a number of the basics of simple linear regression, discussed confounding, introduced multiple linear regression, and discussed analytical approaches built off of linear regression. Through that lesson and in the swirl modules in the quiz, we went through a few simple examples; however, since linear regression is the foundation of *tons* of work being done in the real world, we wanted to walk through two additional examples - which we'll call case studies - in this lesson.
 
 This lesson will help you:
 
@@ -24,7 +24,7 @@ Data scientists, statisticians, social scientists, economists, and natural scien
 
 In an earlier lesson we  mentioned that when carrying out inferential analyses, analysts are taking a small sample of data to say something about what would happen if we collected more data, say, from the entire population. The example question we introduced was trying to measure and understand the effect of *Sesame Street* on children's learning.
 
-To better understand this relationship, we proposed that an analyst could set out to answer the question: "Is there a relationship between watching *Sesame Street* and test scores among children?" 
+To better understand this relationship, we proposed that an analyst could set out to answer the question: "Is there a relationship between watching *Sesame Street* and test scores among children?"
 
 In fact, many economists have studied exactly this! In our first case study, we'll walk through a recent analysis looking at the effects of *Sesame Street* on educational outcomes.
 
@@ -32,7 +32,7 @@ In fact, many economists have studied exactly this! In our first case study, we'
 ![Eary Childhood Education by Television](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_3)
 
 #### Question
-  
+
 The general question the economists we'll be talking about today (Melissa S. Kearney and Phillip B. Levine) set out to answer was: "Does exposure to *Sesame Street* improve educational and labor market outcomes?"
 
 Now, this group was not the first to study a question involving *Sesame Street* and educational outcomes, but they did build upon the work of others' in their analysis.
@@ -76,7 +76,7 @@ Before presenting the results of the table, the economists first demonstrate (us
 {format: png}
 ![Sesame Street availability correlated with areas where more students were at grade level after 1969](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_21)
 
-Table 4 from this paper then summarizes the results looking at the impact *Sesame Street* coverage (meaning how available *Sesame Street* was in an area) has on educational outcomes. The authors present the effect sizes and standard errors in parentheses. 
+Table 4 from this paper then summarizes the results looking at the impact *Sesame Street* coverage (meaning how available *Sesame Street* was in an area) has on educational outcomes. The authors present the effect sizes and standard errors in parentheses.
 
 To intercept these, values greater than 0 have a positive relationship, less than zero a negative relationship. And, the smaller the standard error, the more confident we are in the estimate.
 
@@ -88,7 +88,7 @@ For example, if we just focus on the first row measuring the aggregate effect, w
 {format: png}
 ![Sesame Street Availability is associated with an increase in educational attainment](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_108)
 
-To interpret what an effect size of 0.105 means in the context of this analysis, a 1 point increase in coverage rates would lead to a 0.105 percentage point increase in the rate of grade-for-age status (their measure of educational attainment). 
+To interpret what an effect size of 0.105 means in the context of this analysis, a 1 point increase in coverage rates would lead to a 0.105 percentage point increase in the rate of grade-for-age status (their measure of educational attainment).
 
 The economists who carried out the study, however, point out that a 1 point increase in coverage rates is not typical. Rather, if a child were to move from a low coverage area to a strong coverage area, this would actually be a 30 point increase in coverage rates. This means that the effect for moving from a low coverage to a high coverage area would actually result in a 3.2%  (0.3 * 0.105 = 0.032) increase in the rate of grade-for-age status.
 
@@ -97,7 +97,7 @@ The authors also stratified their results by gender and race. By comparing the e
 {format: png}
 ![The results are strongest in males and black children](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_115)
 
-To demonstrate that this effect has anything to do with Sesame Street, the authors carried out the same analysis *before* *Sesame Street* was released. In doing this, the economists are looking for effect sizes close to zero, suggesting that the availability of *Sesame Street* in 1969 is truly playing a role in improving educational outcomes. 
+To demonstrate that this effect has anything to do with Sesame Street, the authors carried out the same analysis *before* *Sesame Street* was released. In doing this, the economists are looking for effect sizes close to zero, suggesting that the availability of *Sesame Street* in 1969 is truly playing a role in improving educational outcomes.
 
 This is what we call a negative control, meaning they're doing this analysis expecting no effect (effect sizes near zero). The authors present their results from this null analysis in a table again.
 
@@ -115,7 +115,7 @@ Economists have long been interested in measuring happiness and understanding ha
 
 A [recent analysis](https://www.aeaweb.org/articles?id=10.1257/aer.103.3.591) in the American Economic Review set out to study the relationship between religiosity and happiness.
 
-#### Question 
+#### Question
 
 The general question the economists (Deaton and Stone) started with was "Is religion good for you?"
 
@@ -166,12 +166,12 @@ To understand the answer to the question "Is religion good for you?," readers ha
 
 ##### Religiosity and Ladder-happiness in the USA
 
-Let's first try to interpret the relationship between people's religiosity (independent variable) how people rank their lives (the dependent variable fist focusing on ladder score - a measure from 0 to 10) among individuals in the USA. 
+Let's first try to interpret the relationship between people's religiosity (independent variable) how people rank their lives (the dependent variable fist focusing on ladder score - a measure from 0 to 10) among individuals in the USA.
 
 {format: png}
 ![Religious individuals in the USA have higher self-reported well-being](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_21)
 
-Focusing on the pink box here, we see that person-level data has a positive beta coefficient, indicating a positive relationship between religiosity and well-being. This means that religious people (on average) tend to have higher ladder measure of well-being than non-religious individuals. The second row here demonstrates that when accounting for income (with multiple regression), this result remains and in fact gets stronger (0.263 > 0.248). We can also see that these results come from analyzing individual data from more than 1 million individuals(the Observations column) and that the error around this estimate is quite small (SE column). 
+Focusing on the pink box here, we see that person-level data has a positive beta coefficient, indicating a positive relationship between religiosity and well-being. This means that religious people (on average) tend to have higher ladder measure of well-being than non-religious individuals. The second row here demonstrates that when accounting for income (with multiple regression), this result remains and in fact gets stronger (0.263 > 0.248). We can also see that these results come from analyzing individual data from more than 1 million individuals(the Observations column) and that the error around this estimate is quite small (SE column).
 
 Moving to the third row here, we see that at the state level (rather than the individual level), there is a slight, negative relationship between religiosity and well-being. This result suggests that the more religious a state is, the less happy they are as a state. However, once accounting for income, we see that this negative relationship goes away, suggesting that income, rather than religiosity, drives this effect.
 
@@ -184,7 +184,7 @@ Now, remember that well-being was measured in more than one way. We can now look
 
 Here the results are all positive, but also very close to zero, suggesting that the effect of religiosity on yesterday's measure of happiness is quite small.
 
-##### Worldwide religiosity and happiness 
+##### Worldwide religiosity and happiness
 
 One benefit of this study was that the researchers had measurements from many people worldwide, so they were able to study the effect of religiosity on well-being across countries.
 
@@ -212,62 +212,3 @@ In this lesson we walked through two real-life examples of inference being used 
 ![Inference: Examples](https://youtu.be/Xpef4tULTH4)
 
   - [Slides](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/edit?usp=sharing)
-
-{quiz, id: quiz_06_2_inferential_examples}
-
-### Inference: Examples quiz
-
-{choose-answers: 4} 
-? Imagine that you've set out to answer the question "Does eating breakfast result in better grades?" You decide to look at high school age students. You collect data about whether or not the students in your study eat breakfast and their grade point average (GPA). You know that the better the students' grades are, the closer this number will be to 4.0. The worse their grades, the closer it will be to zero. You think that eating breakfast will not be associated with GPA. What beta coefficient would you expect to see in your analysis *if your hypothesis were correct*?
-
-C) 0
-m) 1
-m) -1
-o) 2
-o) -2
-o) 4
-o) -4
-
-
-{choose-answers: 4} 
-? In the *Sesame Street* effect on educational attainment study (Case Study #1 in the lesson), the authors used coverage data as its measure of *Sesame Street* Availability. Below is a figure from their paper plotting those data. Which of the following statements is true, based in their figure?
-
-{format: png}
-![Sesame Street Coverage throughout the USA](sesame_street_coverage.png)
-
-C) *Sesame Street* was more available in the Eastern half of the United States
-o) *Sesame Street* was only available in the Eastern half of the United States
-o) *Sesame Street* was less available in the Eastern half of the United States
-o) *Sesame Street* was more available in the Western half of the United States
-o) *Sesame Street* was only available in the Western half of the United States
-o) *Sesame Street* was less available in the Western half of the United States
-
-
-{choose-answers: 4, points: 2} 
-? While not discussed directly in the lesson, the authors of the *Sesame Street* study also looked at the effect of *Sesame Street* Coverage (Simulated coverage rate in the figure) on the Percentage of those between ages 2 and 5 who watched *Sesame Street*. The authors carried out linear regression. Which of the following statements correctly explains this relationship given the figure below?
-
-{format: png}
-![*Sesame Street* viewership vs. availability](sesame_street_regression.png)
-
-C) Places where *Sesame Street* was more available had more children who watched *Sesame Street*.
-o) Places where *Sesame Street* was more available had fewer children who watched *Sesame Street*.
-o) There was no relationship between states where *Sesame Street* was more available and the percentage of children who watched *Sesame Street*.
-o) *Sesame Street* Availability caused more children to watch *Sesame Street*.
-o) No state had more than 50% of children who watched *Sesame Street*.
-o) Every state had at least 20% of children watching *Sesame Street*.
-
-{choose-answers: 4, points: 2} 
-? Using that same figure, we see that there is an equation on the plot. The value 0.5862 is the beta coefficient. Which of the following is an accurate interpretation of this value?
-
-![*Sesame Street* viewership vs. availability](sesame_street_regression.png)
-
-C) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* increases by 0.5862.
-o) For every 10 points the Simulated coverage rate increases, the percentage of children ages 2-5 who watch *Sesame Street* increases by 0.5862.
-o) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* increases by 5.86.
-o) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* increases by 58.6.
-o) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* decreases by 0.5862.
-o) For every 10 points the Simulated coverage rate increases, the percentage of children ages 2-5 who watch *Sesame Street* decreases by 0.5862.
-o) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* decreases by 5.86.
-o) For every 1 point increase in Simulated coverage rate, the percentage of children ages 2-5 who watch *Sesame Street* decreases by 58.6.
-
-{/quiz}
