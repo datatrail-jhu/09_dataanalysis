@@ -89,7 +89,7 @@ If points at one end are much closer to the best-fitting line than points are at
 When we fit a linear regression, typically the data do not fall *perfectly* along the regression line. Rather, there is some distance from each point to the line. Some points are quite close to the line, while others are further away. Each point's distance to the regression line can be calculated. This distance is the **residual** measurement. 
 
 {format: png}
-![Residuals are calculcated by measuring the distance from each point to the regression line](https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&pageid=g5d2253b705_0_79)
+![Residuals are calculated by measuring the distance from each point to the regression line](https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&pageid=g5d2253b705_0_79)
 
 
 In linear regression, one assumption is that these residuals follow a Normal distribution. This means that if you were to calculate each residual (each point's distance to the regression line) and then plot a histogram of all of those values - that plot should look like a Normal Distribution.

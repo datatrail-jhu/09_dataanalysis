@@ -199,7 +199,7 @@ We see that most of your friends' time is spent working and sleeping, which make
 However, the whole point of this report is that you can run it again with ease for an updated dataset -- as that's the whole point of a pipeline. The second sheet in this Google Sheet represents your updated data. Thus, we'll click "Knit with Parameters" again and specify the appropriate URL (the same as earlier), but change worksheet to '2'. We'll again Knit our report.
 
 {format: png}
-![Change paramter and re-Knit](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_67)
+![Change parameter and re-Knit](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_67)
 
 Just like that, we see the data summarized across more of our friends! People are still working and sleeping the most; however, we see a lot more variability in this updated dataset!
 

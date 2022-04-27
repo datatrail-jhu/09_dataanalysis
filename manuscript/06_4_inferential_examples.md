@@ -22,7 +22,7 @@ Data scientists, statisticians, social scientists, economists, and natural scien
 
 ### Case Study #1: The Effects of Watching *Sesame Street* on Educational Outcomes
 
-In an earlier lesson we  mentioned that when carrying out inferential analyses, analysts are taking a small sample of data to say something about what would happen if we collected more data, say, from the entire population. The example question we introduced was trying to measure and understand the effect of *Sesame Street* on chidlren's learning.
+In an earlier lesson we  mentioned that when carrying out inferential analyses, analysts are taking a small sample of data to say something about what would happen if we collected more data, say, from the entire population. The example question we introduced was trying to measure and understand the effect of *Sesame Street* on children's learning.
 
 To better understand this relationship, we proposed that an analyst could set out to answer the question: "Is there a relationship between watching *Sesame Street* and test scores among children?" 
 
@@ -74,7 +74,7 @@ Nevertheless, we can still interpret the results from this analysis! The results
 Before presenting the results of the table, the economists first demonstrate (using a figure) that before 1969 when *Sesame Street* was introduced, there was no difference in students at grade level between areas that would go on to have *Sesame Street* coverage and those that would not. However, as time goes on, their analysis demonstrates an increase in students at grade level in areas where *Sesame Street* was available.
 
 {format: png}
-![Sesame Street availabity correlated with areas where more students were at grade level after 1969](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_21)
+![Sesame Street availability correlated with areas where more students were at grade level after 1969](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_21)
 
 Table 4 from this paper then summarizes the results looking at the impact *Sesame Street* coverage (meaning how available *Sesame Street* was in an area) has on educational outcomes. The authors present the effect sizes and standard errors in parentheses. 
 
