@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Prediction &amp; Machine Learning | My Document</title>
+  <meta name="description" content="Chapter 11 Prediction &amp; Machine Learning | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Prediction &amp; Machine Learning | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Prediction &amp; Machine Learning | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inference-practice.html"/>
+<link rel="next" href="data-analysis-workflow.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="prediction-machine-learning" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Prediction &amp; Machine Learning</h1>
+<p>In the last lesson, we discussed that inferential data analysis looks to learn something about a population by making inferences from a representative sample. While the goal in inference is to learn something about the population, when we’re talking about <strong>prediction</strong>, the focus is on the individual. The goal of predictive analysis and machine learning approaches is to <strong>train a model using data</strong> to make predictions about an <em>individual</em>.</p>
+<p>In other words, the <strong>goal of predictive analysis</strong> is to use data you have now to make <strong>predictions</strong> about <strong>future</strong> data.</p>
+<p>We spend a lot of time trying to predict things in daily life- the upcoming weather, the outcomes of sports events, and the outcomes of elections. We’ve previously mentioned Nate Silver at <a href="fivethirtyeight.com">FiveThirtyEight</a>, where they try and predict the outcomes of U.S. elections (and sporting events too!). Using historical polling data and trends and current polling, FiveThirtyEight builds models to predict the outcomes and the next US Presidential vote - and has been fairly accurate at doing so! FiveThirtyEight’s models accurately predicted the 2008 and 2012 elections and was widely considered an outlier in the 2016 US elections, as it was one of the few models to suggest Donald Trump had a chance of winning.</p>
+<p>Predicting the outcome of elections is a key example of predictive analysis, where historical data (data they have now) are used to predict something about the future.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1" alt="Basics of Predictive Analysis" /></p>
+<p>In this lesson we’ll walk through the important pieces of carrying out a predictive analysis, what considerations should be made when making predictions, discuss what machine learning is, and talk about how to assess accuracy within a predictive analysis.</p>
+<div id="what-is-machine-learning" class="section level3" number="11.0.1">
+<h3><span class="header-section-number">11.0.1</span> What is Machine Learning?</h3>
+<p>So far we’ve been discussing predictive analysis. But, you may have heard people on the news or in daily life talking about “machine learning.” The goal of machine learning is to build models (often referred to as <strong>algorithms</strong>) from the patterns in data that can be used for predictions in the future. For our purposes, it’s safe to argue that when doing predictive analysis, we’re actually doing machine learning. As such, we’ll use machine learning throughout the rest of this lesson. Here, <strong>machine learning</strong> refers to using the relationships within a dataset to build a model that can be used for prediction.</p>
+<p>That said, there is without a doubt an entire field of individuals dedicating themselves to machine learning. This lesson will just touch on the very basics within the field.</p>
+</div>
+<div id="machine-learning" class="section level3" number="11.0.2">
+<h3><span class="header-section-number">11.0.2</span> Machine Learning</h3>
+<p>In order to make predictions for the future using data you have now, there are four general steps:</p>
+<ol style="list-style-type: decimal">
+<li>Data Splitting - what data are you going to use to train your model? To tune your model? To test your model?</li>
+<li>Variable Selection - what variable(s) from the data you have now are you going to use to predict future outcomes?</li>
+<li>Model Selection - How are you going to model the data?</li>
+<li>Accuracy Assessment - How are you going to assess accuracy of your predictions?</li>
+</ol>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_5" alt="Basic Steps" /></p>
+</div>
+<div id="data-splitting" class="section level3" number="11.0.3">
+<h3><span class="header-section-number">11.0.3</span> Data Splitting</h3>
+<p>For predictive analysis (or machine learning), you need data on which to train your model. These are the set of observations and corresponding variables that you’re going to use to build your predictive model. But, a predictive model is only worth something if in can predict accurately in a future dataset. Thus, often, in machine learning there are three datasets used to build a predictive model: train, tune, and test.</p>
+<div id="train-tune-test" class="section level4" number="11.0.3.1">
+<h4><span class="header-section-number">11.0.3.1</span> Train, Tune, Test</h4>
+<p>Okay, admittedly, these are <em>not</em> the most common words to use for this process. Many people use train, validate, and test. However, almost as many people use train, test, and validate, as evidenced by this <a href="https://twitter.com/michaelhoffman/status/989251677646704641">Twitter poll</a>:</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_9" alt="Twitter poll" /></p>
+<p>As such, we’re mentioning those terms so that you’re familiar with them, but since machine learning people can’t agree on the order of the words, in this lesson, we’ve decided to go with more helpful terminology, as suggested by <a href="https://twitter.com/carldeboerphd?lang=en">Carl de Boer</a>: train, tune, and test.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_14" alt="Train, Tune, Test" /></p>
+<div id="train" class="section level5" number="11.0.3.1.1">
+<h5><span class="header-section-number">11.0.3.1.1</span> Train</h5>
+<p>Training data are the data we described above. The data used to build your predictive model. These data are referred to as your training set.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_93" alt="training data" /></p>
+</div>
+<div id="tune" class="section level5" number="11.0.3.1.2">
+<h5><span class="header-section-number">11.0.3.1.2</span> Tune</h5>
+<p>Before getting started, your original dataset is often split. Some (often 70%) of the observations in your dataset are used to train the model, while 30% are held out. This held-out set of observations from your original dataset are then used to improve (tune) the accuracy of model.</p>
+<p>These hold-out samples are used to see whether or not your predictive model accurately makes predictions in the set of samples <em>not</em> used to train the model.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_127" alt="tuning data" /></p>
+</div>
+<div id="test" class="section level5" number="11.0.3.1.3">
+<h5><span class="header-section-number">11.0.3.1.3</span> Test</h5>
+<p>Finally, an independent dataset – one that is <em>not</em> from the same experiment or source as the data used to train and tune your model are used to see whether or not your predictive model makes accurate predictions in a completely new dataset. Predictive models that can be generalized to and make accurate predictions in new datasets are the best predictive models.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_111" alt="testing data" /></p>
+</div>
+</div>
+</div>
+<div id="variable-selection" class="section level3" number="11.0.4">
+<h3><span class="header-section-number">11.0.4</span> Variable Selection</h3>
+<p>For predictive analysis to be worth anything, you have to be able to predict an outcome accurately with the data you have on hand.</p>
+<p>If all the data you have on hand are the heights of elephants in Asia, you’re likely not going to be able to predict the outcome of the next US election. Thus, the variables in the data you have on hand have to be related to the outcome you’re interested in predicting in some way (which is <em>not</em> the case for the heights of elephants and US elections).</p>
+<p>Instead, to predict US elections, you’d likely want some data on outcomes of previous elections, maybe some demographic information about the voting districts, and maybe some information about the ages or professions of the people voting. All of these variables are likely to be helpful in predicting the outcome in a future election, but which ones are actually predictive? All of them? Some of them? The process of deciding which variables to use for prediction is called <strong>variable selection</strong>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_180" alt="Variable Selection" /></p>
+<p>You ideally want to include the <em>fewest variables</em> in your model as possible. Only having a few variables in your model avoids you having to collect a ton of data or build a really complicated model. But, you want the model to be as accurate as possible in making predictions. Thus, there’s always a <em>balance</em> between minimizing the variables included (to only include the most predictive variables!) and maximizing your model’s predictive accuracy.
+In other words, like in inferential analysis, your ability to make accurate predictions is dependent on whether or not you have measurements on the right variables. If you aren’t measuring the right variables to predict an outcome, your predictions aren’t going to be accurate. Thus, <strong>variable selection</strong>, is incredibly important.</p>
+<p>All that said, there <em>are</em> machine learning approaches that carry out variable selection for you, using all the data to determine which variables in the dataset are most helpful for prediction. Nevertheless, whether you are deciding on the variables to include or the computer is deciding for you, variable selection is important to accurate prediction.</p>
+<div id="lack-of-causality-reminder" class="section level4" number="11.0.4.1">
+<h4><span class="header-section-number">11.0.4.1</span> Lack of Causality Reminder</h4>
+<p>As a reminder, as was discussed in the inferential analysis, just because one variable may predict another, it <em>does not mean that one <strong>causes</strong> the other</em>. In predictive analysis, you are taking advantage of the relationship between two variables, using one variable (or one <em>set</em> of variables) to predict a second variable. Just because one variable accurately predicts another variable does <em>not</em> mean that they are causally related.</p>
+</div>
+</div>
+<div id="model-selection" class="section level3" number="11.0.5">
+<h3><span class="header-section-number">11.0.5</span> Model Selection</h3>
+<p>Additionally, there are many ways to generate prediction models. Each model was developed for a different and specific purpose. We’ll discuss a few types of predictive models here, with a focus on using linear regression. However, regardless of which model you choose to use for prediction, it’s best to keep in mind that, in general, the <strong>more data</strong> you have and the <strong>simpler your model is</strong>, the best chance you have at accurately predicting future outcomes:</p>
+<ul>
+<li>More data - The more observations you have and the more variables you have to choose from to include in your model, the more likely you are to generate an accurate predictive model. Note, however, large datasets with lots of missing data or data that have been incorrectly entered are <em>not</em> better than small, complete, and accurate datasets. Having a trustworthy dataset to build your model is critical.</li>
+<li>Simple Models - If you can accurately predict an individual’s height by only considering that person’s parents height, then go for it. There’s no need to include other variables if a single variable generates accurate predictions. A simple model that predicts accurately (regardless of the dataset in which you’re predicting) is better than a complicated model.</li>
+</ul>
+<div id="regression-vs.-classification" class="section level4" number="11.0.5.1">
+<h4><span class="header-section-number">11.0.5.1</span> Regression vs. Classification</h4>
+<p>Before we jump into discussing the various models you can use for predictive analysis, it’s important to first note the difference between regression and classification. <strong>Regression</strong> is used when you’re trying to predict a continuous variable. For example if you’re trying to predict an individual’s age, you would use regression. On the other hand <strong>classification</strong> is used for categorical variables, as it predicts which <em>group</em> an individual belongs to. An example of a classification would be predicting someone’s education level, as there are only a limited number of groups into which one would be.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_215" alt="Regression vs. Classification" /></p>
+<p>With regards to machine learning, certain methods can be used for both regression and classification, while others are designed exclusively for one or the other.</p>
+<p>In this lesson we’ll discuss one regression model and one classification model. However, there are literally <a href="http://topepo.github.io/caret/available-models.html">hundreds of models</a> available for predictive modeling. Thus, it’s important to keep in mind that we’re really just scratching the surface here.</p>
+</div>
+<div id="linear-regression-1" class="section level4" number="11.0.5.2">
+<h4><span class="header-section-number">11.0.5.2</span> Linear Regression</h4>
+<p>Just like in the previous lesson in inferential analysis, linear regression is an incredibly powerful method in machine learning! The concept here is the same as it was in the last lesson: we’re going to capitalize on the linear relationship between variables. However, instead of using linear regression to estimate something about a larger population, we’re going to use linear regression for prediction of a <strong>continuous variable</strong>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_262" alt="linear regression" /></p>
+<p>To better understand this, let’s use a conceptual example. Consider trying to predict a child’s age from their height. You’d likely expect that a taller child was older. So, let’s imagine that we’re looking here at the training data. We see the expected relationship between height and age in this scatterplot.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_385" alt="training data for age and height example" /></p>
+<p>Using the training data, linear regression is then carried out to model the relationship.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_533" alt="linear regression models the relationship between a child’s height and their age in the training data" /></p>
+<p>Now that we have our model, we no longer care about the individual data points in the training data. We’ll simply use the linear regression model to make our predictions.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_608" alt="Our linear regression model will be used for prediction" /></p>
+<p>Then, in the future when we know a child’s height, we can return to our linear regression, supply it with the new child’s height and it will return the child’s age using the model we’ve built.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_683" alt="predicting age from height using linear regression" /></p>
+<p>Conceptually, this is what will happen whenever we use linear regression for machine learning. However, it will be carried out mathematically, rather than graphically. This means you won’t have to look on the graph to see your predictions. You’ll just have to run a few lines of code that will carry out the necessary calculations to generate predictions.</p>
+<p>Additionally, here we’re using a single variable (height) to model age. Clearly, there are other variables (such as a child’s sex) that could affect this prediction. Often, regression models will include multiple predictor variables that will improve prediction accuracy of the outcome variable.</p>
+</div>
+<div id="classification-and-regression-trees-cart" class="section level4" number="11.0.5.3">
+<h4><span class="header-section-number">11.0.5.3</span> Classification and Regression Trees (CART)</h4>
+<p>Alternatively, when trying to predict a <strong>categorical variable</strong>, you’ll want to look at classification methods, rather than regression (which is for continuous variables). In these cases you may consider using a <strong>classification and regression tree (CART)</strong> for prediction. While not the <em>only</em> classification method for machine learning, CARTs are a basic and commonly-used approach to prediction for categorical variables.</p>
+<p>Conceptually, when using a CART for prediction, a <strong>decision tree</strong> is generated from the training data. A decision tree branches the data based on variables within the data. For example, if we were trying to predict an individual’s education level, we would likely use a dataset with information about many different people’s income level, job title, and the number of children they have. These variable would then be used to generate the tree.</p>
+<p>For example, maybe the first branch would separate individuals who make less than 40,000 dollars a year. All of those in the training data who made less than 40K would go down the left-hand branch, while everyone else would go down the right-hand branch.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_843" alt="Start to generate branches for your decision tree using the data to make decisions" /></p>
+<p>At each level, the data will continue to be split, using the information in the training data.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_892" alt="Branches continue to be generated from the training data" /></p>
+<p>Finally, a full decision tree will be constructed, such that there will be a label for the variable we’re trying to predict at the end of each branch.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_920" alt="labels are assigned at the end of each tree" /></p>
+<p>This CART will then be used for prediction in future samples. Thus, if you follow the path along the decision tree, for this example CART, an individual who made more than $40,000 a year, was in a manual labor profession, and had children, this CART would predict that that individual’s education level were “High School.”</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_992" alt="Predictions are then made following the decisions on the tree" /></p>
+<p>Again, this is conceptually and graphically how a CART works; however, when generating a CART yourself, it again only takes a few lines of code to generate the model and carry out the necessary math.</p>
+</div>
+</div>
+<div id="model-accuracy" class="section level3" number="11.0.6">
+<h3><span class="header-section-number">11.0.6</span> Model Accuracy</h3>
+<p>A common saying is that prediction is hard, especially about the future. This is true in predictive analysis. Thus, it’s important to always carefully evaluate the accuracy of your model and to never overstate how well you are able to make predictions.</p>
+<p>Generally, if your predictions are correct, you’re doing well! If your predictions are wrong, you’re not doing ass well. But, how do we define “well”?</p>
+<div id="error-rates" class="section level4" number="11.0.6.1">
+<h4><span class="header-section-number">11.0.6.1</span> Error Rates</h4>
+<p>To assess whether or not our predictive models are doing well, we calculate error rates. The two most common ways to assess how well our predictive models are doing are:</p>
+<ol style="list-style-type: decimal">
+<li>RMSE (Root-mean-square Error)</li>
+<li>Accuracy</li>
+</ol>
+<p>We’ll note here that in order to assess error, you have to know the truth (the actual value) in addition to the predicted value. Thus, RMSE and Accuracy are assessed in the training and tuning data, where you <em>know</em> the actual value as well as the predicted value.</p>
+<div id="rmse" class="section level5" number="11.0.6.1.1">
+<h5><span class="header-section-number">11.0.6.1.1</span> RMSE</h5>
+<p>The root-mean-square error (RMSE) is a measure used to assess prediction error for continuous variables. Generally, we want to minimize error in prediction. Thus, a small RMSE is better than a large RMSE.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1084" alt="RMSE" /></p>
+<p>Mathematically speaking, the RMSE is the square root of the variance. From earlier lessons, we know that <strong>variance</strong> has something to do with how confident we are in our estimate. Since we’re trying to determine how close our predictions are to the actual value, this seems like a good place to start.</p>
+<p>When we look at the equation, we can see that the difference between the predicted and actual values is calculated <code>(Predicted - Actual)</code> and that this value is then squared <code>(Predicted - Actual)^2</code>. These differences squared are then added for every individual in your dataset (that’s what the sigma, or big E says). This value (the sum of all the errors squared) is then divided by the number of individuals in your dataset (<code>N</code>). This square root of this value is then taken. This is how RMSE is calculated.</p>
+<p>We went through that description because we want to point out that when differences are squared <code>(Predicted - Actual)^2</code>, outliers, or samples whose prediction was far off from their actual value are going to increase the RMSE a lot. Thus, <strong>a few outliers can lead to really high RMSE values</strong>, even if all the other predictions were pretty good. This means it’s important to check to see if a few outliers (meaning a few bad predictions) are leading to a high RMSE value.</p>
+</div>
+<div id="accuracy" class="section level5" number="11.0.6.1.2">
+<h5><span class="header-section-number">11.0.6.1.2</span> Accuracy</h5>
+<p>Alternatively, to assess error in the prediction of categorical variables, <strong>accuracy</strong> is frequently used. Accuracy looks to determine the number of predictions that match their actual values.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1102" alt="Accuracy" /></p>
+<p>The closer this value is to 100%, the better your predictive model was. The closer to 0%, the worse your model’s predictions are.</p>
+<p>Accuracy is a helpful way to assess error in categorical variables, but it can be used for numeric values too. However, it will only account a prediction “correct” if it matches exactly. In the case of age, if a sample’s age is 10 and the model predicts it to be 10, the model will say it’s been predicted correctly. However, if a sample’s age is 10 and it is predicted to be 9, it will be counted as incorrect, even though it was close. A prediction off by a year will be marked just as incorrect as a sample predicted off by 50 years. Due to this, RMSE is often opted for instead of accuracy for continuous variables.</p>
+</div>
+</div>
+</div>
+<div id="machine-learning-examples" class="section level3" number="11.0.7">
+<h3><span class="header-section-number">11.0.7</span> Machine Learning Examples</h3>
+<p>To better understand all of the concepts we’ve just discussed, we’ll walk through two examples, one for prediction of a continuous variable using linear regression and a second for prediction of a categorical value using a CART.</p>
+<div id="the-caret-package" class="section level4" number="11.0.7.1">
+<h4><span class="header-section-number">11.0.7.1</span> The <code>caret</code> package</h4>
+<p>There is an <em>incredibly</em> helpful package available in R thanks to the work of <a href="https://twitter.com/topepos?lang=en">Max Kuhn</a>. As mentioned above, there are hundreds of different machine learning algorithms. Max’s R package <code>caret</code> has compiled all of them into a single framework, allowing you to use <em>many</em> different machine learning models via a single package. Additionally, he has written <a href="http://topepo.github.io/caret/">a very helpful book</a> to accompany the package. We’ll be using this package throughout these examples.</p>
+</div>
+<div id="continuous-variable-prediction-linear-regression" class="section level4" number="11.0.7.2">
+<h4><span class="header-section-number">11.0.7.2</span> Continuous Variable Prediction: Linear Regression</h4>
+<p>For this example, we’ll keep it simple and use a dataset you’ve seen before: the <code>iris</code> dataset. This way you can focus on the syntax used in the <code>caret</code> package and the steps of predictive analysis. In this example, we’ll attempt to use the data in the <code>iris</code> dataset to predict <code>Sepal.Length</code></p>
+<div id="data-splitting-1" class="section level5" number="11.0.7.2.1">
+<h5><span class="header-section-number">11.0.7.2.1</span> Data Splitting</h5>
+<p>As mentioned above, one of the first steps is often to take your dataset and split it into a training set and a tuning set. To do this, we’ll load the <code>caret</code> package and use the <code>createDataPartition()</code> function to split the dataset.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="prediction-machine-learning.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load packages</span></span>
+<span id="cb62-2"><a href="prediction-machine-learning.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;caret&quot;</span>)</span>
+<span id="cb62-3"><a href="prediction-machine-learning.html#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb62-4"><a href="prediction-machine-learning.html#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb62-5"><a href="prediction-machine-learning.html#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="prediction-machine-learning.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="do">## get Index for training set</span></span>
+<span id="cb62-7"><a href="prediction-machine-learning.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb62-8"><a href="prediction-machine-learning.html#cb62-8" aria-hidden="true" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(iris<span class="sc">$</span>Species, <span class="at">p =</span> .<span class="dv">7</span>,</span>
+<span id="cb62-9"><a href="prediction-machine-learning.html#cb62-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">list =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb62-10"><a href="prediction-machine-learning.html#cb62-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">times =</span> <span class="dv">1</span>)</span>
+<span id="cb62-11"><a href="prediction-machine-learning.html#cb62-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-12"><a href="prediction-machine-learning.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="do">## split into training and tuning set                                  </span></span>
+<span id="cb62-13"><a href="prediction-machine-learning.html#cb62-13" aria-hidden="true" tabindex="-1"></a>iris_train <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">slice</span>(trainIndex)</span>
+<span id="cb62-14"><a href="prediction-machine-learning.html#cb62-14" aria-hidden="true" tabindex="-1"></a>iris_tune <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="sc">-</span>trainIndex)</span>
+<span id="cb62-15"><a href="prediction-machine-learning.html#cb62-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-16"><a href="prediction-machine-learning.html#cb62-16" aria-hidden="true" tabindex="-1"></a><span class="do">## take a a look</span></span>
+<span id="cb62-17"><a href="prediction-machine-learning.html#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris_train)</span>
+<span id="cb62-18"><a href="prediction-machine-learning.html#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris_tune)</span></code></pre></div>
+<p>After running this code , if we take a look at the training and tuning datasets, we can see that 70% of our observations are in the training dataset and the other 30% are in the tuning dataset, as we specified.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1230" alt="structure of training and tuning data" /></p>
+</div>
+<div id="variable-selection-1" class="section level5" number="11.0.7.2.2">
+<h5><span class="header-section-number">11.0.7.2.2</span> Variable Selection</h5>
+<p>What if we first try to predict <code>Sepal.Length</code> in our training data from <code>Sepal.Width</code>. To do that, we provide the <code>train</code> function with the model and specify that the dataset we’ll be using is the <code>iris</code> dataset. Additionally, we let the train function know that we want to run linear regression (<code>lm</code>) and that we want to assess our model’s accuracy using the <code>RMSE</code> metric.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="prediction-machine-learning.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="do">## train regression model</span></span>
+<span id="cb63-2"><a href="prediction-machine-learning.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb63-3"><a href="prediction-machine-learning.html#cb63-3" aria-hidden="true" tabindex="-1"></a>fit.lm <span class="ot">&lt;-</span> <span class="fu">train</span>(Sepal.Length <span class="sc">~</span> Sepal.Width,</span>
+<span id="cb63-4"><a href="prediction-machine-learning.html#cb63-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> iris,</span>
+<span id="cb63-5"><a href="prediction-machine-learning.html#cb63-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
+<span id="cb63-6"><a href="prediction-machine-learning.html#cb63-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">metric =</span> <span class="st">&quot;RMSE&quot;</span>)</span></code></pre></div>
+<p>After training the model, we take a look at our RMSE, and see that it is <code>0.82</code> for this dataset.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="prediction-machine-learning.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="do">## look at RMSE</span></span>
+<span id="cb64-2"><a href="prediction-machine-learning.html#cb64-2" aria-hidden="true" tabindex="-1"></a>fit.lm<span class="sc">$</span>results</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1151" alt="RMSE" /></p>
+<p>Using this model, we would then generate predictions of <code>Sepal.Length</code> in the tuning dataset using the <code>predict()</code> function. Since we know the actual <code>Sepal.Length</code> in the tuning set, these predictions can then be visualized using a scatterplot.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="prediction-machine-learning.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="do">## make predictions in tuning data set</span></span>
+<span id="cb65-2"><a href="prediction-machine-learning.html#cb65-2" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit.lm, iris_tune)</span>
+<span id="cb65-3"><a href="prediction-machine-learning.html#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="prediction-machine-learning.html#cb65-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-5"><a href="prediction-machine-learning.html#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="do">## visualize results</span></span>
+<span id="cb65-6"><a href="prediction-machine-learning.html#cb65-6" aria-hidden="true" tabindex="-1"></a>iris_tune <span class="sc">%&gt;%</span></span>
+<span id="cb65-7"><a href="prediction-machine-learning.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predictions =</span> predictions) <span class="sc">%&gt;%</span></span>
+<span id="cb65-8"><a href="prediction-machine-learning.html#cb65-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb65-9"><a href="prediction-machine-learning.html#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(Sepal.Length,predictions))</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1143" alt="Scatterplot shows Sepal.Length is not predicted well from Sepal.Width alone" /></p>
+<p>Given the lack of correlation, we can see that this model does not predict sepal length in our tuning set well.</p>
+<p>In this first attempt, we specified which variable to use for prediction; however, what if we provided our regression model with all the variables in the dataset (specified by the <code>.</code> in the code here:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="prediction-machine-learning.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="do">## train regression model</span></span>
+<span id="cb66-2"><a href="prediction-machine-learning.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb66-3"><a href="prediction-machine-learning.html#cb66-3" aria-hidden="true" tabindex="-1"></a>fit.lm2 <span class="ot">&lt;-</span> <span class="fu">train</span>(Sepal.Length <span class="sc">~</span> .,</span>
+<span id="cb66-4"><a href="prediction-machine-learning.html#cb66-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data=</span>iris,</span>
+<span id="cb66-5"><a href="prediction-machine-learning.html#cb66-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">method=</span><span class="st">&quot;lm&quot;</span>,</span>
+<span id="cb66-6"><a href="prediction-machine-learning.html#cb66-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">metric=</span> <span class="st">&quot;RMSE&quot;</span>)</span>
+<span id="cb66-7"><a href="prediction-machine-learning.html#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-8"><a href="prediction-machine-learning.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="do">## look at RMSE</span></span>
+<span id="cb66-9"><a href="prediction-machine-learning.html#cb66-9" aria-hidden="true" tabindex="-1"></a>fit.lm2<span class="sc">$</span>results</span>
+<span id="cb66-10"><a href="prediction-machine-learning.html#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-11"><a href="prediction-machine-learning.html#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="do">## make predictions in tuning data set</span></span>
+<span id="cb66-12"><a href="prediction-machine-learning.html#cb66-12" aria-hidden="true" tabindex="-1"></a>predictions2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit.lm2, iris_tune)</span>
+<span id="cb66-13"><a href="prediction-machine-learning.html#cb66-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-14"><a href="prediction-machine-learning.html#cb66-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-15"><a href="prediction-machine-learning.html#cb66-15" aria-hidden="true" tabindex="-1"></a><span class="do">## visualize results</span></span>
+<span id="cb66-16"><a href="prediction-machine-learning.html#cb66-16" aria-hidden="true" tabindex="-1"></a>iris_tune <span class="sc">%&gt;%</span></span>
+<span id="cb66-17"><a href="prediction-machine-learning.html#cb66-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predictions =</span> predictions2) <span class="sc">%&gt;%</span></span>
+<span id="cb66-18"><a href="prediction-machine-learning.html#cb66-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb66-19"><a href="prediction-machine-learning.html#cb66-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(Sepal.Length,predictions2))</span></code></pre></div>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1173" alt="Scatterplot" /></p>
+</div>
+<div id="accuracy-assessment" class="section level5" number="11.0.7.2.3">
+<h5><span class="header-section-number">11.0.7.2.3</span> Accuracy Assessment</h5>
+<p>Now when we look at the results we visually see improvement in the <code>Sepal.Length</code> predictions within the tuning dataset, which is also reflected in the decreased RMSE (0.324).</p>
+<p>Here, by including additional variables (often referred to as <code>features</code> in machine learning), we see improved prediction accuracy. There are more robust ways than trying a number of different variables in your model to select which should be included in your predictive model. These will be covered in lessons in the advanced track of this Course Set.</p>
+</div>
+<div id="model-selection-1" class="section level5" number="11.0.7.2.4">
+<h5><span class="header-section-number">11.0.7.2.4</span> Model Selection</h5>
+<p>In this example (and the example below), we’ve pre-specified which model we were going to use for the example ahead of time. However, there are many different regression models from which we could have chosen and a number of parameters in each that can be tuned, each of which can improve the predictive accuracy of your model. Learning how to choose and tune the best model will be discussed in lessons in the advanced track of this Course Set; however, for now we’ll note that, as specified in the <code>caret</code> book, the <code>train()</code> function has a number of capabilities. It can:</p>
+<ul>
+<li>evaluate how different tuning parameters in the model affect performance</li>
+<li>choose the “optimal” model, given these parameters</li>
+<li>estimate model performance (given a training set)</li>
+</ul>
+<p>Here, we haven’t played around much with the tuning parameters; however, checking out <a href="http://topepo.github.io/caret/model-training-and-tuning.html#fitting-models-without-parameter-tuning">the documentation on how to do this</a> can lead to improved prediction as you generate predictive models on your own.</p>
+</div>
+</div>
+<div id="categorical-variable-prediction-cart" class="section level4" number="11.0.7.3">
+<h4><span class="header-section-number">11.0.7.3</span> Categorical Variable Prediction: CART</h4>
+<p>A more natural prediction model given this dataset may be to predict what <code>Species</code> a flower is, given its measurements. We’ll use the <code>iris</code> dataset to carry out this classification prediction here, using a CART.</p>
+<div id="data-splitting-2" class="section level5" number="11.0.7.3.1">
+<h5><span class="header-section-number">11.0.7.3.1</span> Data Splitting</h5>
+<p>Data splitting from above will be used here. Thus, our training set will still be <code>iris_train</code> and our tuning set <code>iris_tune</code>.</p>
+</div>
+<div id="variable-selection-2" class="section level5" number="11.0.7.3.2">
+<h5><span class="header-section-number">11.0.7.3.2</span> Variable Selection</h5>
+<p>Given the relatively small nature of this dataset, we’ll build the CART using all of the data; however, further and more robust optimization of what variables are included in the model is possible within the <code>caret</code> package.</p>
+<p>Here we specify that we want to predict <code>Species</code>, that we want to use a CART to do so by setting the method to <code>rpart</code>, and that, since it’s a categorical variable, we’re going to use <code>Accuracy</code> to as our assessment metric.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="prediction-machine-learning.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="do">## CART</span></span>
+<span id="cb67-2"><a href="prediction-machine-learning.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
+<span id="cb67-3"><a href="prediction-machine-learning.html#cb67-3" aria-hidden="true" tabindex="-1"></a>fit.cart <span class="ot">&lt;-</span> <span class="fu">train</span>(Species<span class="sc">~</span>.,</span>
+<span id="cb67-4"><a href="prediction-machine-learning.html#cb67-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> iris,</span>
+<span id="cb67-5"><a href="prediction-machine-learning.html#cb67-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">method =</span> <span class="st">&quot;rpart&quot;</span>,</span>
+<span id="cb67-6"><a href="prediction-machine-learning.html#cb67-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">metric =</span> <span class="st">&quot;Accuracy&quot;</span>)</span>
+<span id="cb67-7"><a href="prediction-machine-learning.html#cb67-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-8"><a href="prediction-machine-learning.html#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="do">## look at Accuracy</span></span>
+<span id="cb67-9"><a href="prediction-machine-learning.html#cb67-9" aria-hidden="true" tabindex="-1"></a>fit.cart<span class="sc">$</span>results</span>
+<span id="cb67-10"><a href="prediction-machine-learning.html#cb67-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-11"><a href="prediction-machine-learning.html#cb67-11" aria-hidden="true" tabindex="-1"></a><span class="do">## make predictions in tuning data set</span></span>
+<span id="cb67-12"><a href="prediction-machine-learning.html#cb67-12" aria-hidden="true" tabindex="-1"></a>predictions_cart <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit.cart, iris_tune)</span>
+<span id="cb67-13"><a href="prediction-machine-learning.html#cb67-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-14"><a href="prediction-machine-learning.html#cb67-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris_tune<span class="sc">$</span>Species, predictions_cart)</span></code></pre></div>
+</div>
+</div>
+<div id="accuracy-assessment-1" class="section level4" number="11.0.7.4">
+<h4><span class="header-section-number">11.0.7.4</span> Accuracy Assessment</h4>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1187" alt="table() output" /></p>
+<p>Here, we see that in the tuning data, the CART accurately predicted the Species of most flowers using the model generated from the training data; however, it did make two incorrect predictions (the 1s in the table).</p>
+</div>
+</div>
+<div id="summary-7" class="section level3" number="11.0.8">
+<h3><span class="header-section-number">11.0.8</span> Summary</h3>
+<p>In this lesson we have covered the basics of what predictive analysis is, what types of prediction are commonly done, and how to carry out a predictive analysis using the caret package. Surely, this lesson has only introduced the very basics of machine learning, and there is still a lot out there to learn beyond what is in this lesson!</p>
+</div>
+<div id="additional-resources-5" class="section level3" number="11.0.9">
+<h3><span class="header-section-number">11.0.9</span> Additional Resources</h3>
+<ul>
+<li><a href="http://topepo.github.io/caret/index.html">The <code>caret</code> Package book</a></li>
+<li><a href="https://rstudio-pubs-static.s3.amazonaws.com/261616_3097bfd3aa4341faafede5ed2ca7bb39.html">Example of machine learning using <code>caret</code> and the <code>iris</code> dataset for classification</a></li>
+</ul>
+</div>
+<div id="slides-and-video-10" class="section level3" number="11.0.10">
+<h3><span class="header-section-number">11.0.10</span> Slides and Video</h3>
+<div class="figure">
+<img src="https://www.youtube.com/watch?v=qNC5OGra4d8" alt="" />
+<p class="caption">Prediction &amp; Machine Learning</p>
+</div>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/edit?usp=sharing">Slides</a></li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inference-practice.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-analysis-workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

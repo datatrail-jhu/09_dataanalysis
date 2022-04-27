@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Exploratory Analysis | My Document</title>
+  <meta name="description" content="Chapter 5 Exploratory Analysis | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Exploratory Analysis | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Exploratory Analysis | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="descriptive-analysis.html"/>
+<link rel="next" href="inference-overview.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="exploratory-analysis" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Exploratory Analysis</h1>
+<p>The goal of an exploratory analysis is to examine, or <strong>explore</strong> the data and find <strong>relationships</strong> that weren’t previously known. Exploratory analyses explore how different measures might be related to each other but do not confirm that relationship as causal, i.e., one variable causing another. You’ve probably heard the phrase “Correlation does not imply causation,” and exploratory analyses lie at the root of this saying. Just because you observe a relationship between two variables during exploratory analysis, it does not mean that one necessarily causes the other.</p>
+<p>Because of this, exploratory analyses, while useful for discovering new connections, should not be the final say in answering a question! It can allow you to formulate hypotheses and drive the design of future studies and data collection, but exploratory analysis alone should never be used as the final say on why or how data might be related to each other. In short, exploratory analysis helps us ask better questions, but it does not answer questions. More specifically, we explore data in order to:</p>
+<ul>
+<li>Understand data properties such as nonlinear relationships, the existence of missing values, the existence of outliers, etc.</li>
+<li>Find patterns in data such as associations, group differences, confounders, etc.</li>
+<li>Suggest modeling strategies such as linear vs. nonlinear models, transformation</li>
+<li>“Debug” analyses</li>
+<li>Communicate results</li>
+</ul>
+<div id="general-principles-of-exploratory-analysis" class="section level3" number="5.0.1">
+<h3><span class="header-section-number">5.0.1</span> General principles of exploratory analysis</h3>
+<p>We can summarize the general principles of exploratory analysis as follows:</p>
+<ul>
+<li>Look for missing values</li>
+<li>Look for outlier values</li>
+<li>Use plots to explore relationships</li>
+<li>Use tables to explore relationships</li>
+<li>If necessary, transform variables</li>
+</ul>
+<p>These principles may be more clear in an example. We will use a dataset from <a href="www.kaggle.com">Kaggle.com</a> that contains 120 years of Olympics history on athletes and results. If you don’t have an account on Kaggle, create one and go to the link <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results" class="uri">https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results</a> and under “Data Sources” download the <code>athlete_events.csv</code> to your computer.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_24" alt="Dataset on 120 years of Olympics history on athletes and results" /></p>
+<p>Upload the data on RStudio.cloud and import the CSV file using the commands you have learned. Unfortunately, you cannot download the CSV file directly from the web address since downloading datasets on Kaggle requires logging in.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_30" alt="Importing data using read_csv()" /></p>
+<p>As we learned before, we can use the package <code>skimr</code> to take a look at the data.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_35" alt="Using the skimr package to have a summary of the data" /></p>
+<p>We see that the dataset contains 15 variables and 271,116 observations. Some of the variables are of factor type and others are of integer or numeric type. The dataset includes variables on athletes such as name, sex, the sport played, whether they received a medal, age, and height. We first need to understand the data properties. So let’s start with missing values.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_44" alt="We have different types of variables in our data" /></p>
+<p>First, the results of the <code>skim()</code> function indicate that some of our variables have lots of missing values. For instance, the variable <code>Medal</code> has 231,333 missing values. Generally, this is a place for concern since most statistical analyses ignore observations with missing values. However, it is obvious that the missing values for the variable <code>Medal</code> are mainly because the athlete didn’t receive any medals. So this kind of missing value should not be a problem. However, we have missing values in the variables <code>Height</code> and <code>Age</code>. Since we are going to use these variables in our analysis in this lesson, observations with missing values for these two variables will be dropped from our analysis. Remember that <code>NA</code> is the most common character for missing values, but sometimes they are coded as spaces, 999, -1 or “missing”. Check for missing values in a variety of ways.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_49" alt="There are some missing values in the data" /></p>
+<p>Second, we can see that there are some outliers in some of the numerical variables. For example, look at the summary of the variable <code>Age</code>. Although the average age among all the athletes is around 25, there is an individual who is 97 years old (fun fact: use the command <code>subset(df, df$Age == 97)</code> to check out the information about this athlete. You will see that the name of the athlete is John Quincy Adams Ward and he competed in the sport(!) Art Competitions Mixed Sculpturing in 1928. This artist is known for his George Washington statue in front of Federal Hall in Wall Street in New York City.) It is always good to know about the existence of outliers in your sample. Outliers can significantly skew the results of your analysis. You can find outliers by looking at the distribution of your variable too.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_63" alt="There is an outlier in the Age variable" /></p>
+<p>Histograms, in general, are one of the best ways to look at a variable and find abnormalities. You can see that the age of most individuals in the sample are between 18-35.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_40" alt="Histogram of the variable Age" /></p>
+<p>Now, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. For instance, we like to know if there is an association between age of athletes and their gender. One of the ways to do this is to look at a boxplot of age grouped by gender, i.e., the distribution of age separated for male and female athletes. Boxplot shows the distribution of the variable age for the gender groups. You can see that the average age is slightly higher for men than for women.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_5" alt="Boxplot of the variable Age for male and female individuals" /></p>
+<p>If we are interested in looking at the distribution of male and female athletes over time, we can use frequency tables. Let us first create a frequency table of the share of women in each Olympic event. Tables are good for looking at factor or character variables.</p>
+<p>{format: png}
+<img src="" alt="Wrangling data to find the share of female athletes over time" /></p>
+<p>Now, if we want to plot this trend, we can use <code>geom_line()</code> from <code>ggplot</code>. It’s interesting that the share of women among all athletes that was once at a very low level in the early 1900s has gone up to almost 50% in modern times.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_79" alt="Plot of the share of female athletes over time" /></p>
+<p>In general, the most important plots in exploratory data analysis are:</p>
+<ul>
+<li>Scatterplots (<code>geom_point()</code>)</li>
+<li>Histograms (<code>geom_histogram()</code>)</li>
+<li>Density plots (<code>geom_density()</code>)</li>
+<li>Boxplots (<code>geom_boxplot()</code>)</li>
+<li>Barplots (<code>geom_bar()</code>)</li>
+</ul>
+<p>To end our lesson on exploratory analysis, let’s consider a question: are taller athletes more likely to win a medal? To answer this question we can use different methods. We can look at the distribution of height for those who received a medal and those who didn’t. We can use boxplots or barplots. The choice is yours but because boxplots are more informative, we will use them. We can first create a variable that indicates whether the athlete has any medal (the variable <code>Medal</code> indicates the type of medals). Note that the variable <code>has.medal</code> is a transformation of the variable <code>Medal</code>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_91" alt="Creating a variable that shows whether the athlete has a medal or not" /></p>
+<p>And now, we use the following code to create the boxplot.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_96" alt="Boxplot for the relationship between height and having won a medal" /></p>
+<p>What is obvious is that those who have a medal are taller. Can we say that being tall increases the probability of winning a medal in the Olympics? The answer to this question is that we don’t know. There are some possible scenarios. For instance, it could be true that being tall increase the chances of winning medals. But it could also be that there are more medals awarded in sports such as volleyball or basketball that require taller athletes. In these sports, every member of the winning team gets a medal (even if country counts only one medal is counted for the country). As a result, we may end up having so many tall athletes with a medal in each Olympics. It could also be that there are other confounding factors involved that explain why an athlete wins a medal. We will learn about confounding variables in future lessons. For now, it’s important to know, as we said in the beginning of this lesson, that association or correlation does not mean causation.</p>
+</div>
+<div id="slides-and-video-4" class="section level3" number="5.0.2">
+<h3><span class="header-section-number">5.0.2</span> Slides and Video</h3>
+<div class="figure">
+<img src="https://www.youtube.com/watch?v=lqHlLC652zw" alt="" />
+<p class="caption">Exploratory Analysis</p>
+</div>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing">Slides</a></li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="descriptive-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 14 Final Project | My Document</title>
+  <meta name="description" content="Chapter 14 Final Project | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 14 Final Project | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 Final Project | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-analysis-pipelines.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="final-project" class="section level1" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Final Project</h1>
+<p>Throughout this course set, we’ve had a number of projects. This is the last project of the course set that we call the Final project. All of these will be included as Exercises. This means they will <em>not</em> be required to pass the course and receive your certificate; however, completing them will <em>really</em> help improve your understanding of the material covered and to ensure that you’ve begun to master the skills needed to be a data scientist.</p>
+<p>In each project, we’ll aim to get you started and to ask questions that will help guide you through the project. But, we’ll intentionally leave pieces out where you have to figure out what needs to be done.</p>
+<p>This project will require you to:</p>
+<ul>
+<li>import data from the American Time Use Survey</li>
+<li>clean and tidy the data</li>
+<li>visualize the data</li>
+<li>carry out an exploratory data analysis</li>
+<li>carry out an inferential analysis</li>
+</ul>
+<p>You can access the project by going to the exercise accompanying this lesson.</p>
+<div id="slides" class="section level3" number="14.0.1">
+<h3><span class="header-section-number">14.0.1</span> Slides</h3>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac/edit?usp=sharing">Slides</a></li>
+</ul>
+<p>{exercise, id: final_project}</p>
+</div>
+<div id="final-project-1" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Final Project</h2>
+<p>This exercise has been generated to practice everything you have learned in this course set.</p>
+<div id="github-setup" class="section level3" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> GitHub Setup</h3>
+<p>To get started, you’ll want to go to GitHub and start a new repository:</p>
+<ul>
+<li>Call this repository <code>final_project</code>.</li>
+<li>Add a short description</li>
+<li>Check the box to “Initialize this repository with a README.</li>
+<li>Click <code>Create Repository</code></li>
+</ul>
+<p>Once the repository has been created, Click on <code>Clone or download</code> and copy the “Clone with HTTPS” link provided. You’ll use this to clone your repo in RStudio Cloud.</p>
+<p><strong>Note</strong>: If you’re stuck on this, these steps were covered in detail in an earlier course: <a href="https://leanpub.com/universities/courses/jhu/version-control">Version Control</a>. Refer to the materials in this course if you’re stuck on this part of the project.</p>
+</div>
+<div id="rstudio-cloud-setup" class="section level3" number="14.1.2">
+<h3><span class="header-section-number">14.1.2</span> RStudio Cloud Setup</h3>
+<ul>
+<li>Go to the <a href="https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD">Cloud-based Data Science Space on RStudio Cloud</a></li>
+<li>Click on the “Projects” tab at the top of the workspace</li>
+<li>Make a copy of the project: <code>final_project</code></li>
+</ul>
+<p>In this project you should see a <code>final_project.Rmd</code> file. You’ll use this to get started working on your project!</p>
+<p><em>Note</em>: If you try to Knit this document at this time, you <em>will</em> get an error because there is code in this document that has to be edited (by you!) before it will be able to successfully knit!</p>
+<p>To start using version control, you’ll want to clone the GitHub repository you just created into this workspace. To do so, go to the Terminal and clone your project into this workspace.</p>
+<p>A new directory with the name of your GitHub repository should now be viewable in the Files tab of RStudio Cloud. You are now set up to track your project with git.</p>
+</div>
+<div id="data-science-project-setup" class="section level3" number="14.1.3">
+<h3><span class="header-section-number">14.1.3</span> Data Science Project Setup</h3>
+<p>As discussed previously, you’ll want all your data science projects to be organized from the very beginning. Let’s do that now!</p>
+<p>First, use <code>cd</code> to get yourself into the directory of your GitHub Project.</p>
+<p>Once in the correct directory, use <code>mkdir</code> in the terminal to create folders with the following structure:</p>
+<ul>
+<li>data/
+<ul>
+<li>raw_data/</li>
+<li>tidy_data/</li>
+</ul></li>
+<li>code/
+<ul>
+<li>raw_code/</li>
+<li>final_code/</li>
+</ul></li>
+<li>figures/
+<ul>
+<li>exploratory_figures/</li>
+<li>explanatory_figures/</li>
+</ul></li>
+<li>products/
+<ul>
+<li>writing/</li>
+</ul></li>
+</ul>
+<p>Now that your directories are set up you’ll want to use the Terminal (or ‘More’ drop-down menu in the Files tab) to <strong>move (<code>mv</code>) the <code>final_project.Rmd</code> file into code/raw_code</strong> in <em>your</em> version controlled repository**. This ensures that your code file and raw data are in the correct directory.</p>
+<p>Once the .Rmd document is in the correct folder, you’ll want to <strong>change the author of this document</strong> to your name at the top of the .Rmd document (in the YAML). Save this change before moving to the next step.</p>
+<p><strong>Note</strong>: If you’re stuck on this, these steps were covered in detail in an earlier course: <a href="https://leanpub.com/universities/courses/jhu/DataTrail-organizing">Organizing Data Science Projects</a>. Refer to the materials in this course if you’re stuck on this part of the project.</p>
+</div>
+<div id="pushing-to-github" class="section level3" number="14.1.4">
+<h3><span class="header-section-number">14.1.4</span> Pushing to GitHub</h3>
+<p>You’ll want to save changes to your project regularly by pushing them to GitHub. Now that you’ve got your file structure set up and have added a code file (.Rmd), it’s a good time to stage, commit, and push these changes to GitHub. Do so now, and then take a long on GitHub to see the changes on their website!</p>
+<p><strong>Note</strong>: If you’re stuck on this, these steps were covered in detail in an earlier course: <a href="https://leanpub.com/universities/courses/jhu/version-control">Version Control</a>. Refer to the materials in this course if you’re stuck on this part of the project.</p>
+</div>
+<div id="the-data-2" class="section level3" number="14.1.5">
+<h3><span class="header-section-number">14.1.5</span> The Data</h3>
+<p>The <strong>American Time Use Survey (ATUS)</strong> is a time-use survey of Americans, which is sponsored by the Bureau of Labor Statistics (BLS) and conducted by the the U.S. Census Bureau. Respondents of the survey are asked to keep a diary for one day carefully recording the amount of time they spend on various activities including working, leisure, childcare, and household activities. The survey has been conducted every year since 2003.</p>
+<p>Included in the data are a number of <strong>demographic variables</strong> (such as respondents’ age, sex, race, marital status, and education) as well as <strong>detailed income and employment information</strong> for each respondent. While there are some slight changes to the survey each year, the main questions asked stay the same. You can find the <strong>data dictionaries</strong>, which provide information about the variables included for each year’s survey at <a href="https://www.bls.gov/tus/dictionaries.htm">https://www.bls.gov/tus/dictionaries.htm</a>.</p>
+</div>
+<div id="accessing-the-data" class="section level3" number="14.1.6">
+<h3><span class="header-section-number">14.1.6</span> Accessing the Data</h3>
+<p>There are multiple ways to access the ATUS data; however, for this project, you’ll get the raw data directly from the source. The data for each year can be found at <a href="https://www.bls.gov/tus/#data">https://www.bls.gov/tus/#data</a>. Once there, there is an option of downloading a multi-year file, which includes data for all of the years the survey has been conducted, but <strong>for the purposes of this project, let’s just look at the data for 2016</strong>. Under <strong>Data Files</strong>, click on <code>American Time Use Survey--2016 Microdata files</code>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac/export/png?id=1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac&amp;pageid=g3fa7766823_0_0" alt="American Time Use Survey" /></p>
+<p>You will be brought to a new screen. Scroll down to the section <strong>2016 Basic ATUS Data Files</strong>. Under this section, you’ll want to <strong>click to download</strong> the following two files: <code>ATUS 2016 Activity summary file (zip)</code> and <code>ATUS-CPS 2016 file (zip)</code>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac/export/png?id=1HwadkXFrjPNRdQ1NKN8fW92vSBgsD4MK_sjhvnWrVac&amp;pageid=g3fa7766823_0_9" alt="Download Data Files" /></p>
+<ul>
+<li><code>ATUS 2016 Activity summary file (zip)</code> contains information about the total time each ATUS respondent spent doing each activity listed in the survey. The activity data includes information such as activity codes, activity start and stop times, and locations.</li>
+<li><code>ATUS-CPS 2016 file (zip)</code> contains information about each household member of all individuals selected to participate in the ATUS.</li>
+</ul>
+<p>Once they’ve been downloaded, you’ll need to <strong>unzip the files</strong>. Once unzipped, you will see the dataset in a number of different file formats including <code>.sas</code>, <code>.sps</code>, and <code>.dat</code> files. <strong>We’ll be working with the .dat files.</strong></p>
+</div>
+<div id="loading-the-data-into-r" class="section level3" number="14.1.7">
+<h3><span class="header-section-number">14.1.7</span> Loading the Data into R</h3>
+<p>To use the data in RStudio Cloud, you’ll have to <strong>upload the two .dat files (<code>atuscps_2016.dat</code> and <code>atussum_2016.dat</code>)</strong> into RStudio Cloud. Make sure the <strong>data are stored in the <code>raw_data</code> folder</strong>.</p>
+<p>Once uploaded into the correct folder, you’ll be able to load the data in, You’ll do this by first <strong>running the <code>setup</code> chunk in the <code>final_project.Rmd</code> file</strong> and then by <strong>running the code in the <code>atus-data</code> code chunk</strong>. This will create an object called <code>atus.all</code>.</p>
+<p>? How many observations are in the dataset?</p>
+<p>! 10493 ; 10,493</p>
+</div>
+<div id="analyze-the-data" class="section level3" number="14.1.8">
+<h3><span class="header-section-number">14.1.8</span> Analyze the Data</h3>
+<p>Now that we’ve got the data in RStudio Cloud, let’s get to work!</p>
+<div id="exploratory-data-analysis-1" class="section level4" number="14.1.8.1">
+<h4><span class="header-section-number">14.1.8.1</span> Exploratory Data Analysis</h4>
+<p>Once the data have been read in, <strong>explore the data</strong>, <strong>adding your initial exploratory code to the <code>initial-exploration</code> code chunk in <code>final_project.Rmd</code></strong>. Then, <strong>answer the following questions</strong>:</p>
+<p>{choose-answers: 4}
+? You can find data dictionaries (also called codebooks) at <a href="https://www.bls.gov/tus/atuscpscodebk16.pdf">https://www.bls.gov/tus/atuscpscodebk16.pdf</a> for the CPS data and at <a href="https://www.bls.gov/tus/atusintcodebk16.pdf">https://www.bls.gov/tus/atusintcodebk16.pdf</a> for the rest of the variables. Using this data dictionary is very important as <strong>a lot of the information about the variables in the data and how they are coded can be found here</strong>. By looking at the variables in the data frame <code>atus.all</code>, we see that there are a lot of variables that start with <code>t</code> followed by a 6-digit number. These variables capture the total number of minutes each respondent spent doing each activity. The link <a href="https://www.bls.gov/tus/lexiconwex2016.pdf">https://www.bls.gov/tus/lexiconwex2016.pdf</a> lists all the activity codes. Using the information in <a href="(https://www.bls.gov/tus/lexiconwex2016.pdf)">that file</a>, what column is associated with the activity “playing computer games”? Your answer should start with <code>t</code> and then a 6-digit number that combines the major category, the 2nd tier, and the 3rd tier of the activity. For instance, if major category in equal to 05, second tier is equal to 03, and third tier is equal to 01, then your answer should be <code>t050301</code>.</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li><code>t120307</code></li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li><code>t030705</code></li>
+<li><code>t050310</code></li>
+<li><code>t051201</code></li>
+<li><code>t131103</code></li>
+<li><code>t031103</code></li>
+<li><code>t050202</code></li>
+</ol>
+<p>{choose-answers: 4}
+? In the data, the variable <strong><code>t010101</code> contains the total number of minutes each respondent spent doing activity 010101</strong> which is “sleeping” and the variable <strong><code>t010102</code> contains the total number of minutes each respondent spent doing activity 010102</strong>, “sleeplessness.” Find the variable associated with “Socializing and communicating with others.” How much time, on average, does a person in the sample spend on “Socializing and communicating with others”? Again, The link <a href="https://www.bls.gov/tus/lexiconwex2016.pdf">https://www.bls.gov/tus/lexiconwex2016.pdf</a> lists all the activity codes.</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>38 minutes</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>100 minutes</li>
+<li>45 minutes</li>
+<li>26 minutes</li>
+<li>60 minutes</li>
+</ol>
+<p>Find the activity code that is associated with “Caring For &amp; Helping HH Children”. This is a level 2 activity so we need to add all the variables that start with <code>t0301</code>. Create a column in the data frame <code>atus.all</code> called <code>CHILDCARE</code> that is the sum of all the columns that start with <code>t0301</code>. Here, you’ll have to <strong>change</strong> the code chunk <code>creating-childcare-var</code>.</p>
+<p>Move on to the code chunk called <code>childcare-density-plot</code> and write code in <code>ggplot2</code> to plot the density function of the variable <code>CHILDCARE</code>.</p>
+<p>? From the data dictionary, what is the variable that shows the gender of the respondent? (Answer is case-sensitive.)</p>
+<p>! TESEX</p>
+<p>? From the data dictionary, the variable that represents the gender of the respondents can one of take two values, <code>1</code> or <code>2</code>. Which gender group does <code>1</code> represent?</p>
+<ol style="list-style-type: upper-alpha">
+<li>Men</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Women</li>
+</ol>
+</div>
+<div id="inferential-data-analysis" class="section level4" number="14.1.8.2">
+<h4><span class="header-section-number">14.1.8.2</span> Inferential Data Analysis</h4>
+<p>We are going to answer whether women or men spend more time with their children. Start by grouping individuals by their gender and calculate the average time men and women spend with their children. Use the code chunk <code>gender-analysis</code> in the .Rmd file. Note that you should replace <code>FUNCTION</code> in order to calculate the average of the variable <code>CHILDCARE</code>.</p>
+<p>? Men and women are different in the amount of time they spend with their children. Which group spends more time, men or women?</p>
+<ol style="list-style-type: upper-alpha">
+<li>Women, on average, spend around 14 minutes more with their children than men.</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Women, on average, spend around 33 minutes more with their children than men.</li>
+<li>Men, on average, spend around 33 minutes more with their children than women.</li>
+<li>Men, on average, spend around 14 minutes more with their children than women.</li>
+</ol>
+<p>Use the <code>table()</code> function to look at the variable <code>TRDPFTPT</code> which shows whether the person works full time or part time. You will notice that the variable also takes the value -1. This is probably due to non-response or other data collection reasons. Replace these values with <code>NA</code> in your data so they don’t affect your analysis. Use the code chunk <code>replacing-na</code> for doing this and add your commands there.</p>
+<p>? How many <code>NAs</code> are in the variable now?</p>
+<p>! 4119 ; 4,119</p>
+<p>Now, we are going to explore what factors affect time spent with children. We are going to answer questions like:</p>
+<ul>
+<li>Do younger parents spend more time with their children?</li>
+<li>Do richer people spend more time with their children compared to poorer people?</li>
+<li>Do married couples spend more time with their children compared to single parents?</li>
+<li>Do full-time workers spend more time with their children compared to part-time workers?</li>
+</ul>
+<p>Compare each of these relationships and present your results in a table or a graph. You can do this by first finding these variables from the data dictionary. Add your code in the code chunk <code>exploratory-analysis</code> in the .Rmd file. Make sure that in your analysis, you limit your data to those who have at least one child (18 or younger) in the household. The variable for the number of children (18 or younger) in the household is <code>TRCHILDNUM</code>. Use the data frame <code>atus.all</code> that you previously created and again limit your data to those who have at least one child (18 or younger) in the household. The variable for income is <code>HEFAMINC</code>. Other variables are easy to find from the data dictionary.</p>
+<p>In the exercise above, we looked at bilateral (two-way) relationships. For instance, we looked at how income and time spent with children are related. You have learned in this course, however, that other confounding variables can be a source of bias in your analysis. For instance, the effect of income on time spent with children can be biased by the number of children a person has. Maybe richer people spend less time because they have fewer children. It’s much better to look at the relationship of all relevant variables associated with time spent with children together. Run a linear regression of marital status, age, sex, number of children (18 or younger), earnings, and full-time versus part-time status. Add your code in the <code>reg-analysis</code> code chunk. Remember to limit the sample to those who have at least one child (18 or younger) in the household. Also make sure to to change the values of the variable <code>TRDPFTPT</code> that are <code>-1</code> to <code>NA</code>.</p>
+<p>{choose-answers: 4}
+? What is the coefficient on gender now?</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>22</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>-22</li>
+<li>10</li>
+<li>-10</li>
+<li>5</li>
+<li>-5</li>
+</ol>
+<p>{choose-answers: 4}
+? In the regression, the coefficient on the variable age means how much time spent with children changes if age increases by 1. Based on your results, what’s the difference in minutes spent with children between two people with 10 years of age difference?</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>16 minutes</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>60 minutes</li>
+<li>10 minutes</li>
+<li>1.6 minutes</li>
+<li>160 minutes</li>
+</ol>
+<p>In the next few questions, we are going to see whether time spent on different activities varies by age. However, we will only consider activities at the major category levels. There are 18 major categories in the data including personal care, household activities, caring for &amp; helping household members, etc. Because each activity column in the data is at the 3rd tier, we will need to start by suming columns at the activity major categories levels. Save the resulting data frame as <code>df.wide</code>. Use code chunk <code>activity-cats</code> in the .Rmd file for this part.</p>
+<p>{choose-answers: 4}
+? What activity group do people spent, on average, most time on?</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>Activity group 1</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>Activity group 3</li>
+<li>Activity group 5</li>
+<li>Activity group 7</li>
+<li>Activity group 9</li>
+<li>Activity group 11</li>
+<li>Activity group 13</li>
+</ol>
+<p>{choose-answers: 4}
+? Which is the second most time consuming activity for the respondents?</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>Activity group 12</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>Activity group 4</li>
+<li>Activity group 6</li>
+<li>Activity group 8</li>
+<li>Activity group 10</li>
+<li>Activity group 2</li>
+<li>Activity group 14</li>
+</ol>
+<p>{choose-answers: 4}
+? What is the maximum time a person in our sample spends time on “Work &amp; Work-Related Activities”?</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>1350 minutes</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>157 minutes</li>
+<li>241 minutes</li>
+<li>375 minutes</li>
+<li>525 minutes</li>
+</ol>
+<p>Convert the data from wide to long using the package of your choice and save the data frame as <code>df.long</code>. Use the code chunk <code>wide-to-long</code> for this purpose. Make sure your key variable is called <code>ACTIVITY</code> and your value variable is called <code>MINS</code>.</p>
+<p>Now, group the data frame you created in the previous step by activity type (<code>ACTIVITY</code>) and age (<code>TEAGE</code>). Calculate the average time for each age group and call it <code>AVGMINS</code>. In <code>ggplot2</code>, plot <code>AVGMINS</code> against <code>TEAGE</code> for each category (multiple panels). Type your code in the code chunk <code>age-activity</code>. Label each panel in your graph with the appropriate activity name.</p>
+<p>{choose-answers: 4}
+? For which categories does the average time spent vary by age?</p>
+<ol start="3" style="list-style-type: upper-alpha">
+<li>Activity 1, Activity 5, Activity 12</li>
+</ol>
+<ol start="15" style="list-style-type: lower-alpha">
+<li>Activity 12, Activity 15, Activity 17</li>
+<li>Activity 7, Activity 9, Activity 15</li>
+<li>Activity 7, Activity 16, Activity 17</li>
+<li>Activity 4, Activity 7, Activity 17</li>
+</ol>
+<p>? Based on the graph, what is true about the activity category 5 (Work &amp; Work-Related Activities)?</p>
+<ol style="list-style-type: lower-alpha">
+<li>65-year olds work the most.</li>
+<li>Young, middle-aged, and old workers spend more or less the same number of hours working.</li>
+<li>Young people work more than middle-aged people.</li>
+</ol>
+<ol start="4" style="list-style-type: upper-alpha">
+<li>Middle aged people work the most compared to younger and older people.</li>
+</ol>
+<p>? Based on the graph, what is true about the activity category 12 (Socializing, Relaxing, and Leisure)?</p>
+<ol style="list-style-type: upper-alpha">
+<li>Older people spend more time socializing.</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Middle-aged people are the most social.</li>
+<li>Younger people socialize more than older people.</li>
+<li>Young people are the most social.</li>
+</ol>
+</div>
+<div id="data-visualization" class="section level4" number="14.1.8.3">
+<h4><span class="header-section-number">14.1.8.3</span> Data Visualization</h4>
+<p>Finally, in this last step, we are going to create a graph that shows how different income groups spend time doing each activity. The graph is based on Henrik Lindberg’s data visualization posted <a href="https://raw.githubusercontent.com/halhen/viz-pub/master/pastime-income/pastime.png">here</a>. The only difference is that we are only looking at the 18 major activity categories. Use the long data that you created in the previous section and make the graph as close as possible to the graph by Henrik Lindberg. Type your code in the code chunk <code>activity-income</code>.</p>
+</div>
+<div id="save-the-plot" class="section level4" number="14.1.8.4">
+<h4><span class="header-section-number">14.1.8.4</span> Save the Plot</h4>
+<p>Once you’ve worked through this code chunk and have a plot that looks very similar to the plot in the original publication (and that you see above), you’ll want to use <code>ggsave()</code> to <strong>save this plot to figures/explanatory_figures</strong>. Save this figure as “activity-income.png”. Do this using the partial code in the code chunk <code>save-plot</code>.</p>
+</div>
+</div>
+<div id="add-markdown-text-to-.rmd" class="section level3" number="14.1.9">
+<h3><span class="header-section-number">14.1.9</span> Add Markdown Text to .Rmd</h3>
+<p>Before finalizing your project you’ll want be sure there are <strong>comments in your code chunks</strong> and <strong>text outside of your code chunks</strong> to explain what you’re doing in each code chunk. These explanations are incredibly helpful for someone who doesn’t code or someone unfamiliar to your project.</p>
+<p><strong>Note</strong>: If you’re stuck on this, these steps were covered in detail in an earlier course: <a href="https://leanpub.com/universities/courses/jhu/introduction-to-r">Introduction to R</a>. Refer to the R Markdown lesson in this course if you’re stuck on this part (or the next part) of the project.</p>
+</div>
+<div id="knit-your-r-markdown-document" class="section level3" number="14.1.10">
+<h3><span class="header-section-number">14.1.10</span> Knit your R Markdown Document</h3>
+<p>Last but not least, you’ll want to <strong>Knit your .Rmd document into an HTML document</strong>. If you get an error, take a look at what the error says and edit your .Rmd document. Then, try to Knit again! Troubleshooting these error messages will teach you a lot about coding in R.</p>
+</div>
+<div id="a-few-final-checks" class="section level3" number="14.1.11">
+<h3><span class="header-section-number">14.1.11</span> A Few Final Checks</h3>
+<p>A complete project should have:</p>
+<ul>
+<li>Completed code chunks throughout the .Rmd document (your RMarkdown document should Knit without any error)</li>
+<li>README.md text file explaining your project</li>
+<li>Comments in your code chunks</li>
+<li>Answered all questions throughout this exercise.</li>
+</ul>
+</div>
+<div id="final-push-to-github" class="section level3" number="14.1.12">
+<h3><span class="header-section-number">14.1.12</span> Final <code>push</code> to GitHub</h3>
+<p>Now that you’ve finalized your project, you’ll do one final <strong>push to GitHub</strong>. <code>add</code>, <code>commit</code>, and <code>push</code> your work to GitHub. Navigate to your GitHub repository, and answer the final question below!</p>
+<p><strong>Note</strong>: If you’re stuck on this, these steps were covered in detail in an earlier course: <a href="https://leanpub.com/universities/courses/jhu/version-control">Version Control</a>. Refer to the materials in this course if you’re stuck on this part of the project.</p>
+<p>? Submit the URL to your <code>final_project</code> GitHub repository below.</p>
+<p>! /(<a href="https:\/\/github.com.+\/final_project)/i" class="uri">https:\/\/github.com.+\/final_project)/i</a></p>
+<p><strong>Congrats on finishing your Final Project!!</strong></p>
+<p>{/exercise}</p>
+
+</div>
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-analysis-pipelines.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
