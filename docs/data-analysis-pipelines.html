@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Data Analysis Pipelines | My Document</title>
+  <meta name="description" content="Chapter 13 Data Analysis Pipelines | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Data Analysis Pipelines | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Data Analysis Pipelines | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-analysis-workflow.html"/>
+<link rel="next" href="final-project.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="data-analysis-pipelines" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Data Analysis Pipelines</h1>
+<p>In data science jobs in industry, often you’re analyzing a dataset over time. What this means is that the dataset’s structure doesn’t change – the variables you’re collecting remain the same – but the observations do. Maybe you’re collecting sales figures for a company, and each month you’re reanalyzing the dataset to see if trends have changed or if your predictions need to be altered. Or, possibly, you’re analyzing user data where the demographics and number of users of your product change over time. In these cases, where the variables don’t change but the observations do, pipelines can be incredibly helpful.</p>
+<div id="pipelines" class="section level3" number="13.0.1">
+<h3><span class="header-section-number">13.0.1</span> Pipelines</h3>
+<p>Pipelines are a series of steps that can be applied to a dataset. It’s helpful to generate a pipeline whenever you come across a dataset that you expect to encounter again. A pipeline could read in a dataset, process that dataset to get it into a tidy format, generate figures to summarize the data, and generate predictions. This pipeline could then be set to run any time new data are generated or on a time table, say every month. In this sense, data science pipelines should be <strong>automated</strong>. In other words, after you build the pipeline, you shouldn’t have to do any additional work each time you run the pipelines.</p>
+<p>Additionally, pipelines have the additional benefit that they are <strong>reproducible</strong>. This is helpful to you, since you’ll be able to reproduce your results at any point in time. But, this is also helpful because they can be used by anyone who has access to the data. The pipeline will work if you leave the company and someone takes over for you or if you’re sick and need to take a day off.</p>
+</div>
+<div id="considerations" class="section level3" number="13.0.2">
+<h3><span class="header-section-number">13.0.2</span> Considerations</h3>
+<p>When generating a pipeline, there are a number of considerations to take into account before and while you’re developing the pipelines. Here, we’ll discuss when to consider a pipeline, what to consider while you’re generating the pipeline, and how to track changes that are made to the pipeline.</p>
+<div id="when-to-make-a-pipeline" class="section level4" number="13.0.2.1">
+<h4><span class="header-section-number">13.0.2.1</span> When to make a pipeline</h4>
+<p>Pipelines are helpful when you have a question that you will answer more than once. For example, if you have data that will be updated over time, a pipeline may be helpful. If, however, you’re doing a quick analysis on a single set of data to answer a question that you will not likely have to answer again in the future, then just do the analysis and get your answer. This is not the time to generate a pipeline. <em>But</em>, if you’ll likely run the analysis again in the future once more data has been collected, once you have updated numbers, or once you have data from more people, then generate a pipeline. Generally, <strong>pipelines are helpful when there is a single question you will have to answer more than once</strong>.</p>
+</div>
+<div id="including-appropriate-checks" class="section level4" number="13.0.2.2">
+<h4><span class="header-section-number">13.0.2.2</span> Including appropriate checks</h4>
+<p>Once you’ve decided that a pipeline will be helpful, the goal is that you’ll generate a pipeline that, once you click a button, the entire analysis process will run and you’ll get your answer. In order for this to happen, your pipeline will require checks before it gets started. These checks should look to see:</p>
+<ul>
+<li>are the data in the **expected format*? - Are we expecting tabular data with 10 columns? If so, does in the input data look as expected?</li>
+<li>are the <strong>necessary variables included</strong> in the dataset? - If we’re going to be using the variable <code>sex</code>, is that in there? If not, is there a column called <code>Sex</code> or <code>gender</code>, and is that the column we want to use?</li>
+<li>are the <strong>observations for the variables coded</strong> as we expect? - if we’re expecting females to be coded as <code>female</code>, is that what’s in the data? Or are they coded as <code>F</code>, or even <code>0</code>?)</li>
+</ul>
+<p>Checks to ensure that the input data is the right type of data for the pipeline to run are incredibly important. These are just a few checks you may want to run on your data. You may also want to check to ensure that the data are from the dates expected or check to be sure that the data aren’t unexpectedly truncated. Considering what checks you’ll need to make on your data is an important first step to generating a pipeline.</p>
+</div>
+<div id="avoiding-hard-coding" class="section level4" number="13.0.2.3">
+<h4><span class="header-section-number">13.0.2.3</span> Avoiding Hard-Coding</h4>
+<p>In developing pipelines, you’ll generally want to avoid hard coding whenever possible. Hard coding in a pipeline refers to setting a parameter in a pipeline that can not be altered without going in and editing the code. For example, if while generating a pipeline for the first time you’re working with a dataset that has 100 observations. What if you specify that the expected dataset should have 100 rows and write a check for that. Well, the next time you go to run the report and you get an error because your new dataset has 150 observations. By hard-coding in the number “100” as a parameter in your pipeline, you would forced your pipeline to fail unnecessarily. <strong>Avoiding hard-coding whenever possible is a good rule of thumb</strong> as you generate pipelines. This means that you will just specify the input to your pipeline (which could include multiple parameters!) and your pipeline will run using the data you’ve input and the code in your pipeline to generate the results. You won’t have to go in and change any numbers that you’ve hard-coded in your pipeline.</p>
+</div>
+<div id="scalability" class="section level4" number="13.0.2.4">
+<h4><span class="header-section-number">13.0.2.4</span> Scalability</h4>
+<p>Additionally, your pipeline should be scalable. A <em>scalable</em> pipeline is one that will function on a small dataset and will continue to function as the dataset gets larger. It’s best to ensure that your pipeline has been generated so that it will run on your dataset as well as larger datasets that may be generated in the future.</p>
+</div>
+<div id="versioning" class="section level4" number="13.0.2.5">
+<h4><span class="header-section-number">13.0.2.5</span> Versioning</h4>
+<p>Finally, pipelines should be versioned. If the format of the dataset changes in the future, you’ll want to be able to update your pipeline, but you don’t want to loose the original pipeline, since that’s what works on the older datasets. Or, if an API changes (which they do!), you’ll need to update your pipeline to account for these changes. Again, you don’t want to lose the older version. <strong>Versioning</strong> here refers to the process of tracking changes in your pipeline.</p>
+<p>Every time you’ve pushed to GitHub, you’ve been using a type of versioning. GitHub tracks commits, which keeps track of every version of your work. However, in pipeline development, it’s best to explicitly track the versions of your pipelines.</p>
+<p>In software each version of a piece of software is often tracked by a set of three numbers, each of which is separated by a decimal place. A general scheme used in software versioning is to version a piece of software as <code>major.minor.patch</code>. In this scheme, a large release with <strong>breaking changes</strong> (changes that could cause previous versions of the software to be incompatible with the current version) will increase the first number in the sequence (<code>major</code>). The second value (<code>minor</code>) will be increased when a version of the software is released that includes new features that are non-breaking. Versions where the the third value (<code>patch</code>) in the sequence are increased include non-breaking changes that tend to be minimal fixes to the software.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_101" alt="major.minor.patch" /></p>
+<p>In this scheme, 0.9.0 would represent software that is in development (referred to as the beta version). Incremental improvements on the beta version would be versions 0.9.1 and 0.9.2, etc. The <code>major</code> number remains a zero until the first major release. Upon release, the first version of the software would be 1.0.0. Small non-breaking changes to this version would increase the <code>patch</code> number, making versions like 1.0.1 and 1.0.2. When new features are added to this piece of software that are non-breaking, the second <code>minor</code> number will be increased, and version 1.1.0 would be released. The next time a non-breaking feature was added, version 1.2.0 would be released. Finally, when a big breaking change were made in the future to improve the software overall, a new version would be released. This would be version 2.0.0.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_180" alt="versioning scheme" /></p>
+<p>This scheme from software development can be very helpful in pipeline development. While in development, a pipeline should be versioned such that the first version of the pipeline is 0.9.0. As improvements are made, the pipeline can increase its versioned as discussed above (0.9.1, 0.9.2, etc.). When the pipeline is ready to be officially deployed, its version will be 1.0.0. Then, as changes are made and the pipeline improved, versioning will allow for these changes to be tracked.</p>
+</div>
+</div>
+<div id="parameterized-reports" class="section level3" number="13.0.3">
+<h3><span class="header-section-number">13.0.3</span> Parameterized Reports</h3>
+<p>In R, one of the simplest ways to generate a pipeline is to write a <strong>parameterized</strong> report. Parameterized reports can be generated by starting with an R Markdown document (with which you’re already familiar!) and adding additional information to the YAML at the top of the document. Parameters can be defined at the top of the report using the <code>params</code> field. For example, if you wanted to specify the file you were using in your report, you could define a parameter <code>filename</code> within the <code>params</code> field. Then, when rendering the report, you would specify which file to use to generate the report, as you see here:</p>
+<p>This file could then be rendered as an argument within the <code>rmarkdown::render()</code> function. The <code>filename</code> argument could be updated to use whichever file you want to use to generate the report:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-analysis-pipelines.html#cb69-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;MyDocument.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(</span>
+<span id="cb69-2"><a href="data-analysis-pipelines.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;filename_filedate.csv&quot;</span>)</span>
+<span id="cb69-3"><a href="data-analysis-pipelines.html#cb69-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Note that for any parameter not specified within <code>rmarkdown::render()</code>, the default value within the R Markdown document will be used.</p>
+</div>
+<div id="pipeline-example-survey-results" class="section level3" number="13.0.4">
+<h3><span class="header-section-number">13.0.4</span> Pipeline Example Survey Results</h3>
+<p>To really understand how a pipeline would be generated, let’s work with an example set of data. In a previous lesson, we talked about how you can read in a Google Sheet using the <code>googlesheets</code> package to read in the most up-to-date version of the spreadsheet. In this previous lesson we talked about surveying your friends about how many hours they spend each day working, sleeping, having fun, eating, socializing, and other. We’ll use this example again here to generate a parameterized report that will analyze these data as they’re updated.</p>
+<div id="the-data-1" class="section level4" number="13.0.4.1">
+<h4><span class="header-section-number">13.0.4.1</span> The Data</h4>
+<p>The data we’ll use for this example can be viewed <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTuPnBT7Y6emAamDSaXo_RV-X54c0a6nJh4e-bqurRsNW_EIm6ygq90UVfySQbSg0Ue9-U4wSykQqKF/pubhtml">here</a>. For our purposes, we’re going to say that the first Sheet (<code>Sheet1</code>) is the data that were collected after the first week the survey ran, while <code>Sheet 2</code> contains all data collected in the first two weeks.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_129" alt="Google Sheets data" /></p>
+<p>Imagine that a week after you’ve sent the survey out to your friends, you’re really curious about the results. Thus, you write a parameterized report to visualize the results! You do this because you want to be able to analyze the data at the click of a button <em>and</em> because you know you’ll generate this report again in the future once more data have been collected.</p>
+</div>
+<div id="following-along" class="section level4" number="13.0.4.2">
+<h4><span class="header-section-number">13.0.4.2</span> Following Along</h4>
+<p>If you’re interested in running this pipeline and following along on your own, the code used in this lesson can be found <a href="https://rstudio.cloud/project/48127">here</a>. You can make a copy of this space in RStudio Cloud and generate your own reports. The URL you’ll want to include when prompted is the following URL: <a href="https://docs.google.com/spreadsheets/d/1MpGE4YHB14qBgrg3lqa1eq_Mb7L8TMOwTZtVzqQ0mmA" class="uri">https://docs.google.com/spreadsheets/d/1MpGE4YHB14qBgrg3lqa1eq_Mb7L8TMOwTZtVzqQ0mmA</a>.</p>
+<p>To get started writing the parameterized report, you’ll want to set up your report in the R Markdown format and read your data in.</p>
+</div>
+<div id="the-setup" class="section level4" number="13.0.4.3">
+<h4><span class="header-section-number">13.0.4.3</span> The Setup</h4>
+<p>To get started, you’ll want to open up a new R Markdown document.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_8" alt="New R Markdown Document" /></p>
+<p>In this document you’ll want to specify two parameters using <code>params</code>:</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_13" alt="YAML of R Markdown" /></p>
+<p>The <code>file_url</code> parameter says “ask”. This means that when we go to knit the report, we want to RStudio to ask at that point what URL to use for the Google Sheet. The second parameter, <code>worksheet</code>, specifies that we want the default to be the first worksheet, but we give ourselves the flexibility to specify a different worksheet, if we so choose.</p>
+<p>After setting up the YAML, we’ll want to install and load any packages that we’ll use in the <code>setup</code> code chunk:</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_18" alt="setup code chunk" /></p>
+<p>Here, we’re installing four packages. In this code we state that if the packages haven’t already been installed, do so. Then, all packages are loaded into our RStudio Cloud session.</p>
+</div>
+<div id="reading-the-data-in" class="section level4" number="13.0.4.4">
+<h4><span class="header-section-number">13.0.4.4</span> Reading The Data In</h4>
+<p>After setting up the RStudio Cloud environment, the data are read in in the code chunk <code>data</code>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_23" alt="data code chunk" /></p>
+<p>Using <code>gs_url()</code> and <code>gs_read()</code> from the <code>googlesheets</code> package we’re able to read in the Google Sheet and specify which worksheet we want to include for analysis. Notice the use of the <code>params</code> object. When this file is knit, it will take the <code>params</code> specified in the YAML as the input for compiling the report. We’ll see exactly how to do this later in this lesson. Note that including a parameter always begins with the object <code>params</code>. This is followed by a dollar sign (<code>$</code>). Finally, you use the name specified in the YAML to specify which parameter you want to include in your code. Specifically here, we first specify that we want to register the Google Sheet using <code>params$file_url</code> and then specify which worksheet to read in by specifying <code>params$worksheet</code>.</p>
+</div>
+<div id="checks" class="section level4" number="13.0.4.5">
+<h4><span class="header-section-number">13.0.4.5</span> Checks</h4>
+<p>Before actually writing the code to analyze the data, you want to be sure your report runs the appropriate checks on the data itself. As discussed earlier in this lesson, these checks should ensure that the data are in the format the rest of the code is expecting. For example, if you accidentally specified the wrong file on which to run the report, you’d want your report to send you a warning letting you know that the data were not what the report was expecting. Checks are incredibly important parts of a data science pipeline and should not be overlooked.</p>
+<p>We will only include a single check here in this example; however, for most pipelines, you’ll certainly want to write a few more checks to <strong>ensure that your analysis will run properly</strong>. Always try to anticipate possible mistakes that users could make in generating this report. Then, write checks to test for each possible scenario. Remember, others should be able to generate this report in your absence.</p>
+<p>Here, we would add this code to a code chunk called <code>checks</code>.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_43" alt="checks code chunk" /></p>
+<p>In the code in this chunk (above), we’re checking to see if the expected column names are what are in the Google Sheet URL that was provided. You’ll see we specify what the expected column names are by creating the <code>columns</code> object. Then, the check looks to see how many columns in the Google Sheet are the same as the columns specified in the <code>columns</code> object. If they are not all equal, then the report will not compile and an error will be thrown.</p>
+<p>Note that there are three types of feedback your code can give in R:</p>
+<ul>
+<li><strong>message</strong> - prints a message but not stop execution</li>
+<li><strong>warning</strong> - prints a warning message but not stop execution</li>
+<li><strong>stop</strong> - stops execution of the current expression and executes an error action</li>
+</ul>
+<p>In this code, we’re providing a <code>stop()</code> message because we don’t want the report to carry out the analysis unless the data are in the expected format. However, in other cases, you may just want to print a message in the output or provide the user with a warning but not stop the report from compiling. In these cases you would use <code>message()</code> and <code>warning()</code>, respectively.</p>
+<p>Finally, note that in this code chunk we’ve included <code>echo = FALSE</code>. This evaluates the code so the check is carried out, but doesn’t print it in the output report.</p>
+<p>Once you’ve written enough checks to ensure that your report will only compile when you have the right data in the right format, you’re ready to begin the analysis.</p>
+</div>
+<div id="the-analysis" class="section level4" number="13.0.4.6">
+<h4><span class="header-section-number">13.0.4.6</span> The Analysis</h4>
+<p>To analyze the data, maybe you’re just interested in summarizing the mean number of hours your friends spend doing each activity. To do this, you would first clean the data and then generate a plot.</p>
+<div id="data-cleaning" class="section level5" number="13.0.4.6.1">
+<h5><span class="header-section-number">13.0.4.6.1</span> Data Cleaning</h5>
+<p>Before you can generate this plot, you will want to check and clean your data. For this example here, what if people said they spent more than 24 hours doing things in a day? Well, we know there are only 24 hours in a day, so you’d likely want to exclude these individuals from the analysis, as you won’t know for sure where the error in their data entry happened. You would write a few lines of code to do this using your data wrangling skills.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_52" alt="clean code chunk" /></p>
+<p>Here, we have specified that we don’t want this code chunk included in the final report, using <code>include = FALSE</code> in the code chunk. We have also included comments so that anyone looking at the raw code would know what the code does. But, the final knit report will not include such details.</p>
+<p>You’d also want to be sure that your report provides a description of how many individuals’ data are included in your analysis and how many samples have been removed (an example of a descriptive analysis!).</p>
+<p>Below the code chunk, we include a brief description of the data by specifying how many samples are included in the analysis and how many have been removed due to issues with their data using Markdown syntax. None of the numbers here have been hard-coded. They will all automatically populate with the appropriate number when the report is knit.</p>
+</div>
+<div id="data-analysis" class="section level5" number="13.0.4.6.2">
+<h5><span class="header-section-number">13.0.4.6.2</span> Data Analysis</h5>
+<p>Once you’re confident that your data are ready to be used for analysis, you’d write the code to generate the plot. Here, we’re not focusing on the plot, so we use very basic code, but if this were a report you were sending around to your boss or team, you’d likely want to improve the labels, increase the font size, and maybe change the theme. Nevertheless, with this, you’re ready to knit your parameterized report.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_73" alt="analyze code chunk" /></p>
+</div>
+</div>
+<div id="knitting" class="section level4" number="13.0.4.7">
+<h4><span class="header-section-number">13.0.4.7</span> Knitting</h4>
+<p>To generate your knit report, you’ll click on the arrow to the right of “Knit” and select “Knit with Parameters…” from the drop-down menu.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_28" alt="Knit with Parameters…" /></p>
+<p>If prompted, say yes to installing necessary packages. Then, a window will appear where the <code>file_url</code> box will say “ask”, indicating that you’ll have to specify the URL here. The default worksheet is 1. You can leave this as is, or change it to specify a different worksheet.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_32" alt="Knit with Parameters pop-up window" /></p>
+<p>After adding the URL for the appropriate Google Sheet, you’ll want to click “Knit”</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_38" alt="After adding URL, click Knit" /></p>
+<p>Your report will appear! Here, we see a summary of the data after the first week of collecting information from your friends.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_62" alt="Report with survey data" /></p>
+<p>We see that most of your friends’ time is spent working and sleeping, which makes enough sense!</p>
+<p>However, the whole point of this report is that you can run it again with ease for an updated dataset – as that’s the whole point of a pipeline. The second sheet in this Google Sheet represents your updated data. Thus, we’ll click “Knit with Parameters” again and specify the appropriate URL (the same as earlier), but change worksheet to ‘2’. We’ll again Knit our report.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_67" alt="Change parameter and re-Knit" /></p>
+<p>Just like that, we see the data summarized across more of our friends! People are still working and sleeping the most; however, we see a lot more variability in this updated dataset!</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_57" alt="Report with updated survey data" /></p>
+</div>
+</div>
+<div id="summary-8" class="section level3" number="13.0.5">
+<h3><span class="header-section-number">13.0.5</span> Summary</h3>
+<p>This lesson has covered what a data science pipeline is, when you’d want to generate one, considerations to make when writing a pipeline, and a simple example of how to generate a data science pipeline using parameterized reports in R Markdown. Whenever you’re going to be working with a dataset that updates or a number of different datasets that are similar, start by writing a robust data science pipeline.</p>
+</div>
+<div id="additional-resources-6" class="section level3" number="13.0.6">
+<h3><span class="header-section-number">13.0.6</span> Additional Resources</h3>
+<ul>
+<li><a href="https://medium.com/the-data-experience/building-a-data-pipeline-from-scratch-32b712cfb1db">Building a Data Pipeline from Scratch</a>, by <a href="https://www.rdisorder.eu/">Alan Marazzi</a></li>
+<li><a href="https://www.rstudio.com/resources/videos/parameterized-r-markdown-reports-with-rstudio-connect/">Parameterized R Markdown reports with RStudio Connect</a></li>
+<li><a href="https://rmarkdown.rstudio.com/developer_parameterized_reports">RMarkdown Parameterized Reports</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/parameterized-reports.html">Chapter 15: Parameterized Reports in R Markdown: The Definitive Guide</a>, by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
+</ul>
+</div>
+<div id="slides-and-video-12" class="section level3" number="13.0.7">
+<h3><span class="header-section-number">13.0.7</span> Slides and Video</h3>
+<div class="figure">
+<img src="https://www.youtube.com/watch?v=zE_doXeNENc" alt="" />
+<p class="caption">Data Analysis Pipelines</p>
+</div>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/edit?usp=sharing">Slides</a></li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-analysis-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

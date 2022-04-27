@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Do I Have The Data I Need? | My Document</title>
+  <meta name="description" content="Chapter 3 Do I Have The Data I Need? | My Document" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Do I Have The Data I Need? | My Document" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Do I Have The Data I Need? | My Document" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="translating-questions-to-data-science-questions.html"/>
+<link rel="next" href="descriptive-analysis.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style_DataTrail.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
+<li class="chapter" data-level="1.0.2" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#examples-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.2</b> Examples of data science questions</a></li>
+<li class="chapter" data-level="1.0.3" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#how-to-start-a-data-analysis"><i class="fa fa-check"></i><b>1.0.3</b> How to start a data analysis</a></li>
+<li class="chapter" data-level="1.0.4" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#slides-and-video"><i class="fa fa-check"></i><b>1.0.4</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html"><i class="fa fa-check"></i><b>2</b> Translating Questions to Data Science Questions</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#a-real-example"><i class="fa fa-check"></i><b>2.0.1</b> A real example</a></li>
+<li class="chapter" data-level="2.0.2" data-path="translating-questions-to-data-science-questions.html"><a href="translating-questions-to-data-science-questions.html#slides-and-video-1"><i class="fa fa-check"></i><b>2.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html"><i class="fa fa-check"></i><b>3</b> Do I Have The Data I Need?</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-science-question"><i class="fa fa-check"></i><b>3.0.1</b> The Data Science Question</a></li>
+<li class="chapter" data-level="3.0.2" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-perfect-dataset-the-data-we-want"><i class="fa fa-check"></i><b>3.0.2</b> The Perfect Dataset: The Data We Want</a></li>
+<li class="chapter" data-level="3.0.3" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-have"><i class="fa fa-check"></i><b>3.0.3</b> The Data We Have</a></li>
+<li class="chapter" data-level="3.0.4" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-can-get-easily"><i class="fa fa-check"></i><b>3.0.4</b> The Data We Can Get (Easily)</a></li>
+<li class="chapter" data-level="3.0.5" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#data-collection"><i class="fa fa-check"></i><b>3.0.5</b> Data Collection</a></li>
+<li class="chapter" data-level="3.0.6" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#the-data-we-cant-get"><i class="fa fa-check"></i><b>3.0.6</b> The Data We Can’t Get</a></li>
+<li class="chapter" data-level="3.0.7" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#questions-to-ask-ourselves"><i class="fa fa-check"></i><b>3.0.7</b> Questions to Ask Ourselves</a></li>
+<li class="chapter" data-level="3.0.8" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#are-the-data-we-have-good-data"><i class="fa fa-check"></i><b>3.0.8</b> Are the Data We Have Good Data?</a></li>
+<li class="chapter" data-level="3.0.9" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#a-case-study-why-were-polls-so-wrong-about-the-2016-us-election"><i class="fa fa-check"></i><b>3.0.9</b> A case study: Why were polls so wrong about the 2016 US election?</a></li>
+<li class="chapter" data-level="3.0.10" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#summary"><i class="fa fa-check"></i><b>3.0.10</b> Summary</a></li>
+<li class="chapter" data-level="3.0.11" data-path="do-i-have-the-data-i-need.html"><a href="do-i-have-the-data-i-need.html#slides-and-video-2"><i class="fa fa-check"></i><b>3.0.11</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html"><i class="fa fa-check"></i><b>4</b> Descriptive Analysis</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#how-to-describe-a-dataset"><i class="fa fa-check"></i><b>4.0.1</b> How to Describe a Dataset</a></li>
+<li class="chapter" data-level="4.0.2" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summarizing-your-data"><i class="fa fa-check"></i><b>4.0.2</b> Summarizing Your Data</a></li>
+<li class="chapter" data-level="4.0.3" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#summary-1"><i class="fa fa-check"></i><b>4.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.0.4" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#additional-resources"><i class="fa fa-check"></i><b>4.0.4</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.0.5" data-path="descriptive-analysis.html"><a href="descriptive-analysis.html#slides-and-video-3"><i class="fa fa-check"></i><b>4.0.5</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html"><i class="fa fa-check"></i><b>5</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#general-principles-of-exploratory-analysis"><i class="fa fa-check"></i><b>5.0.1</b> General principles of exploratory analysis</a></li>
+<li class="chapter" data-level="5.0.2" data-path="exploratory-analysis.html"><a href="exploratory-analysis.html#slides-and-video-4"><i class="fa fa-check"></i><b>5.0.2</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="inference-overview.html"><a href="inference-overview.html"><i class="fa fa-check"></i><b>6</b> Inference: Overview</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="inference-overview.html"><a href="inference-overview.html#getting-started-with-inference"><i class="fa fa-check"></i><b>6.0.1</b> Getting Started with Inference</a></li>
+<li class="chapter" data-level="6.0.2" data-path="inference-overview.html"><a href="inference-overview.html#uncertainty"><i class="fa fa-check"></i><b>6.0.2</b> Uncertainty</a></li>
+<li class="chapter" data-level="6.0.3" data-path="inference-overview.html"><a href="inference-overview.html#random-sampling"><i class="fa fa-check"></i><b>6.0.3</b> Random Sampling</a></li>
+<li class="chapter" data-level="6.0.4" data-path="inference-overview.html"><a href="inference-overview.html#a-real-life-example-of-inferential-data-analysis"><i class="fa fa-check"></i><b>6.0.4</b> A real-life example of inferential data analysis</a></li>
+<li class="chapter" data-level="6.0.5" data-path="inference-overview.html"><a href="inference-overview.html#summary-2"><i class="fa fa-check"></i><b>6.0.5</b> Summary</a></li>
+<li class="chapter" data-level="6.0.6" data-path="inference-overview.html"><a href="inference-overview.html#additional-resources-1"><i class="fa fa-check"></i><b>6.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.0.7" data-path="inference-overview.html"><a href="inference-overview.html#slides-and-video-5"><i class="fa fa-check"></i><b>6.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Inference: Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#what-can-linear-regression-infer"><i class="fa fa-check"></i><b>7.0.1</b> What can linear regression infer?</a></li>
+<li class="chapter" data-level="7.0.2" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#summary-3"><i class="fa fa-check"></i><b>7.0.2</b> Summary</a></li>
+<li class="chapter" data-level="7.0.3" data-path="inference-linear-regression.html"><a href="inference-linear-regression.html#slides-and-video-6"><i class="fa fa-check"></i><b>7.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html"><i class="fa fa-check"></i><b>8</b> Inference: Multiple Regression</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#confounding"><i class="fa fa-check"></i><b>8.0.1</b> Confounding</a></li>
+<li class="chapter" data-level="8.0.2" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.0.2</b> Multiple Linear Regression</a></li>
+<li class="chapter" data-level="8.0.3" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.0.3</b> Correlation is not Causation</a></li>
+<li class="chapter" data-level="8.0.4" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#beyond-linear-regression"><i class="fa fa-check"></i><b>8.0.4</b> Beyond Linear Regression</a></li>
+<li class="chapter" data-level="8.0.5" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#mean-different-from-expectation"><i class="fa fa-check"></i><b>8.0.5</b> Mean different from expectation?</a></li>
+<li class="chapter" data-level="8.0.6" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#more-statistical-tests"><i class="fa fa-check"></i><b>8.0.6</b> More Statistical Tests</a></li>
+<li class="chapter" data-level="8.0.7" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#summary-4"><i class="fa fa-check"></i><b>8.0.7</b> Summary</a></li>
+<li class="chapter" data-level="8.0.8" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#additional-resources-2"><i class="fa fa-check"></i><b>8.0.8</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.0.9" data-path="inference-multiple-regression.html"><a href="inference-multiple-regression.html#slides-and-video-7"><i class="fa fa-check"></i><b>8.0.9</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inference-examples.html"><a href="inference-examples.html"><i class="fa fa-check"></i><b>9</b> Inference: Examples</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="inference-examples.html"><a href="inference-examples.html#introduction"><i class="fa fa-check"></i><b>9.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.0.2" data-path="inference-examples.html"><a href="inference-examples.html#case-study-1-the-effects-of-watching-sesame-street-on-educational-outcomes"><i class="fa fa-check"></i><b>9.0.2</b> Case Study #1: The Effects of Watching <em>Sesame Street</em> on Educational Outcomes</a></li>
+<li class="chapter" data-level="9.0.3" data-path="inference-examples.html"><a href="inference-examples.html#case-study-2-effects-of-religion-on-happiness"><i class="fa fa-check"></i><b>9.0.3</b> Case Study #2: Effects of Religion on Happiness</a></li>
+<li class="chapter" data-level="9.0.4" data-path="inference-examples.html"><a href="inference-examples.html#summary-5"><i class="fa fa-check"></i><b>9.0.4</b> Summary</a></li>
+<li class="chapter" data-level="9.0.5" data-path="inference-examples.html"><a href="inference-examples.html#additional-resources-3"><i class="fa fa-check"></i><b>9.0.5</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.0.6" data-path="inference-examples.html"><a href="inference-examples.html#slides-and-video-8"><i class="fa fa-check"></i><b>9.0.6</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inference-practice.html"><a href="inference-practice.html"><i class="fa fa-check"></i><b>10</b> Inference: Practice</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="inference-practice.html"><a href="inference-practice.html#the-question"><i class="fa fa-check"></i><b>10.0.1</b> The Question</a></li>
+<li class="chapter" data-level="10.0.2" data-path="inference-practice.html"><a href="inference-practice.html#the-data"><i class="fa fa-check"></i><b>10.0.2</b> The Data</a></li>
+<li class="chapter" data-level="10.0.3" data-path="inference-practice.html"><a href="inference-practice.html#descriptive-analysis-1"><i class="fa fa-check"></i><b>10.0.3</b> Descriptive Analysis</a></li>
+<li class="chapter" data-level="10.0.4" data-path="inference-practice.html"><a href="inference-practice.html#eda"><i class="fa fa-check"></i><b>10.0.4</b> EDA</a></li>
+<li class="chapter" data-level="10.0.5" data-path="inference-practice.html"><a href="inference-practice.html#linear-regression"><i class="fa fa-check"></i><b>10.0.5</b> Linear Regression</a></li>
+<li class="chapter" data-level="10.0.6" data-path="inference-practice.html"><a href="inference-practice.html#summary-6"><i class="fa fa-check"></i><b>10.0.6</b> Summary</a></li>
+<li class="chapter" data-level="10.0.7" data-path="inference-practice.html"><a href="inference-practice.html#additional-resources-4"><i class="fa fa-check"></i><b>10.0.7</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.0.8" data-path="inference-practice.html"><a href="inference-practice.html#slides-and-video-9"><i class="fa fa-check"></i><b>10.0.8</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html"><i class="fa fa-check"></i><b>11</b> Prediction &amp; Machine Learning</a>
+<ul>
+<li class="chapter" data-level="11.0.1" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#what-is-machine-learning"><i class="fa fa-check"></i><b>11.0.1</b> What is Machine Learning?</a></li>
+<li class="chapter" data-level="11.0.2" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning"><i class="fa fa-check"></i><b>11.0.2</b> Machine Learning</a></li>
+<li class="chapter" data-level="11.0.3" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#data-splitting"><i class="fa fa-check"></i><b>11.0.3</b> Data Splitting</a></li>
+<li class="chapter" data-level="11.0.4" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#variable-selection"><i class="fa fa-check"></i><b>11.0.4</b> Variable Selection</a></li>
+<li class="chapter" data-level="11.0.5" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-selection"><i class="fa fa-check"></i><b>11.0.5</b> Model Selection</a></li>
+<li class="chapter" data-level="11.0.6" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#model-accuracy"><i class="fa fa-check"></i><b>11.0.6</b> Model Accuracy</a></li>
+<li class="chapter" data-level="11.0.7" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#machine-learning-examples"><i class="fa fa-check"></i><b>11.0.7</b> Machine Learning Examples</a></li>
+<li class="chapter" data-level="11.0.8" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#summary-7"><i class="fa fa-check"></i><b>11.0.8</b> Summary</a></li>
+<li class="chapter" data-level="11.0.9" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#additional-resources-5"><i class="fa fa-check"></i><b>11.0.9</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.0.10" data-path="prediction-machine-learning.html"><a href="prediction-machine-learning.html#slides-and-video-10"><i class="fa fa-check"></i><b>11.0.10</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html"><i class="fa fa-check"></i><b>12</b> Data Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#what-are-the-steps"><i class="fa fa-check"></i><b>12.0.1</b> What are the steps?</a></li>
+<li class="chapter" data-level="12.0.2" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#an-example"><i class="fa fa-check"></i><b>12.0.2</b> An example</a></li>
+<li class="chapter" data-level="12.0.3" data-path="data-analysis-workflow.html"><a href="data-analysis-workflow.html#slides-and-video-11"><i class="fa fa-check"></i><b>12.0.3</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html"><i class="fa fa-check"></i><b>13</b> Data Analysis Pipelines</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipelines"><i class="fa fa-check"></i><b>13.0.1</b> Pipelines</a></li>
+<li class="chapter" data-level="13.0.2" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#considerations"><i class="fa fa-check"></i><b>13.0.2</b> Considerations</a></li>
+<li class="chapter" data-level="13.0.3" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#parameterized-reports"><i class="fa fa-check"></i><b>13.0.3</b> Parameterized Reports</a></li>
+<li class="chapter" data-level="13.0.4" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#pipeline-example-survey-results"><i class="fa fa-check"></i><b>13.0.4</b> Pipeline Example Survey Results</a></li>
+<li class="chapter" data-level="13.0.5" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#summary-8"><i class="fa fa-check"></i><b>13.0.5</b> Summary</a></li>
+<li class="chapter" data-level="13.0.6" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#additional-resources-6"><i class="fa fa-check"></i><b>13.0.6</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.0.7" data-path="data-analysis-pipelines.html"><a href="data-analysis-pipelines.html#slides-and-video-12"><i class="fa fa-check"></i><b>13.0.7</b> Slides and Video</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final-project.html"><a href="final-project.html"><i class="fa fa-check"></i><b>14</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.0.1" data-path="final-project.html"><a href="final-project.html#slides"><i class="fa fa-check"></i><b>14.0.1</b> Slides</a></li>
+<li class="chapter" data-level="14.1" data-path="final-project.html"><a href="final-project.html#final-project-1"><i class="fa fa-check"></i><b>14.1</b> Final Project</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="final-project.html"><a href="final-project.html#github-setup"><i class="fa fa-check"></i><b>14.1.1</b> GitHub Setup</a></li>
+<li class="chapter" data-level="14.1.2" data-path="final-project.html"><a href="final-project.html#rstudio-cloud-setup"><i class="fa fa-check"></i><b>14.1.2</b> RStudio Cloud Setup</a></li>
+<li class="chapter" data-level="14.1.3" data-path="final-project.html"><a href="final-project.html#data-science-project-setup"><i class="fa fa-check"></i><b>14.1.3</b> Data Science Project Setup</a></li>
+<li class="chapter" data-level="14.1.4" data-path="final-project.html"><a href="final-project.html#pushing-to-github"><i class="fa fa-check"></i><b>14.1.4</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="14.1.5" data-path="final-project.html"><a href="final-project.html#the-data-2"><i class="fa fa-check"></i><b>14.1.5</b> The Data</a></li>
+<li class="chapter" data-level="14.1.6" data-path="final-project.html"><a href="final-project.html#accessing-the-data"><i class="fa fa-check"></i><b>14.1.6</b> Accessing the Data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="final-project.html"><a href="final-project.html#loading-the-data-into-r"><i class="fa fa-check"></i><b>14.1.7</b> Loading the Data into R</a></li>
+<li class="chapter" data-level="14.1.8" data-path="final-project.html"><a href="final-project.html#analyze-the-data"><i class="fa fa-check"></i><b>14.1.8</b> Analyze the Data</a></li>
+<li class="chapter" data-level="14.1.9" data-path="final-project.html"><a href="final-project.html#add-markdown-text-to-.rmd"><i class="fa fa-check"></i><b>14.1.9</b> Add Markdown Text to .Rmd</a></li>
+<li class="chapter" data-level="14.1.10" data-path="final-project.html"><a href="final-project.html#knit-your-r-markdown-document"><i class="fa fa-check"></i><b>14.1.10</b> Knit your R Markdown Document</a></li>
+<li class="chapter" data-level="14.1.11" data-path="final-project.html"><a href="final-project.html#a-few-final-checks"><i class="fa fa-check"></i><b>14.1.11</b> A Few Final Checks</a></li>
+<li class="chapter" data-level="14.1.12" data-path="final-project.html"><a href="final-project.html#final-push-to-github"><i class="fa fa-check"></i><b>14.1.12</b> Final <code>push</code> to GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>15</b> References</a></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="https://www.datatrail.org/"> Data Trail </a></p>
+<a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style=" width: 80%; filter: grayscale(100%); padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span>  <a href="https://forms.gle/VWaJYc3zATe3qxYC9"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">My Document</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+  <link href="assets/style_DataTrail.css" rel="stylesheet">
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/DataTrail.jpg">
+</div>
+<div id="do-i-have-the-data-i-need" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Do I Have The Data I Need?</h1>
+<p>After identifying your problem and transforming it into a data science question, your next step is to identify and ensure that you have access to the data necessary to answer the question. However, good data can be hard to come by. Depending on your question, it can be costly or simply infeasible to obtain the data you need.</p>
+<p>For instance, consider wanting to know the answer to the question “Does money make people happy?” One way to get data for your problem is to give people cash and to collect data from those same individuals later to see if the money they received made happier. First, this isn’t a cheap experiment, so you may not have the money to do this. Second, how would you want to <em>measure happiness</em>? You can’t just step on a scale and measure someone’s happiness. If you had each individual report their happiness on a scale of 1-10, one person may rate their happiness at an 8. Another person, who could be just as happy as the person who rated their happiness at an 8 may rate their happiness at a 6. You can see quickly how getting the right data to answer this question may not be so simple.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_25" alt="Does money make people happy?" /></p>
+<p>In another situation, what if you are interested in answering the question “Does texting while driving causes accidents?” It wouldn’t be ethical to run a study and tell people to text while they’re driving and then determine if those who texted had more care accidents. It’s not okay to design experiments that knowingly put participants at risk of harm.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_56" alt="Does texting while driving cause accidents?" /></p>
+<p>Thus, although each of us generate data daily through the apps we use or through our activity on social media platforms, often the data most easily available are <em>not</em> the data we need to answer the questions we’re most interested in answering. In this lesson we’ll discuss <strong>how to determine whether or not you have the data</strong> you need to answer the question you have, <strong>limitations of the data</strong> you have, <strong>considerations to make</strong> when you don’t yet have the data you need, and what to do to <strong>get the data you need</strong>.</p>
+<div id="the-data-science-question" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> The Data Science Question</h3>
+<p>In the last lesson we discussed how to take a problem you’re interested in understanding better and turning it into a data science question. Specifically, the last lesson looked at <a href="http://varianceexplained.org/about/">David Robinson</a>’s <a href="http://varianceexplained.org/r/trump-tweets/">blog post analyzing Donald Trump’s tweets</a>. David Robinson set out to answer the specific question **“How do the tweets on the _<span class="citation">@realDonaldTrump_</span> account differ between those posted using an iPhone vs. those posted using an Android?“** Before answering the question, David Robinson determined what/whose data would need to be collected, what measurements he would need, the limitations to the analysis, and the type of analysis he would use.</p>
+<p>In this lesson, we’re going to really focus on the second and third questions there. What data do you need to answer your data science question and what limitations do these data have? We’ll focus on the details of how to get the data necessary to answer the question of interest. We’ll walk through this process again using the <a href="http://varianceexplained.org/r/trump-tweets/">Trump Tweets blog post</a> as an example.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_155" alt="Trump Tweets Blog Post" /></p>
+</div>
+<div id="the-perfect-dataset-the-data-we-want" class="section level3" number="3.0.2">
+<h3><span class="header-section-number">3.0.2</span> The Perfect Dataset: The Data We Want</h3>
+<p>Once you determine your data science question of interest, it’s helpful to <strong>envision the perfect dataset</strong>. This dataset likely doesn’t exist in the real world, but our goal will be to get data that match this optimal dataset <em>as closely as possible</em>.</p>
+<p>Thus to answer the question</p>
+<blockquote>
+<p>Do the tweets on the _<span class="citation">@realDonaldTrump_</span> account differ between those posted using an iPhone vs. those posted using an Android? Are the Android tweets angrier and more negative?</p>
+</blockquote>
+<p>we would ideally want a dataset where each row is a different tweet with each row containing information on the following variables:</p>
+<ul>
+<li><code>date</code> - date the tweet was written</li>
+<li><code>time</code> - time the tweet went out</li>
+<li><code>os</code> - the operating system of where the tweet came from (Android or iPhone)</li>
+<li><code>author</code>- author of each tweet</li>
+<li><code>location</code> - where the author was when the tweet was written</li>
+<li><code>tweet</code> - what the tweet said</li>
+<li><code>censored</code> - whether or not the tweet was later deleted
+<ul>
+<li><code>censored_date</code> - date on which the tweet was deleted</li>
+<li><code>censored_time</code> - time at which the tweet was deleted</li>
+</ul></li>
+<li><code>anger</code> - some measurement of how angry and negative the tweet is</li>
+</ul>
+<p>Additionally, in a perfect world, we’d have all the tweets ever tweeted from _<span class="citation">@realDonaldTrump_</span>.</p>
+<p>Having all these data in this format would enable us to answer the question of interest!</p>
+</div>
+<div id="the-data-we-have" class="section level3" number="3.0.3">
+<h3><span class="header-section-number">3.0.3</span> The Data We Have</h3>
+<p><em>But</em>, the data we <em>have</em> are typically not <em>exactly</em> the data we <em>want</em>.</p>
+<p>In this case, David Robinson was able to use the <code>twitteR</code> package and the Twitter API to obtain a number of Donald Trump’s tweets. Ultimately, the dataset he used for his analysis contained 628 tweets from an iPhone, and 762 tweets from an Android. That’s not nearly <em>all</em> the tweets from this account; however, the Twitter API limits the number of tweets one can obtain. Already, the <strong>data we have are not the optimal data we wanted</strong>, but that’s OK.</p>
+<p>Additionally, the data from the Twitter API does <em>not</em> include the <code>author</code>, the author’s location, nor any information about deleted tweets. Again, the data we have are quite different from our optimal data.</p>
+<p>Finally, the dataset does not include any measure of how angry or negative the content of the tweets are. David will have to use the tweets to determine that during his analysis.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_186" alt="The data we have" /></p>
+<p>Nevertheless, David did have information on this subset of tweets, including the date, time, os, and what the tweet said. While not exactly the data he would have likely liked to have, David was still able to use these data while noting the limitations of the data in his blog post!</p>
+</div>
+<div id="the-data-we-can-get-easily" class="section level3" number="3.0.4">
+<h3><span class="header-section-number">3.0.4</span> The Data We Can Get (Easily)</h3>
+<p>In this case, David Robinson had enough data to answer the question he was interested in. However, often you may not have the data you need right from the beginning. After looking at the data you have, it’s worth considering whether or not there are data that you need that you can easily get access to.</p>
+<p>Depending upon your data science question, you may consider obtaining data from any of the sources discussed in the Getting Data course. For example, you could look at data from:</p>
+<ul>
+<li>Government Data</li>
+<li>APIs</li>
+<li>Open Datasets (such as those on <a href="www.kaggle.com">Kaggle</a> or <a href="data.world">data.world</a>)</li>
+<li>your company</li>
+</ul>
+<p>These are all examples of places where it’s usually pretty easy to obtain data. And, ideally, whenever possible, you’ll want to work with <strong>raw data</strong> – data that haven’t yet been cleaned (i.e. outliers have not yet been removed) so that you know you have the most complete dataset from the start. You can then clean and wrangle the data after getting the raw data.</p>
+<p>However, what if the data you want don’t exist in any of these places? When the data aren’t available, it’s up to you (your team, your boss, or your company) to collect the data.</p>
+</div>
+<div id="data-collection" class="section level3" number="3.0.5">
+<h3><span class="header-section-number">3.0.5</span> Data Collection</h3>
+<p>In practice, data are defined by how they are collected. While it may not always be up to you to determine how the data are going to be collected, it’s important to understand the different ways in which data are collected:</p>
+<ul>
+<li><p><strong>Observational data</strong> are collected from a sample of the bigger population of interest. For instance, data on household expenditure in the U.S. are usually collected from a sample of American household. Observational data can be in the following forms:</p>
+<ul>
+<li><p><strong>Cross-sectional data</strong> are collected from a sample of the bigger population of interest <em>at a specific point in time</em>.</p></li>
+<li><p><strong>Longitudinal or panel data</strong> are collected from a sample of the population of interest but <em>at multiple points in time</em>. For instance, data on the effect of peer effect in school on life outcomes are measured at multiple points in the lives of the individuals. In longitudinal or panel data, the <em>sample does not change from one point in time to another</em>. For example, if data is collected on 1000 individuals in the year 2010, in 2015 the data is likely collected from the same 1000 individuals.</p></li>
+</ul></li>
+<li><p><strong>Experimental data</strong> are collected through a randomized experiment. In an experiment, the researchers divide the sample into to or more (that is chosen from the bigger population of interest) and assign the treatment (let’s say the vaccination) to one group while the group receives no treatment. The outcomes are then observed and compared. This differs from observational data, which involves collecting data without changing any of the existing conditions.</p></li>
+</ul>
+<p>If you are able to generate the dataset you need or collect the data you wanted to answer your question, then you’re all set. But, what if there are limitations to you getting those data?</p>
+</div>
+<div id="the-data-we-cant-get" class="section level3" number="3.0.6">
+<h3><span class="header-section-number">3.0.6</span> The Data We Can’t Get</h3>
+<p>Often there will be data you would love to have to answer your data science question, but you won’t be able to get those data. There are a number of limitations to data collection. We’ll discuss a number of common ones here.</p>
+<div id="limited-resources" class="section level4" number="3.0.6.1">
+<h4><span class="header-section-number">3.0.6.1</span> Limited Resources</h4>
+<p>In the introduction to this lesson, we discussed an experiment where we would give people money and measure their happiness. However, if we didn’t have the money to carry out this experiment, we wouldn’t be able to run this experiment and thus, <strong>money</strong> would be a limited resource.</p>
+<p>However, money is not the only limiting factor. What if you need to know the answer to your question next month but it would take you a year to collect the necessary data? In this case <strong>time</strong> would be a limited resource.</p>
+<p>Alternatively, what if another company had the data you needed, but the company you work for is a competitor. In this case, they likely wouldn’t share the data with you. <strong>Access to data</strong> can also be limiting.</p>
+</div>
+<div id="ethical-limitations" class="section level4" number="3.0.6.2">
+<h4><span class="header-section-number">3.0.6.2</span> Ethical Limitations</h4>
+<p>In the introduction to this lesson, we also talked about the case where we wanted to know if texting increases the number of accidents. We mentioned that we wouldn’t be able to carry out the experiment of telling people to text when they’re driving and then seeing if those people get into more accidents due to ethical limitations. It is <strong>unethical to collect data knowingly putting individuals in harms way</strong>.</p>
+<p>However, there are more nuanced situations as well. What if you want to collect data about reproductive health? You may want to know <em>everything</em> about each mother’s medical history, including very sensitive and personal information. For example, you may want to know whether or not each individual in your dataset has ever had an abortion. Asking sensitive and invasive questions should only be asked when absolutely necessary. Further, this data will <em>always</em> have to be stored securely, and can only be asked with approval of and oversight committee (such as an Institutional Review Board). Thus, while it may be <em>helpful</em> to have information about certain variables, it may be inappropriate or too invasive to obtain this information.</p>
+</div>
+<div id="security" class="section level4" number="3.0.6.3">
+<h4><span class="header-section-number">3.0.6.3</span> Security</h4>
+<p>Mentioned briefly above, but to really spell it out here: not all data are publicly-available and not all data <em>should</em> be publicly-available. <strong>Personal data and data that contain sensitive information must be secured properly and cannot be shared freely</strong>. While the data you want may exist somewhere, you may not have access to it, nor will you be granted access to it for security reasons. In these cases, you will not be able to use these data.</p>
+</div>
+</div>
+<div id="questions-to-ask-ourselves" class="section level3" number="3.0.7">
+<h3><span class="header-section-number">3.0.7</span> Questions to Ask Ourselves</h3>
+<p>If you run into problems obtaining or collecting the data you need to answer your question, there are a number of questions to ask yourself:</p>
+<ul>
+<li>Can I <strong>change the question</strong> in such a way that is still interesting but that can be answered with the data that I <em>do</em> have?</li>
+<li>If I use the data to which I have access, <strong>is the project still worth doing</strong>?</li>
+<li><strong>Will the project be feasible</strong> if I change it?</li>
+<li>If it is still feasible, I’ll need to <strong>rework the question and redesign my data collection plan</strong>. What will that look like?</li>
+</ul>
+<p>In the case where you decide to change the question and determine that the project is still worth doing at this point, it’s important to go back through the exercise of determining what data you would optimally have, what you do have, and what you can get easily to ensure that you won’t be wasting your time by moving forward with the project.</p>
+<p>However, in some cases, you’ll have a super interesting question, but you won’t be able to do the project given the data you have. In these situations, save the idea for a later point when you may have the resources or access to the data you need, and then move onto the next one. Everyone has had to abandon projects in their career, and it’s OK to move on. It’s much better to leave a project behind in the planning stages than to spend months or years on a project/analysis that was doomed from the start!</p>
+</div>
+<div id="are-the-data-we-have-good-data" class="section level3" number="3.0.8">
+<h3><span class="header-section-number">3.0.8</span> Are the Data We Have Good Data?</h3>
+<p>All that said, once you have your data science question <em>and</em> the data you want to use, you’ll need to determine <strong>whether the data are good enough</strong>. If they’re not, before you spend hours on it, quit and look for other sources of data.</p>
+<div id="the-need-to-wrangle" class="section level4" number="3.0.8.1">
+<h4><span class="header-section-number">3.0.8.1</span> The need to wrangle</h4>
+<p>For example, data downloaded from other resources often need to be cleaned and wrangled. (Note: If the data that you obtain, however, are pre-processed, make sure you understand how the processing was done!) To clean your data, you’ll always want to record the steps you take to reformat the data. We suggest the following steps to check and tidy the data for your analysis. Make sure:</p>
+<ul>
+<li>each variable forms a column</li>
+<li>each observation forms a row</li>
+<li>each table/file stores data about one kind of observation (e.g. people/hospitals).</li>
+<li>if variables are collected from multiple sources, they are merged properly</li>
+<li>column names are easy to use and informative</li>
+<li>apparent mistakes in the data have been removed</li>
+<li>missing values are formatted uniformly and correctly</li>
+<li>variable values are internally consistent</li>
+<li>appropriate transformed variables have been added</li>
+</ul>
+<p>These are the concepts previously discussed in the Data Tidying lessons in an earlier course in this Course Set, so many of them should be familiar. Cleaning data to make sure the dataset is in a tidy format, that the variables are all appropriately-named, and that the values within each variable are as you expect them to be is an important step in determining whether or not the data you have will be useful in answering your data science question. These topics will be further discussed in the Descriptive Analysis and Exploratory Analysis lessons in the later lessons in this course.</p>
+</div>
+<div id="when-data-arent-good" class="section level4" number="3.0.8.2">
+<h4><span class="header-section-number">3.0.8.2</span> When data aren’t good</h4>
+<p>That all said, let’s assume you have the dataset that contains the variables you are looking for, and it is tidy and ready to go for your analysis. It’s always nice to step back to make sure the data is the right data before you spend hours and hours on your analysis. So, let’s discuss some of the potential and common issues people run into with their data.</p>
+<div id="number-of-observations-is-too-small" class="section level5" number="3.0.8.2.1">
+<h5><span class="header-section-number">3.0.8.2.1</span> Number of observations is too small</h5>
+<p>It happens quite often that collecting data is expensive or not easy. For instance, in a medical study on the effect of a drug on patients with Alzheimer disease, researchers will be happy if they can get a sample of 100 people. These studies are expensive, and it’s hard to find volunteers who enroll in the study. It is also the case with most social experiments. While data are everywhere, the data you need may not be. Therefore, most data scientists at some point in their career face the curse of small sample size. Small sample size makes it hard to be confident about the results of your analysis. So when you can, and it’s feasible, <strong>a large sample is preferable to a small sample</strong>. But when your only available dataset to work with is small you will have to note that in your analysis. Although we won’t learn them in this course, there are particular methods for inferential analysis when sample size is small.</p>
+</div>
+<div id="dataset-does-not-contain-the-exact-variables-you-are-looking-for" class="section level5" number="3.0.8.2.2">
+<h5><span class="header-section-number">3.0.8.2.2</span> Dataset does not contain the exact variables you are looking for</h5>
+<p>In data analysis, it is common that you don’t always have what you need. You may need to know individuals’ IQ, but all you have is their GPA. You may need to understand food expenditure, but you have total expenditure. You may need to know parental education, but all you have is the number of books the family owns. It is often that the variable that we need in the analysis does not exist in the dataset and we can’t measure it. In these cases, our best bet is to find the closest variables to that variable. Variables that may be different in nature but are highly <em>correlated</em> with (similar to) the variable of interest are what are often used in such cases. These variables are called <strong>proxy variables</strong>.</p>
+<p>For instance, if we don’t have parental education in our dataset, we can use the number of books the family has in their home as a proxy. Although the two variables are different, they are highly correlated (very similar), since more educated parents tend to have more books at home. So in <em>most</em> cases where you can’t have the variable you need in your analysis, you can replace it with a proxy. Again, it must always be noted clearly in your analysis why you used a proxy variable and what variable was used as your proxy.</p>
+</div>
+<div id="variables-in-the-dataset-are-not-collected-in-the-same-year" class="section level5" number="3.0.8.2.3">
+<h5><span class="header-section-number">3.0.8.2.3</span> Variables in the dataset are not collected in the same year</h5>
+<p>Imagine we want to find the relationship between the effect of cab prices and the number of rides in New York City. We want to see how people react to price changes. We get a hold of data on <strong>cab prices in 2018</strong>, but we only have data on the <strong>number of rides from 2015</strong>. Can these two variables be used together in our analysis? Simply, no. If we want to answer this question, we can’t match these two sets of data. If we’re using the prices from 2018, we should find the number of rides <strong>from 2018</strong> as well. Unfortunately, a lot of the time, this is an issue you’ll run into. You’ll either have to find a way to get the data from the same year or go back to the drawing board and ask a different question. This issue can be ignored only in cases where we’re confident the variables does not change much from year to year.</p>
+</div>
+<div id="dataset-is-not-representative-of-the-population-that-you-are-interested-in" class="section level5" number="3.0.8.2.4">
+<h5><span class="header-section-number">3.0.8.2.4</span> Dataset is not representative of the population that you are interested in</h5>
+<p>You will hear the term <em>representative sample</em>, but what is it? Before defining a representative sample, let’s see what a population is in statistical terms. We have used the word <em>population</em> without really getting into its definition.</p>
+<p>A sample is part of a population. A population, in general, is every member of the whole group of people we are interested in. Sometimes it is possible to collect data for the entire population, like in the U.S. Census, but in most cases, we can’t. So we collect data on only a subset of the population. For example, if we are studying the effect of sugar consumption on diabetes, we can’t collect data on the entire population of the United States. Instead, we collect data on a <em>sample</em> of the <em>population</em>. Now, that we know what sample and population are, let’s go back to the definition of a representative sample.</p>
+<p>A <strong>representative sample</strong> is a sample that accurately reflects the larger population. For instance, if the population is every adult in the United States, the sample includes an appropriate share of men and women, racial groups, educational groups, age groups, geographical groups, and income groups. If the population is supposed to be every adult in the U.S., then you can’t collect data on just people in California, or just young people, or only men. This is the idea of a representative sample. It has to model the broader population in all major respects.</p>
+<p>We give you one example in politics. Most recent telephone poles in the United States have been bad at predicting election outcomes. Why? This is because by calling people’s landlines you can’t guarantee you will have a representative sample of the voting age population since younger people are not likely to have landlines. Therefore, most telephone polls are skewed toward older adults.</p>
+<p>Random sampling is a necessary approach to having a representative sample. Random sampling in data collection means that you randomly choose your subjects and don’t choose who gets to be in the sample and who doesn’t. In random sampling, you select your subjects from the population at random like based on a coin toss. The following are examples of lousy sampling:</p>
+<ul>
+<li>A research project on attitudes toward owning guns through a survey sent to subscribers of a gun-related magazine (gun magazine subscribers are not representative of the general population, and the sample is very biased)</li>
+<li>A research project on television program choices by looking at Facebook TV interests (not everybody has a Facebook account)</li>
+<li>A research study on school meals and educational outcomes done in a neighborhood with residents mainly from one racial group (school meal can have a different effect on different income and ethnic groups)</li>
+<li>A researcher polls people as they walk by on the street.</li>
+<li>A TV show host asks the program viewers to visit the network website and respond to a poll.</li>
+</ul>
+<p>With this logic, most online surveys or surveys on social media has to be taken with a grain of salt because not members of all social groups have an online presentation or use social media.</p>
+<p>The moral of the story is that <strong>always think about what your population is</strong>. Your population will change from one project to the next. If you are researching the effect of smoking on pregnant women, then your population is, well, pregnant women (and not men). After you know your population, then you will always want collect data from a sample that is representative of your population. Random sampling helps.</p>
+<p>And lastly, if you have no choice but to work with a dataset that is not collected randomly and is biased, be careful not to generalize your results to the entire population. If you collect data on pregnant women of age 18-24, you can’t generalize your results to older women. If you collect data from the political attitudes of residents of Washington, DC, you can’t say anything about the whole nation.</p>
+</div>
+<div id="some-variables-in-the-dataset-are-measured-with-error" class="section level5" number="3.0.8.2.5">
+<h5><span class="header-section-number">3.0.8.2.5</span> Some variables in the dataset are measured with error</h5>
+<p>Another curse of a dataset is measurement error. In simple, measurement error refers to incorrect measurement of variables in your sample. Just like measuring things in the physical world comes with error (like measuring distance, exact temperature, BMI, etc.), measuring variables in the social context can come with an error. When you ask people how many books they have read in the past year, not everyone remembers it correctly. Similarly, you may have measurement error when you ask people about their income. A good researcher recognizes measurement error in the data before any analysis and takes it into account during their analysis.</p>
+</div>
+<div id="variables-are-confounded" class="section level5" number="3.0.8.2.6">
+<h5><span class="header-section-number">3.0.8.2.6</span> Variables are confounded</h5>
+<p>What if you were interested in determining what variables lead to increases in crime? To do so, you obtain data from a US city with lots of different variables and crime rates for a particular time period. You would then wrangle the data and at first you look at the relationship between popsicle sales and crime rates. You see that the more popsicles that are sold, the higher the crime rate.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3db10fb92e_0_125" alt="popsicles and crime rate" /></p>
+<p>Your first thought may be that popsicles lead to crimes being committed. However, there is a confounder that’s not being considered!</p>
+<p>We will see in detail what confounders are in the lesson on Inferential Analysis but in short <strong>confounders</strong> are other variables that may affect our outcome but are also correlated with (have a relationship with) our main variable of interest. In the popsicle example, temperature is an important confounder. More crimes happen when it’s warm out <em>and</em> more popsicles are sold. It’s not the popsicles at all driving the relationship. Instead temperature is likely the culprit.</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3e017d0f95_0_0" alt="temperature is a confounder" /></p>
+<p>Therefore, if we’re really interested in what increases crime rate, we should also consider the temperature. Thus, it’s important to understand the relationship between the variables in your dataset. This will be further discussed in the Exploratory Analysis lesson.</p>
+</div>
+</div>
+</div>
+<div id="a-case-study-why-were-polls-so-wrong-about-the-2016-us-election" class="section level3" number="3.0.9">
+<h3><span class="header-section-number">3.0.9</span> A case study: Why were polls so wrong about the 2016 US election?</h3>
+<p>The results of the 2016 US presidential election came as a surprise to a lot of the media outlets and poll experts. Most polls consistently projected that Hillary Clinton would defeat Donald Trump. Election forecasters put Clinton at a winning position at a chance as high as 70-99 percent. Polls are usually trustworthy, but what happened in 2016?</p>
+<p>{format: png}
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_938" alt="Why were polls so wrong about the 2016 US election?" /></p>
+<p>We don’t know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms were not wholly appropriate. To be more specific, the problem was what is called the <strong>nonresponse bias</strong>. Nonresponse bias is the bias the sample caused by a particular <strong>section of the population systematically refusing to answer to the poll or survey</strong>. The consequence of nonresponse bias is a <em>sample that is not representative of the population</em> as we discussed above. (For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election. It is known that less educated voters who constituted a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. <a href="http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/">Pew Research</a> also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) as another reason why polls failed to predict the outcome of the election accurately.</p>
+<p>While it’s always easier to look back at a failed analysis and determine what went wrong then to identify the issues up front, researchers would have benefited from determining if the data they had were the most appropriate for answering their question of interest.</p>
+</div>
+<div id="summary" class="section level3" number="3.0.10">
+<h3><span class="header-section-number">3.0.10</span> Summary</h3>
+<p>Once you’ve honed in on a good data science question, it’s important to determine if the data available to you are the data you need. To do this:</p>
+<ol style="list-style-type: decimal">
+<li>Imagine the optimal dataset</li>
+<li>Determine what data you have</li>
+<li>Identify the data you can (easily) get</li>
+<li>Figure out limitations in the data you have</li>
+<li>Are the limitations so great that you need to re-work your question?</li>
+</ol>
+<ul>
+<li>If yes, start over and form a new data science question, then return to step 1</li>
+<li>If not, continue with your analysis, <em>but</em> note all limitations in your analysis</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Explore and wrangle the dataset</li>
+<li>Analyze the data and answer the data science question!</li>
+</ol>
+<p>All in all, the data and how they’re collected matters. There is a term in statistics that says “<strong>garbage in, garbage out</strong>,” which means poor quality input will always produce poor output. A data analysis that is based on faulty data produces faulty results. Be cautious about the data that you use in your analysis, ensure that the data you need to answer your question of interest are the data you have, and <em>always</em> tell your listeners and readers about the deficiencies of your data. After all, you will know your data better than anyone else!</p>
+</div>
+<div id="slides-and-video-2" class="section level3" number="3.0.11">
+<h3><span class="header-section-number">3.0.11</span> Slides and Video</h3>
+<div class="figure">
+<img src="https://www.youtube.com/watch?v=90SP7w_6SYo" alt="" />
+<p class="caption">Do I Have The Data I Need</p>
+</div>
+<ul>
+<li><a href="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing">Slides</a></li>
+</ul>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="translating-questions-to-data-science-questions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descriptive-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
