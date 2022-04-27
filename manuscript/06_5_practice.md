@@ -121,7 +121,7 @@ To ensure that we're going in the right direction, it's important to keep our qu
 
 #### Data Wrangling
 
-To decide how to best do this we have to consider *what* type of join we need here. Remember that there are a number of common joins: `left_join`, `left_join`, `inner_join`, and `full_join`. (Refer back to the [Getting Data](https://leanpub.com/universities/courses/jhu/cbds-getting-data) course if you need a review on these). We have to decide for our purposes which join is most appropriate.
+To decide how to best do this we have to consider *what* type of join we need here. Remember that there are a number of common joins: `left_join`, `left_join`, `inner_join`, and `full_join`. (Refer back to the [Getting Data](https://leanpub.com/universities/courses/jhu/DataTrail-getting-data) course if you need a review on these). We have to decide for our purposes which join is most appropriate.
 
 We noted earlier that coverage and spending only overlap by two years (2013 and 2014). If we only want to analyze the data where we have information from both years, we'll need to use `inner_join`.
 
@@ -133,7 +133,7 @@ Additionally, we'll need to be able to tell R what columns to join on. Unfortuna
 
 Neither dataset follows these principles. We'll have to wrangle our data to get them into the appropriate format before we can join them together!
 
-To do this, remember that `tidyr` is a really helpful package for wrangling and reshaping data. (Refer back to the [Data Tidying](https://leanpub.com/universities/courses/jhu/cbds-tidying) course if you need a refresher on reshaping data.) Currently, the `coverage` dataset is in a wide format, but we want it in a long format where each Location is a row and we have information about the year, type and total coverage in the columns. To accomplish this, we'll use `gather()`!
+To do this, remember that `tidyr` is a really helpful package for wrangling and reshaping data. (Refer back to the [Data Tidying](https://leanpub.com/universities/courses/jhu/DataTrail-tidying) course if you need a refresher on reshaping data.) Currently, the `coverage` dataset is in a wide format, but we want it in a long format where each Location is a row and we have information about the year, type and total coverage in the columns. To accomplish this, we'll use `gather()`!
 
 ```r
 # install.packages("tidyr")
@@ -436,8 +436,8 @@ In this lesson, we've put a whole lot together. We walked through how to carry o
   * [Health Expenditures Case Study](https://opencasestudies.github.io/casestudies/ocs-healthexpenditure.html)
   * [Case Study on GitHub](https://github.com/opencasestudies/ocs-healthexpenditure)
 * [join cheatsheet](http://stat545.com/bit001_dplyr-cheatsheet.html), by Jenny Bryan
-* [CBDS Getting Data Course](https://leanpub.com/universities/courses/jhu/cbds-getting-data)
-* [CBDS Data Tidying Course](https://leanpub.com/universities/courses/jhu/cbds-tidying)
+* [DataTrail Getting Data Course](https://leanpub.com/universities/courses/jhu/DataTrail-getting-data)
+* [DataTrail Data Tidying Course](https://leanpub.com/universities/courses/jhu/DataTrail-tidying)
 
 ### Slides and Video
 
@@ -520,24 +520,24 @@ o) `lm(prop_coverage ~ spending_capita, data = hc_2013)`
 o) `lm(prop_coverage ~ spending_capita, data = hc)`
 
 {points:3}
-? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L09 Inference Practice Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `DataTrail Data Analysis`. Type the number that corresponds to the lesson `L09 Inference Practice Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 Note: The data used in the swirl modules in this lesson are data modified from [Kaggle](https://www.kaggle.com/javadzabihi/happiness-2017-visualization-prediction/data).
 
 ! /.+(OfKY|kamA|rH7Q|7Wxt|kqco|f833|Xyg9|2l9Z|pk23|udzU).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L09 Inference Practice Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L09 Inference Practice Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(7pnh|tCdv|dPMN|3c6k|6VA1|ZpGD|HVke|Pm4W|xrTw|G94S).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L09 Inference Practice Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L09 Inference Practice Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(rZB0|a0pT|LmWc|MSyw|0JJX|VRrh|PyDp|B9P5|TNcN|qqhC).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L09 Inference Practice Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L09 Inference Practice Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(A3lS|FZhi|5lcO|2mqf|i9V5|Gt8h|tPEG|pfak|f5XF|JvpZ).+/i
 

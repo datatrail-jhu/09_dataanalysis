@@ -272,22 +272,22 @@ o) `prop.test()`
 o) `lm()`
 
 {points:3}
-? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L08 Multiple Regression Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
+? Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project. (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `DataTrail Data Analysis`. Type the number that corresponds to the lesson `L08 Multiple Regression Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
 
 ! /.+(roZD|ly80|gxcf|CYD9|AiuL|jsiH|Suba|JT7E|oX2B|Dhzz).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L08 Multiple Regression Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L08 Multiple Regression Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(fBdC|RZSn|BQ57|NEEl|qUoD|2lf8|f63F|KK3l|ho0m|Ew3s).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L08 Multiple Regression Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L08 Multiple Regression Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(wJHP|HBVp|tPON|e4Kh|h8ep|woV6|mOA3|oqWu|Ttwt|at8y).+/i
 
 {points:3}
-? Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L08 Multiple Regression Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
+? Within the same course on swirl: `DataTrail Data Analysis`, navigate to the lesson `L08 Multiple Regression Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
 
 ! /.+(Rtdq|8h1d|8II7|PfOO|lIHj|xGBy|Zn4z|d6fK|Fkmd|R2qx).+/i
 

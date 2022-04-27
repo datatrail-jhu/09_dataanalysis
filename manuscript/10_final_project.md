@@ -75,7 +75,7 @@ Now that your directories are set up you'll want to use the Terminal (or 'More' 
 
 Once the .Rmd document is in the correct folder, you'll want to **change the author of this document** to your name at the top of the .Rmd document (in the YAML). Save this change before moving to the next step.
 
-**Note**: If you're stuck on this, these steps were covered in detail in an earlier course: [Organizing Data Science Projects](https://leanpub.com/universities/courses/jhu/cbds-organizing). Refer to the materials in this course if you're stuck on this part of the project.
+**Note**: If you're stuck on this, these steps were covered in detail in an earlier course: [Organizing Data Science Projects](https://leanpub.com/universities/courses/jhu/DataTrail-organizing). Refer to the materials in this course if you're stuck on this part of the project.
 
 ### Pushing to GitHub
 

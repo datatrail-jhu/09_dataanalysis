@@ -1,6 +1,6 @@
-# Descriptive Analysis 
+# Descriptive Analysis
 
-The goal of descriptive analysis is to **describe** or **summarize** a set of data. Whenever you get a new dataset to examine, this is the first analysis you will perform. In fact, if you never summarize the data, it's *not* a data analysis. 
+The goal of descriptive analysis is to **describe** or **summarize** a set of data. Whenever you get a new dataset to examine, this is the first analysis you will perform. In fact, if you never summarize the data, it's *not* a data analysis.
 
 {format: png}
 ![Descriptive Analysis summarizes the dataset](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da35c43c3_0_0)
@@ -10,16 +10,16 @@ If you think of a dataset as the animal in the elephant in the middle of this pi
 {format: png}
 ![examining a dataset](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da35c43c3_0_147)
 
-Descriptive analysis will first and foremost generate simple summaries about the samples and their measurements to describe the data you're working with. There are a number of common descriptive statistics that we'll discuss in this lesson: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance). 
+Descriptive analysis will first and foremost generate simple summaries about the samples and their measurements to describe the data you're working with. There are a number of common descriptive statistics that we'll discuss in this lesson: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance).
 
-This type of analysis is aimed at **summarizing your dataset**. Unlike analysis approaches we'll discuss in coming lessons, descriptive analysis is *not* for generalizing the results of the analysis to a larger population *nor* trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we're just summarizing what we're working with. 
+This type of analysis is aimed at **summarizing your dataset**. Unlike analysis approaches we'll discuss in coming lessons, descriptive analysis is *not* for generalizing the results of the analysis to a larger population *nor* trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we're just summarizing what we're working with.
 
 Some examples of purely descriptive analysis can be seen in censuses. In a census, the government collects a series of measurements on *all* of the country's citizens. After collecting these data, they are summarized. From this descriptive analysis, we learn a lot about a country. For example, you can learn the age distribution of the population by looking at U.S. census data.
 
 {format: png}
 ![2010 census Data broken down by age](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_1)
 
-This can be further broken down (or **stratified**) by sex to describe the age distribution by sex. The goal of these analyses is  to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is only to summarize the data collected. 
+This can be further broken down (or **stratified**) by sex to describe the age distribution by sex. The goal of these analyses is  to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is only to summarize the data collected.
 
 {format: png}
 ![2010 census Data broken down by age and sex](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_74)
@@ -51,7 +51,7 @@ You can always look at the Environment tab in RStudio Cloud to see how many obse
 {format: png}
 ![Environment tab](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_5)
 
-To avoid having to do that, the simplest approach to getting this information is the `dim()` function, which will give you the **dimensions** of your data frame. The output will display with the number of rows (observations) first, followed by the number of columns (variables). 
+To avoid having to do that, the simplest approach to getting this information is the `dim()` function, which will give you the **dimensions** of your data frame. The output will display with the number of rows (observations) first, followed by the number of columns (variables).
 
 ```
 ## determine the dimensions
@@ -105,11 +105,11 @@ glimpse(df)
 
 #### Missing Values
 
-In any analysis after your descriptive analysis, missing data can cause a problem. Thus, it's best to get an understanding of missingness in your data right from the start. **Missingness** refers to observations that are not included for a variable. In R, `NA` is the preferred way to specify missing data, so if you're ever generating data, its best to include `NA` wherever you have a missing value. 
+In any analysis after your descriptive analysis, missing data can cause a problem. Thus, it's best to get an understanding of missingness in your data right from the start. **Missingness** refers to observations that are not included for a variable. In R, `NA` is the preferred way to specify missing data, so if you're ever generating data, its best to include `NA` wherever you have a missing value.
 
 However, individuals who are less familiar with R code missingness in a number of different ways in their data: `-999`, `N/A`, `.`, or a blank space. As such, it's best to check to see how missingness is coded in your dataset. A reminder: sometimes different variables within a single dataset will code missingness differently. This shouldn't happen, but it does, so always use caution when looking for missingness.
 
-In this dataset, all missing values are coded as `NA`, and from the output of `str(df)` (or `glimpse(df)`), we see that at least a few variables have `NA` values. We'll want to quantify this missingness though to see which variables have missing data and how many observations within each variable have missing data. 
+In this dataset, all missing values are coded as `NA`, and from the output of `str(df)` (or `glimpse(df)`), we see that at least a few variables have `NA` values. We'll want to quantify this missingness though to see which variables have missing data and how many observations within each variable have missing data.
 
 To do this, we can write a function that will calculate missingness within each of our variables. To do this we'll combine a few functions. In the code here `is.na()` returns a logical (TRUE/FALSE) depending upon whether or not the value is missing (TRUE if it is missing). `sum()` then calculates the number of TRUE values there are within an observation. We wrap this into a function and then use `sapply()` to calculate the number of missing values in each variable. The second bit of code does the exact same thing but divides those numbers by the total number of observations (using `nrow(df)`. For each variable, this returns the proportion of missingness:
 
@@ -117,7 +117,7 @@ To do this, we can write a function that will calculate missingness within each 
 ## calculate how many NAs there are in each variable
 sapply(df, function(x) sum(is.na(x)))
 
-## calculate the proportion of missingness 
+## calculate the proportion of missingness
 ## for each variable
 sapply(df, function(x) sum(is.na(x)))/nrow(df)
 ```
@@ -125,7 +125,7 @@ sapply(df, function(x) sum(is.na(x)))/nrow(df)
 {format: png}
 ![missingness in `msleep`](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_237)
 
-Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable `brainwt`, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset. 
+Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable `brainwt`, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset.
 
 It's also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using `ggplot2`; however, [Nicholas Tierney](http://www.njtierney.com/about/) has already written one for you. He has written two helpful packages for exploratory and descriptive data analyses: [`naniar`](https://github.com/njtierney/naniar) and [`visdat`](https://github.com/ropensci/visdat). For our purposes, we'll just install and load `naniar` here; however, links to both have been included in the additional resources section at the end of this lesson. We recommend looking through the examples provided in the documentation to see additional capabilities within these packages.
 
@@ -147,7 +147,7 @@ The relative missingness within a dataset can be easily captured with another fu
 
 ```r
 ## visualize relative missingness
-gg_miss_var(df) + theme_bw() 
+gg_miss_var(df) + theme_bw()
 ```
 
 {format: png}
@@ -161,7 +161,7 @@ Getting an understanding of what values are missing in your dataset is critical 
 
 Determining the shape of your variable is essential before any further analysis is done. Statistical methods used for inference (discussed in a later lesson) often require your data to be distributed in a certain manner before they can be applied to the data. Thus, being able to describe the shape of your variables is necessary during your descriptive analysis.
 
-When talking about the shape of one's data, we're discussing how the values (observations) within the variable are distributed. Often, we first determine how spread out the numbers are from one another (do all the observations fall between 1 and 10? 1 and 1000? -1000 and 10?). This is known as the **range** of the values. The range is described by the minimum and maximum values taken by observations in the variable. 
+When talking about the shape of one's data, we're discussing how the values (observations) within the variable are distributed. Often, we first determine how spread out the numbers are from one another (do all the observations fall between 1 and 10? 1 and 1000? -1000 and 10?). This is known as the **range** of the values. The range is described by the minimum and maximum values taken by observations in the variable.
 
 After establishing the range, we determine the shape or **distribution** of the data. More explicitly, the distribution of the data explains *how* the data are spread out over this range. Are most of the values all in the center of this range? Or, are they spread out evenly across the range? There are a number of distributions used commonly in data analysis to describe the values within a variable. We'll cover just a few of them in this lesson, but keep in mind this is certainly *not* an exhaustive list.
 
@@ -175,7 +175,7 @@ The **Normal distribution** (also referred to as the **Gaussian** distribution) 
 A variable can be described as normally distributed if:
 
 * there is a strong tendency for data to take a central value - many of the observations are centered around the middle of the range
-* deviations away from the central value are equally likely in both directions 
+* deviations away from the central value are equally likely in both directions
 * the frequency of these deviations away form the central value occurs at the same rate on either side of the central value.
 
 Taking a look at the `sleep_total` variable within our example dataset, we see that the data are somewhat normal; however, they aren't entirely symmetric.
@@ -241,20 +241,20 @@ If we were to plot the age data on a density plot, it would look something like 
 {format: png}
 ![example densityplot](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3e004dcafa_0_40)
 
-The baby and elderly individual would pop out as outliers on the plot. 
+The baby and elderly individual would pop out as outliers on the plot.
 
-After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis. 
+After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis.
 
 {format: png}
 ![caution](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3e004dcafa_0_74)
 
 It can sometimes be difficult to decide whether or not a sample should be removed from the dataset. In the simplest terms, *no observation should be removed from your dataset unless there is a **valid reason** to do so*. For a more extreme example, what if that dataset we just discussed (with all the samples having ages between 18 and 65) had one sample with the age 600? Well, if these are human data, we clearly know that is a data entry error. Maybe it was supposed to be 60 years old, but we may not know for sure. If we can follow up with that individual and double-check, it's best to do that, correct the error, make a note of it, and continue you with the analysis. However, that's often not possible. In the cases of obvious data entry errors, it's likely that you'll have to remove that observation from the dataset. It's valid to do so in this case since you know that an error occurred and that the observation was not accurate.
 
-Outliers do not only occur due to data entry errors. Maybe you were taking weights of your observations over the course of a few weeks. On one of these days, your scale was improperly calibrated, leading to incorrect measurements. In such a case, you would have to remove these incorrect observations before analysis. 
+Outliers do not only occur due to data entry errors. Maybe you were taking weights of your observations over the course of a few weeks. On one of these days, your scale was improperly calibrated, leading to incorrect measurements. In such a case, you would have to remove these incorrect observations before analysis.
 
-Outliers can occur for a variety of reasons. Outliers can occur due human error during data entry, technical issues with tools used for measurement, as a result of weather changes that affect measurement accuracy, or due to poor sampling procedures. It's always important to look at the distribution of your observations for a variable to see if anything is falling far away from the rest of the observations. If there are, it's then important to think about why this occurred and determine whether or not you have a valid reason to remove the observations from the data. 
+Outliers can occur for a variety of reasons. Outliers can occur due human error during data entry, technical issues with tools used for measurement, as a result of weather changes that affect measurement accuracy, or due to poor sampling procedures. It's always important to look at the distribution of your observations for a variable to see if anything is falling far away from the rest of the observations. If there are, it's then important to think about why this occurred and determine whether or not you have a valid reason to remove the observations from the data.
 
-An important note is that observations should **never** be removed just to make your results look better. Wanting better results is **not** a valid reason for removing observations from your dataset. 
+An important note is that observations should **never** be removed just to make your results look better. Wanting better results is **not** a valid reason for removing observations from your dataset.
 
 ###### Identifying Outliers
 
@@ -285,7 +285,7 @@ ggplot(iris, aes(Species, Petal.Length))+
 {format: png}
 ![`iris` boxplot](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3e004dcafa_0_20)
 
-In this boxplot, we see in fact that `setosa` have a shorter petal length while `virginica` have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species! 
+In this boxplot, we see in fact that `setosa` have a shorter petal length while `virginica` have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species!
 
 Boxplots are also helpful because they plot "outlier" samples as points outside the box. By default, boxplots define "outliers" as observations as those that are 1.5 x IQR (interquartile range). The IQR is the distance between the first and third quartiles. This is a mathematical way to determine if a sample *may* be an outlier. It is visually helpful, but then it's up to the analyst to determine if an observation should be removed. While the boxplot identifies outliers in the setosa and versicolor species, these values are all within a reasonable distance of the rest of the values, and unless I could determine *why* this occurred, I would not remove these observations from the dataset
 
@@ -294,15 +294,15 @@ Boxplots are also helpful because they plot "outlier" samples as points outside 
 
 #### Central Tendency
 
-Once you know how large your dataset is, what variables you have information on, how much missing data you've got for each variable, and the shape of your data, you're ready to start understanding the *information within the values* of each variable. 
+Once you know how large your dataset is, what variables you have information on, how much missing data you've got for each variable, and the shape of your data, you're ready to start understanding the *information within the values* of each variable.
 
 Some of the simplest and most informative measures you can calculate on a numeric variable are those of **central tendency**. The two most commonly used measures of central tendency are: mean and median. These measures provide information about the *typical* or *central* value in the variable.
 
 ##### mean
 
-The mean (often referred to as the average) is equal to the sum of all the observations in the variable divided by the total number of observations in the variable. The mean takes all the values in your variable and calculates the **most common value**. 
+The mean (often referred to as the average) is equal to the sum of all the observations in the variable divided by the total number of observations in the variable. The mean takes all the values in your variable and calculates the **most common value**.
 
-So if you had the following vector: `a <- c(1, 2, 3, 4, 5, 6)`, the mean would be 3.5. 
+So if you had the following vector: `a <- c(1, 2, 3, 4, 5, 6)`, the mean would be 3.5.
 
 {format: png}
 ![calculating the mean](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_287)
@@ -329,7 +329,7 @@ mean(df$sleep_cycle, na.rm=TRUE)
 
 The median is the middle observation for a variable after the observations in that variable have been arranged in order of magnitude (from smallest to largest). The median is the **middle value**.
 
-Using the same vector as we first use to calculate median, we see that the middle value for this set of numbers is 3.5 as this is the value at the center of this set of numbers. This happens to be the same value as the mean was. 
+Using the same vector as we first use to calculate median, we see that the middle value for this set of numbers is 3.5 as this is the value at the center of this set of numbers. This happens to be the same value as the mean was.
 
 However, that is not always the case. When we add that second 3 in the middle of the set of numbers, the median is now 3, as this is the value at the center of this set of numbers. 3 is the middle value.
 
@@ -361,11 +361,11 @@ ggplot(df, aes(bodywt)) +
 {format: png}
 ![mean vs median](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3da41bd16a_0_330)
 
-When we look at the histogram of the data, we see that most body weights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms. 
+When we look at the histogram of the data, we see that most body weights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are **outliers in the dataset**. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms.
 
-When you have outliers in the dataset, the median is typically the measure of central tendency you'll want to use, as it's resistant to the effects of outlier values. 
+When you have outliers in the dataset, the median is typically the measure of central tendency you'll want to use, as it's resistant to the effects of outlier values.
 
-##### mode 
+##### mode
 
 There is a third, less-frequently calculated measure of central tendency for continuous variables, known as the mode. This is the value that comes up most frequently in your dataset. For example, if your dataset `a` were comprised of the following numbers `a <- c(0, 10, 10, 3, 5, 10, 10)`, 10 would be the **mode**, as it occurs four times. It doesn't matter whether it's the largest value, the smallest value, or somewhere in between, the most frequently value in your dataset is the mode. There is no built-in function for calculating the mode in R for a numeric value, which should suggest that, for continuous variables, knowing the mode of a variable is often less crucial than knowing the mean and median (which is true)! However, you could write a function to calculate it. For the above vector `a`, `which.max(tabulate(a))` would return the mode: 10. (Note that this would not work if you had two values that were found in the dataset at the same frequency. A more eloquent approach would be required.)
 
@@ -384,8 +384,8 @@ Further, the mode for a categorical variable can be visualized by generating a b
 ## plot categorical variable to visualize mode
 ggplot(df, aes(order)) +
   geom_bar() +
-  theme(axis.text.x = element_text(angle = 90, 
-                                   hjust = 1, 
+  theme(axis.text.x = element_text(angle = 90,
+                                   hjust = 1,
                                    vjust = 0.5))
 ```
 
@@ -395,7 +395,7 @@ ggplot(df, aes(order)) +
 
 #### Variability
 
-In addition to measures of central tendency, measures of variability are key in describing the values within a variable. Two common and helpful measures of variability are: standard deviation and variance. Both of these are measures of 
+In addition to measures of central tendency, measures of variability are key in describing the values within a variable. Two common and helpful measures of variability are: standard deviation and variance. Both of these are measures of
 how spread out the values in a variable are.
 
 ##### Variance
@@ -438,11 +438,11 @@ For both measures of variance, the minimum value is 0. The larger the number, th
 
 ### Summarizing Your Data
 
-Often, you'll want to include tables in your reports summarizing your dataset. These will include the number of observations in your dataset and maybe the mean/median and standard deviation of a few variables. These could be organized into a table using what you learned in the data visualization course about generating tables. 
+Often, you'll want to include tables in your reports summarizing your dataset. These will include the number of observations in your dataset and maybe the mean/median and standard deviation of a few variables. These could be organized into a table using what you learned in the data visualization course about generating tables.
 
 #### skimr
 
-Alternatively, there is a helpful package that will summarize all the variables within your dataset. The `skimr` package provides a tidy output with information about your dataset. 
+Alternatively, there is a helpful package that will summarize all the variables within your dataset. The `skimr` package provides a tidy output with information about your dataset.
 
 To use `skimr`, you'll have to install and load the package before using the helpful function `skim()` to get a snapshot of your dataset.
 
@@ -459,12 +459,12 @@ The output from skim separately summarizes categorical and continuous variables.
 
 #### Published Descriptive Analyses
 
-In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we're looking at the first table in a [paper published in the New England Journal of Medicine by The CATT Research Group](https://www.nejm.org/doi/full/10.1056/nejmoa1102673). 
+In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we're looking at the first table in a [paper published in the New England Journal of Medicine by The CATT Research Group](https://www.nejm.org/doi/full/10.1056/nejmoa1102673).
 
 {format: png}
 ![Table 1](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3e004dcafa_0_91)
 
-We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male. 
+We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male.
 
 {format: png}
 ![Table 1 - just the top](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&pageid=g3e004dcafa_0_99)
@@ -488,85 +488,3 @@ This lesson covered the necessary parts of carrying out a descriptive analysis. 
 ![Descriptive Analysis](https://www.youtube.com/watch?v=ahzGpe7ts0s)
 
 * [Slides](https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/edit?usp=sharing)
-
-{quiz, id: quiz_04_descriptive}
-
-### Descriptive Analysis quiz
-
-{choose-answers:4}
-?1 Which of the following describes a descriptive analysis?
-
-C) Make histograms of your sample data to calculate mean, median, and variance for each variable in your dataset
-C) Generate a table summarizing the number of observations in your dataset as well as the central tendencies and variances of each variable
-o) Draw conclusions from your sample data distribution and infer for the larger population
-o) Use your sample data distribution to make predictions for the future
-o) Fit regression models to your sample data and use your data to interpret coefficients in the model
-o) Use your dataset to understand the mechanistic link between two variables
-o) Use your dataset to run a randomized trial, resulting in causal understanding
-
-{choose-answers:4, points:3}
-?2 What is the shape of the distribution for the variable `mag` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
-
-C) right-skewed
-o) Normal
-m) left-skewed
-o) Uniform
-o) Poisson
-o) Bernoulli
-
-{choose-answers:4, points:3}
-?2 What is the shape of the distribution for the variable `lat` within the `quakes` dataset? (You will have to go around and work with the `quakes` dataset in R to answer this question. This dataset is available automatically in R.)
-
-C) left-skewed
-m) right-skewed
-o) Normal
-o) Uniform
-o) Poisson
-o) Bernoulli
-
-{choose-answers:4}
-?3 For a continuous variable with a skewed distribution, which is the most appropriate measure of central tendency?
-
-C) median
-m) mean
-o) mode
-o) standard deviation
-o) variance
-o) range
-
-{choose-answers:4}
-?4 To describe how spread out your the numbers in your variable are, what could you use?
-
-C) standard deviation
-C) variance
-C) range
-o) mode
-o) median
-o) mean
-o) sum
-o) central tendency
-
-{points:3}
-?5 Go to the [Cloud-based Data Science Space on RStudio Cloud](https://rstudio.cloud/spaces/20345/join?access_code=n4b8J1s0XmWctSy83%2BEXbGAwj7rKcuFMI7WJEJFD) and click on your copy of the 'swirl' project (If you haven't made a copy yet, do so now.) First type `library(swirl)` to load the package and then type `swirl()` to get started. Tell Swirl your first name when it asks what to call you. Then, type the number that corresponds to the course `CBDS Data Analysis`. Type the number that corresponds to the lesson `L04 Descriptive Analysis Q01 Swirl`. Do this swirl module! Once complete, paste the code at the end of the lesson here.
-
-! /.+(8Oz0|RQEO|d5Ok|SmZS|6kKc|6wjt|IIjG|7vXF|4yrH|Jes3).+/i
-
-
-{points:3}
-?6 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L04 Descriptive Analysis Q02 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(uQcf|scL2|nxSh|iBc8|0q0s|p9tw|6rQ6|nfZx|DBCh|ExwY).+/i
-
-
-{points:3}
-?7 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L04 Descriptive Analysis Q03 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(Sm3D|Kh1S|IS3v|Nl2p|Smov|DRxH|JBhG|mQtm|Pj5y|GX22).+/i
-
-
-{points:3}
-?8 Within the same course on swirl: `CBDS Data Analysis`, navigate to the lesson `L04 Descriptive Analysis Q04 Swirl`. Do this swirl module! Once complete, paste the code provided at the end of the swirl module here.
-
-! /.+(tpUZ|OEj0|y6LY|sdxD|o4DB|AS4m|VmqK|7GjF|hYQ2|dvIe).+/i
-
-{/quiz}
