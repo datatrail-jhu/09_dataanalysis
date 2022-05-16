@@ -309,25 +309,35 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="descriptive-analysis" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Descriptive Analysis</h1>
 <p>The goal of descriptive analysis is to <strong>describe</strong> or <strong>summarize</strong> a set of data. Whenever you get a new dataset to examine, this is the first analysis you will perform. In fact, if you never summarize the data, it’s <em>not</em> a data analysis.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da35c43c3_0_0" alt="Descriptive Analysis summarizes the dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da35c43c3_0_0" alt="" />
+<p class="caption">Descriptive Analysis summarizes the dataset</p>
+</div>
 <p>If you think of a dataset as the animal in the elephant in the middle of this picture, you doing a descriptive analysis are the blind monks examining every part of the elephant. Just like the blind monks who are examining each and every part of the elephant to understand it completely, the <strong>goal of a descriptive analysis is to understand the data you’re working with completely</strong>.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da35c43c3_0_147" alt="examining a dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da35c43c3_0_147" alt="" />
+<p class="caption">examining a dataset</p>
+</div>
 <p>Descriptive analysis will first and foremost generate simple summaries about the samples and their measurements to describe the data you’re working with. There are a number of common descriptive statistics that we’ll discuss in this lesson: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance).</p>
 <p>This type of analysis is aimed at <strong>summarizing your dataset</strong>. Unlike analysis approaches we’ll discuss in coming lessons, descriptive analysis is <em>not</em> for generalizing the results of the analysis to a larger population <em>nor</em> trying to draw any conclusions. Description of data is separated from interpreting the data. Here, we’re just summarizing what we’re working with.</p>
 <p>Some examples of purely descriptive analysis can be seen in censuses. In a census, the government collects a series of measurements on <em>all</em> of the country’s citizens. After collecting these data, they are summarized. From this descriptive analysis, we learn a lot about a country. For example, you can learn the age distribution of the population by looking at U.S. census data.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_1" alt="2010 census Data broken down by age" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_1" alt="" />
+<p class="caption">2010 census Data broken down by age</p>
+</div>
 <p>This can be further broken down (or <strong>stratified</strong>) by sex to describe the age distribution by sex. The goal of these analyses is to describe the population. No inferences are made about what this means nor are predictions made about how the data might trend in the future. The point of this (and every!) descriptive analysis is only to summarize the data collected.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_74" alt="2010 census Data broken down by age and sex" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_74" alt="" />
+<p class="caption">2010 census Data broken down by age and sex</p>
+</div>
 <p>In this lesson, we’ll discuss the steps required to carry out a descriptive analysis. As this will be the first thing you do whenever you’re working with a new dataset, it’s important to work through the examples in this lesson step-by-step.</p>
 <div id="how-to-describe-a-dataset" class="section level3" number="4.0.1">
 <h3><span class="header-section-number">4.0.1</span> How to Describe a Dataset</h3>
 <p>When provided a new tabular dataset, whether it’s a CSV you’ve been sent by your boss or a table you’ve scraped from the Internet, the first thing you’ll want to do is describe the dataset. This helps you understand how big the dataset is, what information is contained in the dataset, and how each variable in the dataset is distributed.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_131" alt="Descriptive Analysis" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_131" alt="" />
+<p class="caption">Descriptive Analysis</p>
+</div>
 <p>For this lesson, we’re going to move <em>away</em> from the <code>iris</code> or <code>mtcars</code> dataset (since you probably already have a pretty good understanding of those datasets) and work with a dataset we haven’t used too much in this Course Set: <code>msleep</code> (from the <code>ggplot2</code> package). This dataset includes information about mammals and their sleep habits. We’ll load that package in and assign the dataset to the object <code>df</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="descriptive-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load package</span></span>
 <span id="cb1-2"><a href="descriptive-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
@@ -337,13 +347,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-6"><a href="descriptive-analysis.html#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> msleep</span></code></pre></div>
 <p>Generally, the first thing you’ll want to know about your dataset is how many observations and how many variables you’re working with. You’ll want to understand the size of your dataset.</p>
 <p>You can always look at the Environment tab in RStudio Cloud to see how many observations and variables there are in your dataset; however, once you have many objects, you’ll have to scroll through or search this list to find the information you’re looking for.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_5" alt="Environment tab" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_5" alt="" />
+<p class="caption">Environment tab</p>
+</div>
 <p>To avoid having to do that, the simplest approach to getting this information is the <code>dim()</code> function, which will give you the <strong>dimensions</strong> of your data frame. The output will display with the number of rows (observations) first, followed by the number of columns (variables).</p>
 <pre><code>## determine the dimensions
  dim(df)</code></pre>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_13" alt="dim() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_13" alt="" />
+<p class="caption"><code>dim()</code> output</p>
+</div>
 <div id="variables" class="section level4" number="4.0.1.1">
 <h4><span class="header-section-number">4.0.1.1</span> Variables</h4>
 <p>There are additional ways to learn a bit more about the dataset using a different function. What if we wanted to know not only the dimensions of our dataset but wanted to learn a little bit more about the variables we’re working with?</p>
@@ -351,13 +365,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## determine variable names
 colnames(df)</code></pre>
 <p>The output from <code>colnames</code> tells us that there are 11 variables in our dataset and lets us know what the variable names are for these data.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_20" alt="colnames() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_20" alt="" />
+<p class="caption"><code>colnames()</code> output</p>
+</div>
 <p>But, what if we didn’t want to use two different functions for this <em>and</em> wanted a little bit more information, such as what <em>type</em> of information is stored in each of these variables (columns)? To get <em>that</em> information, we’d turn to the function <code>str()</code>, which provides us information about the structure of the dataset.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="descriptive-analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## display structure</span></span>
 <span id="cb4-2"><a href="descriptive-analysis.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_25" alt="str() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_25" alt="" />
+<p class="caption"><code>str()</code> output</p>
+</div>
 <p>The output here still tells us the size of <code>df</code> and the variable names, but we also learn what the class of each variable is and see a few of the values for each of the variables.</p>
 <p>A very similar function to <code>str()</code> is the <code>glimpse()</code> function from the <code>dplyr</code> package. As you’ve been introduced to this function previously, we just wanted to remind you that <code>glimpse()</code> can also be used to understand the size and structure of your data frame</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="descriptive-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install and load package</span></span>
@@ -366,8 +384,10 @@ colnames(df)</code></pre>
 <span id="cb5-4"><a href="descriptive-analysis.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="descriptive-analysis.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## get a glimpse of your data</span></span>
 <span id="cb5-6"><a href="descriptive-analysis.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_56" alt="glimpse() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_56" alt="" />
+<p class="caption"><code>glimpse()</code> output</p>
+</div>
 </div>
 <div id="missing-values" class="section level4" number="4.0.1.2">
 <h4><span class="header-section-number">4.0.1.2</span> Missing Values</h4>
@@ -381,8 +401,10 @@ colnames(df)</code></pre>
 <span id="cb6-4"><a href="descriptive-analysis.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate the proportion of missingness</span></span>
 <span id="cb6-5"><a href="descriptive-analysis.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## for each variable</span></span>
 <span id="cb6-6"><a href="descriptive-analysis.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))<span class="sc">/</span><span class="fu">nrow</span>(df)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_237" alt="missingness in msleep" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_237" alt="" />
+<p class="caption">missingness in <code>msleep</code></p>
+</div>
 <p>Running this code for our dataframe, we see that many variables having missing values. Specifically, to interpret this output for the variable <code>brainwt</code>, we see that 27 observations have missing data. This corresponds to 32.5% of the observations in the dataset.</p>
 <p>It’s also possible to visualize missingness so that we can see visually see how much missing data there is and determine whether or not the same samples have missing data across the dataset. You could write a function to do this yourself using <code>ggplot2</code>; however, <a href="http://www.njtierney.com/about/">Nicholas Tierney</a> has already written one for you. He has written two helpful packages for exploratory and descriptive data analyses: <a href="https://github.com/njtierney/naniar"><code>naniar</code></a> and <a href="https://github.com/ropensci/visdat"><code>visdat</code></a>. For our purposes, we’ll just install and load <code>naniar</code> here; however, links to both have been included in the additional resources section at the end of this lesson. We recommend looking through the examples provided in the documentation to see additional capabilities within these packages.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="descriptive-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install naniar package</span></span>
@@ -391,14 +413,18 @@ colnames(df)</code></pre>
 <span id="cb7-4"><a href="descriptive-analysis.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="descriptive-analysis.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## visualize missingness</span></span>
 <span id="cb7-6"><a href="descriptive-analysis.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(df)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_232" alt="vis_miss() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_232" alt="" />
+<p class="caption"><code>vis_miss()</code> output</p>
+</div>
 <p>Here, we see the variables listed along the top with percentages summarizing how many observations are missing data for that particular variable. Each row in the visualization is a different observation. Missing data are black. Non-missing values are in grey. Focusing again on <code>brainwt</code>, we can see the 27 missing values visually. We can also see that <code>sleep_cycle</code> has the most missingness, while many variables have no missing data.</p>
 <p>The relative missingness within a dataset can be easily captured with another function from the <code>naniar</code> package: <code>gg_miss_var()</code>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="descriptive-analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## visualize relative missingness</span></span>
 <span id="cb8-2"><a href="descriptive-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(df) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g451d0f51be_0_2" alt="gg_miss_var() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g451d0f51be_0_2" alt="" />
+<p class="caption"><code>gg_miss_var()</code> output</p>
+</div>
 <p>Here, the variables are listed along the left-hand side and the number of missing values for each variable is plotted. We can clearly see that <code>brainwt</code> has 27 missing values in this dataset, while sleep_cycle has the most missingness among variables in this dataset.</p>
 <p>Getting an understanding of what values are missing in your dataset is critical before moving on to any other type of analysis.</p>
 </div>
@@ -410,8 +436,10 @@ colnames(df)</code></pre>
 <div id="normal-distribution" class="section level5" number="4.0.1.3.1">
 <h5><span class="header-section-number">4.0.1.3.1</span> Normal Distribution</h5>
 <p>The <strong>Normal distribution</strong> (also referred to as the <strong>Gaussian</strong> distribution) is a very common distribution and is often described as a bell-shaped curve. In this distribution, the values are symmetric around the central value with a high density of the values falling right around the central value. The left hand of the curve mirrors the right hand of the curve.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_363" alt="Normal Distribution" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_363" alt="" />
+<p class="caption">Normal Distribution</p>
+</div>
 <p>A variable can be described as normally distributed if:</p>
 <ul>
 <li>there is a strong tendency for data to take a central value - many of the observations are centered around the middle of the range</li>
@@ -421,46 +449,64 @@ colnames(df)</code></pre>
 <p>Taking a look at the <code>sleep_total</code> variable within our example dataset, we see that the data are somewhat normal; however, they aren’t entirely symmetric.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="descriptive-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(sleep_total)) <span class="sc">+</span></span>
 <span id="cb9-2"><a href="descriptive-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_376" alt="distribution of msleep sleep_total" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_376" alt="" />
+<p class="caption">distribution of <code>msleep</code> <code>sleep_total</code></p>
+</div>
 <p>A variable that is distributed more normally can be seen in the <code>iris</code> dataset, when looking at the <code>Sepal.Width</code> variable.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="descriptive-analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Width)) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="descriptive-analysis.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_426" alt="distribution of iris Sepal.Width" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_426" alt="" />
+<p class="caption">distribution of <code>iris</code> <code>Sepal.Width</code></p>
+</div>
 </div>
 <div id="skewed-distribution" class="section level5" number="4.0.1.3.2">
 <h5><span class="header-section-number">4.0.1.3.2</span> Skewed Distribution</h5>
 <p>Alternatively, sometimes data follow a skewed distribution. In a skewed distribution, most of the values fall to one end of the range, leaving a tail off to the other side. When the tail is off to the left, the distribution is said to be <strong>skewed left</strong>. When off to the right, the distribution is said to be <strong>skewed right</strong>.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_380" alt="Skewed Distributions" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_380" alt="" />
+<p class="caption">Skewed Distributions</p>
+</div>
 <p>To see an example from the <code>msleep</code> dataset, we’ll look at the variable <code>sleep_rem</code>. Here we see that the data are skewed right, given the shift in values away from the right, leading to a long right tail. Here, most of the values are at the lower end of the range.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="descriptive-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(sleep_rem)) <span class="sc">+</span></span>
 <span id="cb11-2"><a href="descriptive-analysis.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_385" alt="sleep_rem is skewed right" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_385" alt="" />
+<p class="caption"><code>sleep_rem</code> is skewed right</p>
+</div>
 </div>
 <div id="uniform-distribution" class="section level5" number="4.0.1.3.3">
 <h5><span class="header-section-number">4.0.1.3.3</span> Uniform Distribution</h5>
 <p>Finally, in distributions we’ll discuss today, sometimes values for a variable are equally likely to be found along any portion of the distribution. The curve for this distribution looks more like a rectangle, since the likelihood of an observation taking a value is constant across the range of possible values.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_389" alt="Uniform Distribution" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_389" alt="" />
+<p class="caption">Uniform Distribution</p>
+</div>
 </div>
 <div id="outliers" class="section level5" number="4.0.1.3.4">
 <h5><span class="header-section-number">4.0.1.3.4</span> Outliers</h5>
 <p>Now that we’ve discussed distributions, it’s important to discuss <strong>outliers</strong> – or an observation that falls far away from the rest of the observations in the distribution. If you were to look at a density curve, you could visually identify outliers as observations that fall far from the rest of the observations.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_59" alt="density curve with an outlier" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_59" alt="" />
+<p class="caption">density curve with an outlier</p>
+</div>
 <p>For example, imagine you had a sample where all of the individuals in your sample are between the ages of 18 and 65, but then you have one sample that is 1 year old and another that is 95 years old.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_0" alt="Sample population" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_0" alt="" />
+<p class="caption">Sample population</p>
+</div>
 <p>If we were to plot the age data on a density plot, it would look something like this:</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_40" alt="example densityplot" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_40" alt="" />
+<p class="caption">example densityplot</p>
+</div>
 <p>The baby and elderly individual would pop out as outliers on the plot.</p>
 <p>After identifying outliers, one must determine if the outlier samples should be included or removed from your dataset? This is something to consider when carrying out an analysis.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_74" alt="caution" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_74" alt="" />
+<p class="caption">caution</p>
+</div>
 <p>It can sometimes be difficult to decide whether or not a sample should be removed from the dataset. In the simplest terms, <em>no observation should be removed from your dataset unless there is a <strong>valid reason</strong> to do so</em>. For a more extreme example, what if that dataset we just discussed (with all the samples having ages between 18 and 65) had one sample with the age 600? Well, if these are human data, we clearly know that is a data entry error. Maybe it was supposed to be 60 years old, but we may not know for sure. If we can follow up with that individual and double-check, it’s best to do that, correct the error, make a note of it, and continue you with the analysis. However, that’s often not possible. In the cases of obvious data entry errors, it’s likely that you’ll have to remove that observation from the dataset. It’s valid to do so in this case since you know that an error occurred and that the observation was not accurate.</p>
 <p>Outliers do not only occur due to data entry errors. Maybe you were taking weights of your observations over the course of a few weeks. On one of these days, your scale was improperly calibrated, leading to incorrect measurements. In such a case, you would have to remove these incorrect observations before analysis.</p>
 <p>Outliers can occur for a variety of reasons. Outliers can occur due human error during data entry, technical issues with tools used for measurement, as a result of weather changes that affect measurement accuracy, or due to poor sampling procedures. It’s always important to look at the distribution of your observations for a variable to see if anything is falling far away from the rest of the observations. If there are, it’s then important to think about why this occurred and determine whether or not you have a valid reason to remove the observations from the data.</p>
@@ -473,19 +519,25 @@ colnames(df)</code></pre>
 <span id="cb12-2"><a href="descriptive-analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot)</span>
 <span id="cb12-3"><a href="descriptive-analysis.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Petal.Length))<span class="sc">+</span></span>
 <span id="cb12-4"><a href="descriptive-analysis.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_4" alt="iris density plot" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_4" alt="" />
+<p class="caption"><code>iris</code> density plot</p>
+</div>
 <p>Since the two humps in the plot are about the same height, this shows that it’s not just one or two flowers with much smaller petal lengths, but rather that there are many. Thus, these observations aren’t likely an outlier.</p>
 <p>To investigate this further, we’ll look at petal length broken down by flower species:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="descriptive-analysis.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## box plot</span></span>
 <span id="cb13-2"><a href="descriptive-analysis.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Petal.Length))<span class="sc">+</span></span>
 <span id="cb13-3"><a href="descriptive-analysis.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_20" alt="iris boxplot" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_20" alt="" />
+<p class="caption"><code>iris</code> boxplot</p>
+</div>
 <p>In this boxplot, we see in fact that <code>setosa</code> have a shorter petal length while <code>virginica</code> have the longest. Had we simply removed all the shorter petal length flowers from our dataset, we would have lost information about an entire species!</p>
 <p>Boxplots are also helpful because they plot “outlier” samples as points outside the box. By default, boxplots define “outliers” as observations as those that are 1.5 x IQR (interquartile range). The IQR is the distance between the first and third quartiles. This is a mathematical way to determine if a sample <em>may</em> be an outlier. It is visually helpful, but then it’s up to the analyst to determine if an observation should be removed. While the boxplot identifies outliers in the setosa and versicolor species, these values are all within a reasonable distance of the rest of the values, and unless I could determine <em>why</em> this occurred, I would not remove these observations from the dataset</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_9" alt="iris boxplot with annotations" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_9" alt="" />
+<p class="caption"><code>iris</code> boxplot with annotations</p>
+</div>
 </div>
 </div>
 </div>
@@ -497,32 +549,42 @@ colnames(df)</code></pre>
 <h5><span class="header-section-number">4.0.1.4.1</span> mean</h5>
 <p>The mean (often referred to as the average) is equal to the sum of all the observations in the variable divided by the total number of observations in the variable. The mean takes all the values in your variable and calculates the <strong>most common value</strong>.</p>
 <p>So if you had the following vector: <code>a &lt;- c(1, 2, 3, 4, 5, 6)</code>, the mean would be 3.5.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_287" alt="calculating the mean" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_287" alt="" />
+<p class="caption">calculating the mean</p>
+</div>
 <p>But what if we added another ‘3’ into that vector, so that it were: <code>a &lt;- c(1, 2, 3, 3, 4, 5, 6)</code>. Now, the mean would be 3.43. It would decrease the average for this set of numbers as you can see in the calculations here:</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_322" alt="decreased average" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_322" alt="" />
+<p class="caption">decreased average</p>
+</div>
 <p>To calculate the mean in R, the function is <code>mean()</code>. Here, we show how to calculate the mean for a variable in R. Note that when you have NAs in a variable, you’ll need to let R know to remove the NAs (using <code>na.rm=TRUE</code>) before calculating your mean. Otherwise, it will return <code>NA</code>.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="descriptive-analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## this will return NA</span></span>
 <span id="cb14-2"><a href="descriptive-analysis.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>sleep_cycle)</span>
 <span id="cb14-3"><a href="descriptive-analysis.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="descriptive-analysis.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## have to tell R to ignore the NAs</span></span>
 <span id="cb14-5"><a href="descriptive-analysis.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>sleep_cycle, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_246" alt="mean(sleep_cycle)" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_246" alt="" />
+<p class="caption"><code>mean(sleep_cycle)</code></p>
+</div>
 </div>
 <div id="median" class="section level5" number="4.0.1.4.2">
 <h5><span class="header-section-number">4.0.1.4.2</span> median</h5>
 <p>The median is the middle observation for a variable after the observations in that variable have been arranged in order of magnitude (from smallest to largest). The median is the <strong>middle value</strong>.</p>
 <p>Using the same vector as we first use to calculate median, we see that the middle value for this set of numbers is 3.5 as this is the value at the center of this set of numbers. This happens to be the same value as the mean was.</p>
 <p>However, that is not always the case. When we add that second 3 in the middle of the set of numbers, the median is now 3, as this is the value at the center of this set of numbers. 3 is the middle value.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_312" alt="medians" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_312" alt="" />
+<p class="caption">medians</p>
+</div>
 <p>To calculate the median in R, use the function <code>median()</code>. Again, when there are NAs in the variable, you have to tell R explicitly to remove them before calculating the median.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="descriptive-analysis.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate the median</span></span>
 <span id="cb15-2"><a href="descriptive-analysis.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>sleep_cycle, <span class="at">na.rm=</span><span class="cn">TRUE</span>)  </span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_280" alt="median sleep_cycle" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_280" alt="" />
+<p class="caption">median <code>sleep_cycle</code></p>
+</div>
 <p>While not the exact same value, the mean and median for <code>sleep_cycle</code> are similar (0.44 and 0.33). However, this is not always the case. For data that are <strong>skewed</strong> or contain <strong>outlier values</strong> – values that are very different from the rest of the values in the variable – the mean and the median will be very different from one another. In our example dataset, the mean and the median values for the variable <code>bodywt</code> are quite different from one another.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="descriptive-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate mean and median</span></span>
 <span id="cb16-2"><a href="descriptive-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>bodywt)</span>
@@ -531,19 +593,25 @@ colnames(df)</code></pre>
 <span id="cb16-5"><a href="descriptive-analysis.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="do">## look at the histogram</span></span>
 <span id="cb16-6"><a href="descriptive-analysis.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(bodywt)) <span class="sc">+</span></span>
 <span id="cb16-7"><a href="descriptive-analysis.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_330" alt="mean vs median" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_330" alt="" />
+<p class="caption">mean vs median</p>
+</div>
 <p>When we look at the histogram of the data, we see that most body weights are less than 200 lbs. Thus, the median, or value that would be in the middle if you lined all the weights up in order, is 1.6 kilograms. However, there are a few mammals that are a lot bigger than the rest of the animals. These mammals are <strong>outliers in the dataset</strong>. These outliers increase the mean. These larger animals drive the mean of the dataset to 166 kilograms.</p>
 <p>When you have outliers in the dataset, the median is typically the measure of central tendency you’ll want to use, as it’s resistant to the effects of outlier values.</p>
 </div>
 <div id="mode" class="section level5" number="4.0.1.4.3">
 <h5><span class="header-section-number">4.0.1.4.3</span> mode</h5>
 <p>There is a third, less-frequently calculated measure of central tendency for continuous variables, known as the mode. This is the value that comes up most frequently in your dataset. For example, if your dataset <code>a</code> were comprised of the following numbers <code>a &lt;- c(0, 10, 10, 3, 5, 10, 10)</code>, 10 would be the <strong>mode</strong>, as it occurs four times. It doesn’t matter whether it’s the largest value, the smallest value, or somewhere in between, the most frequently value in your dataset is the mode. There is no built-in function for calculating the mode in R for a numeric value, which should suggest that, for continuous variables, knowing the mode of a variable is often less crucial than knowing the mean and median (which is true)! However, you could write a function to calculate it. For the above vector <code>a</code>, <code>which.max(tabulate(a))</code> would return the mode: 10. (Note that this would not work if you had two values that were found in the dataset at the same frequency. A more eloquent approach would be required.)</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_257" alt="mode of a continuous variable" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_257" alt="" />
+<p class="caption">mode of a continuous variable</p>
+</div>
 <p>However, for categorical variables, the level with the most observations would be the mode. This can be determined using the <code>table()</code> function, which breaks down the number of observations within the categorical variable</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_262" alt="table() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_262" alt="" />
+<p class="caption"><code>table()</code> output</p>
+</div>
 <p>Further, the mode for a categorical variable can be visualized by generating a barplot:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="descriptive-analysis.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot categorical variable to visualize mode</span></span>
 <span id="cb17-2"><a href="descriptive-analysis.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(order)) <span class="sc">+</span></span>
@@ -551,8 +619,10 @@ colnames(df)</code></pre>
 <span id="cb17-4"><a href="descriptive-analysis.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>,</span>
 <span id="cb17-5"><a href="descriptive-analysis.html#cb17-5" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">hjust =</span> <span class="dv">1</span>,</span>
 <span id="cb17-6"><a href="descriptive-analysis.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_267" alt="geom_bar visually displays the mode" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_267" alt="" />
+<p class="caption"><code>geom_bar</code> visually displays the mode</p>
+</div>
 </div>
 </div>
 <div id="variability" class="section level4" number="4.0.1.5">
@@ -569,8 +639,10 @@ how spread out the values in a variable are.</p>
 <span id="cb18-5"><a href="descriptive-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">## variance of a vector with one very different value</span></span>
 <span id="cb18-6"><a href="descriptive-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">723678</span>)</span>
 <span id="cb18-7"><a href="descriptive-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(b)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_445" alt="variance" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_445" alt="" />
+<p class="caption">variance</p>
+</div>
 <p>The only difference between the two vectors is that the second one has one value that is much larger than “29”. The variance for this vector is thus much higher.</p>
 </div>
 <div id="standard-deviation" class="section level5" number="4.0.1.5.2">
@@ -581,8 +653,10 @@ how spread out the values in a variable are.</p>
 <span id="cb19-3"><a href="descriptive-analysis.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="descriptive-analysis.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="do">## this is the same as the square root of the variance</span></span>
 <span id="cb19-5"><a href="descriptive-analysis.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(b))</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_450" alt="Standard Deviation" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_450" alt="" />
+<p class="caption">Standard Deviation</p>
+</div>
 <p>For both measures of variance, the minimum value is 0. The larger the number, the more spread out the values in the valuable are.</p>
 </div>
 </div>
@@ -597,18 +671,24 @@ how spread out the values in a variable are.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="descriptive-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;skimr&quot;</span>)</span>
 <span id="cb20-2"><a href="descriptive-analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
 <span id="cb20-3"><a href="descriptive-analysis.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(df)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_455" alt="skim() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3da41bd16a_0_455" alt="" />
+<p class="caption"><code>skim()</code> output</p>
+</div>
 <p>The output from skim separately summarizes categorical and continuous variables. For continuous variables you get information about the mean and median (<code>p50</code>) column. You know what the range of the variable is (<code>p0</code> is the minimum value, <code>p100</code> is the maximum value for continuous variables). You also get a measure of variability with the standard deviation (<code>sd</code>). It even quantifies the number of missing values (<code>missing</code>) and shows you the distribution of each variable (<code>hist</code>)! This function can be incredibly useful to get a quick snapshot of what’s going on with your dataset.</p>
 </div>
 <div id="published-descriptive-analyses" class="section level4" number="4.0.2.2">
 <h4><span class="header-section-number">4.0.2.2</span> Published Descriptive Analyses</h4>
 <p>In academic papers, descriptive analyses often lead to the information included in the first table of the paper. These tables summarize information about the samples used for the analysis in the paper. Here, we’re looking at the first table in a <a href="https://www.nejm.org/doi/full/10.1056/nejmoa1102673">paper published in the New England Journal of Medicine by The CATT Research Group</a>.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_91" alt="Table 1" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_91" alt="" />
+<p class="caption">Table 1</p>
+</div>
 <p>We can see that there is a lot of descriptive information being summarized in this table just by glancing at it. If we zoom in and just focus on the top of the table, we see that the authors have broken down a number of the variables (the rows) and summarized how many patients they had in each of their experimental categories (the columns). Focusing on Sex specifically, we can see that there were 183 females and 118 males in their first experimental group. In the parentheses, they summarize what percent of their sample that was. In this same category, the sample was 60.8% female and 39.2% male.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_99" alt="Table 1 - just the top" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc/export/png?id=1sDojkPrY2T5_qwT2bLD-8DRGcUHie1N9I95e6U2Jimc&amp;pageid=g3e004dcafa_0_99" alt="" />
+<p class="caption">Table 1 - just the top</p>
+</div>
 <p>We provide this here as an example of how someone would include a descriptive analysis in a report or publication. It doesn’t always have to be this long, but you should always describe your data when sharing it with others.</p>
 </div>
 </div>

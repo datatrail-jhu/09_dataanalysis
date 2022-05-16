@@ -312,8 +312,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In other words, the <strong>goal of predictive analysis</strong> is to use data you have now to make <strong>predictions</strong> about <strong>future</strong> data.</p>
 <p>We spend a lot of time trying to predict things in daily life- the upcoming weather, the outcomes of sports events, and the outcomes of elections. We’ve previously mentioned Nate Silver at <a href="fivethirtyeight.com">FiveThirtyEight</a>, where they try and predict the outcomes of U.S. elections (and sporting events too!). Using historical polling data and trends and current polling, FiveThirtyEight builds models to predict the outcomes and the next US Presidential vote - and has been fairly accurate at doing so! FiveThirtyEight’s models accurately predicted the 2008 and 2012 elections and was widely considered an outlier in the 2016 US elections, as it was one of the few models to suggest Donald Trump had a chance of winning.</p>
 <p>Predicting the outcome of elections is a key example of predictive analysis, where historical data (data they have now) are used to predict something about the future.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1" alt="Basics of Predictive Analysis" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1" alt="" />
+<p class="caption">Basics of Predictive Analysis</p>
+</div>
 <p>In this lesson we’ll walk through the important pieces of carrying out a predictive analysis, what considerations should be made when making predictions, discuss what machine learning is, and talk about how to assess accuracy within a predictive analysis.</p>
 <div id="what-is-machine-learning" class="section level3" number="11.0.1">
 <h3><span class="header-section-number">11.0.1</span> What is Machine Learning?</h3>
@@ -329,8 +331,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Model Selection - How are you going to model the data?</li>
 <li>Accuracy Assessment - How are you going to assess accuracy of your predictions?</li>
 </ol>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_5" alt="Basic Steps" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_5" alt="" />
+<p class="caption">Basic Steps</p>
+</div>
 </div>
 <div id="data-splitting" class="section level3" number="11.0.3">
 <h3><span class="header-section-number">11.0.3</span> Data Splitting</h3>
@@ -338,29 +342,39 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="train-tune-test" class="section level4" number="11.0.3.1">
 <h4><span class="header-section-number">11.0.3.1</span> Train, Tune, Test</h4>
 <p>Okay, admittedly, these are <em>not</em> the most common words to use for this process. Many people use train, validate, and test. However, almost as many people use train, test, and validate, as evidenced by this <a href="https://twitter.com/michaelhoffman/status/989251677646704641">Twitter poll</a>:</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_9" alt="Twitter poll" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_9" alt="" />
+<p class="caption">Twitter poll</p>
+</div>
 <p>As such, we’re mentioning those terms so that you’re familiar with them, but since machine learning people can’t agree on the order of the words, in this lesson, we’ve decided to go with more helpful terminology, as suggested by <a href="https://twitter.com/carldeboerphd?lang=en">Carl de Boer</a>: train, tune, and test.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_14" alt="Train, Tune, Test" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_14" alt="" />
+<p class="caption">Train, Tune, Test</p>
+</div>
 <div id="train" class="section level5" number="11.0.3.1.1">
 <h5><span class="header-section-number">11.0.3.1.1</span> Train</h5>
 <p>Training data are the data we described above. The data used to build your predictive model. These data are referred to as your training set.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_93" alt="training data" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_93" alt="" />
+<p class="caption">training data</p>
+</div>
 </div>
 <div id="tune" class="section level5" number="11.0.3.1.2">
 <h5><span class="header-section-number">11.0.3.1.2</span> Tune</h5>
 <p>Before getting started, your original dataset is often split. Some (often 70%) of the observations in your dataset are used to train the model, while 30% are held out. This held-out set of observations from your original dataset are then used to improve (tune) the accuracy of model.</p>
 <p>These hold-out samples are used to see whether or not your predictive model accurately makes predictions in the set of samples <em>not</em> used to train the model.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_127" alt="tuning data" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_127" alt="" />
+<p class="caption">tuning data</p>
+</div>
 </div>
 <div id="test" class="section level5" number="11.0.3.1.3">
 <h5><span class="header-section-number">11.0.3.1.3</span> Test</h5>
 <p>Finally, an independent dataset – one that is <em>not</em> from the same experiment or source as the data used to train and tune your model are used to see whether or not your predictive model makes accurate predictions in a completely new dataset. Predictive models that can be generalized to and make accurate predictions in new datasets are the best predictive models.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_111" alt="testing data" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_111" alt="" />
+<p class="caption">testing data</p>
+</div>
 </div>
 </div>
 </div>
@@ -369,8 +383,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>For predictive analysis to be worth anything, you have to be able to predict an outcome accurately with the data you have on hand.</p>
 <p>If all the data you have on hand are the heights of elephants in Asia, you’re likely not going to be able to predict the outcome of the next US election. Thus, the variables in the data you have on hand have to be related to the outcome you’re interested in predicting in some way (which is <em>not</em> the case for the heights of elephants and US elections).</p>
 <p>Instead, to predict US elections, you’d likely want some data on outcomes of previous elections, maybe some demographic information about the voting districts, and maybe some information about the ages or professions of the people voting. All of these variables are likely to be helpful in predicting the outcome in a future election, but which ones are actually predictive? All of them? Some of them? The process of deciding which variables to use for prediction is called <strong>variable selection</strong>.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_180" alt="Variable Selection" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_180" alt="" />
+<p class="caption">Variable Selection</p>
+</div>
 <p>You ideally want to include the <em>fewest variables</em> in your model as possible. Only having a few variables in your model avoids you having to collect a ton of data or build a really complicated model. But, you want the model to be as accurate as possible in making predictions. Thus, there’s always a <em>balance</em> between minimizing the variables included (to only include the most predictive variables!) and maximizing your model’s predictive accuracy.
 In other words, like in inferential analysis, your ability to make accurate predictions is dependent on whether or not you have measurements on the right variables. If you aren’t measuring the right variables to predict an outcome, your predictions aren’t going to be accurate. Thus, <strong>variable selection</strong>, is incredibly important.</p>
 <p>All that said, there <em>are</em> machine learning approaches that carry out variable selection for you, using all the data to determine which variables in the dataset are most helpful for prediction. Nevertheless, whether you are deciding on the variables to include or the computer is deciding for you, variable selection is important to accurate prediction.</p>
@@ -389,28 +405,40 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <div id="regression-vs.-classification" class="section level4" number="11.0.5.1">
 <h4><span class="header-section-number">11.0.5.1</span> Regression vs. Classification</h4>
 <p>Before we jump into discussing the various models you can use for predictive analysis, it’s important to first note the difference between regression and classification. <strong>Regression</strong> is used when you’re trying to predict a continuous variable. For example if you’re trying to predict an individual’s age, you would use regression. On the other hand <strong>classification</strong> is used for categorical variables, as it predicts which <em>group</em> an individual belongs to. An example of a classification would be predicting someone’s education level, as there are only a limited number of groups into which one would be.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_215" alt="Regression vs. Classification" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_215" alt="" />
+<p class="caption">Regression vs. Classification</p>
+</div>
 <p>With regards to machine learning, certain methods can be used for both regression and classification, while others are designed exclusively for one or the other.</p>
 <p>In this lesson we’ll discuss one regression model and one classification model. However, there are literally <a href="http://topepo.github.io/caret/available-models.html">hundreds of models</a> available for predictive modeling. Thus, it’s important to keep in mind that we’re really just scratching the surface here.</p>
 </div>
 <div id="linear-regression-1" class="section level4" number="11.0.5.2">
 <h4><span class="header-section-number">11.0.5.2</span> Linear Regression</h4>
 <p>Just like in the previous lesson in inferential analysis, linear regression is an incredibly powerful method in machine learning! The concept here is the same as it was in the last lesson: we’re going to capitalize on the linear relationship between variables. However, instead of using linear regression to estimate something about a larger population, we’re going to use linear regression for prediction of a <strong>continuous variable</strong>.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_262" alt="linear regression" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_262" alt="" />
+<p class="caption">linear regression</p>
+</div>
 <p>To better understand this, let’s use a conceptual example. Consider trying to predict a child’s age from their height. You’d likely expect that a taller child was older. So, let’s imagine that we’re looking here at the training data. We see the expected relationship between height and age in this scatterplot.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_385" alt="training data for age and height example" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_385" alt="" />
+<p class="caption">training data for age and height example</p>
+</div>
 <p>Using the training data, linear regression is then carried out to model the relationship.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_533" alt="linear regression models the relationship between a child’s height and their age in the training data" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_533" alt="" />
+<p class="caption">linear regression models the relationship between a child’s height and their age in the training data</p>
+</div>
 <p>Now that we have our model, we no longer care about the individual data points in the training data. We’ll simply use the linear regression model to make our predictions.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_608" alt="Our linear regression model will be used for prediction" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_608" alt="" />
+<p class="caption">Our linear regression model will be used for prediction</p>
+</div>
 <p>Then, in the future when we know a child’s height, we can return to our linear regression, supply it with the new child’s height and it will return the child’s age using the model we’ve built.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_683" alt="predicting age from height using linear regression" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_683" alt="" />
+<p class="caption">predicting age from height using linear regression</p>
+</div>
 <p>Conceptually, this is what will happen whenever we use linear regression for machine learning. However, it will be carried out mathematically, rather than graphically. This means you won’t have to look on the graph to see your predictions. You’ll just have to run a few lines of code that will carry out the necessary calculations to generate predictions.</p>
 <p>Additionally, here we’re using a single variable (height) to model age. Clearly, there are other variables (such as a child’s sex) that could affect this prediction. Often, regression models will include multiple predictor variables that will improve prediction accuracy of the outcome variable.</p>
 </div>
@@ -419,17 +447,25 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <p>Alternatively, when trying to predict a <strong>categorical variable</strong>, you’ll want to look at classification methods, rather than regression (which is for continuous variables). In these cases you may consider using a <strong>classification and regression tree (CART)</strong> for prediction. While not the <em>only</em> classification method for machine learning, CARTs are a basic and commonly-used approach to prediction for categorical variables.</p>
 <p>Conceptually, when using a CART for prediction, a <strong>decision tree</strong> is generated from the training data. A decision tree branches the data based on variables within the data. For example, if we were trying to predict an individual’s education level, we would likely use a dataset with information about many different people’s income level, job title, and the number of children they have. These variable would then be used to generate the tree.</p>
 <p>For example, maybe the first branch would separate individuals who make less than 40,000 dollars a year. All of those in the training data who made less than 40K would go down the left-hand branch, while everyone else would go down the right-hand branch.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_843" alt="Start to generate branches for your decision tree using the data to make decisions" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_843" alt="" />
+<p class="caption">Start to generate branches for your decision tree using the data to make decisions</p>
+</div>
 <p>At each level, the data will continue to be split, using the information in the training data.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_892" alt="Branches continue to be generated from the training data" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_892" alt="" />
+<p class="caption">Branches continue to be generated from the training data</p>
+</div>
 <p>Finally, a full decision tree will be constructed, such that there will be a label for the variable we’re trying to predict at the end of each branch.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_920" alt="labels are assigned at the end of each tree" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_920" alt="" />
+<p class="caption">labels are assigned at the end of each tree</p>
+</div>
 <p>This CART will then be used for prediction in future samples. Thus, if you follow the path along the decision tree, for this example CART, an individual who made more than $40,000 a year, was in a manual labor profession, and had children, this CART would predict that that individual’s education level were “High School.”</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_992" alt="Predictions are then made following the decisions on the tree" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_992" alt="" />
+<p class="caption">Predictions are then made following the decisions on the tree</p>
+</div>
 <p>Again, this is conceptually and graphically how a CART works; however, when generating a CART yourself, it again only takes a few lines of code to generate the model and carry out the necessary math.</p>
 </div>
 </div>
@@ -448,8 +484,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <div id="rmse" class="section level5" number="11.0.6.1.1">
 <h5><span class="header-section-number">11.0.6.1.1</span> RMSE</h5>
 <p>The root-mean-square error (RMSE) is a measure used to assess prediction error for continuous variables. Generally, we want to minimize error in prediction. Thus, a small RMSE is better than a large RMSE.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1084" alt="RMSE" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1084" alt="" />
+<p class="caption">RMSE</p>
+</div>
 <p>Mathematically speaking, the RMSE is the square root of the variance. From earlier lessons, we know that <strong>variance</strong> has something to do with how confident we are in our estimate. Since we’re trying to determine how close our predictions are to the actual value, this seems like a good place to start.</p>
 <p>When we look at the equation, we can see that the difference between the predicted and actual values is calculated <code>(Predicted - Actual)</code> and that this value is then squared <code>(Predicted - Actual)^2</code>. These differences squared are then added for every individual in your dataset (that’s what the sigma, or big E says). This value (the sum of all the errors squared) is then divided by the number of individuals in your dataset (<code>N</code>). This square root of this value is then taken. This is how RMSE is calculated.</p>
 <p>We went through that description because we want to point out that when differences are squared <code>(Predicted - Actual)^2</code>, outliers, or samples whose prediction was far off from their actual value are going to increase the RMSE a lot. Thus, <strong>a few outliers can lead to really high RMSE values</strong>, even if all the other predictions were pretty good. This means it’s important to check to see if a few outliers (meaning a few bad predictions) are leading to a high RMSE value.</p>
@@ -457,8 +495,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <div id="accuracy" class="section level5" number="11.0.6.1.2">
 <h5><span class="header-section-number">11.0.6.1.2</span> Accuracy</h5>
 <p>Alternatively, to assess error in the prediction of categorical variables, <strong>accuracy</strong> is frequently used. Accuracy looks to determine the number of predictions that match their actual values.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1102" alt="Accuracy" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1102" alt="" />
+<p class="caption">Accuracy</p>
+</div>
 <p>The closer this value is to 100%, the better your predictive model was. The closer to 0%, the worse your model’s predictions are.</p>
 <p>Accuracy is a helpful way to assess error in categorical variables, but it can be used for numeric values too. However, it will only account a prediction “correct” if it matches exactly. In the case of age, if a sample’s age is 10 and the model predicts it to be 10, the model will say it’s been predicted correctly. However, if a sample’s age is 10 and it is predicted to be 9, it will be counted as incorrect, even though it was close. A prediction off by a year will be marked just as incorrect as a sample predicted off by 50 years. Due to this, RMSE is often opted for instead of accuracy for continuous variables.</p>
 </div>
@@ -496,8 +536,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <span id="cb62-17"><a href="prediction-machine-learning.html#cb62-17" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris_train)</span>
 <span id="cb62-18"><a href="prediction-machine-learning.html#cb62-18" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris_tune)</span></code></pre></div>
 <p>After running this code , if we take a look at the training and tuning datasets, we can see that 70% of our observations are in the training dataset and the other 30% are in the tuning dataset, as we specified.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1230" alt="structure of training and tuning data" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1230" alt="" />
+<p class="caption">structure of training and tuning data</p>
+</div>
 </div>
 <div id="variable-selection-1" class="section level5" number="11.0.7.2.2">
 <h5><span class="header-section-number">11.0.7.2.2</span> Variable Selection</h5>
@@ -511,8 +553,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <p>After training the model, we take a look at our RMSE, and see that it is <code>0.82</code> for this dataset.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="prediction-machine-learning.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="do">## look at RMSE</span></span>
 <span id="cb64-2"><a href="prediction-machine-learning.html#cb64-2" aria-hidden="true" tabindex="-1"></a>fit.lm<span class="sc">$</span>results</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1151" alt="RMSE" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1151" alt="" />
+<p class="caption">RMSE</p>
+</div>
 <p>Using this model, we would then generate predictions of <code>Sepal.Length</code> in the tuning dataset using the <code>predict()</code> function. Since we know the actual <code>Sepal.Length</code> in the tuning set, these predictions can then be visualized using a scatterplot.</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="prediction-machine-learning.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="do">## make predictions in tuning data set</span></span>
 <span id="cb65-2"><a href="prediction-machine-learning.html#cb65-2" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit.lm, iris_tune)</span>
@@ -523,8 +567,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <span id="cb65-7"><a href="prediction-machine-learning.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predictions =</span> predictions) <span class="sc">%&gt;%</span></span>
 <span id="cb65-8"><a href="prediction-machine-learning.html#cb65-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb65-9"><a href="prediction-machine-learning.html#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(Sepal.Length,predictions))</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1143" alt="Scatterplot shows Sepal.Length is not predicted well from Sepal.Width alone" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1143" alt="" />
+<p class="caption">Scatterplot shows <code>Sepal.Length</code> is not predicted well from <code>Sepal.Width</code> alone</p>
+</div>
 <p>Given the lack of correlation, we can see that this model does not predict sepal length in our tuning set well.</p>
 <p>In this first attempt, we specified which variable to use for prediction; however, what if we provided our regression model with all the variables in the dataset (specified by the <code>.</code> in the code here:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="prediction-machine-learning.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="do">## train regression model</span></span>
@@ -546,8 +592,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 <span id="cb66-17"><a href="prediction-machine-learning.html#cb66-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predictions =</span> predictions2) <span class="sc">%&gt;%</span></span>
 <span id="cb66-18"><a href="prediction-machine-learning.html#cb66-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb66-19"><a href="prediction-machine-learning.html#cb66-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(Sepal.Length,predictions2))</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1173" alt="Scatterplot" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1173" alt="" />
+<p class="caption">Scatterplot</p>
+</div>
 </div>
 <div id="accuracy-assessment" class="section level5" number="11.0.7.2.3">
 <h5><span class="header-section-number">11.0.7.2.3</span> Accuracy Assessment</h5>
@@ -594,8 +642,10 @@ In other words, like in inferential analysis, your ability to make accurate pred
 </div>
 <div id="accuracy-assessment-1" class="section level4" number="11.0.7.4">
 <h4><span class="header-section-number">11.0.7.4</span> Accuracy Assessment</h4>
-<p>
-<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1187" alt="table() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/export/png?id=1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ&amp;pageid=g3db61636bd_0_1187" alt="" />
+<p class="caption"><code>table()</code> output</p>
+</div>
 <p>Here, we see that in the tuning data, the CART accurately predicted the Species of most flowers using the model generated from the training data; however, it did make two incorrect predictions (the 1s in the table).</p>
 </div>
 </div>
