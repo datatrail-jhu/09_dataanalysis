@@ -52,7 +52,7 @@ library(dplyr)
 glimpse(coverage)
 ```
 
-{format: png}
+
 ![`glimpse()` gives us a look at what's included in our coverage dataset](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_0)
 
 Looking at the output here, we see that there are 52 observations and 29 variables being measured. We see that the observations are the states in the US (likely including Washington, DC) and one for the US overall. We then see that a number of pieces of data (variables) have been collected over four years (2013-2016).
@@ -65,7 +65,7 @@ But first, let's see if we have the same issue in the spending dataset.
 glimpse(spending)
 ```
 
-{format: png}
+
 ![`glimpse()` demonstrates we have the same number of observations in the spending dataset](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_6)
 
 When we look at the `glimpse()` output for spending, we see that we again have the same number of observations (N=52) but here we have 25 variables summarizing total health spending from 1991-2014. So, right off the bat we know that the only two years we have overlapping information are 2013 and 2014. Something to keep in mind!
@@ -94,7 +94,7 @@ library(skimr)
 skim(coverage)
 ```
 
-{format: png}
+
 ![`skim()` provides a ton of helpful information](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_11)
 
 For example, in our `coverage` dataset, we quickly see that most variables have complete information, but there is missing information in the `Other Public` variables across the years. We also know that the average (mean) for Total has remained constant (1.2 x 10^7) for the years included in this dataset.
@@ -103,7 +103,7 @@ For example, in our `coverage` dataset, we quickly see that most variables have 
 skim(spending)
 ```
 
-{format: png}
+
 ![`skim()` summarizes the spending dataset](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_11)
 
 We can similarly see at a glance that there is no missing information in the `spending` dataset. However, unlike in the coverage dataset, here, with data from more years we can see spending has increased over time. Specifically, the average in 1991 was 25996.06 and 98570.17 by 2014.
@@ -143,7 +143,7 @@ coverage <- gather(coverage, "year_type", "tot_coverage", -Location)
 coverage
 ```
 
-{format: png}
+
 ![`gather()` takes our "wide" `coverage` dataset to "long"](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_39)
 
 We'll want to do the same to our `spending` dataset:
@@ -152,7 +152,7 @@ We'll want to do the same to our `spending` dataset:
 spending <- gather(spending, "year", "tot_spending", -Location)
 ```
 
-{format: png}
+
 ![`gather()` takes our `spending` dataset from "wide" to "long"](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_44)
 
 We're making progress! Our data are in a tidy format now; however, you may have noticed that information about year is tied up with other information. We'll want to separate that out. Fortunately, `tidyr` has the incredibly helpful `separate()` function! We'll use that to separate out year information so that we can use that in our join! Note that here we're including `convert = TRUE` so that the resulting year columns is of type `int`.
@@ -163,7 +163,7 @@ coverage <- coverage %>%
   separate(year_type, sep="__", into=c("year", "type"), convert = TRUE)
 ```
 
-{format: png}
+
 ![`separate()` to separate column contents](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_49)
 
 And, just like that, we've got `year` in its own column! 
@@ -177,7 +177,7 @@ spending <- spending %>%
 spending
 ```
 
-{format: png}
+
 ![`spending` dataset now has appropriate tidy data format and appropriate columns](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_49)
 
 #### Join: `inner_join`
@@ -189,7 +189,7 @@ hc <- inner_join(coverage, spending, by = c("Location", "year"))
 hc
 ```
 
-{format: png}
+
 ![`inner_join()` gets information in a single dataframe](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_59)
 
 We now have a dataset with 728 observations where each row contains coverage and spending information for a particular `Location` in a particular `year`. 
@@ -202,7 +202,7 @@ pop <- hc %>%
   select(Location, year, population = tot_coverage)
 pop
 ```
-{format: png}
+
 ![extract population information](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_59)
 
 The `population` column now includes the population for each `Location` in each `year` in our dataset!
@@ -216,7 +216,7 @@ hc <- hc %>%
 hc
 ```
 
-{format: png}
+
 ![with population information included in `hc`](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_74)
 
 With population information, we will want to calculate spending per capita and the proportion of people covered in each state. Spending per capita calculates the spending per person. Having these values allow us to compare values across states with different populations. We use mutate to accomplish this:
@@ -228,7 +228,7 @@ hc <- hc %>%
            prop_coverage = tot_coverage / population) 
 ```
 
-{format: png}
+
 ![calculated `spending_capita` using population information](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_84)
 
 Okay, we're almost fully wrangled! But, before we move on, we know what Location is in each row; however, it *could* be helpful to have the two-letter abbreviation and region of the United States in this dataset, so let's add that in. And, we're in luck! There's an R package (`datasets`) with just that information in it that you can use! Let's use the data in that dataset to add that information to our `hc` dataframe!
@@ -247,7 +247,7 @@ hc <- hc %>%
 hc
 ```
 
-{format: png}
+
 ![`abb` and `region` information added to `hc` dataset](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_74)
 
 Note that this adds two additional columns (`abb` and region`) to our `hc` dataframe. Also, note that where there is not state information ("United States" and "District of Columbia"), these columns have NA, as we would expect!
@@ -285,7 +285,7 @@ ggplot(hc_employer, aes(prop_coverage)) +
   geom_histogram()
 ```
 
-{format: png}
+
 ![`prop_coverage` shows a bimodal distribution](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_93)
 
 The proportion covered shows a distribution where coverage ranges from around 40% to 60% across the 50 states in 2013. 
@@ -295,7 +295,7 @@ ggplot(hc_employer, aes(spending_capita)) +
   geom_histogram()
 ```
 
-{format: png}
+
 ![`spending_capita` shows is approximately Normal](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_93)
 
 Unlike the proportion covered, spending per capita is approximately Normal with a median somewhere right below $8,000. We do see a few outliers. We'll want to see which states these are that have much lower and much higher than average spending per capita.
@@ -310,7 +310,7 @@ ggplot(hc_employer,
   ylab("coverage proportion")
 ```
 
-{format: png}
+
 ![relationship between spending and coverage](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_110)
 
 At a glance, there appears to be a linear relationship between these two variables where the more spending per person in a state, the higher proportion of the population has health care supplied by the employer. To fully understand this relationship, let's explore it with linear regression!
@@ -333,7 +333,7 @@ hc_employer %>%
   geom_smooth(method = "lm", col = "red")
 ```
 
-{format: png}
+
 ![visualizing the linear relationship with `ggplot2`](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_116)
 
 In addition to looking at this visually, we also want to understand the regression model and take a look at model diagnostics. To do so we'll use `lm` and `tidy`. (`tidy` is from the `broom` package)
@@ -349,7 +349,7 @@ fit <- lm(prop_coverage ~ spending_capita,
 tidy(fit)
 ```
 
-{format: png}
+
 ![`broom` output for 2013 linear regression model](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_121)
 
 Here we see that across states in the US in 2013, for every 1 dollar more spent on healthcare, the proportion of individuals covered increase by 0.000019 (the `estimate` column in the `tidy()` output). 
@@ -368,7 +368,7 @@ geom_smooth(method = "lm", col = "red") +
 geom_text(aes(label=abb), nudge_x = 150)
 ```
 
-{format: png}
+
 ![states cluster based on geographic location](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_126)
 
 In this plot we see that states tend to cluster. States in the Northeast tend to spend more on healthcare and have a higher proportion of the population covered, whereas the opposite is true in the South. This suggests that to understand the overall relationship, we likely want to consider region as a confounder in the analysis.
@@ -379,7 +379,7 @@ fit2 <- lm(prop_coverage ~ spending_capita + region,
 tidy(fit2)
 ```
 
-{format: png}
+
 ![`broom` output for 2013 multiple regression model accounting for region as a confounder](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_131)
 
 
@@ -398,7 +398,7 @@ geom_text(aes(label=abb), nudge_x = 150) +
 facet_wrap(~region)
 ```
 
-{format: png}
+
 ![faceting by region demonstrates limited relationship between spending and proportion of population covered](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_136)
 
 Here, we see pretty flat lines (particularly in the Northeast and the West), supporting the findings from our multiple regression model.
@@ -412,7 +412,7 @@ par(mfrow = c(2,2))
 plot(fit2)
 ```
  
- {format: png}
+ 
 ![model diagnostics](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&pageid=g5df245fced_0_242)
 
 We're looking here for:

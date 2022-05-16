@@ -42,12 +42,12 @@ Every time you've pushed to GitHub, you've been using a type of versioning. GitH
 
 In software each version of a piece of software is often tracked by a set of three numbers, each of which is separated by a decimal place. A general scheme used in software versioning is to version a piece of software as `major.minor.patch`. In this scheme, a large release with **breaking changes** (changes that could cause previous versions of the software to be incompatible with the current version) will increase the first number in the sequence (`major`). The second value (`minor`) will be increased when a version of the software is released that includes new features that are non-breaking. Versions where the the third value (`patch`) in the sequence are increased include non-breaking changes that tend to be minimal fixes to the software.
 
-{format: png}
+
 ![major.minor.patch](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_101)
 
 In this scheme, 0.9.0 would represent software that is in development (referred to as the beta version). Incremental improvements on the beta version would be versions 0.9.1 and 0.9.2, etc. The `major` number remains a zero until the first major release. Upon release, the first version of the software would be 1.0.0. Small non-breaking changes to this version would increase the `patch` number, making versions like 1.0.1 and 1.0.2. When new features are added to this piece of software that are non-breaking, the second `minor` number will be increased, and version 1.1.0 would be released. The next time a non-breaking feature was added, version 1.2.0 would be released. Finally, when a big breaking change were made in the future to improve the software overall, a new version would be released. This would be version 2.0.0.
 
-{format: png}
+
 ![versioning scheme](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_180)
 
 This scheme from software development can be very helpful in pipeline development. While in development, a pipeline should be versioned such that the first version of the pipeline is 0.9.0. As improvements are made, the pipeline can increase its versioned as discussed above (0.9.1, 0.9.2, etc.). When the pipeline is ready to be officially deployed, its version will be 1.0.0. Then, as changes are made and the pipeline improved, versioning will allow for these changes to be tracked.
@@ -82,7 +82,7 @@ To really understand how a pipeline would be generated, let's work with an examp
 
 The data we'll use for this example can be viewed [here](https://docs.google.com/spreadsheets/d/e/2PACX-1vTuPnBT7Y6emAamDSaXo_RV-X54c0a6nJh4e-bqurRsNW_EIm6ygq90UVfySQbSg0Ue9-U4wSykQqKF/pubhtml). For our purposes, we're going to say that the first Sheet (`Sheet1`) is the data that were collected after the first week the survey ran, while `Sheet 2` contains all data collected in the first two weeks.
 
-{format: png}
+
 ![Google Sheets data](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_129)
 
 Imagine that a week after you've sent the survey out to your friends, you're really curious about the results. Thus, you write a parameterized report to visualize the results! You do this because you want to be able to analyze the data at the click of a button _and_ because you know you'll generate this report again in the future once more data have been collected.
@@ -97,19 +97,19 @@ To get started writing the parameterized report, you'll want to set up your repo
 
 To get started, you'll want to open up a new R Markdown document.
 
-{format: png}
+
 ![New R Markdown Document](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_8)
 
 In this document you'll want to specify two parameters using `params`:
 
-{format: png}
+
 ![YAML of R Markdown](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_13)
 
 The `file_url` parameter says "ask". This means that when we go to knit the report, we want to RStudio to ask at that point what URL to use for the Google Sheet. The second parameter, `worksheet`, specifies that we want the default to be the first worksheet, but we give ourselves the flexibility to specify a different worksheet, if we so choose.
 
 After setting up the YAML, we'll want to install and load any packages that we'll use in the `setup` code chunk:
 
-{format: png}
+
 ![`setup` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_18)
 
 Here, we're installing four packages. In this code we state that if the packages haven't already been installed, do so. Then, all packages are loaded into our RStudio Cloud session.
@@ -118,7 +118,7 @@ Here, we're installing four packages. In this code we state that if the packages
 
 After setting up the RStudio Cloud environment, the data are read in in the code chunk `data`.
 
-{format: png}
+
 ![`data` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_23)
 
 Using `gs_url()` and `gs_read()` from the `googlesheets` package we're able to read in the Google Sheet and specify which worksheet we want to include for analysis. Notice the use of the `params` object. When this file is knit, it will take the `params` specified in the YAML as the input for compiling the report. We'll see exactly how to do this later in this lesson. Note that including a parameter always begins with the object `params`. This is followed by a dollar sign (`$`). Finally, you use the name specified in the YAML to specify which parameter you want to include in your code. Specifically here, we first specify that we want to register the Google Sheet using `params$file_url` and then specify which worksheet to read in by specifying `params$worksheet`.
@@ -131,7 +131,7 @@ We will only include a single check here in this example; however, for most pipe
 
 Here, we would add this code to a code chunk called `checks`.
 
-{format: png}
+
 ![`checks` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_43)
 
 In the code in this chunk (above), we're checking to see if the expected column names are what are in the Google Sheet URL that was provided. You'll see we specify what the expected column names are by creating the `columns` object. Then, the check looks to see how many columns in the Google Sheet are the same as the columns specified in the `columns` object. If they are not all equal, then the report will not compile and an error will be thrown.
@@ -156,7 +156,7 @@ To analyze the data, maybe you're just interested in summarizing the mean number
 
 Before you can generate this plot, you will want to check and clean your data. For this example here, what if people said they spent more than 24 hours doing things in a day? Well, we know there are only 24 hours in a day, so you'd likely want to exclude these individuals from the analysis, as you won't know for sure where the error in their data entry happened. You would write a few lines of code to do this using your data wrangling skills.
 
-{format: png}
+
 ![`clean` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_52)
 
 Here, we have specified that we don't want this code chunk included in the final report, using `include = FALSE` in the code chunk. We have also included comments so that anyone looking at the raw code would know what the code does. But, the final knit report will not include such details.
@@ -169,41 +169,41 @@ Below the code chunk, we include a brief description of the data by specifying h
 
 Once you're confident that your data are ready to be used for analysis, you'd write the code to generate the plot. Here, we're not focusing on the plot, so we use very basic code, but if this were a report you were sending around to your boss or team, you'd likely want to improve the labels, increase the font size, and maybe change the theme. Nevertheless, with this, you're ready to knit your parameterized report.
 
-{format: png}
+
 ![`analyze` code chunk](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_73)
 
 #### Knitting
 
 To generate your knit report, you'll click on the arrow to the right of "Knit" and select "Knit with Parameters..." from the drop-down menu.
 
-{format: png}
+
 ![Knit with Parameters...](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_28)
 
 If prompted, say yes to installing necessary packages. Then, a window will appear where the `file_url` box will say "ask", indicating that you'll have to specify the URL here. The default worksheet is 1. You can leave this as is, or change it to specify a different worksheet.
 
-{format: png}
+
 ![Knit with Parameters pop-up window](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_32)
 
 After adding the URL for the appropriate Google Sheet, you'll want to click "Knit"
 
-{format: png}
+
 ![After adding URL, click Knit](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_38)
 
 Your report will appear! Here, we see a summary of the data after the first week of collecting information from your friends.
 
-{format: png}
+
 ![Report with survey data](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_62)
 
 We see that most of your friends' time is spent working and sleeping, which makes enough sense!
 
 However, the whole point of this report is that you can run it again with ease for an updated dataset -- as that's the whole point of a pipeline. The second sheet in this Google Sheet represents your updated data. Thus, we'll click "Knit with Parameters" again and specify the appropriate URL (the same as earlier), but change worksheet to '2'. We'll again Knit our report.
 
-{format: png}
+
 ![Change parameter and re-Knit](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_67)
 
 Just like that, we see the data summarized across more of our friends! People are still working and sleeping the most; however, we see a lot more variability in this updated dataset!
 
-{format: png}
+
 ![Report with updated survey data](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&pageid=g3eacf30f3b_1_57)
 
 ### Summary

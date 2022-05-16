@@ -28,7 +28,7 @@ To better understand this relationship, we proposed that an analyst could set ou
 
 In fact, many economists have studied exactly this! In our first case study, we'll walk through a recent analysis looking at the effects of *Sesame Street* on educational outcomes.
 
-{format: png}
+
 ![Eary Childhood Education by Television](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_3)
 
 #### Question
@@ -59,7 +59,7 @@ Among these data, the economists would be most interested in the following varia
 4. Policy changes (indicator for whether Food Stamp program had been introduced and Head Start Program expenditures had increased)
 5. Individual demographic information - race/ethnicity, age, and socioeconomic status (SES)
 
-{format: png}
+
 ![Sesame Street Coverage Rates](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_11)
 
 
@@ -73,19 +73,19 @@ Nevertheless, we can still interpret the results from this analysis! The results
 
 Before presenting the results of the table, the economists first demonstrate (using a figure) that before 1969 when *Sesame Street* was introduced, there was no difference in students at grade level between areas that would go on to have *Sesame Street* coverage and those that would not. However, as time goes on, their analysis demonstrates an increase in students at grade level in areas where *Sesame Street* was available.
 
-{format: png}
+
 ![Sesame Street availability correlated with areas where more students were at grade level after 1969](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_21)
 
 Table 4 from this paper then summarizes the results looking at the impact *Sesame Street* coverage (meaning how available *Sesame Street* was in an area) has on educational outcomes. The authors present the effect sizes and standard errors in parentheses.
 
 To intercept these, values greater than 0 have a positive relationship, less than zero a negative relationship. And, the smaller the standard error, the more confident we are in the estimate.
 
-{format: png}
+
 ![Table 4 summarizes results looking at impact of *Sesame Street* on Educational Outcomes](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_48)
 
 For example, if we just focus on the first row measuring the aggregate effect, we see that the effect size is 0.105. Being greater than 0, we see that there is some positive effect. This means that the more *Sesame Street* was available, the better the educational outcomes. The standard error here is 0.041, a value close to but not exactly zero, suggesting that we're relatively confident that this effect is truly close to 0.105.
 
-{format: png}
+
 ![Sesame Street Availability is associated with an increase in educational attainment](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_108)
 
 To interpret what an effect size of 0.105 means in the context of this analysis, a 1 point increase in coverage rates would lead to a 0.105 percentage point increase in the rate of grade-for-age status (their measure of educational attainment).
@@ -94,14 +94,14 @@ The economists who carried out the study, however, point out that a 1 point incr
 
 The authors also stratified their results by gender and race. By comparing the effect sizes, we can see that the effect is larger in males than it is in females and in black children relative to white children.
 
-{format: png}
+
 ![The results are strongest in males and black children](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d27895a1a_0_115)
 
 To demonstrate that this effect has anything to do with Sesame Street, the authors carried out the same analysis *before* *Sesame Street* was released. In doing this, the economists are looking for effect sizes close to zero, suggesting that the availability of *Sesame Street* in 1969 is truly playing a role in improving educational outcomes.
 
 This is what we call a negative control, meaning they're doing this analysis expecting no effect (effect sizes near zero). The authors present their results from this null analysis in a table again.
 
-{format: png}
+
 ![Before *Sesame Street* availability, coverage did not demonstrate a difference in educational attainment](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_12)
 
 
@@ -157,7 +157,7 @@ The authors carried out a number of linear regressions. At times it was simple l
 
 They reported their findings in a table where they include the beta coefficient, standard error (SE), and number of observations used to calculate the statistics. They do this for both the ladder measurement of well-being as well as the happiness measure and reported all of these findings in a single table.
 
-{format: png}
+
 ![Table 2 summarizes relationship between self-reported well-being and religiosity](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_5)
 
 #### Interpretation
@@ -168,7 +168,7 @@ To understand the answer to the question "Is religion good for you?," readers ha
 
 Let's first try to interpret the relationship between people's religiosity (independent variable) how people rank their lives (the dependent variable fist focusing on ladder score - a measure from 0 to 10) among individuals in the USA.
 
-{format: png}
+
 ![Religious individuals in the USA have higher self-reported well-being](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_21)
 
 Focusing on the pink box here, we see that person-level data has a positive beta coefficient, indicating a positive relationship between religiosity and well-being. This means that religious people (on average) tend to have higher ladder measure of well-being than non-religious individuals. The second row here demonstrates that when accounting for income (with multiple regression), this result remains and in fact gets stronger (0.263 > 0.248). We can also see that these results come from analyzing individual data from more than 1 million individuals(the Observations column) and that the error around this estimate is quite small (SE column).
@@ -179,7 +179,7 @@ Moving to the third row here, we see that at the state level (rather than the in
 
 Now, remember that well-being was measured in more than one way. We can now look at the USA-level results where there were only two possible options - yes or no to the question: "Did you experience a lot of happiness yesterday?"
 
-{format: png}
+
 ![Little or no effect of religiosity on yesterday's happiness in USA ](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_28)
 
 Here the results are all positive, but also very close to zero, suggesting that the effect of religiosity on yesterday's measure of happiness is quite small.
@@ -188,7 +188,7 @@ Here the results are all positive, but also very close to zero, suggesting that 
 
 One benefit of this study was that the researchers had measurements from many people worldwide, so they were able to study the effect of religiosity on well-being across countries.
 
-{format: png}
+
 ![Religious individuals in the USA have higher self-reported well-being](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/export/png?id=11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ&pageid=g5d2130274b_0_35)
 
 Again, we turn to the table to look at this relationship. Looking at the beta coefficients, we see that the results suggest that more religious countries tend to have lower well-being measurements (measured by the negative beta coefficient); however, once income was accounted for, this result demonstrated that more religious countries (when accounting for income) tend to have higher measures of ladder well-being. The same general trend held across countries when looking at the effects of religiosity on yesterday's happiness.

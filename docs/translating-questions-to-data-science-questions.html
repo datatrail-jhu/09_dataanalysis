@@ -337,7 +337,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><em>How do the data I have limit the type of question I can answer?</em> I only have data on me. I only have measurements on my weight every day and I need to summarize my Fitbit data to understand my runs, but won’t have information on whether I ran up and down hills or any information on my diet.</li>
 <li><em>What is the type of data science question we are trying to answer?</em> In this case we are looking for a relationship between two variables that we measured for only the data we have so it is an exploratory analysis.</li>
 </ul>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&amp;pageid=g3fa6327ef6_0_234" alt="When I run more do I lose weight?" /></p>
 <p><strong>Are customers more likely to click on ads with puppies?</strong></p>
 <ul>
@@ -346,7 +346,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><em>How do the data I have limit the type of question I can answer?</em> I only have data on a single website and only on a single day. So I might not be able to say things about other websites or other days.</li>
 <li><em>What is the type of data science question we are trying to answer?</em> In this case we are looking for a relationship between two variables and trying say something about all the customers for a website. So this is an inferential analysis.</li>
 </ul>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&amp;pageid=g3fa6327ef6_0_365" alt="Are customers more likely to click on ads with puppies?" /></p>
 <p><strong>Do I need to take an umbrella with me when I leave the house today?</strong></p>
 <ul>
@@ -357,12 +357,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li><em>What is the type of data science question we are trying to answer?</em> In this case we are looking to use historical data to predict something about a single day. So this is a prediction problem.</li>
 </ul>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&amp;pageid=g3fa6327ef6_0_388" alt="Do I need to take an umbrella with me when I leave the house today?" /></p>
 <div id="a-real-example" class="section level3" number="2.0.1">
 <h3><span class="header-section-number">2.0.1</span> A real example</h3>
 <p>Let’s practice translating questions to data science questions through an example. We briefly mentioned this example in the course <a href="https://leanpub.com/universities/courses/jhu/getting-data">Getting Data</a>. The analysis is based on data scientist David Robinson’s <a href="http://varianceexplained.org/r/trump-tweets/">blog</a>.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&amp;pageid=g3e01f3a315_0_1" alt="Trump Tweets blog post" /></p>
 <p>A Twitter user came up with a hypothesis that when Donald Trump was tweeting, hyperbolic tweets came from an Android phone (which he suggested were coming from Donald Trump) and non-hyperbolic tweets came from an iPhone (which he suggested came from Donald Trump’s staff).</p>
 <p>This twitter had noticed that “When Trump wishes the Olympic team good luck, he’s tweeting from his iPhone. When he’s insulting a rival, he’s usually tweeting from an Android.” Robinson started with this question and translated it into a data science question he could answer with data he could collect from Twitter.</p>
@@ -377,10 +377,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>One critical piece of information we are missing from this data is <em>who</em> sent the tweet out. We can hypothesize that one person has an Android and a different person has an iPhone. But we can’t say for sure which person is tweeting from which type of phone. So we have changed the question from a question about <em>who</em> is tweeting to <em>what is the difference</em> between tweets from the two types of phones.</p>
 <p><strong>What is the type of data science question we are trying to answer?</strong></p>
 <p>Using some exploratory analysis, David Robinson first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words “badly” or “crazy” are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&amp;pageid=g3e007f2873_0_1" alt="Exploratory Analysis" /></p>
 <p>Next he can label each word with one of 10 sentiments: positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust using lists that have been put together in the <code>tidytext</code> package. Robinson found that Tweets that come from the Android account use about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&amp;pageid=g3e01f3a315_0_7" alt="Sentiment Analysis" /></p>
 <p>This exploratory analysis suggested that there is a difference between tweets coming from an Android phone versus an iPhone. If you read the post, you will see that further analysis suggests that there are very different types of tweets happening at very different times. This doesn’t show that one person or another is sending those tweets which would require other sources of data we don’t have.</p>
 </div>

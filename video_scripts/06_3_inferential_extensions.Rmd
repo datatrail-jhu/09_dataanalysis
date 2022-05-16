@@ -60,7 +60,7 @@ library(MASS)
 table(quine$Eth, quine$Sex)
 ```
 
-{format: png}
+
 ![raw numbers from `quine` dataset](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1372)
 
 From the raw values, we see there are 38 aboriginal females and 31 males. It's hard to tell from this output whether or not those proportions truly differ from one another. Is 38 out of 80 different than 31 out of 66? Thus, we'll use a statistical test to draw an inference from this sample.
@@ -75,7 +75,7 @@ As mentioned above, `prop.test()` allows you to test whether or not the proporti
 prop.test(table(quine$Eth, quine$Sex))
 ```
 
-{format: png}
+
 ![`prop.test()` output](https://docs.google.com/presentation/d/1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc/export/png?id=1wxCLy3ZQWCc28PsENi83qgKESkH-44nc0tuISMRlRvc&pageid=g3daea37311_0_1377)
 
 Here, again, we'll looked to the confidence interval to interpret our results. If the proportion of aboriginals in each group is equal, we'd expect the difference between them to be zero. Thus, if zero is contained within the 95% confidence interval, there is no statistical difference between the proportions of aboriginals in the male and female groups. This is the case we see here in these data, as zero is between -0.16 and 0.17.

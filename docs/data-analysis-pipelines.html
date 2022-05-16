@@ -344,10 +344,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Finally, pipelines should be versioned. If the format of the dataset changes in the future, you’ll want to be able to update your pipeline, but you don’t want to loose the original pipeline, since that’s what works on the older datasets. Or, if an API changes (which they do!), you’ll need to update your pipeline to account for these changes. Again, you don’t want to lose the older version. <strong>Versioning</strong> here refers to the process of tracking changes in your pipeline.</p>
 <p>Every time you’ve pushed to GitHub, you’ve been using a type of versioning. GitHub tracks commits, which keeps track of every version of your work. However, in pipeline development, it’s best to explicitly track the versions of your pipelines.</p>
 <p>In software each version of a piece of software is often tracked by a set of three numbers, each of which is separated by a decimal place. A general scheme used in software versioning is to version a piece of software as <code>major.minor.patch</code>. In this scheme, a large release with <strong>breaking changes</strong> (changes that could cause previous versions of the software to be incompatible with the current version) will increase the first number in the sequence (<code>major</code>). The second value (<code>minor</code>) will be increased when a version of the software is released that includes new features that are non-breaking. Versions where the the third value (<code>patch</code>) in the sequence are increased include non-breaking changes that tend to be minimal fixes to the software.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_101" alt="major.minor.patch" /></p>
 <p>In this scheme, 0.9.0 would represent software that is in development (referred to as the beta version). Incremental improvements on the beta version would be versions 0.9.1 and 0.9.2, etc. The <code>major</code> number remains a zero until the first major release. Upon release, the first version of the software would be 1.0.0. Small non-breaking changes to this version would increase the <code>patch</code> number, making versions like 1.0.1 and 1.0.2. When new features are added to this piece of software that are non-breaking, the second <code>minor</code> number will be increased, and version 1.1.0 would be released. The next time a non-breaking feature was added, version 1.2.0 would be released. Finally, when a big breaking change were made in the future to improve the software overall, a new version would be released. This would be version 2.0.0.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_180" alt="versioning scheme" /></p>
 <p>This scheme from software development can be very helpful in pipeline development. While in development, a pipeline should be versioned such that the first version of the pipeline is 0.9.0. As improvements are made, the pipeline can increase its versioned as discussed above (0.9.1, 0.9.2, etc.). When the pipeline is ready to be officially deployed, its version will be 1.0.0. Then, as changes are made and the pipeline improved, versioning will allow for these changes to be tracked.</p>
 </div>
@@ -367,7 +367,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-data-1" class="section level4" number="13.0.4.1">
 <h4><span class="header-section-number">13.0.4.1</span> The Data</h4>
 <p>The data we’ll use for this example can be viewed <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTuPnBT7Y6emAamDSaXo_RV-X54c0a6nJh4e-bqurRsNW_EIm6ygq90UVfySQbSg0Ue9-U4wSykQqKF/pubhtml">here</a>. For our purposes, we’re going to say that the first Sheet (<code>Sheet1</code>) is the data that were collected after the first week the survey ran, while <code>Sheet 2</code> contains all data collected in the first two weeks.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_129" alt="Google Sheets data" /></p>
 <p>Imagine that a week after you’ve sent the survey out to your friends, you’re really curious about the results. Thus, you write a parameterized report to visualize the results! You do this because you want to be able to analyze the data at the click of a button <em>and</em> because you know you’ll generate this report again in the future once more data have been collected.</p>
 </div>
@@ -379,21 +379,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-setup" class="section level4" number="13.0.4.3">
 <h4><span class="header-section-number">13.0.4.3</span> The Setup</h4>
 <p>To get started, you’ll want to open up a new R Markdown document.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_8" alt="New R Markdown Document" /></p>
 <p>In this document you’ll want to specify two parameters using <code>params</code>:</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_13" alt="YAML of R Markdown" /></p>
 <p>The <code>file_url</code> parameter says “ask”. This means that when we go to knit the report, we want to RStudio to ask at that point what URL to use for the Google Sheet. The second parameter, <code>worksheet</code>, specifies that we want the default to be the first worksheet, but we give ourselves the flexibility to specify a different worksheet, if we so choose.</p>
 <p>After setting up the YAML, we’ll want to install and load any packages that we’ll use in the <code>setup</code> code chunk:</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_18" alt="setup code chunk" /></p>
 <p>Here, we’re installing four packages. In this code we state that if the packages haven’t already been installed, do so. Then, all packages are loaded into our RStudio Cloud session.</p>
 </div>
 <div id="reading-the-data-in" class="section level4" number="13.0.4.4">
 <h4><span class="header-section-number">13.0.4.4</span> Reading The Data In</h4>
 <p>After setting up the RStudio Cloud environment, the data are read in in the code chunk <code>data</code>.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_23" alt="data code chunk" /></p>
 <p>Using <code>gs_url()</code> and <code>gs_read()</code> from the <code>googlesheets</code> package we’re able to read in the Google Sheet and specify which worksheet we want to include for analysis. Notice the use of the <code>params</code> object. When this file is knit, it will take the <code>params</code> specified in the YAML as the input for compiling the report. We’ll see exactly how to do this later in this lesson. Note that including a parameter always begins with the object <code>params</code>. This is followed by a dollar sign (<code>$</code>). Finally, you use the name specified in the YAML to specify which parameter you want to include in your code. Specifically here, we first specify that we want to register the Google Sheet using <code>params$file_url</code> and then specify which worksheet to read in by specifying <code>params$worksheet</code>.</p>
 </div>
@@ -402,7 +402,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Before actually writing the code to analyze the data, you want to be sure your report runs the appropriate checks on the data itself. As discussed earlier in this lesson, these checks should ensure that the data are in the format the rest of the code is expecting. For example, if you accidentally specified the wrong file on which to run the report, you’d want your report to send you a warning letting you know that the data were not what the report was expecting. Checks are incredibly important parts of a data science pipeline and should not be overlooked.</p>
 <p>We will only include a single check here in this example; however, for most pipelines, you’ll certainly want to write a few more checks to <strong>ensure that your analysis will run properly</strong>. Always try to anticipate possible mistakes that users could make in generating this report. Then, write checks to test for each possible scenario. Remember, others should be able to generate this report in your absence.</p>
 <p>Here, we would add this code to a code chunk called <code>checks</code>.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_43" alt="checks code chunk" /></p>
 <p>In the code in this chunk (above), we’re checking to see if the expected column names are what are in the Google Sheet URL that was provided. You’ll see we specify what the expected column names are by creating the <code>columns</code> object. Then, the check looks to see how many columns in the Google Sheet are the same as the columns specified in the <code>columns</code> object. If they are not all equal, then the report will not compile and an error will be thrown.</p>
 <p>Note that there are three types of feedback your code can give in R:</p>
@@ -421,7 +421,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-cleaning" class="section level5" number="13.0.4.6.1">
 <h5><span class="header-section-number">13.0.4.6.1</span> Data Cleaning</h5>
 <p>Before you can generate this plot, you will want to check and clean your data. For this example here, what if people said they spent more than 24 hours doing things in a day? Well, we know there are only 24 hours in a day, so you’d likely want to exclude these individuals from the analysis, as you won’t know for sure where the error in their data entry happened. You would write a few lines of code to do this using your data wrangling skills.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_52" alt="clean code chunk" /></p>
 <p>Here, we have specified that we don’t want this code chunk included in the final report, using <code>include = FALSE</code> in the code chunk. We have also included comments so that anyone looking at the raw code would know what the code does. But, the final knit report will not include such details.</p>
 <p>You’d also want to be sure that your report provides a description of how many individuals’ data are included in your analysis and how many samples have been removed (an example of a descriptive analysis!).</p>
@@ -430,30 +430,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-analysis" class="section level5" number="13.0.4.6.2">
 <h5><span class="header-section-number">13.0.4.6.2</span> Data Analysis</h5>
 <p>Once you’re confident that your data are ready to be used for analysis, you’d write the code to generate the plot. Here, we’re not focusing on the plot, so we use very basic code, but if this were a report you were sending around to your boss or team, you’d likely want to improve the labels, increase the font size, and maybe change the theme. Nevertheless, with this, you’re ready to knit your parameterized report.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_73" alt="analyze code chunk" /></p>
 </div>
 </div>
 <div id="knitting" class="section level4" number="13.0.4.7">
 <h4><span class="header-section-number">13.0.4.7</span> Knitting</h4>
 <p>To generate your knit report, you’ll click on the arrow to the right of “Knit” and select “Knit with Parameters…” from the drop-down menu.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_28" alt="Knit with Parameters…" /></p>
 <p>If prompted, say yes to installing necessary packages. Then, a window will appear where the <code>file_url</code> box will say “ask”, indicating that you’ll have to specify the URL here. The default worksheet is 1. You can leave this as is, or change it to specify a different worksheet.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_32" alt="Knit with Parameters pop-up window" /></p>
 <p>After adding the URL for the appropriate Google Sheet, you’ll want to click “Knit”</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_38" alt="After adding URL, click Knit" /></p>
 <p>Your report will appear! Here, we see a summary of the data after the first week of collecting information from your friends.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_62" alt="Report with survey data" /></p>
 <p>We see that most of your friends’ time is spent working and sleeping, which makes enough sense!</p>
 <p>However, the whole point of this report is that you can run it again with ease for an updated dataset – as that’s the whole point of a pipeline. The second sheet in this Google Sheet represents your updated data. Thus, we’ll click “Knit with Parameters” again and specify the appropriate URL (the same as earlier), but change worksheet to ‘2’. We’ll again Knit our report.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_67" alt="Change parameter and re-Knit" /></p>
 <p>Just like that, we see the data summarized across more of our friends! People are still working and sleeping the most; however, we see a lot more variability in this updated dataset!</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/export/png?id=1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI&amp;pageid=g3eacf30f3b_1_57" alt="Report with updated survey data" /></p>
 </div>
 </div>

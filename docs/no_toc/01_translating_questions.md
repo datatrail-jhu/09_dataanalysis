@@ -39,7 +39,7 @@ __When I run more do I lose weight?__
 * _How do the data I have limit the type of question I can answer?_ I only have data on me. I only have measurements on my weight every day and I need to summarize my Fitbit data to understand my runs, but won't have information on whether I ran up and down hills or any information on my diet.
 * _What is the type of data science question we are trying to answer?_ In this case we are looking for a relationship between two variables that we measured for only the data we have so it is an exploratory analysis.
 
-{format: png}
+
 ![When I run more do I lose weight?](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3fa6327ef6_0_234)
 
 __Are customers more likely to click on ads with puppies?__
@@ -50,7 +50,7 @@ __Are customers more likely to click on ads with puppies?__
 * _How do the data I have limit the type of question I can answer?_ I only have data on a single website and only on a single day. So I might not be able to say things about other websites or other days.
 * _What is the type of data science question we are trying to answer?_ In this case we are looking for a relationship between two variables and trying say something about all the customers for a website. So this is an inferential analysis.
 
-{format: png}
+
 ![Are customers more likely to click on ads with puppies?](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3fa6327ef6_0_365)
 
 __Do I need to take an umbrella with me when I leave the house today?__
@@ -61,14 +61,14 @@ __Do I need to take an umbrella with me when I leave the house today?__
 * _What is the type of data science question we are trying to answer?_ In this case we are looking to use historical data to predict something about a single day. So this is a prediction problem.
 
 
-{format: png}
+
 ![Do I need to take an umbrella with me when I leave the house today?](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3fa6327ef6_0_388)
 
 ### A real example
 
 Let's practice translating questions to data science questions through an example. We briefly mentioned this example in the course [Getting Data](https://leanpub.com/universities/courses/jhu/getting-data). The analysis is based on data scientist David Robinson's [blog](http://varianceexplained.org/r/trump-tweets/).
 
-{format: png}
+
 ![Trump Tweets blog post](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3e01f3a315_0_1)
 
 A Twitter user came up with a hypothesis that when Donald Trump was tweeting, hyperbolic tweets came from an Android phone (which he suggested were coming from Donald Trump) and non-hyperbolic tweets came from an iPhone (which he suggested came from Donald Trump's staff).
@@ -99,12 +99,12 @@ __What is the type of data science question we are trying to answer?__
 
 Using some exploratory analysis, David Robinson first found that the most common words the come from the Android and iPhone platforms are different. He uses a measure to find the likelihood that a word is tweeted from an Android or an iPhone phone. So the words "badly" or "crazy" are likely to be sent from Android and the hashtags #makeamericagreatagain and #trump2016 are likely from iPhone.
 
-{format: png}
+
 ![Exploratory Analysis](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3e007f2873_0_1)
 
 Next he can label each word with one of 10 sentiments:  positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust using lists that have been put together in the `tidytext` package. Robinson found that Tweets that come from the Android account use about 40-80% more words related to disgust, sadness, fear, anger, and other “negative” sentiments than the iPhone account does.
 
-{format: png}
+
 ![Sentiment Analysis](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/export/png?id=18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo&pageid=g3e01f3a315_0_7)
 
 This exploratory analysis suggested that there is a difference between tweets coming from an Android phone versus an iPhone. If you read the post, you will see that further analysis suggests that there are very different types of tweets happening at very different times. This doesn't show that one person or another is sending those tweets which would require other sources of data we don't have.

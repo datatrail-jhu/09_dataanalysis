@@ -315,33 +315,33 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <!-- or use  `didactr::gs_slide_df("SLIDEID")$png_markdown` -->
 <p>Inferential analysis is commonly the goal of statistical modeling, where you have a small amount of information to extrapolate and generalize that information to a larger group. One of the most common approaches used in statistical modeling is known as <strong>linear regression</strong>. Here, we’ll discuss when using linear regression is appropriate, how to carry out the analysis in R, and how to interpret the results from this statistical approach.</p>
 <p>When discussing linear regression, we’re trying to describe (model) the relationship between a dependent variable and an independent variable.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_357" alt="linear regression models relationship between two variables" /></p>
 <p>When visualizing a linear relationship, the independent variable is plotted along the bottom of the graph, on the <strong>x-axis</strong> and the dependent variable is plotted along the side of the plot, on the <strong>y-axis</strong>.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_430" alt="independent on the x-axis; dependent on the y-axis" /></p>
 <p>When carrying out linear regression, a <strong>best-fitting line</strong> is drawn through the data points to describe the relationship between the variables.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_468" alt="A best-fitting line describes the relationship between the variables" /></p>
 <p>A best-fitting line, technically-speaking, minimizes the sum of the squared errors. In simpler terms, this means that the line that minimizes the distance of all the points from the line is the best-fitting line. Or, most simply, there are the same number of points above the line as there are below the line. In total, the distance from the line for the points above the line will be the same as the distance from the points to the line below the line.</p>
 <p>Note that the best fitting line does <em>not</em> have to go through any points to be the best-fitting line. Here, on the right, we see a line that goes through seven points on the plot (rather than the four the best-fitting line goes through, on the left). However, this is <em>not</em> a best-fitting line, as there are <em>way</em> more points above the line than there are below the line.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_504" alt="A best-fitting line does NOT have to go through the most points possible" /></p>
 <p>This line describes the relationship between the two variables. If you look at the direction of the line, it will tell you whether there is a positive or a negative relationship between the variables. In this case, the larger the value of the independent variable, the larger the value of the dependent variable. Similarly, the smaller the value of the independent variable, the smaller the value of the dependent variable. When this is the case, there is a <strong>positive relationship</strong> between the two variables.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_641" alt="A positive relationship will have points that trend up and to the right" /></p>
 <p>An example of variables that have a positive relationship would be the height of fathers and their sons. In general, the taller a father is, the taller his son will be. And, the shorter a father is the more likely his son is to be short.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_791" alt="Father and son height demonstrate a positive linear relationship" /></p>
 <p>Alternatively, when the higher the value of the independent variable, the lower the value of the dependent variable, this is a negative relationship.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_752" alt="A positive relationship will have points that trend up and to the left" /></p>
 <p>An example of variables that have a negative relationship would be the relationship between a students’ absences and their grades. The more absences a student has, the lower their grades tend to be.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_830" alt="Student absences and grades show a negative linear relationship" /></p>
 <p>Linear regression, in addition to to describing the direction of the relationship, it can also be used to determine the <strong>strength</strong> of that relationship.</p>
 <p>This is because the assumption with linear regression is that the true relationship is being described by the best-fitting line. Any points that fall away from the line do so due to random error. This means that if all the points fall directly on top of the line, there is no error. The further the points fall from the line, the greater the error. When points are further from the best-fitting line, the relationship between the two variables is weaker than when the points fall closer to the line.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_872" alt="Correlation is weaker on the left and stronger on the right" /></p>
 <p>In this example, the pink line is exactly the same best-fitting line in each graph. However, on the left, where the points fall further from the line, the strength of the relationship between these two variables is weaker than on the right, where the points fall closer to the line, where the relationship is stronger. The strength of this relationship is measured using <strong>correlation</strong>. The closer the points are to the line the more <strong>correlated</strong> the two variables are, meaning the relationship between the two variables is stronger.</p>
 <div id="assumptions" class="section level4" number="7.0.0.1">
@@ -352,23 +352,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h5><span class="header-section-number">7.0.0.1.1</span> Linearity</h5>
 <p>The relationship between the two variables must be linear.</p>
 <p>For example, what if we were plotting data from a single day and we were looking at the relationship between temperature and time. Well, we know that generally temperature increases throughout the day and then decreases in the evening. Here, we see some example data reflective of this relationship. The upside-down u-shape of the data suggests that the relationship is not in fact linear. While we <em>could</em> draw a straight line through these data, it would be inappropriate. In cases where the relationship between the variables cannot be well-modeled with a straight line, linear regression should <em>not</em> be used.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1008" alt="If the relationship between the variables is non-linear, regression should not be used" /></p>
 </div>
 <div id="homoscedasticity" class="section level5" number="7.0.0.1.2">
 <h5><span class="header-section-number">7.0.0.1.2</span> Homoscedasticity</h5>
 <p>In addition to displaying a linear relationship, the random variables must demonstrate <strong>homoscedasticity</strong>. In other words, the variance (distance from the line) must be constant throughout the variable.</p>
 <p>If points at one end are much closer to the best-fitting line than points are at the other end, homoscedasticity has been violated and linear regression is not appropriate for the data.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1054" alt="Variance must be consistent across the variable for linear regression to be used" /></p>
 </div>
 <div id="normality-of-residuals" class="section level5" number="7.0.0.1.3">
 <h5><span class="header-section-number">7.0.0.1.3</span> Normality of residuals</h5>
 <p>When we fit a linear regression, typically the data do not fall <em>perfectly</em> along the regression line. Rather, there is some distance from each point to the line. Some points are quite close to the line, while others are further away. Each point’s distance to the regression line can be calculated. This distance is the <strong>residual</strong> measurement.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_79" alt="Residuals are calculated by measuring the distance from each point to the regression line" /></p>
 <p>In linear regression, one assumption is that these residuals follow a Normal distribution. This means that if you were to calculate each residual (each point’s distance to the regression line) and then plot a histogram of all of those values - that plot should look like a Normal Distribution.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_129" alt="Linear regression assumes normality of residuals" /></p>
 <p>If you do not see normality of residuals, this can suggest that outlier values - observations more extreme than the rest of the data - may exist in your data. This can severely affect you regression results and lead you to conclude something that is untrue about your data.</p>
 <p>Thus, it is your job, when running linear regression to check for:</p>
@@ -390,11 +390,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>After determining that the assumptions of linear regression are met, in order to determine the association between two variables, one would carry out a linear regression. From the linear regression, one would then interpret the <strong>Beta estimate</strong> and the <strong>standard error</strong> from the model.</p>
 <p><strong>Beta estimate</strong> - determines the direction and strength of the relationship between the two variables.</p>
 <p>A beta of zero suggests there is no association between the two variables. However, if the beta value is positive, the relationship is positive. If the value is negative, the relationship is negative. Further, the larger the number, the bigger the effect is. We’ll discuss effect size and how to interpret the value in more detail later in this lesson.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1095" alt="Beta estimates describe the size and strength of the effect" /></p>
 <p><strong>Standard error</strong> - determines how uncertain the beta estimate is. The larger the standard error, the <em>more</em> uncertain we are in the estimate. The smaller the standard error, the <em>less</em> uncertain we are in the estimate.</p>
 <p>Standard errors are calculated based on how well the best-fitting line models the data. The closer the points are to the line, the lower the standard error will be, reflecting our decreased uncertainty. However, as the points are further from the regression line, our uncertainty in the estimate will increase, and the standard error will be larger.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1167" alt="Standard errors explain how uncertain the estimate is" /></p>
 <p>A reminder that when carrying out inferential data analysis, you will always want to report an estimate <em>and</em> a measure of uncertainty. For linear regression, this will be the <strong>beta estimate</strong> and the <strong>standard error</strong>.</p>
 <p>You may have heard talk of <strong>p-values</strong> at some point. People tend to use p-values to describe the strength of their association due to its simplicity. The p-value is a single number that takes into account both the estimate (beta estimate) and the uncertainty in that estimate (SE). The lower a p-value the more significant the association is between two variables. However, while it is a simple value, it doesn’t tell you nearly as much information as reporting the estimates and standard errors directly. Thus, if you’re reporting p-values, it’s best to also include the estimate and standard errors as well.</p>
@@ -414,13 +414,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-2"><a href="inference-linear-regression.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="inference-linear-regression.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trees) <span class="sc">+</span></span>
 <span id="cb21-4"><a href="inference-linear-regression.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(Height, Girth))</span></code></pre></div>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1300" alt="scatterplot of trees dataset" /></p>
 <p>From the looks of this plot, the relationship looks approximately linear, but to visually make this a little easier, we’ll add a line of best first to the plot.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="inference-linear-regression.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trees, <span class="fu">aes</span>(Height, Girth)) <span class="sc">+</span></span>
 <span id="cb22-2"><a href="inference-linear-regression.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb22-3"><a href="inference-linear-regression.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1305" alt="scatterplot with line of best fit" /></p>
 <p>On this graph, the relationship looks approximately linear and the variance (distance from points to the line) is constant across the data. Given this, it’s appropriate to use linear regression for these data.</p>
 <p><strong>Fitting the model</strong></p>
@@ -433,7 +433,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="inference-linear-regression.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb24-2"><a href="inference-linear-regression.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code></pre></div>
 <p>This generates four plots:</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_210" alt="diagnostic linear regression plots using plot()" /></p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Residuals vs Fitted</strong> - checks linear relationship assumption of linear regression. A linear relationship will demonstrate a horizontal red line here. Deviations from a horizontal line suggest nonlinearity and that a different approach may be necessary.</p></li>
@@ -443,23 +443,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><strong>Tree girth and height example</strong></p>
 <p>In our example looking at the relationship between tree girth and height, we can first check <strong>linearity of the data</strong> by looking at the <strong>Residuals vs Fitted</strong> plot. Here, we do see a red line that is approximately horizontal, which is what we’re looking for. Additionally, we’re looking to be sure there is no clear pattern in the points on the plot - we <em>want</em> them to be random on this plot. Clustering of a bunch of points together or trends in this plot would indicate that the data do not have a linear relationship.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_217" alt="Residuals plot has data scattered randomly throughout and a mostly horizontal fitted line" /></p>
 <p>To check for <strong>homogeneity of the variance</strong>, we can turn to the <strong>Scale-Location</strong> plot. Here, we’re again looking for a horizontal red line. In this dataset, there’s a suggestion that there is some heteroscedasticity, with points not being equally far from the regression line across the observations.</p>
 <p>While not discussed explicitly here in this lesson, we will note that when the data are nonlinear or the variances are not homogeneous (are not homoscedastic), <strong>transformations</strong> of the data can often be applied and then linear regression can be used.</p>
 <p><strong>QQ Plots</strong> are very helpful in assessing the <strong>normality of residuals</strong>. Normally distributed residuals will fall along the grey dotted line. Deviation from the line suggests the residuals are not normally distributed.Here, in this example, we do not see the points fall perfectly along the dotted line, suggesting that our residuals are not normally distributed.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_227" alt="Deviation from the dotted line suggests non-normality of residuals" /></p>
 <p>A histogram (or densityplot) of the residuals can also be used for this portion of regression diagnostics. Here, we’re looking for a Normal distribution of the residuals.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="inference-linear-regression.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb25-2"><a href="inference-linear-regression.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fit, <span class="fu">aes</span>(fit<span class="sc">$</span>residuals)) <span class="sc">+</span></span>
 <span id="cb25-3"><a href="inference-linear-regression.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">5</span>)</span></code></pre></div>
 <p>The QQ Plot and the histogram of the residuals will always give the same answer. Here, we see that with our limited sample size, we do not have perfectly Normally distributed residuals; however, the points do not fall wildly far from the dotted line.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_251" alt="Residuals are not perfectly Normally distributed" /></p>
 <p>Finally, whether or not <strong>outliers</strong> (extreme observations) are driving our results can be assessed by looking at the <strong>Residuals vs Leverage</strong> plot.</p>
 <p>Generally speaking, standardized residuals greater than 3 or less than -3 are to be considered as outliers. Here, we do not see any values in that range (by looking at the y-axis), suggesting that there are no extreme outliers driving the results of our analysis.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g5d2253b705_0_237" alt="Outliers in a dataset can affect the results of your analysis" /></p>
 <p><strong>Interpreting the model</strong></p>
 <p>While the relationship in our example appears to be linear, does not indicate being driven by outliers, is approximately homoscedastic and has residuals that are not perfectly Normally distributed, but fall close to the line in the QQ plot, we can discuss how to interpret the results of the model.</p>
@@ -467,14 +467,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-2"><a href="inference-linear-regression.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
 <p>The <code>summary()</code> function summarizes the model as well as the output of the model. We can see the values we’re interested in in this summary, including the beta estimate, the standard error (SE), and the p-value.</p>
 <p>Specifically, from the beta estimate, which is positive, we confirm that the relationship is positive (which we could also tell from the scatterplot). We can also interpret this beta estimate explicitly.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1309" alt="Beta, SE, and p-value all included in summary() output" /></p>
 <p>Specifically, the <strong>beta estimate</strong> (also known as the beta coefficient or coefficient in the <code>Estimate</code> column) is the <strong>amount the dependent variable will change given a one unit increase in he independent variable</strong>. In the case of the trees, a beta estimate of 0.256, says that for every inch a tree’s girth increases, its height will increase by 0.256 inches. Thus, we not only know that there’s a positive relationship between the two variables, but we know by precisely how much one variable will change given a single unit increase in the other variable. Note that we’re looking at the second row in the output here, where the row label is “Height”. This row quantifies the relationship between our two variables. The first row quantifies the intercept, or where the line crosses the y-axis.</p>
 <p>The standard error and p-value are also included in this output. Error is typically something we want to minimize (in life and statistical analyses), so the <em>smaller</em> the error, the <em>more confident</em> we are in the association between these two variables.</p>
 <p>The beta estimate and the standard error are then both considered in the calculation of the p-value (found in the column <code>Pr[&gt;|t|]</code>). The smaller this value is, the more confident we are that this relationship is not due to random chance alone.</p>
 <p><strong>Variance Explained</strong></p>
 <p>Additionally, the strength of this relationship is summarized using the adjusted R-squared metric. This metric explains how much of the variance this regression line explains. The more variance explained, the closer this value is to 1. And, the closer this value is to 1, the closer the points in your dataset fall to the line of best fit. The further they are from the line, the closer this value will be to zero.</p>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1325" alt="Adjusted R-squared specifies how closely the data fall are to the regression line" /></p>
 <p>As we saw in the scatterplot, the data are not right up against the regression line, so a value of 0.2445 seems reasonable, suggesting that this model (this regression line) explains 24.45% of the variance in the data.</p>
 <p><strong>Using `broom</strong></p>
@@ -483,7 +483,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb27-2"><a href="inference-linear-regression.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
 <span id="cb27-3"><a href="inference-linear-regression.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-4"><a href="inference-linear-regression.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)</span></code></pre></div>
-<p>{format: png}
+<p>
 <img src="https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/export/png?id=1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg&amp;pageid=g3daea37311_0_1343" alt="tidy() helps organize output from statistical models" /></p>
 <p>Note that the values haven’t changed. They’re just organized into an easy-to-use table. It’s helpful to keep in mind that this function and package exist as you work with statistical models.</p>
 <p>Finally, it’s important to always keep in mind that the <strong>interpretation of your inferential data analysis</strong> is incredibly important. When you use linear regression to test for association, you’re looking at the relationship between the two variables. While girth can be used to infer a tree’s height, this is just a correlation. It <strong>does not mean</strong> that an increase in girth <strong>causes</strong> the tree to grow more. Associations are <em>correlations</em>. They are <strong>not</strong> causal. We’ll discuss this more later in the lesson.</p>

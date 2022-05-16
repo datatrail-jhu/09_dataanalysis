@@ -13,27 +13,27 @@ In the last lesson, we finished discussing how to use `lm()` to assess the assoc
 
 Well, let's consider an example. What if we were interested in understanding the relationship between shoe size and literacy. To do so, we took a look at this small sample of two humans, one who wears small shoes and is not literate and one adult who wears big shoes and is literate.
 
-{format: png}
+
 ![Two humans and their respective shoe sizes and literacy levels](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1463)
 
 If we were to diagram this question, we may ask "Can we infer literacy rates from shoe size?"
 
-{format: png}
+
 ![Possible to infer literacy rate from shoe size?](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1471)
 
 If we return to our sample, it'd be important to note that one of the humans is a young child and the other is an adult.
 
-{format: png}
+
 ![Adult and child with their respective shoe sizes and literacy levels](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1478)
 
 Our initial diagram failed to take into consideration the fact that these humans differed in their age. Age affects their shoe size *and* their literacy rates. In this example, age is a confounder.
 
-{format: png}
+
 ![Age is a confounder](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1486)
 
 Any time you have a variable that affects both your dependent *and* independent variables, it's a confounder. Ignoring confounders is not appropriate when analyzing data. In fact, in this example, you would have concluded that people who wear small shoes have lower literacy rates than those who wear large shoes. That would have been incorrect. In fact, that analysis was *confounded* by age. Failing to correct for confounding has led to misreporting in the media and retraction of scientific studies. You don't want to be in that situation. So, **always consider and check for confounding** among the variables in your dataset.
 
-{format: png}
+
 ![Confounders are variables that affect both your dependent and independent variables](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1494)
 
 ### Multiple Linear Regression
@@ -52,7 +52,7 @@ ggplot(mtcars, aes(wt, mpg)) +
   geom_point()
 ```
 
-{format: png}
+
 ![scatterplot of `wt` and `mpg` from `mtcars`](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1513)
 
 From the scatterplot, the relationship looks approximately linear and the variance looks constant. Thus, we could model this using linear regression:
@@ -63,7 +63,7 @@ fit <- lm(mpg ~ wt, data = mtcars)
 tidy(fit)
 ```
 
-{format: png}
+
 ![mtcars linear regression output](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1509)
 
 From this analysis, we would infer that for every increase 1000 lbs more a car weighs, it gets 5.34 miles *less* per gallon.  
@@ -78,7 +78,7 @@ ggplot(mtcars, aes(wt, mpg)) +
   facet_wrap(~vs)
 ```
 
-{format: png}
+
 ![Scaterplot faceting for engine type](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1339)
 
 From this plot, we can see that V-shaped engines (`vs`= 0), tend to be heavier and get fewer miles per gallon while straight engines (`vs` = 1) tend to weigh less and get more miles per gallon. Importantly, however, we see that a car that weighs 3000 points (`wt` = 3) and has a V-Shaped engine (`vs` = 0) gets fewer miles per gallon than a car of the same weight with a straight engine (`vs` = 1), suggesting that simply modeling a linear relationship between weight and mpg is not appropriate.
@@ -91,7 +91,7 @@ fit <- lm(mpg ~ wt + vs, data = mtcars)
 tidy(fit)
 ```
 
-{format: png}
+
 ![confounding model taken into account](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1503)
 
 Here, we get a more accurate picture of what's going on. Interpreting multiple regression models is slightly more complicated since there are more variables; however, we'll practice how to do so now.
@@ -100,7 +100,7 @@ The best way to interpret the coefficients in a multiple linear regression model
 
 We can similarly interpret the coefficients by focusing on the engines (`vs`). For example, for two cars that weigh the same, we'd expect a straight engine (`vs` = 1) to get 3.5 more miles per gallon than a V-Shaped engine (`vs`= 0).
 
-{format: png}
+
 ![confounding model taken into account](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1531)
 
 Finally, we'll point out that the p-value for `wt` decreased in this model relative to the model where we didn't account for confounding. This is because the model was not initially taking into account the engine difference. Sometimes when confounders are accounted for, your variable of interest will become more significant; however, frequently, the p-value will increase, and that's OK. What's important is that the data are most appropriately modeled.
@@ -109,7 +109,7 @@ Finally, we'll point out that the p-value for `wt` decreased in this model relat
 
 You've likely heard someone say before that "correlation is not causation," and it's true! In fact, there are [whole websites](http://www.tylervigen.com/spurious-correlations) dedicated to this concept.  Let's make sure we know exactly what that means before moving on. In the plot you see here, as the divorce rate in Maine decreases, so does per capita consumption of margarine. These two lines are clearly correlated; however, there isn't really a strong (or any) argument to say that one caused the other. Thus, just because you see two things with the same trend does not mean that one caused the other. These are simply **spurious correlations** -- things that trend together by chance. **Always** keep this in mind when you're doing inferential analysis, and be sure that you **never draw causal claims when all you have are associations**.
 
-{format: png}
+
 ![Correlation does not equal causation](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g3daea37311_0_1545)
 
 
@@ -138,7 +138,7 @@ head(soda_ounces)
 
 In this code, we're specifying that we want to take a random draw of 100 different values (representing our 100 cans of soft drink), where the mean is 12 (representing the 12 ounces of soda expected to be within each can), and allowing for some variation (we've set the standard deviation to be 0.04).
 
-{format: png}
+
 ![output looking at `soda_ounces` dataset](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g5d2253b705_2_0)
 
 We can see that the values are approximately, but not always exactly equal to the expected 12 ounces.
@@ -169,7 +169,7 @@ ggplot(as.data.frame(soda_ounces))+
 
 Here, we see that the data are approximately normally distributed, allowing for a t-test to be used.
 
-{format: png}
+
 ![histogram of `soda_ounces`](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g5d2253b705_2_5)
 
 A t-test will check whether the observed ounces differs from the expected mean (12 oz). As mentioned above, to run a t-test in R, most people use the built-in function: `t.test()`
@@ -179,7 +179,7 @@ A t-test will check whether the observed ounces differs from the expected mean (
 t.test(soda_ounces, mu = 12)
 ```
 
-{format: png}
+
 ![`t.test()` output](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g5d2253b705_2_13)
 
 In the output from this function, we'll focus on the 95 percent confidence interval. Confidence Intervals provide the range of values likely to contain the unknown population parameter. Here, the population parameter we're interested in is the mean. Thus, the 95% Confidence Intervals provides us the range where, upon repeated sampling, the calculated mean would fall 95 percent of the time. More specifically, if the 95 percent confidence interval contains the expected mean (12 oz), then we can be confident that the company is not shorting us on the amount of liquid they're putting into each can.
@@ -196,7 +196,7 @@ regression_output <-  lm(soda_ounces ~ 1)
 confint(regression_output)
 ```
 
-{format: png}
+
 ![comparing `t.test()` and `lm()` output](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g5d2253b705_2_21)
 
  Note that the confidence interval is the exact same here using `lm()` as above when we used `t.test()`! We bring this up not to confuse you, but to guide you away from trying to memorize each individual statistical test and instead understand how they relate to one another.
@@ -207,7 +207,7 @@ Now that you've seen how to measure the linear relationship between variables (l
 
 These have been nicely summarized by  Jonas Kristoffer Lindelov in is blog post [Common statistical tests are linear models (or: how to teach stats)](https://lindeloev.github.io/tests-as-linear). We've included the table summarizing his post here, but we recommend you check it out and the examples included within it carefully!
 
-{format: png}
+
 ![Common statistical tests are linear models](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&pageid=g5d2253b705_2_105)
 
 
