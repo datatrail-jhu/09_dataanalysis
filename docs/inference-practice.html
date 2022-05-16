@@ -346,14 +346,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="inference-practice.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb37-2"><a href="inference-practice.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb37-3"><a href="inference-practice.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(coverage)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_0" alt="glimpse() gives us a look at what’s included in our coverage dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_0" alt="" />
+<p class="caption"><code>glimpse()</code> gives us a look at what’s included in our coverage dataset</p>
+</div>
 <p>Looking at the output here, we see that there are 52 observations and 29 variables being measured. We see that the observations are the states in the US (likely including Washington, DC) and one for the US overall. We then see that a number of pieces of data (variables) have been collected over four years (2013-2016).</p>
 <p>We also get an idea of what <em>types</em> of data are stored in our dataset. We see lots of numeric variable (<code>dbl</code>) and a few strings (<code>chr</code>). But wait…should those strings <em>actually</em> be strings? It looks like there’s numeric information stored in those variables (<code>2013__Other Public</code>, for example). It looks like the way missing data has been specified in these data (“N/A”) is causing some issues… R is expecting “NA” by default…so we’ll have to go back and specify for R to look for “N/A” as well in just a second.</p>
 <p>But first, let’s see if we have the same issue in the spending dataset.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="inference-practice.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(spending)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_6" alt="glimpse() demonstrates we have the same number of observations in the spending dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_6" alt="" />
+<p class="caption"><code>glimpse()</code> demonstrates we have the same number of observations in the spending dataset</p>
+</div>
 <p>When we look at the <code>glimpse()</code> output for spending, we see that we again have the same number of observations (N=52) but here we have 25 variables summarizing total health spending from 1991-2014. So, right off the bat we know that the only two years we have overlapping information are 2013 and 2014. Something to keep in mind!</p>
 <p>Also, we see that all observations (aside from Location) are numeric (<code>dbl</code>), so it doesn’t appear we have any “N/A” issues here.</p>
 <p>Before we go any further, let’s address those “N/A” values. If you looked at the <code>read_csv</code> documentation, you’re aware that <code>na</code> is an argument to that function. So, let’s read these data in once again, but specify that “N/A” is how missing data has been specified in the coverage dataset.</p>
@@ -367,12 +371,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-2"><a href="inference-practice.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
 <span id="cb40-3"><a href="inference-practice.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-4"><a href="inference-practice.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(coverage)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_11" alt="skim() provides a ton of helpful information" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_11" alt="" />
+<p class="caption"><code>skim()</code> provides a ton of helpful information</p>
+</div>
 <p>For example, in our <code>coverage</code> dataset, we quickly see that most variables have complete information, but there is missing information in the <code>Other Public</code> variables across the years. We also know that the average (mean) for Total has remained constant (1.2 x 10^7) for the years included in this dataset.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="inference-practice.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(spending)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_11" alt="skim() summarizes the spending dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_11" alt="" />
+<p class="caption"><code>skim()</code> summarizes the spending dataset</p>
+</div>
 <p>We can similarly see at a glance that there is no missing information in the <code>spending</code> dataset. However, unlike in the coverage dataset, here, with data from more years we can see spending has increased over time. Specifically, the average in 1991 was 25996.06 and 98570.17 by 2014.</p>
 <p>Using <code>glimpse()</code> and <code>skim()</code> we get an understanding of what information is included in our dataset as well as what typical values are and what data are missing.</p>
 <p>What we <em>don’t</em> get here is variability across states, whether one state spends more than others, and what the relationship between spending and coverage is. That’s what EDA is for!</p>
@@ -398,55 +406,71 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-3"><a href="inference-practice.html#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-4"><a href="inference-practice.html#cb42-4" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> <span class="fu">gather</span>(coverage, <span class="st">&quot;year_type&quot;</span>, <span class="st">&quot;tot_coverage&quot;</span>, <span class="sc">-</span>Location)</span>
 <span id="cb42-5"><a href="inference-practice.html#cb42-5" aria-hidden="true" tabindex="-1"></a>coverage</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_39" alt="gather() takes our “wide” coverage dataset to “long”" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_39" alt="" />
+<p class="caption"><code>gather()</code> takes our “wide” <code>coverage</code> dataset to “long”</p>
+</div>
 <p>We’ll want to do the same to our <code>spending</code> dataset:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="inference-practice.html#cb43-1" aria-hidden="true" tabindex="-1"></a>spending <span class="ot">&lt;-</span> <span class="fu">gather</span>(spending, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;tot_spending&quot;</span>, <span class="sc">-</span>Location)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_44" alt="gather() takes our spending dataset from “wide” to “long”" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_44" alt="" />
+<p class="caption"><code>gather()</code> takes our <code>spending</code> dataset from “wide” to “long”</p>
+</div>
 <p>We’re making progress! Our data are in a tidy format now; however, you may have noticed that information about year is tied up with other information. We’ll want to separate that out. Fortunately, <code>tidyr</code> has the incredibly helpful <code>separate()</code> function! We’ll use that to separate out year information so that we can use that in our join! Note that here we’re including <code>convert = TRUE</code> so that the resulting year columns is of type <code>int</code>.</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="inference-practice.html#cb44-1" aria-hidden="true" tabindex="-1"></a>coverage <span class="ot">&lt;-</span> coverage <span class="sc">%&gt;%</span></span>
 <span id="cb44-2"><a href="inference-practice.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(year_type, <span class="at">sep=</span><span class="st">&quot;__&quot;</span>, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;type&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_49" alt="separate() to separate column contents" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_49" alt="" />
+<p class="caption"><code>separate()</code> to separate column contents</p>
+</div>
 <p>And, just like that, we’ve got <code>year</code> in its own column!</p>
 <p>Now, let’s repeat that for our <code>spending</code> dataset! We’ve also included the <code>select()</code> function to remove the <code>name</code> column. This includes the same information (“Total Health Spending”) for every row, and thus we can get rid of it. We use the <code>-</code> operator to remove a column from our dataset:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="inference-practice.html#cb45-1" aria-hidden="true" tabindex="-1"></a>spending <span class="ot">&lt;-</span> spending <span class="sc">%&gt;%</span></span>
 <span id="cb45-2"><a href="inference-practice.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(year, <span class="at">sep=</span><span class="st">&quot;__&quot;</span>, <span class="at">into=</span><span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;name&quot;</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb45-3"><a href="inference-practice.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>name)</span>
 <span id="cb45-4"><a href="inference-practice.html#cb45-4" aria-hidden="true" tabindex="-1"></a>spending</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_49" alt="spending dataset now has appropriate tidy data format and appropriate columns" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_49" alt="" />
+<p class="caption"><code>spending</code> dataset now has appropriate tidy data format and appropriate columns</p>
+</div>
 </div>
 <div id="join-inner_join" class="section level4" number="10.0.4.2">
 <h4><span class="header-section-number">10.0.4.2</span> Join: <code>inner_join</code></h4>
 <p>The datasets are now in a tidy format with each row containing an observation (different state or location) and each column contains a variable. We can also now join our data so that we’re only looking at coverage and spending data from the years we have both pieces of information. We’ll join using the <code>Location</code> and <code>year</code> columns.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="inference-practice.html#cb46-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(coverage, spending, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Location&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
 <span id="cb46-2"><a href="inference-practice.html#cb46-2" aria-hidden="true" tabindex="-1"></a>hc</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_59" alt="inner_join() gets information in a single dataframe" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_59" alt="" />
+<p class="caption"><code>inner_join()</code> gets information in a single dataframe</p>
+</div>
 <p>We now have a dataset with 728 observations where each row contains coverage and spending information for a particular <code>Location</code> in a particular <code>year</code>.</p>
 <p>Okay, before we move on, you may think to yourself…“OK, I <em>know</em> that different states have different populations. That’s probably important here.” If you thought that to yourself, you’re right! And, you’re also in luck. That information is hiding within the <code>type</code> variable. The <code>Total</code> information here includes the total population. We can include that as a column in our dataset!</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="inference-practice.html#cb47-1" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
 <span id="cb47-2"><a href="inference-practice.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Total&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb47-3"><a href="inference-practice.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Location, year, <span class="at">population =</span> tot_coverage)</span>
 <span id="cb47-4"><a href="inference-practice.html#cb47-4" aria-hidden="true" tabindex="-1"></a>pop</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_59" alt="extract population information" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_59" alt="" />
+<p class="caption">extract population information</p>
+</div>
 <p>The <code>population</code> column now includes the population for each <code>Location</code> in each <code>year</code> in our dataset!</p>
 <p>Let’s add that information to our <code>hc</code> dataset by first removing all rows where <code>type</code> is “Total” (using <code>filter()</code>) and then by combining the datasets (using <code>left_join</code>).</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="inference-practice.html#cb48-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
 <span id="cb48-2"><a href="inference-practice.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">!=</span> <span class="st">&quot;Total&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb48-3"><a href="inference-practice.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pop, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Location&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
 <span id="cb48-4"><a href="inference-practice.html#cb48-4" aria-hidden="true" tabindex="-1"></a>hc</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_74" alt="with population information included in hc" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_74" alt="" />
+<p class="caption">with population information included in <code>hc</code></p>
+</div>
 <p>With population information, we will want to calculate spending per capita and the proportion of people covered in each state. Spending per capita calculates the spending per person. Having these values allow us to compare values across states with different populations. We use mutate to accomplish this:</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="inference-practice.html#cb49-1" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> hc <span class="sc">%&gt;%</span></span>
 <span id="cb49-2"><a href="inference-practice.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">spending_capita =</span> (tot_spending<span class="sc">*</span><span class="fl">1e6</span>) <span class="sc">/</span> population,</span>
 <span id="cb49-3"><a href="inference-practice.html#cb49-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">prop_coverage =</span> tot_coverage <span class="sc">/</span> population)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_84" alt="calculated spending_capita using population information" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_84" alt="" />
+<p class="caption">calculated <code>spending_capita</code> using population information</p>
+</div>
 <p>Okay, we’re almost fully wrangled! But, before we move on, we know what Location is in each row; however, it <em>could</em> be helpful to have the two-letter abbreviation and region of the United States in this dataset, so let’s add that in. And, we’re in luck! There’s an R package (<code>datasets</code>) with just that information in it that you can use! Let’s use the data in that dataset to add that information to our <code>hc</code> dataframe!</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="inference-practice.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb50-2"><a href="inference-practice.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span></code></pre></div>
@@ -455,8 +479,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-2"><a href="inference-practice.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">abb =</span> state.abb[<span class="fu">match</span>(Location, state.name)],</span>
 <span id="cb51-3"><a href="inference-practice.html#cb51-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">region =</span> state.region[<span class="fu">match</span>(Location, state.name)])</span>
 <span id="cb51-4"><a href="inference-practice.html#cb51-4" aria-hidden="true" tabindex="-1"></a>hc</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_74" alt="abb and region information added to hc dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_74" alt="" />
+<p class="caption"><code>abb</code> and <code>region</code> information added to <code>hc</code> dataset</p>
+</div>
 <p>Note that this adds two additional columns (<code>abb</code> and region<code>) to our</code>hc` dataframe. Also, note that where there is not state information (“United States” and “District of Columbia”), these columns have NA, as we would expect!</p>
 <p>And just like that, we have all the information we’ll need! It took some work to get there, and it may not always be obvious exactly what step has to be done next, but by keeping the tidy data principles in mind and using the tools we’ve learned, we’re ready to explore these data further!</p>
 </div>
@@ -480,13 +506,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb53-3"><a href="inference-practice.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-4"><a href="inference-practice.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_employer, <span class="fu">aes</span>(prop_coverage)) <span class="sc">+</span></span>
 <span id="cb53-5"><a href="inference-practice.html#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_93" alt="prop_coverage shows a bimodal distribution" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_93" alt="" />
+<p class="caption"><code>prop_coverage</code> shows a bimodal distribution</p>
+</div>
 <p>The proportion covered shows a distribution where coverage ranges from around 40% to 60% across the 50 states in 2013.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="inference-practice.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_employer, <span class="fu">aes</span>(spending_capita)) <span class="sc">+</span></span>
 <span id="cb54-2"><a href="inference-practice.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_93" alt="spending_capita shows is approximately Normal" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_93" alt="" />
+<p class="caption"><code>spending_capita</code> shows is approximately Normal</p>
+</div>
 <p>Unlike the proportion covered, spending per capita is approximately Normal with a median somewhere right below $8,000. We do see a few outliers. We’ll want to see which states these are that have much lower and much higher than average spending per capita.</p>
 <p>We’re ultimately interested in understanding the relationship between these two variables, so let’s take a look at that with a scatterplot:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="inference-practice.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_employer,</span>
@@ -494,8 +524,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb55-3"><a href="inference-practice.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb55-4"><a href="inference-practice.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;spending per capita&quot;</span>) <span class="sc">+</span></span>
 <span id="cb55-5"><a href="inference-practice.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_110" alt="relationship between spending and coverage" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_110" alt="" />
+<p class="caption">relationship between spending and coverage</p>
+</div>
 <p>At a glance, there appears to be a linear relationship between these two variables where the more spending per person in a state, the higher proportion of the population has health care supplied by the employer. To fully understand this relationship, let’s explore it with linear regression!</p>
 </div>
 </div>
@@ -513,8 +545,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb56-5"><a href="inference-practice.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;spending per capita&quot;</span>) <span class="sc">+</span></span>
 <span id="cb56-6"><a href="inference-practice.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>) <span class="sc">+</span></span>
 <span id="cb56-7"><a href="inference-practice.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_116" alt="visualizing the linear relationship with ggplot2" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_116" alt="" />
+<p class="caption">visualizing the linear relationship with <code>ggplot2</code></p>
+</div>
 <p>In addition to looking at this visually, we also want to understand the regression model and take a look at model diagnostics. To do so we’ll use <code>lm</code> and <code>tidy</code>. (<code>tidy</code> is from the <code>broom</code> package)</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="inference-practice.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;broom&quot;)</span></span>
 <span id="cb57-2"><a href="inference-practice.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
@@ -524,8 +558,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb57-6"><a href="inference-practice.html#cb57-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(prop_coverage <span class="sc">~</span> spending_capita,</span>
 <span id="cb57-7"><a href="inference-practice.html#cb57-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> hc_2013)</span>
 <span id="cb57-8"><a href="inference-practice.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_121" alt="broom output for 2013 linear regression model" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_121" alt="" />
+<p class="caption"><code>broom</code> output for 2013 linear regression model</p>
+</div>
 <p>Here we see that across states in the US in 2013, for every 1 dollar more spent on healthcare, the proportion of individuals covered increase by 0.000019 (the <code>estimate</code> column in the <code>tidy()</code> output).</p>
 <p>While this number is quite small, a 1 USD increase in health care spending is probably not the right unit to consider. We would likely want to consider a $1000 increase in spending. For example, to interpret this model, we’d say that for every $1000 more in health care spending, we see a 1.9% increase in the population covered across the US. (We get this number by multiplying the coefficient 0.000019 * 1000 and then converting from proportion to percentage by multiplying by 100.)</p>
 <p>But, remember that each point here represents a state! And, states that are in the same region of the US may be clustered. The region a state is in may affect health care spending and the proportion of the population covered! A confounder! Visually, let’s take a look by labeling each point with the two-letter state abbreviation and coloring the points based on the region of the US where the state is located.</p>
@@ -536,14 +572,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-5"><a href="inference-practice.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ylab</span>(<span class="st">&quot;coverage proportion&quot;</span>) <span class="sc">+</span></span>
 <span id="cb58-6"><a href="inference-practice.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
 <span id="cb58-7"><a href="inference-practice.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>abb), <span class="at">nudge_x =</span> <span class="dv">150</span>)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_126" alt="states cluster based on geographic location" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_126" alt="" />
+<p class="caption">states cluster based on geographic location</p>
+</div>
 <p>In this plot we see that states tend to cluster. States in the Northeast tend to spend more on healthcare and have a higher proportion of the population covered, whereas the opposite is true in the South. This suggests that to understand the overall relationship, we likely want to consider region as a confounder in the analysis.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="inference-practice.html#cb59-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(prop_coverage <span class="sc">~</span> spending_capita <span class="sc">+</span> region,</span>
 <span id="cb59-2"><a href="inference-practice.html#cb59-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> hc_2013)</span>
 <span id="cb59-3"><a href="inference-practice.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit2)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_131" alt="broom output for 2013 multiple regression model accounting for region as a confounder" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_131" alt="" />
+<p class="caption"><code>broom</code> output for 2013 multiple regression model accounting for region as a confounder</p>
+</div>
 <p>In this regression model, we see when we focus on the <code>spending_capita</code> row, that the <code>estimate</code> is much smaller (0.000006) and, when we look at the <code>p.value</code> column, that this result is likely insignificant (as we would see results this extreme by chance along 35.9% of the time). This suggests that regional differences are contributing largely to the relationship between spending per capita and the proportion of the population with health coverage. Without considering this confounder we would have come to the wrong conclusion! What we learned here was that there are regional differences across the country regarding how much is spent and how much of the population has health coverage! What we <em>didn’t</em> learn is that there is a significant relationship between spending and coverage.</p>
 <p>To see this visually, consider faceting by region:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="inference-practice.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hc_2013, <span class="fu">aes</span>(<span class="at">x =</span> spending_capita, <span class="at">y =</span> prop_coverage,</span>
@@ -554,16 +594,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb60-6"><a href="inference-practice.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
 <span id="cb60-7"><a href="inference-practice.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>abb), <span class="at">nudge_x =</span> <span class="dv">150</span>) <span class="sc">+</span></span>
 <span id="cb60-8"><a href="inference-practice.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>region)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_136" alt="faceting by region demonstrates limited relationship between spending and proportion of population covered" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_136" alt="" />
+<p class="caption">faceting by region demonstrates limited relationship between spending and proportion of population covered</p>
+</div>
 <p>Here, we see pretty flat lines (particularly in the Northeast and the West), supporting the findings from our multiple regression model.</p>
 <div id="model-diagnostics" class="section level4" number="10.0.5.1">
 <h4><span class="header-section-number">10.0.5.1</span> Model diagnostics</h4>
 <p>Don’t forget that we have to check our model assumptions to determine whether linear regression was appropriate. To do this we can use the <code>plot</code> function on the output from fitting our model:</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="inference-practice.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb61-2"><a href="inference-practice.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit2)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_242" alt="model diagnostics" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/export/png?id=1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU&amp;pageid=g5df245fced_0_242" alt="" />
+<p class="caption">model diagnostics</p>
+</div>
 <p>We’re looking here for:</p>
 <ul>
 <li>a horizontal red line in our Residuals vs. Fitted plot, demonstrating a linear relationship between variables.</li>

@@ -310,18 +310,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Do I Have The Data I Need?</h1>
 <p>After identifying your problem and transforming it into a data science question, your next step is to identify and ensure that you have access to the data necessary to answer the question. However, good data can be hard to come by. Depending on your question, it can be costly or simply infeasible to obtain the data you need.</p>
 <p>For instance, consider wanting to know the answer to the question “Does money make people happy?” One way to get data for your problem is to give people cash and to collect data from those same individuals later to see if the money they received made happier. First, this isn’t a cheap experiment, so you may not have the money to do this. Second, how would you want to <em>measure happiness</em>? You can’t just step on a scale and measure someone’s happiness. If you had each individual report their happiness on a scale of 1-10, one person may rate their happiness at an 8. Another person, who could be just as happy as the person who rated their happiness at an 8 may rate their happiness at a 6. You can see quickly how getting the right data to answer this question may not be so simple.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_25" alt="Does money make people happy?" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_25" alt="" />
+<p class="caption">Does money make people happy?</p>
+</div>
 <p>In another situation, what if you are interested in answering the question “Does texting while driving causes accidents?” It wouldn’t be ethical to run a study and tell people to text while they’re driving and then determine if those who texted had more care accidents. It’s not okay to design experiments that knowingly put participants at risk of harm.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_56" alt="Does texting while driving cause accidents?" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_56" alt="" />
+<p class="caption">Does texting while driving cause accidents?</p>
+</div>
 <p>Thus, although each of us generate data daily through the apps we use or through our activity on social media platforms, often the data most easily available are <em>not</em> the data we need to answer the questions we’re most interested in answering. In this lesson we’ll discuss <strong>how to determine whether or not you have the data</strong> you need to answer the question you have, <strong>limitations of the data</strong> you have, <strong>considerations to make</strong> when you don’t yet have the data you need, and what to do to <strong>get the data you need</strong>.</p>
 <div id="the-data-science-question" class="section level3" number="3.0.1">
 <h3><span class="header-section-number">3.0.1</span> The Data Science Question</h3>
 <p>In the last lesson we discussed how to take a problem you’re interested in understanding better and turning it into a data science question. Specifically, the last lesson looked at <a href="http://varianceexplained.org/about/">David Robinson</a>’s <a href="http://varianceexplained.org/r/trump-tweets/">blog post analyzing Donald Trump’s tweets</a>. David Robinson set out to answer the specific question **“How do the tweets on the _<span class="citation">@realDonaldTrump_</span> account differ between those posted using an iPhone vs. those posted using an Android?“** Before answering the question, David Robinson determined what/whose data would need to be collected, what measurements he would need, the limitations to the analysis, and the type of analysis he would use.</p>
 <p>In this lesson, we’re going to really focus on the second and third questions there. What data do you need to answer your data science question and what limitations do these data have? We’ll focus on the details of how to get the data necessary to answer the question of interest. We’ll walk through this process again using the <a href="http://varianceexplained.org/r/trump-tweets/">Trump Tweets blog post</a> as an example.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_155" alt="Trump Tweets Blog Post" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_155" alt="" />
+<p class="caption">Trump Tweets Blog Post</p>
+</div>
 </div>
 <div id="the-perfect-dataset-the-data-we-want" class="section level3" number="3.0.2">
 <h3><span class="header-section-number">3.0.2</span> The Perfect Dataset: The Data We Want</h3>
@@ -354,8 +360,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In this case, David Robinson was able to use the <code>twitteR</code> package and the Twitter API to obtain a number of Donald Trump’s tweets. Ultimately, the dataset he used for his analysis contained 628 tweets from an iPhone, and 762 tweets from an Android. That’s not nearly <em>all</em> the tweets from this account; however, the Twitter API limits the number of tweets one can obtain. Already, the <strong>data we have are not the optimal data we wanted</strong>, but that’s OK.</p>
 <p>Additionally, the data from the Twitter API does <em>not</em> include the <code>author</code>, the author’s location, nor any information about deleted tweets. Again, the data we have are quite different from our optimal data.</p>
 <p>Finally, the dataset does not include any measure of how angry or negative the content of the tweets are. David will have to use the tweets to determine that during his analysis.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_186" alt="The data we have" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_186" alt="" />
+<p class="caption">The data we have</p>
+</div>
 <p>Nevertheless, David did have information on this subset of tweets, including the date, time, os, and what the tweet said. While not exactly the data he would have likely liked to have, David was still able to use these data while noting the limitations of the data in his blog post!</p>
 </div>
 <div id="the-data-we-can-get-easily" class="section level3" number="3.0.4">
@@ -475,12 +483,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="variables-are-confounded" class="section level5" number="3.0.8.2.6">
 <h5><span class="header-section-number">3.0.8.2.6</span> Variables are confounded</h5>
 <p>What if you were interested in determining what variables lead to increases in crime? To do so, you obtain data from a US city with lots of different variables and crime rates for a particular time period. You would then wrangle the data and at first you look at the relationship between popsicle sales and crime rates. You see that the more popsicles that are sold, the higher the crime rate.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3db10fb92e_0_125" alt="popsicles and crime rate" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3db10fb92e_0_125" alt="" />
+<p class="caption">popsicles and crime rate</p>
+</div>
 <p>Your first thought may be that popsicles lead to crimes being committed. However, there is a confounder that’s not being considered!</p>
 <p>We will see in detail what confounders are in the lesson on Inferential Analysis but in short <strong>confounders</strong> are other variables that may affect our outcome but are also correlated with (have a relationship with) our main variable of interest. In the popsicle example, temperature is an important confounder. More crimes happen when it’s warm out <em>and</em> more popsicles are sold. It’s not the popsicles at all driving the relationship. Instead temperature is likely the culprit.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3e017d0f95_0_0" alt="temperature is a confounder" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3e017d0f95_0_0" alt="" />
+<p class="caption">temperature is a confounder</p>
+</div>
 <p>Therefore, if we’re really interested in what increases crime rate, we should also consider the temperature. Thus, it’s important to understand the relationship between the variables in your dataset. This will be further discussed in the Exploratory Analysis lesson.</p>
 </div>
 </div>
@@ -488,8 +500,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="a-case-study-why-were-polls-so-wrong-about-the-2016-us-election" class="section level3" number="3.0.9">
 <h3><span class="header-section-number">3.0.9</span> A case study: Why were polls so wrong about the 2016 US election?</h3>
 <p>The results of the 2016 US presidential election came as a surprise to a lot of the media outlets and poll experts. Most polls consistently projected that Hillary Clinton would defeat Donald Trump. Election forecasters put Clinton at a winning position at a chance as high as 70-99 percent. Polls are usually trustworthy, but what happened in 2016?</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_938" alt="Why were polls so wrong about the 2016 US election?" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_938" alt="" />
+<p class="caption">Why were polls so wrong about the 2016 US election?</p>
+</div>
 <p>We don’t know the whole story yet. But for starters, the one issue everyone agrees is the data used in the prediction algorithms were not wholly appropriate. To be more specific, the problem was what is called the <strong>nonresponse bias</strong>. Nonresponse bias is the bias the sample caused by a particular <strong>section of the population systematically refusing to answer to the poll or survey</strong>. The consequence of nonresponse bias is a <em>sample that is not representative of the population</em> as we discussed above. (For instance, most rich people refuse to announce their income in surveys and as a result, there is nonresponse bias in most surveys of income. Ok, back to the election. It is known that less educated voters who constituted a bulk of Trump voters are hard for pollsters to reach. The result of this was the lack of this pro-Trump segment of the population in the polls during the weeks leading to the election. <a href="http://www.pewresearch.org/fact-tank/2016/11/09/why-2016-election-polls-missed-their-mark/">Pew Research</a> also points out to dishonesty in responses to polls (people not being truthful about who they were planning to vote for) as another reason why polls failed to predict the outcome of the election accurately.</p>
 <p>While it’s always easier to look back at a failed analysis and determine what went wrong then to identify the issues up front, researchers would have benefited from determining if the data they had were the most appropriate for answering their question of interest.</p>
 </div>

@@ -317,20 +317,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="confounding" class="section level3" number="8.0.1">
 <h3><span class="header-section-number">8.0.1</span> Confounding</h3>
 <p>Well, let’s consider an example. What if we were interested in understanding the relationship between shoe size and literacy. To do so, we took a look at this small sample of two humans, one who wears small shoes and is not literate and one adult who wears big shoes and is literate.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1463" alt="Two humans and their respective shoe sizes and literacy levels" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1463" alt="" />
+<p class="caption">Two humans and their respective shoe sizes and literacy levels</p>
+</div>
 <p>If we were to diagram this question, we may ask “Can we infer literacy rates from shoe size?”</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1471" alt="Possible to infer literacy rate from shoe size?" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1471" alt="" />
+<p class="caption">Possible to infer literacy rate from shoe size?</p>
+</div>
 <p>If we return to our sample, it’d be important to note that one of the humans is a young child and the other is an adult.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1478" alt="Adult and child with their respective shoe sizes and literacy levels" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1478" alt="" />
+<p class="caption">Adult and child with their respective shoe sizes and literacy levels</p>
+</div>
 <p>Our initial diagram failed to take into consideration the fact that these humans differed in their age. Age affects their shoe size <em>and</em> their literacy rates. In this example, age is a confounder.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1486" alt="Age is a confounder" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1486" alt="" />
+<p class="caption">Age is a confounder</p>
+</div>
 <p>Any time you have a variable that affects both your dependent <em>and</em> independent variables, it’s a confounder. Ignoring confounders is not appropriate when analyzing data. In fact, in this example, you would have concluded that people who wear small shoes have lower literacy rates than those who wear large shoes. That would have been incorrect. In fact, that analysis was <em>confounded</em> by age. Failing to correct for confounding has led to misreporting in the media and retraction of scientific studies. You don’t want to be in that situation. So, <strong>always consider and check for confounding</strong> among the variables in your dataset.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1494" alt="Confounders are variables that affect both your dependent and independent variables" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1494" alt="" />
+<p class="caption">Confounders are variables that affect both your dependent and independent variables</p>
+</div>
 </div>
 <div id="multiple-linear-regression" class="section level3" number="8.0.2">
 <h3><span class="header-section-number">8.0.2</span> Multiple Linear Regression</h3>
@@ -341,14 +351,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="inference-multiple-regression.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## take a look at scatterplot</span></span>
 <span id="cb28-2"><a href="inference-multiple-regression.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span></span>
 <span id="cb28-3"><a href="inference-multiple-regression.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1513" alt="scatterplot of wt and mpg from mtcars" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1513" alt="" />
+<p class="caption">scatterplot of <code>wt</code> and <code>mpg</code> from <code>mtcars</code></p>
+</div>
 <p>From the scatterplot, the relationship looks approximately linear and the variance looks constant. Thus, we could model this using linear regression:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="inference-multiple-regression.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## model the data without confounder</span></span>
 <span id="cb29-2"><a href="inference-multiple-regression.html#cb29-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
 <span id="cb29-3"><a href="inference-multiple-regression.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1509" alt="mtcars linear regression output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1509" alt="" />
+<p class="caption">mtcars linear regression output</p>
+</div>
 <p>From this analysis, we would infer that for every increase 1000 lbs more a car weighs, it gets 5.34 miles <em>less</em> per gallon.</p>
 <p>However, we know that the weight of a car doesn’t necessarily tell the whole story. The type of engine in the car likely affects both the weight of the car and the miles per gallon the car gets. Graphically, we could see if this were the case by looking at these scatterplots:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="inference-multiple-regression.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## look at the difference in relationship</span></span>
@@ -356,27 +370,35 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-3"><a href="inference-multiple-regression.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span></span>
 <span id="cb30-4"><a href="inference-multiple-regression.html#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb30-5"><a href="inference-multiple-regression.html#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>vs)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1339" alt="Scaterplot faceting for engine type" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1339" alt="" />
+<p class="caption">Scaterplot faceting for engine type</p>
+</div>
 <p>From this plot, we can see that V-shaped engines (<code>vs</code>= 0), tend to be heavier and get fewer miles per gallon while straight engines (<code>vs</code> = 1) tend to weigh less and get more miles per gallon. Importantly, however, we see that a car that weighs 3000 points (<code>wt</code> = 3) and has a V-Shaped engine (<code>vs</code> = 0) gets fewer miles per gallon than a car of the same weight with a straight engine (<code>vs</code> = 1), suggesting that simply modeling a linear relationship between weight and mpg is not appropriate.</p>
 <p>Let’s then model the data, taking this confounding into account:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="inference-multiple-regression.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## include engine (vs) as a confounder</span></span>
 <span id="cb31-2"><a href="inference-multiple-regression.html#cb31-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> vs, <span class="at">data =</span> mtcars)</span>
 <span id="cb31-3"><a href="inference-multiple-regression.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1503" alt="confounding model taken into account" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1503" alt="" />
+<p class="caption">confounding model taken into account</p>
+</div>
 <p>Here, we get a more accurate picture of what’s going on. Interpreting multiple regression models is slightly more complicated since there are more variables; however, we’ll practice how to do so now.</p>
 <p>The best way to interpret the coefficients in a multiple linear regression model is to focus on a single variable of interest and hold all other variables constant. For instance, we’ll focus on weight (<code>wt</code>) while holding (<code>vs</code>) constant to interpret. This means that for a V-shaped engine, we expect to see a 4.44 miles per gallon decrease for every 1000 lb increase in weight.</p>
 <p>We can similarly interpret the coefficients by focusing on the engines (<code>vs</code>). For example, for two cars that weigh the same, we’d expect a straight engine (<code>vs</code> = 1) to get 3.5 more miles per gallon than a V-Shaped engine (<code>vs</code>= 0).</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1531" alt="confounding model taken into account" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1531" alt="" />
+<p class="caption">confounding model taken into account</p>
+</div>
 <p>Finally, we’ll point out that the p-value for <code>wt</code> decreased in this model relative to the model where we didn’t account for confounding. This is because the model was not initially taking into account the engine difference. Sometimes when confounders are accounted for, your variable of interest will become more significant; however, frequently, the p-value will increase, and that’s OK. What’s important is that the data are most appropriately modeled.</p>
 </div>
 <div id="correlation-is-not-causation" class="section level3" number="8.0.3">
 <h3><span class="header-section-number">8.0.3</span> Correlation is not Causation</h3>
 <p>You’ve likely heard someone say before that “correlation is not causation,” and it’s true! In fact, there are <a href="http://www.tylervigen.com/spurious-correlations">whole websites</a> dedicated to this concept. Let’s make sure we know exactly what that means before moving on. In the plot you see here, as the divorce rate in Maine decreases, so does per capita consumption of margarine. These two lines are clearly correlated; however, there isn’t really a strong (or any) argument to say that one caused the other. Thus, just because you see two things with the same trend does not mean that one caused the other. These are simply <strong>spurious correlations</strong> – things that trend together by chance. <strong>Always</strong> keep this in mind when you’re doing inferential analysis, and be sure that you <strong>never draw causal claims when all you have are associations</strong>.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1545" alt="Correlation does not equal causation" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g3daea37311_0_1545" alt="" />
+<p class="caption">Correlation does not equal causation</p>
+</div>
 <p>In fact, one could argue that the only time you can make causal claims are when you have carried out a randomized experiment. <strong>Randomized experiments</strong> are studies that are designed and carried out by <em>randomly</em> assigning certain subjects to one treatment and the rest of the individuals to another treatment. The treatment is then applied and the results are then analyzed. In the case of a randomized experiment, causal claims can start to be made. Short of this, however, be careful with the language you choose and do not overstate your findings.</p>
 </div>
 <div id="beyond-linear-regression" class="section level3" number="8.0.4">
@@ -394,8 +416,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb32-3"><a href="inference-multiple-regression.html#cb32-3" aria-hidden="true" tabindex="-1"></a>soda_ounces <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">12</span>, <span class="at">sd =</span> <span class="fl">0.04</span>)</span>
 <span id="cb32-4"><a href="inference-multiple-regression.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(soda_ounces)</span></code></pre></div>
 <p>In this code, we’re specifying that we want to take a random draw of 100 different values (representing our 100 cans of soft drink), where the mean is 12 (representing the 12 ounces of soda expected to be within each can), and allowing for some variation (we’ve set the standard deviation to be 0.04).</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_0" alt="output looking at soda_ounces dataset" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_0" alt="" />
+<p class="caption">output looking at <code>soda_ounces</code> dataset</p>
+</div>
 <p>We can see that the values are approximately, but not always exactly equal to the expected 12 ounces.</p>
 <div id="testing-mean-difference-from-expectation-in-r" class="section level4" number="8.0.5.1">
 <h4><span class="header-section-number">8.0.5.1</span> Testing mean difference from expectation in R</h4>
@@ -414,13 +438,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-4"><a href="inference-multiple-regression.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(soda_ounces))<span class="sc">+</span></span>
 <span id="cb33-5"><a href="inference-multiple-regression.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(soda_ounces), <span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p>Here, we see that the data are approximately normally distributed, allowing for a t-test to be used.</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_5" alt="histogram of soda_ounces" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_5" alt="" />
+<p class="caption">histogram of <code>soda_ounces</code></p>
+</div>
 <p>A t-test will check whether the observed ounces differs from the expected mean (12 oz). As mentioned above, to run a t-test in R, most people use the built-in function: <code>t.test()</code></p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="inference-multiple-regression.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## carry out t-test</span></span>
 <span id="cb34-2"><a href="inference-multiple-regression.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(soda_ounces, <span class="at">mu =</span> <span class="dv">12</span>)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_13" alt="t.test() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_13" alt="" />
+<p class="caption"><code>t.test()</code> output</p>
+</div>
 <p>In the output from this function, we’ll focus on the 95 percent confidence interval. Confidence Intervals provide the range of values likely to contain the unknown population parameter. Here, the population parameter we’re interested in is the mean. Thus, the 95% Confidence Intervals provides us the range where, upon repeated sampling, the calculated mean would fall 95 percent of the time. More specifically, if the 95 percent confidence interval contains the expected mean (12 oz), then we can be confident that the company is not shorting us on the amount of liquid they’re putting into each can.</p>
 <p>Here, since 12 is between 11.99187 and 12.00754, we can see that the amounts in the 100 sampled cans are within the expected variation. We could infer from this sample that the population of all cans of this soft drink are likely to have an appropriate amount of liquid in the cans.</p>
 <p>However, as mentioned previously, t-tests are an extension of linear regression. We could also look to see whether or not the cans had the expected average of 12 oz in the data collected using <code>lm()</code>.</p>
@@ -429,8 +457,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-3"><a href="inference-multiple-regression.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-4"><a href="inference-multiple-regression.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate confidence interval</span></span>
 <span id="cb35-5"><a href="inference-multiple-regression.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(regression_output)</span></code></pre></div>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_21" alt="comparing t.test() and lm() output" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_21" alt="" />
+<p class="caption">comparing <code>t.test()</code> and <code>lm()</code> output</p>
+</div>
 <p>Note that the confidence interval is the exact same here using <code>lm()</code> as above when we used <code>t.test()</code>! We bring this up not to confuse you, but to guide you away from trying to memorize each individual statistical test and instead understand how they relate to one another.</p>
 </div>
 </div>
@@ -438,8 +468,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.0.6</span> More Statistical Tests</h3>
 <p>Now that you’ve seen how to measure the linear relationship between variables (linear regression) and how to determine if the mean of a dataset differs from expectation (t-test), it’s important to know that you can ask lots of different questions using extensions of linear regression.</p>
 <p>These have been nicely summarized by Jonas Kristoffer Lindelov in is blog post <a href="https://lindeloev.github.io/tests-as-linear">Common statistical tests are linear models (or: how to teach stats)</a>. We’ve included the table summarizing his post here, but we recommend you check it out and the examples included within it carefully!</p>
-<p>
-<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_105" alt="Common statistical tests are linear models" /></p>
+<div class="figure">
+<img src="https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/export/png?id=1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo&amp;pageid=g5d2253b705_2_105" alt="" />
+<p class="caption">Common statistical tests are linear models</p>
+</div>
 </div>
 <div id="summary-4" class="section level3" number="8.0.7">
 <h3><span class="header-section-number">8.0.7</span> Summary</h3>
