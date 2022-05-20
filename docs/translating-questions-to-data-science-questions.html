@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Translating Questions to Data Science Questions | My Document</title>
-  <meta name="description" content="Chapter 2 Translating Questions to Data Science Questions | My Document" />
+  <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Translating Questions to Data Science Questions | My Document" />
   <meta property="og:type" content="book" />
   
   
-  
+  <meta property="og:description" content="Description about Course/Book." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Translating Questions to Data Science Questions | My Document" />
   
-  
+  <meta name="twitter:description" content="Description about Course/Book." />
   
 
 
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="assets/DataTrail_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="the-purpose-of-data-science.html"/>
 <link rel="next" href="do-i-have-the-data-i-need.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
@@ -134,6 +134,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
 
 <li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a></li>
 <li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
 <ul>
 <li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
@@ -378,7 +379,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In this case we are trying to answer a question about who is tweeting from the account <em>RealDonaldTrump</em> on Twitter. Specifically, we are interested in the differences between Tweets coming from iPhones versus those coming from Android phones.</p>
 <p><strong>What measurements do I have on those people or objects that help me answer the question?</strong></p>
 <p>Since we care about the differences between iPhones and Android phones we need to know which kind of phone each Tweet came from. But this information is available for each Tweet.</p>
-<p>We could collect this information by looking at the _<span class="citation">@RealDonaldTrump_</span> twitter profile or we could use the Twitter API to extract this data for each tweet. Robinson collects data on the type of phone for all the tweets from the account using the API.</p>
+<p>We could collect this information by looking at the _<span class="citation">(<a href="#ref-RealDonaldTrump_" role="doc-biblioref"><strong>RealDonaldTrump_?</strong></a>)</span> twitter profile or we could use the Twitter API to extract this data for each tweet. Robinson collects data on the type of phone for all the tweets from the account using the API.</p>
 <p>We also need to figure out how to define “hyperbolic” which was the hypothesis in the original question. It is hard to directly label tweets as hyperbolic or non-hyperbolic. But we can collect the text of the tweets themselves. If we alter the question a little to “Are the Android tweets angrier and more negative than the iPhone tweets?” we can use the text of the tweets themselves to answer this question. There are lists of words that are already labeled as “angry” so we can look for those words among the tweets from Android phones and iPhones.</p>
 <p>We can also collect the time that each tweet occurred, since this will help us separate tweets coming from one type of phone or another.</p>
 <p><strong>How do the data I have limit the type of question I can answer?</strong></p>
