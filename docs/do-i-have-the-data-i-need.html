@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Do I Have The Data I Need? | My Document</title>
-  <meta name="description" content="Chapter 3 Do I Have The Data I Need? | My Document" />
+  <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Do I Have The Data I Need? | My Document" />
   <meta property="og:type" content="book" />
   
   
-  
+  <meta property="og:description" content="Description about Course/Book." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Do I Have The Data I Need? | My Document" />
   
-  
+  <meta name="twitter:description" content="Description about Course/Book." />
   
 
 
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="assets/DataTrail_favicon.ico" type="image/x-icon" />
 <link rel="prev" href="translating-questions-to-data-science-questions.html"/>
 <link rel="next" href="descriptive-analysis.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
@@ -134,6 +134,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.datatrail.org/"><img src="https://github.com/datatrail-jhu/DataTrail_Template/raw/main/assets/DataTrail_logo.jpg" style="padding-left: 0px; padding-top: 8px;"</a>
 
 <li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Course</a></li>
 <li class="chapter" data-level="1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html"><i class="fa fa-check"></i><b>1</b> The Purpose of Data Science</a>
 <ul>
 <li class="chapter" data-level="1.0.1" data-path="the-purpose-of-data-science.html"><a href="the-purpose-of-data-science.html#types-of-data-science-questions"><i class="fa fa-check"></i><b>1.0.1</b> Types of data science questions</a></li>
@@ -322,7 +323,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Thus, although each of us generate data daily through the apps we use or through our activity on social media platforms, often the data most easily available are <em>not</em> the data we need to answer the questions we’re most interested in answering. In this lesson we’ll discuss <strong>how to determine whether or not you have the data</strong> you need to answer the question you have, <strong>limitations of the data</strong> you have, <strong>considerations to make</strong> when you don’t yet have the data you need, and what to do to <strong>get the data you need</strong>.</p>
 <div id="the-data-science-question" class="section level3" number="3.0.1">
 <h3><span class="header-section-number">3.0.1</span> The Data Science Question</h3>
-<p>In the last lesson we discussed how to take a problem you’re interested in understanding better and turning it into a data science question. Specifically, the last lesson looked at <a href="http://varianceexplained.org/about/">David Robinson</a>’s <a href="http://varianceexplained.org/r/trump-tweets/">blog post analyzing Donald Trump’s tweets</a>. David Robinson set out to answer the specific question **“How do the tweets on the _<span class="citation">@realDonaldTrump_</span> account differ between those posted using an iPhone vs. those posted using an Android?“** Before answering the question, David Robinson determined what/whose data would need to be collected, what measurements he would need, the limitations to the analysis, and the type of analysis he would use.</p>
+<p>In the last lesson we discussed how to take a problem you’re interested in understanding better and turning it into a data science question. Specifically, the last lesson looked at <a href="http://varianceexplained.org/about/">David Robinson</a>’s <a href="http://varianceexplained.org/r/trump-tweets/">blog post analyzing Donald Trump’s tweets</a>. David Robinson set out to answer the specific question **“How do the tweets on the _<span class="citation">(<a href="#ref-realDonaldTrump_" role="doc-biblioref"><strong>realDonaldTrump_?</strong></a>)</span> account differ between those posted using an iPhone vs. those posted using an Android?“** Before answering the question, David Robinson determined what/whose data would need to be collected, what measurements he would need, the limitations to the analysis, and the type of analysis he would use.</p>
 <p>In this lesson, we’re going to really focus on the second and third questions there. What data do you need to answer your data science question and what limitations do these data have? We’ll focus on the details of how to get the data necessary to answer the question of interest. We’ll walk through this process again using the <a href="http://varianceexplained.org/r/trump-tweets/">Trump Tweets blog post</a> as an example.</p>
 <div class="figure">
 <img src="https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/export/png?id=1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o&amp;pageid=g3ec882b221_0_155" alt="" />
@@ -334,7 +335,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Once you determine your data science question of interest, it’s helpful to <strong>envision the perfect dataset</strong>. This dataset likely doesn’t exist in the real world, but our goal will be to get data that match this optimal dataset <em>as closely as possible</em>.</p>
 <p>Thus to answer the question</p>
 <blockquote>
-<p>Do the tweets on the _<span class="citation">@realDonaldTrump_</span> account differ between those posted using an iPhone vs. those posted using an Android? Are the Android tweets angrier and more negative?</p>
+<p>Do the tweets on the _<span class="citation">(<a href="#ref-realDonaldTrump_" role="doc-biblioref"><strong>realDonaldTrump_?</strong></a>)</span> account differ between those posted using an iPhone vs. those posted using an Android? Are the Android tweets angrier and more negative?</p>
 </blockquote>
 <p>we would ideally want a dataset where each row is a different tweet with each row containing information on the following variables:</p>
 <ul>
@@ -351,7 +352,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><code>anger</code> - some measurement of how angry and negative the tweet is</li>
 </ul>
-<p>Additionally, in a perfect world, we’d have all the tweets ever tweeted from _<span class="citation">@realDonaldTrump_</span>.</p>
+<p>Additionally, in a perfect world, we’d have all the tweets ever tweeted from _<span class="citation">(<a href="#ref-realDonaldTrump_" role="doc-biblioref"><strong>realDonaldTrump_?</strong></a>)</span>.</p>
 <p>Having all these data in this format would enable us to answer the question of interest!</p>
 </div>
 <div id="the-data-we-have" class="section level3" number="3.0.3">
