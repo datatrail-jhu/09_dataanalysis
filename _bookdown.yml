@@ -3,7 +3,6 @@ chapter_name: "Chapter "
 repo: https://github.com/jhudsl/OTTR_Template/
 rmd_files: ["index.Rmd",
             "00_purpose.Rmd",
-            "00_purpose.Rmd",
             "01_translating_questions.Rmd",
             "02_identifying_data.Rmd",
             "04_descriptive.Rmd",
