@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Exploratory Analysis | My Document</title>
+  <title>My Document</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Exploratory Analysis | My Document" />
+  <meta property="og:title" content="My Document" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Exploratory Analysis | My Document" />
+  <meta name="twitter:title" content="My Document" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/DataTrail_favicon.ico" type="image/x-icon" />
-<link rel="prev" href="descriptive-analysis.html"/>
-<link rel="next" href="inference-overview.html"/>
+
+<link rel="next" href="the-purpose-of-data-science.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -307,108 +307,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="hero-image-container"> 
   <img class= "hero-image" src="assets/DataTrail.jpg">
 </div>
-<div id="exploratory-analysis" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Exploratory Analysis</h1>
-<p>The goal of an exploratory analysis is to examine, or <strong>explore</strong> the data and find <strong>relationships</strong> that weren’t previously known. Exploratory analyses explore how different measures might be related to each other but do not confirm that relationship as causal, i.e., one variable causing another. You’ve probably heard the phrase “Correlation does not imply causation,” and exploratory analyses lie at the root of this saying. Just because you observe a relationship between two variables during exploratory analysis, it does not mean that one necessarily causes the other.</p>
-<p>Because of this, exploratory analyses, while useful for discovering new connections, should not be the final say in answering a question! It can allow you to formulate hypotheses and drive the design of future studies and data collection, but exploratory analysis alone should never be used as the final say on why or how data might be related to each other. In short, exploratory analysis helps us ask better questions, but it does not answer questions. More specifically, we explore data in order to:</p>
-<ul>
-<li>Understand data properties such as nonlinear relationships, the existence of missing values, the existence of outliers, etc.</li>
-<li>Find patterns in data such as associations, group differences, confounders, etc.</li>
-<li>Suggest modeling strategies such as linear vs. nonlinear models, transformation</li>
-<li>“Debug” analyses</li>
-<li>Communicate results</li>
-</ul>
-<div id="general-principles-of-exploratory-analysis" class="section level3" number="5.0.1">
-<h3><span class="header-section-number">5.0.1</span> General principles of exploratory analysis</h3>
-<p>We can summarize the general principles of exploratory analysis as follows:</p>
-<ul>
-<li>Look for missing values</li>
-<li>Look for outlier values</li>
-<li>Use plots to explore relationships</li>
-<li>Use tables to explore relationships</li>
-<li>If necessary, transform variables</li>
-</ul>
-<p>These principles may be more clear in an example. We will use a dataset from <a href="www.kaggle.com">Kaggle.com</a> that contains 120 years of Olympics history on athletes and results. If you don’t have an account on Kaggle, create one and go to the link <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results" class="uri">https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results</a> and under “Data Sources” download the <code>athlete_events.csv</code> to your computer.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_24" alt="" />
-<p class="caption">Dataset on 120 years of Olympics history on athletes and results</p>
+<div id="header">
+<h1 class="title">My Document</h1>
+<p class="date"><em>May, 2022</em></p>
 </div>
-<p>Upload the data on RStudio.cloud and import the CSV file using the commands you have learned. Unfortunately, you cannot download the CSV file directly from the web address since downloading datasets on Kaggle requires logging in.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_30" alt="" />
-<p class="caption">Importing data using <code>read_csv()</code></p>
-</div>
-<p>As we learned before, we can use the package <code>skimr</code> to take a look at the data.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_35" alt="" />
-<p class="caption">Using the skimr package to have a summary of the data</p>
-</div>
-<p>We see that the dataset contains 15 variables and 271,116 observations. Some of the variables are of factor type and others are of integer or numeric type. The dataset includes variables on athletes such as name, sex, the sport played, whether they received a medal, age, and height. We first need to understand the data properties. So let’s start with missing values.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_44" alt="" />
-<p class="caption">We have different types of variables in our data</p>
-</div>
-<p>First, the results of the <code>skim()</code> function indicate that some of our variables have lots of missing values. For instance, the variable <code>Medal</code> has 231,333 missing values. Generally, this is a place for concern since most statistical analyses ignore observations with missing values. However, it is obvious that the missing values for the variable <code>Medal</code> are mainly because the athlete didn’t receive any medals. So this kind of missing value should not be a problem. However, we have missing values in the variables <code>Height</code> and <code>Age</code>. Since we are going to use these variables in our analysis in this lesson, observations with missing values for these two variables will be dropped from our analysis. Remember that <code>NA</code> is the most common character for missing values, but sometimes they are coded as spaces, 999, -1 or “missing”. Check for missing values in a variety of ways.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_49" alt="" />
-<p class="caption">There are some missing values in the data</p>
-</div>
-<p>Second, we can see that there are some outliers in some of the numerical variables. For example, look at the summary of the variable <code>Age</code>. Although the average age among all the athletes is around 25, there is an individual who is 97 years old (fun fact: use the command <code>subset(df, df$Age == 97)</code> to check out the information about this athlete. You will see that the name of the athlete is John Quincy Adams Ward and he competed in the sport(!) Art Competitions Mixed Sculpturing in 1928. This artist is known for his George Washington statue in front of Federal Hall in Wall Street in New York City.) It is always good to know about the existence of outliers in your sample. Outliers can significantly skew the results of your analysis. You can find outliers by looking at the distribution of your variable too.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_63" alt="" />
-<p class="caption">There is an outlier in the Age variable</p>
-</div>
-<p>Histograms, in general, are one of the best ways to look at a variable and find abnormalities. You can see that the age of most individuals in the sample are between 18-35.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_40" alt="" />
-<p class="caption">Histogram of the variable Age</p>
-</div>
-<p>Now, rather than just summarizing the data points within a single variable, we can look at how two or more variables might be related to each other. For instance, we like to know if there is an association between age of athletes and their gender. One of the ways to do this is to look at a boxplot of age grouped by gender, i.e., the distribution of age separated for male and female athletes. Boxplot shows the distribution of the variable age for the gender groups. You can see that the average age is slightly higher for men than for women.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_5" alt="" />
-<p class="caption">Boxplot of the variable Age for male and female individuals</p>
-</div>
-<p>If we are interested in looking at the distribution of male and female athletes over time, we can use frequency tables. Let us first create a frequency table of the share of women in each Olympic event. Tables are good for looking at factor or character variables.</p>
-<div class="figure">
-<img src="" alt="" />
-<p class="caption">Wrangling data to find the share of female athletes over time</p>
-</div>
-<p>Now, if we want to plot this trend, we can use <code>geom_line()</code> from <code>ggplot</code>. It’s interesting that the share of women among all athletes that was once at a very low level in the early 1900s has gone up to almost 50% in modern times.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_79" alt="" />
-<p class="caption">Plot of the share of female athletes over time</p>
-</div>
-<p>In general, the most important plots in exploratory data analysis are:</p>
-<ul>
-<li>Scatterplots (<code>geom_point()</code>)</li>
-<li>Histograms (<code>geom_histogram()</code>)</li>
-<li>Density plots (<code>geom_density()</code>)</li>
-<li>Boxplots (<code>geom_boxplot()</code>)</li>
-<li>Barplots (<code>geom_bar()</code>)</li>
-</ul>
-<p>To end our lesson on exploratory analysis, let’s consider a question: are taller athletes more likely to win a medal? To answer this question we can use different methods. We can look at the distribution of height for those who received a medal and those who didn’t. We can use boxplots or barplots. The choice is yours but because boxplots are more informative, we will use them. We can first create a variable that indicates whether the athlete has any medal (the variable <code>Medal</code> indicates the type of medals). Note that the variable <code>has.medal</code> is a transformation of the variable <code>Medal</code>.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_91" alt="" />
-<p class="caption">Creating a variable that shows whether the athlete has a medal or not</p>
-</div>
-<p>And now, we use the following code to create the boxplot.</p>
-<div class="figure">
-<img src="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/export/png?id=1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0&amp;pageid=g3a82126a9f_0_96" alt="" />
-<p class="caption">Boxplot for the relationship between height and having won a medal</p>
-</div>
-<p>What is obvious is that those who have a medal are taller. Can we say that being tall increases the probability of winning a medal in the Olympics? The answer to this question is that we don’t know. There are some possible scenarios. For instance, it could be true that being tall increase the chances of winning medals. But it could also be that there are more medals awarded in sports such as volleyball or basketball that require taller athletes. In these sports, every member of the winning team gets a medal (even if country counts only one medal is counted for the country). As a result, we may end up having so many tall athletes with a medal in each Olympics. It could also be that there are other confounding factors involved that explain why an athlete wins a medal. We will learn about confounding variables in future lessons. For now, it’s important to know, as we said in the beginning of this lesson, that association or correlation does not mean causation.</p>
-</div>
-<div id="slides-and-video-4" class="section level3" number="5.0.2">
-<h3><span class="header-section-number">5.0.2</span> Slides and Video</h3>
-<div class="figure">
-<img src="https://www.youtube.com/watch?v=lqHlLC652zw" alt="" />
-<p class="caption">Exploratory Analysis</p>
-</div>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1fVhtSr4JTBQW4oSxtJ4u3T6EijVvXIa8DnSgz7_L9r0/edit?usp=sharing">Slides</a></li>
-</ul>
+<div id="about-this-course" class="section level1 unnumbered">
+<h1>About this Course</h1>
+<p>This course is part of a series of courses for <a href="https://www.datatrail.org/">DataTrail</a>. DataTrail is a no-cost, paid 14-week educational initiative for young-adult, high school and GED-graduates. DataTrail aims to equip members of underserved communities with the necessary skills and support required to work in the booming field of data science.</p>
+<p>DataTrail is a fresh take on workforce development that focuses on training both Black, Indigenous, and other people of color (BIPOC) interested in the data science industry and their potential employers.</p>
+<p>Offered by the Johns Hopkins Bloomberg School of Public Health, in partnership with local non-profits and Leanpub, DataTrail combines a mutually-intensive learning experience (MILE) with a whole-person ecosystem of support to allow aspiring data scientists and their employers to succeed.</p>
+<p>DataTrail uses mutually-intensive learning
+DataTrail joins aspiring data science scholars and expert-level data scientist mentors in a mutually-intensive learning experience (MILE).</p>
+<p>In the DataTrail MILE:</p>
+<p>Scholars engage in cutting-edge technical and soft skills training needed to enter the data science field.</p>
+<p>Mentors engage in anti-racism and mentorship training needed to be impactful mentors and informed colleagues on diverse data science teams.</p>
+<p>The social connections created along the way will fuel job opportunities for scholars and foster a more diverse, equitable, and inclusive climate at the mentors’ institutions.</p>
 
-</div>
+<p>{
+course-completeness: 100
+course-attempts: 2
+default-quiz-attempts: 2
+default-random-choice-order: true
+default-quiz-show-answers: none
+}</p>
 </div>
 <hr>
 <center> 
@@ -423,8 +344,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="descriptive-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="inference-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="the-purpose-of-data-science.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
