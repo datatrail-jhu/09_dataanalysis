@@ -59,7 +59,7 @@ In R, one of the simplest ways to generate a pipeline is to write a **parameteri
 
 ---
 title: My Document
-output: html_document
+
 params:
    filename: filename_filedate.csv
 ---
