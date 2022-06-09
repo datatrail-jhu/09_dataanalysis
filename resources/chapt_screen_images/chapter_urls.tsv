@@ -1,0 +1,18 @@
+url	chapt_title	img_path
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/index.html	About this Course	resources/chapt_screen_images/index.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/the-purpose-of-data-science.html	1 The Purpose of Data Science	resources/chapt_screen_images/the-purpose-of-data-science.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/translating-questions-to-data-science-questions.html	2 Translating Questions to Data Science Questions	resources/chapt_screen_images/translating-questions-to-data-science-questions.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/do-i-have-the-data-i-need.html	3 Do I Have The Data I Need?	resources/chapt_screen_images/do-i-have-the-data-i-need.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/descriptive-analysis.html	4 Descriptive Analysis	resources/chapt_screen_images/descriptive-analysis.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/exploratory-analysis.html	5 Exploratory Analysis	resources/chapt_screen_images/exploratory-analysis.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/inference-overview.html	6 Inference: Overview	resources/chapt_screen_images/inference-overview.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/inference-linear-regression.html	7 Inference: Linear Regression	resources/chapt_screen_images/inference-linear-regression.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/inference-multiple-regression.html	8 Inference: Multiple Regression	resources/chapt_screen_images/inference-multiple-regression.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/inference-examples.html	9 Inference: Examples	resources/chapt_screen_images/inference-examples.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/inference-practice.html	10 Inference: Practice	resources/chapt_screen_images/inference-practice.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/prediction-machine-learning.html	11 Prediction & Machine Learning	resources/chapt_screen_images/prediction-machine-learning.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/data-analysis-workflow.html	12 Data Analysis Workflow	resources/chapt_screen_images/data-analysis-workflow.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/data-analysis-pipelines.html	13 Data Analysis Pipelines	resources/chapt_screen_images/data-analysis-pipelines.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/final-project.html	14 Final Project	resources/chapt_screen_images/final-project.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/references.html	15 References	resources/chapt_screen_images/references.png
+https://datatrail-jhu.github.io/09_dataanalysis/no_toc/about-the-authors.html	About the Authors	resources/chapt_screen_images/about-the-authors.png
