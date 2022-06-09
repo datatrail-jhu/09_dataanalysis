@@ -1,4 +1,4 @@
-# Prediction & Machine Learning
+# Prediction and Machine Learning
 
 In the last lesson, we discussed that inferential data analysis looks to learn something about a population by making inferences from a representative sample. While the goal in inference is to learn something about the population, when we're talking about **prediction**, the focus is on the individual. The goal of predictive analysis and machine learning approaches is to **train a model using data** to make predictions about an *individual*.
 
