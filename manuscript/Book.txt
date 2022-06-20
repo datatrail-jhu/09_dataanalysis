@@ -8,10 +8,11 @@
 8-Inference:-Multiple-Regression.md
 9-Inference:-Examples.md
 10-Inference:-Practice.md
-11-Prediction-&-Machine-Learning.md
+11-Prediction-and-Machine-Learning.md
 12-Data-Analysis-Workflow.md
 13-Data-Analysis-Pipelines.md
 14-Final-Project.md
-15-References.md
+15-Final-Project-Exercise.md
+16-References.md
 About-this-Course.md
 About-the-Authors.md
