@@ -15,7 +15,8 @@ rmd_files: ["index.Rmd",
             "11_prediction_ml.Rmd",
             "12_workflow.Rmd",
             "13_pipelines.Rmd",
-            "14_final_project.Rmd",
+            "14_final_project_preview.Rmd",
+            "15_final_project.Rmd",
             "References.Rmd",
             "About.Rmd"]
 new_session: yes
