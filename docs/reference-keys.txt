@@ -122,7 +122,7 @@ model-diagnostics
 summary-6
 additional-resources-4
 slides-and-video-9
-prediction-machine-learning
+prediction-and-machine-learning
 what-is-machine-learning
 machine-learning
 data-splitting
@@ -192,7 +192,7 @@ additional-resources-6
 slides-and-video-12
 final-project
 slides
-final-project-1
+final-project-exercise
 github-setup
 rstudio-cloud-setup
 data-science-project-setup
