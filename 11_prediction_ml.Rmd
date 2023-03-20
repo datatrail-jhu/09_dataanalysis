@@ -389,6 +389,6 @@ In this lesson we have covered the basics of what predictive analysis is, what t
 
 ### Slides and Video
 
-![Prediction & Machine Learning](https://www.youtube.com/watch?v=qNC5OGra4d8)
+[Automated Videos](https://www.youtube.com/watch?v=qNC5OGra4d8)
 
 * [Slides](https://docs.google.com/presentation/d/1GF3WXmqtbP8Ha2xnOEe9UZZ6MnSQwNL_-BeKA10hixQ/edit?usp=sharing)
