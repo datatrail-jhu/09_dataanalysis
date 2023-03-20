@@ -1,6 +1,6 @@
 # Translating Questions to Data Science Questions
 
-As we discussed in the first lesson, the approach to data analysis that we prefer is ["problem forward, not solution backward"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/). The main point of this approach is to start with the question that you want to ask before you look at the data or the analysis.
+As we discussed in the first lesson, the approach to data analysis that we prefer is ["problem forward, not solution backward"](https://simplystatistics.org/posts/2013-05-29-what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/). The main point of this approach is to start with the question that you want to ask before you look at the data or the analysis.
 
 In some cases the question that you want to answer will be a question driven by your curiosity. For example, you may be interested in a question about your fitness. You could collect data using a Fitbit and the MyFitnessPal app. Or you may have a question about what kind of songs you like best and collect data from your Spotify profile. You might also be interested in where the potholes are most common in your city. You could collect information from your city's open data website.
 
@@ -112,6 +112,6 @@ This exploratory analysis suggested that there is a difference between tweets co
 
 ### Slides and Video
 
-![Translating Questions to Data Science Questions](https://www.youtube.com/watch?v=uMD1XW9eQPs)
+[Automated Videos](https://www.youtube.com/watch?v=uMD1XW9eQPs)
 
 * [Slides](https://docs.google.com/presentation/d/18OqWRUTL7oK8RXx7tXQY4dxFSV5J_JOGwytN-pHGnDo/edit?usp=sharing)

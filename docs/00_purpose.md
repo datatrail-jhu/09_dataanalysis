@@ -79,7 +79,7 @@ Sesame Street is a children's entertainment and educational program. Scientists 
 
 ### How to start a data analysis
 
-The way to start a data analysis project is to start with a question. As we saw in the above examples, the questions should not start with the data. They should start with a general question that you want to start to answer. This approach is called ["problem forward, not solution backward"](https://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/).
+The way to start a data analysis project is to start with a question. As we saw in the above examples, the questions should not start with the data. They should start with a general question that you want to start to answer. This approach is called ["problem forward, not solution backward"](https://simplystatistics.org/posts/2013-05-29-what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/).
 
 After you have asked your general question, the next step is to turn it into a data science question. This usually involves making the question more concrete, identifying what type of question you are asking, and identifying the parts of the data that you will use to answer the question. We will cover how to convert general questions to data science questions in a future lesson.
 
@@ -88,6 +88,6 @@ The next steps involve exploring and analyzing the data. The bulk of the rest of
 
 ### Slides and Video
 
-![The Purpose of Data Science](https://www.youtube.com/watch?v=coS7Dk0xbog)
+[Automated Videos](https://www.youtube.com/watch?v=coS7Dk0xbog)
 
 * [Slides](https://docs.google.com/presentation/d/1VIyLthjLSXikF1euqPNA71cnT_C1kSZhDbIPe8uzg9I/edit?usp=sharing)

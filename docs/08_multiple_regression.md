@@ -224,6 +224,6 @@ In these few lessons on inference, we have covered *a lot*. We started off discu
 
 ### Slides and Video
 
-![Inference: Multiple Regression](https://youtu.be/1kGutQNzP6M)
+[Automated Video](https://youtu.be/1kGutQNzP6M)
 
   - [Slides](https://docs.google.com/presentation/d/1xjMEjKpqu5bkgwPIuIaBmdDczW7a6lPBoagzGtvn7zo/edit?usp=sharing)

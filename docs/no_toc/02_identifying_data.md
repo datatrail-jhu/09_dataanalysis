@@ -240,6 +240,6 @@ All in all, the data and how they're collected matters. There is a term in stati
 
 ### Slides and Video
 
-![Do I Have The Data I Need](https://www.youtube.com/watch?v=90SP7w_6SYo)
+[Automated Videos](https://www.youtube.com/watch?v=90SP7w_6SYo)
 
 * [Slides](https://docs.google.com/presentation/d/1hin5y4jDZikoGLbIEnwnPhJybgD_FezWsh16QIu5C5o/edit?usp=sharing)

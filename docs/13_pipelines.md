@@ -223,6 +223,6 @@ This lesson has covered what a data science pipeline is, when you'd want to gene
 
 ### Slides and Video
 
-![Data Analysis Pipelines](https://www.youtube.com/watch?v=zE_doXeNENc)
+[Automated Videos](https://www.youtube.com/watch?v=zE_doXeNENc)
 
 * [Slides](https://docs.google.com/presentation/d/1sEDrJwGZsLrdNptniI5OO_SyuWgUKPY75uIC0_CUdKI/edit?usp=sharing)

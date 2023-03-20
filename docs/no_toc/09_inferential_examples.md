@@ -209,6 +209,6 @@ In this lesson we walked through two real-life examples of inference being used 
 
 ### Slides and Video
 
-![Inference: Examples](https://youtu.be/Xpef4tULTH4)
+[Automated Video](https://youtu.be/Xpef4tULTH4)
 
   - [Slides](https://docs.google.com/presentation/d/11rrwsdm99qI2VMXAr59cHV6J-0Njk5-tfDtsjz_zGpQ/edit?usp=sharing)
