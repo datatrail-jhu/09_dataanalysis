@@ -441,6 +441,6 @@ In this lesson, we've put a whole lot together. We walked through how to carry o
 
 ### Slides and Video
 
-![Inference: Practice](https://youtu.be/RuVXyAqI4vU)
+[Automated Video](https://youtu.be/RuVXyAqI4vU)
 
   - [Slides](https://docs.google.com/presentation/d/1w-nLXrBvfKHc-AgjCfSfUGE1a6Vy7ogFoTu7ZiDSDFU/edit?usp=sharing)

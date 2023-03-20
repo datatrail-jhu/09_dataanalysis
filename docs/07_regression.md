@@ -304,6 +304,6 @@ In this lesson we've discussed not just what inference is generally, but how to 
 
 ### Slides and Video
 
-![Inference: Linear Regression](https://youtu.be/mTn1L45trSQ)
+[Automated Video](https://youtu.be/mTn1L45trSQ)
 
   - [Slides](https://docs.google.com/presentation/d/1vu3AaIDedC0Zd3GTsjaLtPrCufrQACorML4wdXudAcg/edit?usp=sharing)

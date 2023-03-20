@@ -195,6 +195,6 @@ As you learned in previous lessons, make sure you document every step. This is i
 
 ### Slides and Video
 
-![Data Analysis Workflow](https://www.youtube.com/watch?v=ezYjHJTMOy8)
+[Automated Videos](https://www.youtube.com/watch?v=ezYjHJTMOy8)
 
 * [Slides](https://docs.google.com/presentation/d/1TYOQzkJL8ZSGMQP25XAIsMvbB3mo2NOoCzT5Sp7hkFA/edit?usp=sharing)
